@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Tile_Data" load_steps=3 format=3 uid="uid://d144ul3vbj1jp"]
+
+[ext_resource type="ArrayMesh" uid="uid://bvvuljnpcd3vh" path="res://models/tile/hex_water.obj" id="1_ut74v"]
+[ext_resource type="Script" path="res://resources/model/tileData.gd" id="3_l0pur"]
+
+[resource]
+script = ExtResource("3_l0pur")
+mesh = ExtResource("1_ut74v")
+navigation_weight = 0
+walkable = false
+random_weight = 0.1

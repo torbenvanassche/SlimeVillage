@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://cubm5eoe0mdjo"]
+
+[ext_resource type="PackedScene" uid="uid://c3tqstoqyh5je" path="res://scenes/base_scenes/overworld.tscn" id="1_5qcad"]
+[ext_resource type="Script" path="res://scripts/scene_manager.gd" id="1_8x5qd"]
+[ext_resource type="PackedScene" uid="uid://exnjdxf5vphk" path="res://scenes/base_scenes/mine_inside.tscn" id="6_hayk5"]
+[ext_resource type="PackedScene" uid="uid://bwrcc2gxqnosv" path="res://scenes/components/Player.tscn" id="6_o5cr0"]
+[ext_resource type="PackedScene" uid="uid://cuqpjlp4i7pkb" path="res://scenes/components/camera.tscn" id="7_ca8bl"]
+[ext_resource type="Script" path="res://scenes/root_ui_reference.gd" id="8_j5ewb"]
+
+[node name="Node" type="Node3D" node_paths=PackedStringArray("scenes", "initial_scene")]
+script = ExtResource("1_8x5qd")
+scenes = [NodePath("overworld"), NodePath("mine")]
+initial_scene = NodePath("overworld")
+
+[node name="overworld" parent="." instance=ExtResource("1_5qcad")]
+
+[node name="UI" type="Node" parent="."]
+script = ExtResource("8_j5ewb")
+
+[node name="mine" parent="." instance=ExtResource("6_hayk5")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+tile_size = 2.0
+height_variation = Vector2(-0.1, 0.1)
+
+[node name="Player" parent="." instance=ExtResource("6_o5cr0")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.0267, 1, 1.75428)
+skeleton = NodePath("../overworld")
+
+[node name="CameraRoot" parent="Player" instance=ExtResource("7_ca8bl")]
+unique_name_in_owner = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.335797, 0.941934, 0, -0.941934, -0.335797, 0, 6.83928, -3.43085)
+shadow_enabled = true
+shadow_normal_bias = 1.412

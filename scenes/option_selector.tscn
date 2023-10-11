@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c32sevrk8jsgm"]
+
+[ext_resource type="Script" path="res://scripts/ui/context_menu_populator.gd" id="1_ju2cx"]
+
+[node name="option_selector" type="PopupMenu"]
+visible = true
+script = ExtResource("1_ju2cx")

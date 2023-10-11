@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://exnjdxf5vphk"]
+
+[ext_resource type="Script" path="res://scripts/Utils/HexGrid.gd" id="1_8ie2m"]
+[ext_resource type="PackedScene" uid="uid://cjp0uom8wknwx" path="res://scenes/components/hex.tscn" id="2_607fp"]
+[ext_resource type="Resource" uid="uid://dpv5otbxnlhbc" path="res://resources/tiles/Neutral.tres" id="3_p1vof"]
+
+[node name="mine_inside" type="Node3D"]
+script = ExtResource("1_8ie2m")
+hex_tile_node = ExtResource("2_607fp")
+hex_tiles = Array[Resource("res://resources/scripts/tile_data.gd")]([ExtResource("3_p1vof")])

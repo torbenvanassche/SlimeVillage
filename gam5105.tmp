@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=3 uid="uid://cubm5eoe0mdjo"]
+
+[ext_resource type="PackedScene" uid="uid://c2uyrj168ky8c" path="res://scenes/mine.tscn" id="1_0umfx"]
+[ext_resource type="Script" path="res://set_navmesh.gd" id="1_wl7lm"]
+[ext_resource type="PackedScene" uid="uid://bpadytt7sl3m2" path="res://scenes/market.tscn" id="2_qvifw"]
+[ext_resource type="PackedScene" uid="uid://cjp0uom8wknwx" path="res://scenes/hex.tscn" id="3_fg1kq"]
+[ext_resource type="PackedScene" uid="uid://bwrcc2gxqnosv" path="res://scenes/components/character.tscn" id="4_1hg42"]
+[ext_resource type="Material" uid="uid://cjk2wew0nnlwn" path="res://materials/grass.tres" id="4_85cyf"]
+[ext_resource type="PackedScene" uid="uid://cuqpjlp4i7pkb" path="res://scenes/components/camera.tscn" id="5_vbgho"]
+
+[node name="SceneRoot" type="Node3D"]
+script = ExtResource("1_wl7lm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.335797, 0.941934, 0, -0.941934, -0.335797, 0, 6.17883, -3.43085)
+shadow_enabled = true
+shadow_normal_bias = 1.412
+
+[node name="Mine" parent="." instance=ExtResource("1_0umfx")]
+
+[node name="Node3D" parent="." instance=ExtResource("2_qvifw")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 4.0611, 0, 10.4366)
+
+[node name="hex_root" parent="." instance=ExtResource("3_fg1kq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.999, 0, 0.00827205)
+surface_material_override/0 = ExtResource("4_85cyf")
+walkable_in_scene = true
+
+[node name="hex_root2" parent="." instance=ExtResource("3_fg1kq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.999, 0, 0.00827205)
+surface_material_override/0 = ExtResource("4_85cyf")
+walkable_in_scene = true
+
+[node name="hex_root3" parent="." instance=ExtResource("3_fg1kq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.999005, 0, 1.74037)
+surface_material_override/0 = ExtResource("4_85cyf")
+walkable_in_scene = true
+
+[node name="hex_root4" parent="." instance=ExtResource("3_fg1kq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.999, 0, 3.47247)
+surface_material_override/0 = ExtResource("4_85cyf")
+walkable_in_scene = true
+
+[node name="hex_root5" parent="." instance=ExtResource("3_fg1kq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.999005, 0, 5.20457)
+surface_material_override/0 = ExtResource("4_85cyf")
+walkable_in_scene = true
+
+[node name="hex_root11" parent="." instance=ExtResource("3_fg1kq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99901, 0, 1.74037)
+surface_material_override/0 = ExtResource("4_85cyf")
+walkable_in_scene = true
+
+[node name="hex_root12" parent="." instance=ExtResource("3_fg1kq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.999, 0, 3.47247)
+surface_material_override/0 = ExtResource("4_85cyf")
+walkable_in_scene = true
+
+[node name="hex_root13" parent="." instance=ExtResource("3_fg1kq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99901, 0, 5.20457)
+surface_material_override/0 = ExtResource("4_85cyf")
+walkable_in_scene = true
+
+[node name="hex_root14" parent="." instance=ExtResource("3_fg1kq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99901, 0, 1.74037)
+surface_material_override/0 = ExtResource("4_85cyf")
+walkable_in_scene = true
+
+[node name="hex_root15" parent="." instance=ExtResource("3_fg1kq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.999, 0, 3.47247)
+surface_material_override/0 = ExtResource("4_85cyf")
+walkable_in_scene = true
+
+[node name="hex_root16" parent="." instance=ExtResource("3_fg1kq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99901, 0, 5.20457)
+surface_material_override/0 = ExtResource("4_85cyf")
+walkable_in_scene = true
+
+[node name="hex_root10" parent="." instance=ExtResource("3_fg1kq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000994563, 0, 6.93667)
+surface_material_override/0 = ExtResource("4_85cyf")
+walkable_in_scene = true
+
+[node name="hex_root6" parent="." instance=ExtResource("3_fg1kq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000995398, 0, 0.00827205)
+surface_material_override/0 = ExtResource("4_85cyf")
+walkable_in_scene = true
+
+[node name="hex_root7" parent="." instance=ExtResource("3_fg1kq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00099, 0, 1.74037)
+surface_material_override/0 = ExtResource("4_85cyf")
+walkable_in_scene = true
+
+[node name="hex_root8" parent="." instance=ExtResource("3_fg1kq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000995398, 0, 3.47247)
+surface_material_override/0 = ExtResource("4_85cyf")
+walkable_in_scene = true
+
+[node name="hex_root9" parent="." instance=ExtResource("3_fg1kq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00099, 0, 5.20457)
+surface_material_override/0 = ExtResource("4_85cyf")
+walkable_in_scene = true
+
+[node name="Player" parent="." node_paths=PackedStringArray("current_tile") instance=ExtResource("4_1hg42")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.0267, 1, 1.75428)
+current_tile = NodePath("../hex_root7")
+
+[node name="CameraRoot" parent="Player" instance=ExtResource("5_vbgho")]

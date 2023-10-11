@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bc0kgjaf2ehs0"
+path="res://.godot/imported/detail_forestA.obj-53a552b53be8e099387a1ad2a92415ab.mesh"
+
+[deps]
+
+files=["res://.godot/imported/detail_forestA.obj-53a552b53be8e099387a1ad2a92415ab.mesh"]
+
+source_file="res://models/tile_top/detail_forestA.obj"
+dest_files=["res://.godot/imported/detail_forestA.obj-53a552b53be8e099387a1ad2a92415ab.mesh", "res://.godot/imported/detail_forestA.obj-53a552b53be8e099387a1ad2a92415ab.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

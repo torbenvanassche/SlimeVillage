@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dowa3xfq5vxq7"
+path="res://.godot/imported/bridge_roofed.obj-792d83ec8290fcf12876cd3d3a72cc5f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bridge_roofed.obj-792d83ec8290fcf12876cd3d3a72cc5f.mesh"]
+
+source_file="res://models/tile_top/bridge_roofed.obj"
+dest_files=["res://.godot/imported/bridge_roofed.obj-792d83ec8290fcf12876cd3d3a72cc5f.mesh", "res://.godot/imported/bridge_roofed.obj-792d83ec8290fcf12876cd3d3a72cc5f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

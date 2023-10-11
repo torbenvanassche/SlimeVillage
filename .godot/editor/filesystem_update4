@@ -1,0 +1,4 @@
+res://scenes/mine.tscn
+res://scripts/key_locations/Mine.gd
+res://materials/dirt.tres
+res://materials/grass.tres
