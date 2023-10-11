@@ -14,7 +14,7 @@ func move():
 	if timer.is_stopped():
 		timer.start()
 		
-func set_to_current_tile(tile: Tile):
+func set_position_to_current_tile(tile: Tile):
 	current_tile = tile
 	self.global_position = current_tile.surface_point
 
@@ -35,6 +35,8 @@ func _ready():
 	
 	if not current_tile:
 		current_tile = find_location()
+		
+	GlobalEvents.resource_location_interaction.connect(func(x): print(x))
 	
 func find_location() -> Tile:
 	var space_state = get_world_3d().direct_space_state
@@ -56,7 +58,7 @@ func _on_time():
 	else: 
 		current_tile = Global.scene_manager.active_scene.pathfinder.current_nav[nav_index]
 		Global.scene_manager.active_scene.pathfinder.current_nav.clear()
-		current_tile.on_enter_stay()
+		GlobalEvents.tile_destination_reached.emit(current_tile)
 		
 		nav_index = 0
 		timer.stop()

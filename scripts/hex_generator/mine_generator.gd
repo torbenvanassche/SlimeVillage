@@ -1,0 +1,2 @@
+class_name mine_hex_generator
+extends hex_grid

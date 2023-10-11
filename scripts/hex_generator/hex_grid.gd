@@ -3,14 +3,13 @@ extends Node3D
 
 @export var hex_tile_node: PackedScene
 @export var hex_tiles: Array[Tile_Data] = []
-@export var collectables: Array[Collectable_Data]
 
-@export var tile_size := 1.0
-@export var height_variation := Vector2(-1, 1)
+@export var tile_size := 2.0
+@export var height_variation := Vector2(-0.1, 0.1)
 
 var pathfinder: path_finding = path_finding.new()
 
-func generate(grid_size: Vector2i):
+func generate(grid_size: Vector2i, _spawnables: Array):
 	_generate_grid(grid_size)
 	pathfinder.set_neighbours(5)
 	pathfinder.generate_connections()

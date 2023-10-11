@@ -1,0 +1,117 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqpe6a81fkc30"]
+
+[ext_resource type="PackedScene" uid="uid://cjp0uom8wknwx" path="res://scenes/components/hex.tscn" id="2_oil84"]
+[ext_resource type="Material" uid="uid://cjk2wew0nnlwn" path="res://materials/grass.tres" id="3_rgvrn"]
+[ext_resource type="ArrayMesh" uid="uid://dp6mvn6r8pfym" path="res://models/tile_top/farm_plot.obj" id="4_x2aex"]
+[ext_resource type="Script" path="res://scripts/key_locations/farm.gd" id="5_04tgb"]
+[ext_resource type="ArrayMesh" uid="uid://bpfhr1fcplhx" path="res://models/tile_top/farm_wheat.obj" id="5_tob76"]
+
+[node name="Farm" type="Node3D" node_paths=PackedStringArray("growable_resources", "entry_tile")]
+script = ExtResource("5_04tgb")
+growable_resources = [NodePath("FarmPlot/FarmWheat")]
+entry_tile = NodePath("MineSurrounding/Walkable/HexForest29")
+
+[node name="MineSurrounding" type="Node3D" parent="."]
+
+[node name="Walkable" type="Node3D" parent="MineSurrounding"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 7)
+
+[node name="HexForest26" parent="MineSurrounding/Walkable" instance=ExtResource("2_oil84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6.9284)
+material_override = ExtResource("3_rgvrn")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_rgvrn")
+walkable_in_scene = false
+
+[node name="HexForest24" parent="MineSurrounding/Walkable" instance=ExtResource("2_oil84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -8.6605)
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_rgvrn")
+walkable_in_scene = false
+
+[node name="HexForest28" parent="MineSurrounding/Walkable" instance=ExtResource("2_oil84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -10.3926)
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_rgvrn")
+
+[node name="HexForest29" parent="MineSurrounding/Walkable" instance=ExtResource("2_oil84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -10.3926)
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_rgvrn")
+
+[node name="HexForest30" parent="MineSurrounding/Walkable" instance=ExtResource("2_oil84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -10.3926)
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_rgvrn")
+
+[node name="HexForest32" parent="MineSurrounding/Walkable" instance=ExtResource("2_oil84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -8.6605)
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_rgvrn")
+walkable_in_scene = false
+
+[node name="HexForest33" parent="MineSurrounding/Walkable" instance=ExtResource("2_oil84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -8.6605)
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_rgvrn")
+walkable_in_scene = false
+
+[node name="HexForest31" parent="MineSurrounding/Walkable" instance=ExtResource("2_oil84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -8.6605)
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_rgvrn")
+walkable_in_scene = false
+
+[node name="HexForest15" parent="MineSurrounding/Walkable" instance=ExtResource("2_oil84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5.1963)
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_rgvrn")
+walkable_in_scene = false
+
+[node name="HexForest16" parent="MineSurrounding/Walkable" instance=ExtResource("2_oil84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3.4642)
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_rgvrn")
+
+[node name="HexForest17" parent="MineSurrounding/Walkable" instance=ExtResource("2_oil84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3.4642)
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_rgvrn")
+
+[node name="HexForest18" parent="MineSurrounding/Walkable" instance=ExtResource("2_oil84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5.1963)
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_rgvrn")
+walkable_in_scene = false
+
+[node name="HexForest20" parent="MineSurrounding/Walkable" instance=ExtResource("2_oil84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5.1963)
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_rgvrn")
+walkable_in_scene = false
+
+[node name="HexForest21" parent="MineSurrounding/Walkable" instance=ExtResource("2_oil84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3.4642)
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_rgvrn")
+
+[node name="HexForest19" parent="MineSurrounding/Walkable" instance=ExtResource("2_oil84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -5.1963)
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_rgvrn")
+walkable_in_scene = false
+
+[node name="hex_root3" parent="MineSurrounding/Walkable" instance=ExtResource("2_oil84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -6.9284)
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_rgvrn")
+walkable_in_scene = false
+
+[node name="FarmPlot" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0.130985, 1, 0.0970812)
+mesh = ExtResource("4_x2aex")
+
+[node name="FarmWheat" type="MeshInstance3D" parent="FarmPlot"]
+visible = false
+mesh = ExtResource("5_tob76")
+skeleton = NodePath("../..")

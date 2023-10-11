@@ -19,8 +19,6 @@ script = ExtResource("8_j5ewb")
 
 [node name="mine" parent="." instance=ExtResource("6_hayk5")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
-tile_size = 2.0
-height_variation = Vector2(-0.1, 0.1)
 
 [node name="Player" parent="." instance=ExtResource("6_o5cr0")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.0267, 1, 1.75428)

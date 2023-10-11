@@ -1,12 +1,16 @@
-extends ItemContainer
+class_name ItemSpawner
+extends Node
 
-@export var item_name: String
+@export var items: Array = []
+@export var entry_tile: Tile
 
-# Called when the node enters the scene tree for the first time.
-func _init():
-	item = ItemManager.get_item_by_name(item_name)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _ready():
+	GlobalEvents.tile_destination_reached.connect(_internal_entered)
+	
+func _internal_entered(tile: Tile):
+	if tile == entry_tile:
+		_entered()
+	
+func _entered():
+	#This function is abstract and must be overridden
+	print("Not implemented!")

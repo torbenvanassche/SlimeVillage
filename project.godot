@@ -20,10 +20,15 @@ config/icon="res://icon.svg"
 Global="*res://scripts/global.gd"
 ItemManager="*res://scripts/Inventory/item_manager.gd"
 Settings="*res://scripts/Utils/settings.gd"
+GlobalEvents="*res://scripts/global_events.gd"
 
 [dotnet]
 
 project/assembly_name="InteractiveClicker"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/snappy/plugin.cfg")
 
 [filesystem]
 

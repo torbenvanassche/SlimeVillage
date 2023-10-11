@@ -10,6 +10,9 @@ func get_item_by_name(string: String) -> Dictionary:
 	return items.filter(func(x): return x.name == string)[0]
 
 func rand_item_weighted(arr: Array):
+	if arr.size() == 0:
+		return null
+	
 	var total_weight = 0.0
 	for item in arr:
 		total_weight += item["random_weight"]
@@ -19,5 +22,4 @@ func rand_item_weighted(arr: Array):
 	for item in arr:
 		if item.accumulated_weight > roll:
 			return item
-			
-	return items[0]
+	return null

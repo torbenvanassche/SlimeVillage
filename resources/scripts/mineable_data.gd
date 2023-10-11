@@ -1,8 +1,7 @@
-class_name Collectable_Data
+class_name mineable_data
 extends Resource
 
 @export var mesh: Mesh
-@export var runtime_code: Script
 @export var material_override: Material
 
 @export var random_weight: float = 0

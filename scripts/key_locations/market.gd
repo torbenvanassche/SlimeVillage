@@ -1,4 +1,4 @@
-extends Node
+extends ItemSpawner
 
 var spawn_timer: Timer
 var game_over_timer: Timer

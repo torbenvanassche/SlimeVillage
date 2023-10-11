@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpadytt7sl3m2"]
+[gd_scene load_steps=6 format=3 uid="uid://bpadytt7sl3m2"]
 
 [ext_resource type="Script" path="res://scripts/navigation_controller.gd" id="1_qo44h"]
 [ext_resource type="PackedScene" uid="uid://cjp0uom8wknwx" path="res://scenes/components/hex.tscn" id="2_tnmox"]
@@ -112,6 +112,28 @@ surface_material_override/0 = ExtResource("3_vry8b")
 
 [node name="HexForest54" parent="MineSurrounding/Walkable" instance=ExtResource("2_tnmox")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -8.6605)
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_vry8b")
+
+[node name="HexForest26" parent="MineSurrounding/Walkable" instance=ExtResource("2_tnmox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6.9284)
+material_override = ExtResource("3_vry8b")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_vry8b")
+
+[node name="HexForest55" parent="MineSurrounding/Walkable" instance=ExtResource("2_tnmox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -8.6605)
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_vry8b")
+
+[node name="HexForest27" parent="MineSurrounding/Walkable" instance=ExtResource("2_tnmox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6.9284)
+material_override = ExtResource("3_vry8b")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_vry8b")
+
+[node name="HexForest56" parent="MineSurrounding/Walkable" instance=ExtResource("2_tnmox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -8.6605)
 skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("3_vry8b")
 
