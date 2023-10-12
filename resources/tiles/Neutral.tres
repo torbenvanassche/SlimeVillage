@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="Tile_Data" load_steps=3 format=3 uid="uid://dpv5otbxnlhbc"]
+[gd_resource type="Resource" script_class="Tile_Data" load_steps=4 format=3 uid="uid://dpv5otbxnlhbc"]
 
 [ext_resource type="ArrayMesh" uid="uid://d2cnas0fsknn8" path="res://models/tile/hex_forest.obj" id="1_bkl83"]
-[ext_resource type="Script" path="res://resources/scripts/tile_data.gd" id="3_ktdwl"]
+[ext_resource type="Material" uid="uid://cjk2wew0nnlwn" path="res://materials/grass.tres" id="1_fn4xu"]
+[ext_resource type="Script" path="res://scripts/resources/tile_data.gd" id="3_ktdwl"]
 
 [resource]
 script = ExtResource("3_ktdwl")
 mesh = ExtResource("1_bkl83")
 navigation_weight = 0
 walkable = true
+material_override = ExtResource("1_fn4xu")
 random_weight = 1.0

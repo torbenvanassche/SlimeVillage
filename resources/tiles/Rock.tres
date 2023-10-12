@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Tile_Data" load_steps=4 format=3 uid="uid://1supddxwygex"]
+
+[ext_resource type="Material" uid="uid://i5ajg0mh0exy" path="res://materials/rock.tres" id="1_oywjc"]
+[ext_resource type="ArrayMesh" uid="uid://d2cnas0fsknn8" path="res://models/tile/hex_forest.obj" id="2_t6uql"]
+[ext_resource type="Script" path="res://scripts/resources/tile_data.gd" id="3_qnld5"]
+
+[resource]
+script = ExtResource("3_qnld5")
+mesh = ExtResource("2_t6uql")
+navigation_weight = 0
+walkable = true
+material_override = ExtResource("1_oywjc")
+random_weight = 1.0

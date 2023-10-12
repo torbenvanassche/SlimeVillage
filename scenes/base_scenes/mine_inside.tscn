@@ -7,4 +7,4 @@
 [node name="mine_inside" type="Node3D"]
 script = ExtResource("1_cc00x")
 hex_tile_node = ExtResource("2_607fp")
-hex_tiles = Array[Resource("res://resources/scripts/tile_data.gd")]([ExtResource("3_p1vof")])
+hex_tiles = Array[Resource("res://scripts/resources/tile_data.gd")]([ExtResource("3_p1vof")])

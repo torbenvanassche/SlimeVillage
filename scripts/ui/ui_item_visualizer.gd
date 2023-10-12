@@ -14,7 +14,7 @@ func add_item(item: Dictionary):
 	var label = item_instance.get_node("Label")
 	label.text = str(1)	
 	
-	item_instance.get_node("TextureRect").set_texture(load("res://resources/items/" + item["relative_path"]))
+	item_instance.get_node("TextureRect").set_texture(ItemManager.get_sprite(item))
 	item_instance.set_meta("item_name", item["name"])
 	self.add_child(item_instance)
 	item_instance.get_node("Label").text = str(1)
