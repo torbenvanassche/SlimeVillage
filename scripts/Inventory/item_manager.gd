@@ -28,17 +28,14 @@ func rand_item_weighted(arr: Array, fail_weight: int = 0):
 			return item
 	return null
 
-func get_mesh(item: Dictionary) -> Mesh:
-	if FileAccess.file_exists(item["mesh_path"]):
-		return load("res://resources/items/meshes/" + item["mesh_path"] + ".obj")
-	return null
-
-func get_material(item: Dictionary) -> Material:
-	if FileAccess.file_exists(item["material_path"]):
-		return load("res://resources/items/materials/" + item["material_path"] + ".tres")
+func get_scene(item: Dictionary) -> PackedScene:
+	var path = "res://resources/items/scenes/" + item["scene_path"] + ".tscn"
+	if FileAccess.file_exists(path):
+		return load(path)
 	return null
 	
 func get_sprite(item: Dictionary) -> Texture:
-	if FileAccess.file_exists(item["sprite_path"]):
-		return load("res://resources/items/sprites/" + item["sprite_path"] + ".tres")
+	var path = "res://resources/items/sprites/" + item["sprite_path"] + ".tres"
+	if FileAccess.file_exists(path):
+		return load(path)
 	return null

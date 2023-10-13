@@ -8,19 +8,29 @@ extends Node3D
 @export var height_variation := Vector2(-0.1, 0.1)
 
 var pathfinder: path_finding = path_finding.new()
-var tiles: Array[Tile] = []
 
 func generate(grid_size: Vector2i):
 	_generate_grid(grid_size)
+	
+func _init_pathfinder():
 	pathfinder.set_neighbours(5)
 	pathfinder.generate_connections()
 	
 func get_tile(idx: int) -> Tile:
 	return self.get_child(idx)
 	
-func get_open_tile() -> Tile:
-	var subset = tiles.filter(func(tile: Tile): return !tile.is_used)
+func get_open_tile(exclusion: Tile) -> Tile:
+	var subset = pathfinder.hex_tiles_storage.filter(func(tile: Tile): return !tile.is_used && tile != exclusion)
 	return subset.pick_random()
+	
+func replace_tile(original: Tile, replacement: Tile) -> Tile:
+	replacement.position = original.position
+	pathfinder.hex_tiles_storage.erase(original)
+	original.queue_free()
+	
+	add_child(replacement)
+	pathfinder.hex_tiles_storage.append(replacement)
+	return replacement
 
 func _generate_grid(grid_size: Vector2i):
 	for x in grid_size.x:
@@ -31,7 +41,6 @@ func _generate_grid(grid_size: Vector2i):
 			var tile = hex_tile_node.instantiate()
 			tile.position = tile_coordinates
 			tile.set_tile(_get_random_tile_resource())
-			tiles.append(tile)
 			add_child(tile)
 	
 func _get_random_tile_resource() -> Tile_Data: 

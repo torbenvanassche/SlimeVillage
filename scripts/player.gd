@@ -6,7 +6,6 @@ var nav_index = 0
 var progress: float = 0
 
 @export var current_tile: Tile = null
-
 var inventory: Inventory = Inventory.new()
 
 func move():
@@ -43,7 +42,7 @@ func find_location() -> Tile:
 	var q = PhysicsRayQueryParameters3D.create(self.global_position  + Vector3(0, 5, 0), self.global_position - Vector3(0, 50, 0))
 	
 	var result = space_state.intersect_ray(q)
-	if result.collider.get_parent() is Tile:
+	if result and result.collider.get_parent() is Tile:
 		return result.collider.get_parent()
 	else:
 		return null

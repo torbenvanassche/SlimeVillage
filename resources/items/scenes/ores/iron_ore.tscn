@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://b68yikm2yp776"]
+
+[ext_resource type="PackedScene" uid="uid://cjp0uom8wknwx" path="res://scenes/components/hex.tscn" id="1_s4sd8"]
+[ext_resource type="Resource" uid="uid://1supddxwygex" path="res://resources/tiles/Rock.tres" id="2_rwaip"]
+[ext_resource type="ArrayMesh" uid="uid://djrbr1itraebq" path="res://models/tile_top/ore.obj" id="3_yrxow"]
+
+[node name="hex_root" instance=ExtResource("1_s4sd8")]
+data = ExtResource("2_rwaip")
+walkable_in_scene = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = ExtResource("3_yrxow")

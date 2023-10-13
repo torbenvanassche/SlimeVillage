@@ -41,7 +41,7 @@ func repath():
 
 func calc_path(from: int, to: int):	
 	current_nav.clear()
-		
+	
 	for t in path_finder.get_id_path(from, to):
 		current_nav.append(hex_tiles_storage.filter(func(x): return x.path_index == t)[0])
 	current_nav.pop_front()
