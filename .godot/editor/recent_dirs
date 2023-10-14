@@ -1,9 +1,10 @@
+res://scripts/ui
+res://scripts
+res://scenes/base_scenes
 res://resources/items/scenes/ores
 res://resources/items/materials
-res://scripts
 res://resources/tiles
 res://
-res://scripts/ui
 res://scenes
 res://materials
 res://scripts/Utils

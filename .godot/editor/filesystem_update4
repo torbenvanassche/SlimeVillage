@@ -4,3 +4,9 @@ res://materials/grass.tres
 res://materials/rock.tres
 res://scripts/Inventory/item_manager.gd
 res://scripts/Utils/Camera3D.gd
+res://scenes/base_scenes/pause_menu.tscn
+res://scripts/ui/pause_menu.gd
+res://scripts/global.gd
+res://scenes/game_scene.tscn
+res://materials/dirt.tres
+res://scripts/scene_manager.gd

@@ -33,3 +33,15 @@ func _ready():
 	for s in scenes:
 		if s != initial_scene:
 			remove_child(s)
+
+func pause(pause_game = true):
+	get_tree().paused = pause_game
+	if get_tree().paused:
+		$pause_menu.show()
+	else:
+		$pause_menu.hide()
+		
+
+func _input(event):
+	if Input.is_action_just_released("open_pause"):
+		pause(!get_tree().paused)
