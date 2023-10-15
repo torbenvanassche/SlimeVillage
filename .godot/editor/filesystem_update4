@@ -21,3 +21,6 @@ res://resources/items/scenes/ores/iron_ore.tscn
 res://resources/items/item_database.json
 res://scripts/Inventory/item_manager.gd
 res://scripts/Utils/helper.gd
+res://scripts/scene_manager.gd
+res://scenes/game_scene.tscn
+res://scripts/hex_generator/hex_grid_with_items.gd

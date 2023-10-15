@@ -6,20 +6,22 @@ extends Node3D
 
 signal scene_changed(from: Node, to: Node)
 	
-var active_scene: Node:
-	set(value): 
-		if active_scene:
-			self.remove_child(active_scene)
-			
-		scene_changed.emit(active_scene, value)
+var active_scene: Node
 		
-		active_scene = value
-		if not value.get_parent():
-			self.add_child(active_scene)
-	get:
-		return active_scene
+func set_active_scene(scene: Node, remove_active_from_tree: bool = true):
+	if active_scene && remove_active_from_tree:
+		self.remove_child(active_scene)
+		
+	scene_changed.emit(active_scene, scene)
+	
+	active_scene = scene
+	if not scene.get_parent():
+		self.add_child(active_scene)
+		
+func get_active_scene():
+	return active_scene
 
-func get_scene(scene_name: String):
+func get_scene_by_name(scene_name: String):
 	var filtered = scenes.filter(func(x: Node): return x.name == scene_name)
 	if filtered.size() > 0:
 		return filtered[0]
