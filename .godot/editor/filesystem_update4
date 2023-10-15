@@ -17,3 +17,7 @@ res://scripts/key_locations/farm.gd
 res://scripts/Tile.gd
 res://scripts/path_finding.gd
 res://scripts/hex_generator/hex_grid.gd
+res://resources/items/scenes/ores/iron_ore.tscn
+res://resources/items/item_database.json
+res://scripts/Inventory/item_manager.gd
+res://scripts/Utils/helper.gd

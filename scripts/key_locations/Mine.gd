@@ -6,7 +6,6 @@ func _ready():
 	items = JSON_HELPER.get_array_by_property(ItemManager.items, "location", "mine").filter(func(x): return x["available"] == true)
 
 func _entered():
-	var mouse_position = get_viewport().get_mouse_position()
 	_open_mine()
 
 func _open_mine():
