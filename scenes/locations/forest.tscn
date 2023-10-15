@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://biskqk7fhub6i"]
+
+[ext_resource type="Script" path="res://scripts/hex_generator/hex_grid_with_items.gd" id="1_0dns3"]
+[ext_resource type="PackedScene" uid="uid://cjp0uom8wknwx" path="res://scenes/components/hex.tscn" id="2_eooex"]
+
+[node name="Forest" type="Node3D"]
+script = ExtResource("1_0dns3")
+hex_tile_node = ExtResource("2_eooex")
+hex_tiles = Array[Resource("res://scripts/resources/tile_data.gd")]([null])

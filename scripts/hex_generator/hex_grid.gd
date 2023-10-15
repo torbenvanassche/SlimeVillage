@@ -1,7 +1,6 @@
 class_name hex_grid
 extends Node3D
 
-@export var hex_tile_node: PackedScene
 @export var hex_tiles: Array[Tile_Data] = []
 
 @export var tile_size := 2.0
@@ -38,7 +37,7 @@ func _generate_grid(grid_size: Vector2i):
 			var tile_coordinates = Vector3(x * tile_size * cos(PI / 6), randf_range(height_variation.x, height_variation.y), y * tile_size)
 			if x % 2 == 0: tile_coordinates.z += 0.5 * tile_size
 				
-			var tile = hex_tile_node.instantiate()
+			var tile = hex_tiles.pick_random().scene.instantiate()
 			tile.position = tile_coordinates
 			tile.set_tile(_get_random_tile_resource())
 			add_child(tile)

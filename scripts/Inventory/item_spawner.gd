@@ -1,7 +1,7 @@
-class_name ItemSpawner
-extends Node
+class_name TileTrigger
+extends Node3D
 
-@export var items: Array = []
+var items: Array = []
 @export var entry_tile: Tile
 
 func _ready():

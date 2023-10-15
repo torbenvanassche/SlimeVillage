@@ -1,4 +1,4 @@
-class_name mine_hex_generator
+class_name itemized_hex_grid
 extends hex_grid
 
 func generate(grid_size: Vector2i, spawnables: Array = [], item_spawn_tries = 0, spawn_fail_weight = 0):

@@ -1,4 +1,4 @@
-extends ItemSpawner
+extends TileTrigger
 
 @export var growable_resources: Array[Node3D]
 var growth_timer: Timer

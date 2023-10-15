@@ -1,4 +1,4 @@
-extends ItemSpawner
+extends TileTrigger
 
 var spawn_timer: Timer
 var game_over_timer: Timer

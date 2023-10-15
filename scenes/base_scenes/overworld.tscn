@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://c3tqstoqyh5je"]
 
 [ext_resource type="Script" path="res://scripts/navigation_controller.gd" id="1_qkxrw"]
-[ext_resource type="PackedScene" uid="uid://c2uyrj168ky8c" path="res://scenes/components/mine.tscn" id="2_wi5pv"]
-[ext_resource type="PackedScene" uid="uid://bpadytt7sl3m2" path="res://scenes/components/market.tscn" id="3_05o5h"]
+[ext_resource type="PackedScene" uid="uid://c2uyrj168ky8c" path="res://scenes/locations/mine.tscn" id="2_wi5pv"]
+[ext_resource type="PackedScene" uid="uid://bpadytt7sl3m2" path="res://scenes/locations/market.tscn" id="3_05o5h"]
 [ext_resource type="PackedScene" uid="uid://cjp0uom8wknwx" path="res://scenes/components/hex.tscn" id="4_3t0fe"]
 [ext_resource type="Material" uid="uid://cjk2wew0nnlwn" path="res://materials/grass.tres" id="5_e4tv2"]
-[ext_resource type="PackedScene" uid="uid://bqpe6a81fkc30" path="res://scenes/components/farm.tscn" id="6_u120v"]
+[ext_resource type="PackedScene" uid="uid://bqpe6a81fkc30" path="res://scenes/locations/farm.tscn" id="6_u120v"]
 
 [node name="Overworld" type="Node3D"]
 process_mode = 1

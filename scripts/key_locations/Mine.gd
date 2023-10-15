@@ -1,4 +1,4 @@
-extends ItemSpawner
+extends TileTrigger
 
 func _ready():
 	super()
@@ -7,10 +7,10 @@ func _ready():
 
 func _entered():
 	var mouse_position = get_viewport().get_mouse_position()
-	Global.event_context_menu_open.emit(ContextMenu.format_options("Open mine", 0, Callable(_open_mine)), Rect2i(mouse_position.x, mouse_position.y, 0, 0))
+	_open_mine()
 
 func _open_mine():
 	Global.scene_manager.active_scene = Global.scene_manager.get_scene("mine")
-	var mine = Global.scene_manager.active_scene as mine_hex_generator;
+	var mine = Global.scene_manager.active_scene as itemized_hex_grid;
 	mine.generate(Settings.mine_grid_size, items, 1, 0)
 	pass

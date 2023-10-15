@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Tile_Data" load_steps=4 format=3 uid="uid://dpv5otbxnlhbc"]
+
+[ext_resource type="Material" uid="uid://cjk2wew0nnlwn" path="res://materials/grass.tres" id="1_bn30n"]
+[ext_resource type="PackedScene" uid="uid://cjp0uom8wknwx" path="res://scenes/components/hex.tscn" id="2_73pw1"]
+[ext_resource type="Script" path="res://scripts/resources/tile_data.gd" id="2_k6hp5"]
+
+[resource]
+script = ExtResource("2_k6hp5")
+scene = ExtResource("2_73pw1")
+navigation_weight = 0
+walkable = true
+material_override = ExtResource("1_bn30n")
+random_weight = 1.0

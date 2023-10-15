@@ -29,7 +29,7 @@ func set_neighbours(max_distance: float):
 func generate_connections():
 	for tile in hex_tiles_storage:
 		tile.path_index = path_finder.get_point_count()		
-		path_finder.add_point(tile.path_index, Vector2(tile.global_position.x, tile.global_position.z), tile.data.navigation_weight)
+		path_finder.add_point(tile.path_index, Vector2(tile.global_position.x, tile.global_position.z), tile.navigation_weight)
 		
 	for tile in hex_tiles_storage:
 		for connected_tile in tile.neighbours:

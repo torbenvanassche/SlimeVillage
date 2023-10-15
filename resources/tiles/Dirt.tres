@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Tile_Data" load_steps=4 format=3 uid="uid://b875hty1r2x1i"]
+
+[ext_resource type="Material" uid="uid://cti5fi1wjw45i" path="res://materials/dirt.tres" id="1_2pj2m"]
+[ext_resource type="PackedScene" uid="uid://cjp0uom8wknwx" path="res://scenes/components/hex.tscn" id="2_r8051"]
+[ext_resource type="Script" path="res://scripts/resources/tile_data.gd" id="3_4e0o1"]
+
+[resource]
+script = ExtResource("3_4e0o1")
+scene = ExtResource("2_r8051")
+navigation_weight = 0
+walkable = true
+material_override = ExtResource("1_2pj2m")
+random_weight = 1.0
