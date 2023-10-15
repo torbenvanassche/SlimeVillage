@@ -42,6 +42,6 @@ func pause(pause_game = true):
 		$pause_menu.hide()
 		
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_released("open_pause"):
 		pause(!get_tree().paused)

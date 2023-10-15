@@ -12,7 +12,5 @@ func _entered():
 func _open_mine():
 	Global.scene_manager.active_scene = Global.scene_manager.get_scene("mine")
 	var mine = Global.scene_manager.active_scene as mine_hex_generator;
-	mine.generate(Settings.hex_grid_size, items, 1, 0)
-	
-	Global.player_instance.set_position_to_current_tile(mine.get_tile(ceil(Settings.hex_grid_size.x / 2.0)))
+	mine.generate(Settings.mine_grid_size, items, 1, 0)
 	pass
