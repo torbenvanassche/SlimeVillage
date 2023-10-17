@@ -25,7 +25,15 @@ func _ready():
 		path_controller.pathfinder.add_node(self)
 	
 	$StaticBody3D.input_event.connect(_execute_internal)
-	surface_point = self.global_position + Vector3(0, 1, 0)
+	find_surface()
+	
+func find_surface():
+	var space_state = get_world_3d().direct_space_state
+	var q = PhysicsRayQueryParameters3D.create(self.global_position  + Vector3(0, 5, 0), self.global_position - Vector3(0, 5, 0))
+	
+	var result = space_state.intersect_ray(q)
+	if result and result.collider.get_parent() is Tile:
+		surface_point = result.position
 	
 func _execute_internal(_camera, _event, _pos, _normal, _shape_idx):
 	if Input.is_action_just_pressed("mouse_left") and walkable_in_scene and self != Global.player_instance.current_tile:

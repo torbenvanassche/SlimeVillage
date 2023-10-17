@@ -1,6 +1,7 @@
-res://scenes/game_scene.tscn
+res://scenes/base_scenes/pause_menu.tscn
 res://scripts/key_locations/mine.gd
 res://materials/dirt.tres
 res://materials/grass.tres
-res://scripts/ui/pause_menu.gd
-res://scenes/base_scenes/pause_menu.tscn
+res://scripts/Tile.gd
+res://scenes/game_scene.tscn
+res://scenes/base_scenes/overworld.tscn
