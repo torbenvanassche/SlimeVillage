@@ -13,7 +13,7 @@ func move():
 	if timer.is_stopped():
 		timer.start()
 		
-func set_position_to_current_tile(tile: Tile):
+func set_position_to_current_tile(tile: Tile = current_tile):
 	current_tile = tile
 	self.global_position = current_tile.surface_point
 
@@ -33,7 +33,8 @@ func _ready():
 	timer.timeout.connect(_on_time)
 	
 	if not current_tile:
-		current_tile = find_location()
+		set_position_to_current_tile(find_location())
+		
 		
 	GlobalEvents.resource_location_interaction.connect(func(x): print(x))
 	

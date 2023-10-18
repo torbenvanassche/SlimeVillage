@@ -32,7 +32,7 @@ func find_surface():
 	var q = PhysicsRayQueryParameters3D.create(self.global_position  + Vector3(0, 5, 0), self.global_position - Vector3(0, 5, 0))
 	
 	var result = space_state.intersect_ray(q)
-	if result and result.collider.get_parent() is Tile:
+	if result:
 		surface_point = result.position
 	
 func _execute_internal(_camera, _event, _pos, _normal, _shape_idx):
