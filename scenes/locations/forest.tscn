@@ -1,7 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://biskqk7fhub6i"]
+[gd_scene load_steps=3 format=3 uid="uid://biskqk7fhub6i"]
 
-[ext_resource type="Script" path="res://scripts/hex_generator/hex_grid_with_items.gd" id="1_0dns3"]
+[ext_resource type="Script" path="res://scripts/hex_generator/hex_generate_cache.gd" id="1_oaqsy"]
+[ext_resource type="Resource" uid="uid://dpv5otbxnlhbc" path="res://resources/tiles/Grass.tres" id="2_g06fv"]
 
 [node name="Forest" type="Node3D"]
-script = ExtResource("1_0dns3")
-hex_tiles = Array[Resource("res://scripts/resources/tile_data.gd")]([null])
+script = ExtResource("1_oaqsy")
+hex_tiles = Array[Resource("res://scripts/resources/tile_data.gd")]([ExtResource("2_g06fv")])

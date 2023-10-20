@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cubm5eoe0mdjo"]
+[gd_scene load_steps=9 format=3 uid="uid://cubm5eoe0mdjo"]
 
 [ext_resource type="PackedScene" uid="uid://c3tqstoqyh5je" path="res://scenes/base_scenes/overworld.tscn" id="1_5qcad"]
 [ext_resource type="Script" path="res://scripts/scene_manager.gd" id="1_8x5qd"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cuqpjlp4i7pkb" path="res://scenes/components/camera.tscn" id="7_ca8bl"]
 [ext_resource type="PackedScene" uid="uid://4obto2tpb0v3" path="res://scenes/base_scenes/pause_menu.tscn" id="8_11yd1"]
 [ext_resource type="Script" path="res://scenes/root_ui_reference.gd" id="8_j5ewb"]
-[ext_resource type="PackedScene" uid="uid://biskqk7fhub6i" path="res://scenes/locations/forest.tscn" id="8_n4nn3"]
 
 [node name="Node" type="Node3D" node_paths=PackedStringArray("scenes", "initial_scene")]
 process_mode = 3
@@ -28,13 +27,11 @@ hex_tiles = Array[Resource("res://scripts/resources/tile_data.gd")]([ExtResource
 
 [node name="Player" parent="." instance=ExtResource("6_o5cr0")]
 process_mode = 1
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.425048, 0.559765, 0.949295)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.10678, 1.13692, 1.91521)
 skeleton = NodePath("../overworld")
 
 [node name="CameraRoot" parent="Player" instance=ExtResource("7_ca8bl")]
 unique_name_in_owner = true
-
-[node name="Forest" parent="." instance=ExtResource("8_n4nn3")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 process_mode = 1
