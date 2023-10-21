@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj216gl3hc1rk"]
+
+[ext_resource type="PackedScene" uid="uid://cjp0uom8wknwx" path="res://scenes/components/hex.tscn" id="1_ys4ou"]
+
+[node name="hex_root" instance=ExtResource("1_ys4ou")]

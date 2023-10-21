@@ -9,9 +9,7 @@ func generate(grid_size: Vector2i, spawnables: Array = [], item_spawn_tries = 0,
 	for i in range(item_spawn_tries):
 		var item = ItemManager.rand_item_weighted(spawnables, spawn_fail_weight)
 		if item:
-			print(Global.player_instance.current_tile)
 			var tile: Node3D = replace_tile(get_open_tile(Global.player_instance.current_tile), ItemManager.get_scene(item).instantiate())
-			tile.rotate_y(deg_to_rad(randi_range(0, 6) * 60))
 			tile.is_used = true
 
 	_init_pathfinder()

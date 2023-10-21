@@ -1,6 +1,8 @@
 class_name Tile
 extends MeshInstance3D
 
+var active_option: Node3D
+
 var path_index: int
 
 var path_controller: Node
@@ -15,7 +17,7 @@ var navigation_weight: int = 0
 func _add_neighbour(tile: Tile):
 	neighbours.append(tile)
 
-func _ready():		
+func _ready():			
 	if walkable_in_scene:
 		add_to_group("Walkable")
 		path_controller = self
@@ -25,7 +27,9 @@ func _ready():
 		path_controller.pathfinder.add_node(self)
 	
 	$StaticBody3D.input_event.connect(_execute_internal)
-	find_surface()
+	$StaticBody3D.set_meta("tile", self)
+	
+	find_surface()	
 	
 func find_surface():
 	var space_state = get_world_3d().direct_space_state
@@ -41,10 +45,22 @@ func _execute_internal(_camera, _event, _pos, _normal, _shape_idx):
 		Global.player_instance.move()
 		
 func set_tile(data: Tile_Data):
-	if data and !data.walkable:
+	if !data: 
+		return
+	
+	if !data.walkable:
 		walkable_in_scene = data.walkable
-
-	if data.material_override:
-		(self as MeshInstance3D).material_override = data.material_override
 		
-	self.navigation_weight = data.navigation_weight
+	navigation_weight = data.navigation_weight
+	
+	if data.ground_material:
+		material_override = data.ground_material
+		
+	if data.tile_options.size() != 0:	
+		var random_pick = data.tile_options.pick_random()
+		if random_pick != null:	
+			active_option = random_pick.instantiate()
+			if data.randomize_rotation:
+				active_option.rotate_y(deg_to_rad(randi_range(0, 6) * 60))
+		
+			add_child(active_option)

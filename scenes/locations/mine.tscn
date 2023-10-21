@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2uyrj168ky8c"]
+[gd_scene load_steps=5 format=3 uid="uid://c2uyrj168ky8c"]
 
 [ext_resource type="Script" path="res://scripts/key_locations/mine.gd" id="1_4k0um"]
-[ext_resource type="Material" uid="uid://cti5fi1wjw45i" path="res://materials/dirt.tres" id="1_yrk4g"]
-[ext_resource type="Material" uid="uid://cjk2wew0nnlwn" path="res://materials/grass.tres" id="2_5p2lg"]
+[ext_resource type="Material" uid="uid://cjk2wew0nnlwn" path="res://materials/placeholder.tres" id="2_5p2lg"]
 [ext_resource type="ArrayMesh" uid="uid://b83xh0kguc636" path="res://models/tile_top/mine.obj" id="3_02dia"]
 [ext_resource type="PackedScene" uid="uid://cjp0uom8wknwx" path="res://scenes/components/hex.tscn" id="6_p677u"]
 
@@ -94,7 +93,6 @@ surface_material_override/0 = ExtResource("2_5p2lg")
 
 [node name="Entrance" parent="Walkable" instance=ExtResource("6_p677u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1.7321)
-material_override = ExtResource("1_yrk4g")
 skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("2_5p2lg")
 

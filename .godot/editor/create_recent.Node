@@ -1,7 +1,8 @@
-Button
-VBoxContainer
 MeshInstance3D
 Node3D
+WorldEnvironment
+Button
+VBoxContainer
 RayCast3D
 Node
 PopupMenu
@@ -29,4 +30,3 @@ PopupPanel
 GridMap
 ProgressBar
 ColorRect
-CanvasLayer

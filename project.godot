@@ -33,6 +33,7 @@ enabled=PackedStringArray("res://addons/snappy/plugin.cfg")
 [filesystem]
 
 import/blender/enabled=false
+import/fbx/enabled=false
 
 [input]
 

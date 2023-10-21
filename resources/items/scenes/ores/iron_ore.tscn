@@ -6,8 +6,10 @@
 
 [node name="hex_root" instance=ExtResource("1_s4sd8")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -0.00567961, 0.00659275, -0.00199509)
-surface_material_override/0 = ExtResource("2_ikt6b")
 walkable_in_scene = false
+
+[node name="hex_forest" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ikt6b")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
