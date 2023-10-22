@@ -1,9 +1,6 @@
 res://scenes/base_scenes/mine_inside.tscn
 res://scripts/key_locations/mine.gd
-res://scenes/game_scene.tscn
 res://materials/placeholder.tres
-res://scenes/base_scenes/overworld.tscn
+res://scenes/game_scene.tscn
 res://scenes/components/Player.tscn
 res://scripts/player.gd
-res://scripts/Tile.gd
-res://scripts/path_finding.gd
