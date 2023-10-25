@@ -11,6 +11,9 @@ var is_used: bool = false
 var surface_point := Vector3()
 var neighbours := []
 
+@export var tile_data: Tile_Data
+@export var decorations: Array[PackedScene]
+
 @export var walkable_in_scene: bool
 var navigation_weight: int = 0
 
@@ -30,6 +33,9 @@ func _ready():
 	$StaticBody3D.set_meta("tile", self)
 	
 	find_surface()	
+	
+	if tile_data:
+		set_tile(tile_data)
 	
 func find_surface():
 	var space_state = get_world_3d().direct_space_state

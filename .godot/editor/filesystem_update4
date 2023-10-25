@@ -1,6 +1,4 @@
-res://scenes/base_scenes/mine_inside.tscn
+res://scenes/tiles/grass.tscn
 res://scripts/key_locations/mine.gd
 res://materials/placeholder.tres
-res://scenes/game_scene.tscn
-res://scenes/components/Player.tscn
-res://scripts/player.gd
+res://scripts/Tile.gd
