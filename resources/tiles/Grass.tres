@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="Tile_Data" load_steps=3 format=3 uid="uid://dpv5otbxnlhbc"]
+[gd_resource type="Resource" script_class="Tile_Data" load_steps=4 format=3 uid="uid://dpv5otbxnlhbc"]
 
-[ext_resource type="PackedScene" uid="uid://cjp0uom8wknwx" path="res://scenes/components/hex.tscn" id="2_73pw1"]
+[ext_resource type="Material" uid="uid://dty5fwmsj0t46" path="res://materials/grass.tres" id="1_nkkoo"]
 [ext_resource type="Script" path="res://scripts/resources/tile_data.gd" id="2_k6hp5"]
+[ext_resource type="PackedScene" uid="uid://bgeagu3a00f55" path="res://scenes/tiles/grass/tops/generic_grass_patch_01.tscn" id="3_s6o0a"]
 
 [resource]
 script = ExtResource("2_k6hp5")
-scene = ExtResource("2_73pw1")
+tile_options = Array[PackedScene]([ExtResource("3_s6o0a")])
 navigation_weight = 0
 walkable = true
+ground_material = ExtResource("1_nkkoo")
 random_weight = 1.0
+randomize_rotation = true

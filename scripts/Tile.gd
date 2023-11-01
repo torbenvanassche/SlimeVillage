@@ -11,8 +11,9 @@ var is_used: bool = false
 var surface_point := Vector3()
 var neighbours := []
 
-@export var tile_data: Tile_Data
-@export var decorations: Array[PackedScene]
+@export var tile_data: Tile_Data: 
+	set(value): 
+		set_tile(tile_data)
 
 @export var walkable_in_scene: bool
 var navigation_weight: int = 0
@@ -69,4 +70,4 @@ func set_tile(data: Tile_Data):
 			if data.randomize_rotation:
 				active_option.rotate_y(deg_to_rad(randi_range(0, 6) * 60))
 		
-			add_child(active_option)
+			$Decoration.add_child(active_option)

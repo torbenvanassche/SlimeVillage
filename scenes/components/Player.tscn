@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bwrcc2gxqnosv"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_spbeu"]
-[ext_resource type="PackedScene" uid="uid://cvt0d66ofytw1" path="res://models/slime.glb" id="2_3wwn3"]
+[ext_resource type="PackedScene" uid="uid://cvt0d66ofytw1" path="res://models/characters/slime.glb" id="2_3wwn3"]
 
 [node name="Player" type="Node3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://75mhkxn4t62l"]
+
+[ext_resource type="PackedScene" path="res://scenes/components/hex.tscn" id="1_tfw6l"]
+[ext_resource type="Resource" uid="uid://dpv5otbxnlhbc" path="res://resources/tiles/Grass.tres" id="2_3kt5p"]
+
+[node name="hex_root" instance=ExtResource("1_tfw6l")]
+tile_data = ExtResource("2_3kt5p")
+
+[node name="Decoration" type="Node3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

@@ -1,4 +1,2 @@
-res://scenes/tiles/grass.tscn
+res://scenes/game_scene.tscn
 res://scripts/key_locations/mine.gd
-res://materials/placeholder.tres
-res://scripts/Tile.gd

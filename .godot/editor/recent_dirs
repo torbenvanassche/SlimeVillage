@@ -1,7 +1,10 @@
+res://scenes/tiles/grass/tops
+res://materials
+res://scenes/tiles/grass
+res://resources/tiles
 E:/Private projects
 res://scenes/tiles
 res://scenes/components
-res://resources/tiles
 res://scenes/locations
 res://scripts/ui
 res://scripts
@@ -10,8 +13,5 @@ res://resources/items/scenes/ores
 res://resources/items/materials
 res://
 res://scenes
-res://materials
 res://scripts/Utils
 E:/Private projects/Development - GoDot/InteractiveClicker/resources
-res://models/tile_top
-res://models/tile

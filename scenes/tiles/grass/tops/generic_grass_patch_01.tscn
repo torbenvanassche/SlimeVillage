@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgeagu3a00f55"]
+
+[ext_resource type="PackedScene" uid="uid://x8wyvn0fg5ib" path="res://models/Environment/SM_Generic_Grass_Patch_03.glb" id="1_esrkj"]
+[ext_resource type="Material" uid="uid://uiujthhjeqfu" path="res://materials/polygon_fantasy.tres" id="2_asoue"]
+
+[node name="SM_Generic_Grass_Patch_03" instance=ExtResource("1_esrkj")]
+
+[node name="SM_Generic_Grass_Patch_032" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_asoue")
