@@ -1,5 +1,5 @@
 class_name Tile
-extends MeshInstance3D
+extends Node3D
 
 var active_option: Node3D
 
@@ -11,8 +11,10 @@ var is_used: bool = false
 var surface_point := Vector3()
 var neighbours := []
 
+@export var side_count: int = 4
 @export var tile_data: Tile_Data: 
 	set(value): 
+		tile_data = value
 		set_tile(tile_data)
 
 @export var walkable_in_scene: bool
@@ -34,6 +36,8 @@ func _ready():
 	$StaticBody3D.set_meta("tile", self)
 	
 	find_surface()	
+	
+	print(tile_data)
 	
 	if tile_data:
 		set_tile(tile_data)
@@ -61,13 +65,15 @@ func set_tile(data: Tile_Data):
 	navigation_weight = data.navigation_weight
 	
 	if data.ground_material:
-		material_override = data.ground_material
-		
+		for c in $Ground.get_children():
+			if c is MeshInstance3D:
+				c.material_override = data.ground_material
+			
 	if data.tile_options.size() != 0:	
 		var random_pick = data.tile_options.pick_random()
 		if random_pick != null:	
 			active_option = random_pick.instantiate()
 			if data.randomize_rotation:
-				active_option.rotate_y(deg_to_rad(randi_range(0, 6) * 60))
+				active_option.rotate_y(deg_to_rad(randi_range(0, side_count) * 360 / side_count))
 		
-			$Decoration.add_child(active_option)
+			$Ground.add_child(active_option)

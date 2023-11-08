@@ -20,6 +20,10 @@ func move():
 	look_to_direction()
 		
 func set_position_to_current_tile(tile: Tile = current_tile):
+	if !tile:
+		print("No tile found to set position to, skipping...")
+		return
+	
 	current_tile = tile
 	self.global_position = current_tile.surface_point
 
@@ -43,9 +47,10 @@ func _ready():
 	
 func find_location() -> Tile:
 	var space_state = get_world_3d().direct_space_state
-	var q = PhysicsRayQueryParameters3D.create(self.global_position  + Vector3(0, 5, 0), self.global_position - Vector3(0, 50, 0))
+	var q = PhysicsRayQueryParameters3D.create(self.global_position  + Vector3(0, 1, 0), self.global_position - Vector3(0, 2, 0))
 	
 	var result = space_state.intersect_ray(q)
+	
 	if result:
 		return result.collider.get_parent() as Tile
 		

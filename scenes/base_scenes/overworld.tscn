@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3tqstoqyh5je"]
+[gd_scene load_steps=3 format=3 uid="uid://c3tqstoqyh5je"]
 
 [ext_resource type="Script" path="res://scripts/navigation_controller.gd" id="1_qkxrw"]
+[ext_resource type="PackedScene" uid="uid://c2uyrj168ky8c" path="res://scenes/locations/mine.tscn" id="2_h5aka"]
 
 [node name="Overworld" type="Node3D"]
 process_mode = 1
 script = ExtResource("1_qkxrw")
+
+[node name="MineSurrounding" parent="." instance=ExtResource("2_h5aka")]

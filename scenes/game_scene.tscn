@@ -15,7 +15,7 @@ tonemap_white = 1.55
 [node name="Node" type="Node3D" node_paths=PackedStringArray("scenes", "initial_scene")]
 process_mode = 3
 script = ExtResource("1_8x5qd")
-scenes = [NodePath("overworld"), null]
+scenes = [NodePath("overworld")]
 initial_scene = NodePath("overworld")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -28,7 +28,7 @@ script = ExtResource("8_j5ewb")
 
 [node name="Player" parent="." instance=ExtResource("6_o5cr0")]
 process_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10678, 1.13692, 1.91521)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 rotation_time = 0.01
 
 [node name="CameraRoot" parent="Player" instance=ExtResource("7_ca8bl")]
