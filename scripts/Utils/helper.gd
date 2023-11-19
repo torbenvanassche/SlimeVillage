@@ -13,3 +13,22 @@ static func arrays_have_same_content(array1: Array, array2: Array):
 		if array1.count(item) != array2.count(item): 
 			return false
 	return true
+
+func rand_item_weighted(arr: Array, fail_weight: int = 0):
+	if arr.size() == 0:
+		return null
+	
+	var total_weight = 0
+	for item in arr:
+		total_weight += item["random_weight"]
+		item.accumulated_weight = total_weight
+	
+	var roll: int = randi_range(-fail_weight, total_weight)
+		
+	if roll < 0:
+		return null
+	
+	for item in arr:
+		if item.accumulated_weight >= roll:
+			return item
+	return null

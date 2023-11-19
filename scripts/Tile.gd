@@ -37,8 +37,6 @@ func _ready():
 	
 	find_surface()	
 	
-	print(tile_data)
-	
 	if tile_data:
 		set_tile(tile_data)
 	

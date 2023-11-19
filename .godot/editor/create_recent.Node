@@ -1,3 +1,5 @@
+HTTPRequest
+Node
 CollisionShape3D
 StaticBody3D
 Node3D
@@ -6,7 +8,6 @@ WorldEnvironment
 Button
 VBoxContainer
 RayCast3D
-Node
 PopupMenu
 ConfirmationDialog
 Control
@@ -29,5 +30,3 @@ ColorPicker
 Window
 AcceptDialog
 PopupPanel
-GridMap
-ProgressBar

@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cubm5eoe0mdjo"]
+[gd_scene load_steps=8 format=3 uid="uid://b0ajw5a07g334"]
 
 [ext_resource type="PackedScene" uid="uid://c3tqstoqyh5je" path="res://scenes/base_scenes/overworld.tscn" id="1_5qcad"]
 [ext_resource type="Script" path="res://scripts/scene_manager.gd" id="1_8x5qd"]
+[ext_resource type="Script" path="res://scripts/root_ui_reference.gd" id="3_oubaf"]
 [ext_resource type="PackedScene" uid="uid://bwrcc2gxqnosv" path="res://scenes/components/Player.tscn" id="6_o5cr0"]
 [ext_resource type="PackedScene" uid="uid://cuqpjlp4i7pkb" path="res://scenes/components/camera.tscn" id="7_ca8bl"]
 [ext_resource type="PackedScene" uid="uid://4obto2tpb0v3" path="res://scenes/base_scenes/pause_menu.tscn" id="8_11yd1"]
-[ext_resource type="Script" path="res://scenes/root_ui_reference.gd" id="8_j5ewb"]
 
 [sub_resource type="Environment" id="Environment_jjbbm"]
 ambient_light_color = Color(0.47451, 0.47451, 0.47451, 1)
@@ -24,7 +24,7 @@ environment = SubResource("Environment_jjbbm")
 [node name="overworld" parent="." instance=ExtResource("1_5qcad")]
 
 [node name="UI" type="Node" parent="."]
-script = ExtResource("8_j5ewb")
+script = ExtResource("3_oubaf")
 
 [node name="Player" parent="." instance=ExtResource("6_o5cr0")]
 process_mode = 1

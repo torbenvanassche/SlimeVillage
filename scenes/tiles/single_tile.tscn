@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://t3ye1cbgdree"]
+
+[ext_resource type="Script" path="res://scripts/Tile.gd" id="1_56bc0"]
+[ext_resource type="PackedScene" uid="uid://bbg0a0jkksbjk" path="res://models/Environment/SM_Bld_House_Floor_Stone_03.glb" id="2_tvr27"]
+[ext_resource type="Resource" uid="uid://dfdnanmltqo5q" path="res://resources/tiles/General.tres" id="2_w4e3o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jmkqf"]
+size = Vector3(1, 0.0455705, 1)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_56bc0")
+tile_data = ExtResource("2_w4e3o")
+walkable_in_scene = true
+
+[node name="SM_Bld_House_Floor_Stone_03" parent="." instance=ExtResource("2_tvr27")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.5, 0, 0.5)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_jmkqf")

@@ -10,6 +10,6 @@ func _entered():
 
 func _open_mine():
 	Global.scene_manager.set_active_scene(Global.scene_manager.get_scene_by_name("mine"))
-	var mine = Global.scene_manager.active_scene as itemized_hex_grid;
+	var mine = Global.scene_manager.active_scene as Grid;
 	mine.generate(Settings.mine_grid_size, items, 1, 0)
 	pass

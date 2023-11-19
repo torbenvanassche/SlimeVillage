@@ -7,4 +7,4 @@
 process_mode = 1
 script = ExtResource("1_qkxrw")
 
-[node name="MineSurrounding" parent="." instance=ExtResource("2_h5aka")]
+[node name="Mine" parent="." instance=ExtResource("2_h5aka")]

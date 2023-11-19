@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://exnjdxf5vphk"]
 
-[ext_resource type="Script" path="res://scripts/hex_generator/hex_grid_with_items.gd" id="1_cc00x"]
+[ext_resource type="Script" path="res://scripts/grid_generators/hex_grid_with_items.gd" id="1_cc00x"]
 [ext_resource type="Resource" uid="uid://dpv5otbxnlhbc" path="res://resources/tiles/Grass.tres" id="3_wkc4c"]
 
 [node name="mine_inside" type="Node3D"]
