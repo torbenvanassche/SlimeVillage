@@ -61,11 +61,6 @@ func set_tile(data: Tile_Data):
 		walkable_in_scene = data.walkable
 		
 	navigation_weight = data.navigation_weight
-	
-	if data.ground_material:
-		for c in $Ground.get_children():
-			if c is MeshInstance3D:
-				c.material_override = data.ground_material
 			
 	if data.tile_options.size() != 0:	
 		var random_pick = data.tile_options.pick_random()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0ajw5a07g334"]
+[gd_scene load_steps=9 format=3 uid="uid://b0ajw5a07g334"]
 
 [ext_resource type="PackedScene" uid="uid://c3tqstoqyh5je" path="res://scenes/base_scenes/overworld.tscn" id="1_5qcad"]
 [ext_resource type="Script" path="res://scripts/scene_manager.gd" id="1_8x5qd"]
 [ext_resource type="Script" path="res://scripts/root_ui_reference.gd" id="3_oubaf"]
 [ext_resource type="PackedScene" uid="uid://bwrcc2gxqnosv" path="res://scenes/components/Player.tscn" id="6_o5cr0"]
+[ext_resource type="PackedScene" uid="uid://exnjdxf5vphk" path="res://scenes/base_scenes/mine_subarea.tscn" id="7_1l4xe"]
 [ext_resource type="PackedScene" uid="uid://cuqpjlp4i7pkb" path="res://scenes/components/camera.tscn" id="7_ca8bl"]
 [ext_resource type="PackedScene" uid="uid://4obto2tpb0v3" path="res://scenes/base_scenes/pause_menu.tscn" id="8_11yd1"]
 
@@ -15,7 +16,7 @@ tonemap_white = 1.55
 [node name="Node" type="Node3D" node_paths=PackedStringArray("scenes", "initial_scene")]
 process_mode = 3
 script = ExtResource("1_8x5qd")
-scenes = [NodePath("overworld")]
+scenes = [NodePath("overworld"), NodePath("mine_subarea")]
 initial_scene = NodePath("overworld")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -45,3 +46,5 @@ sky_mode = 1
 
 [node name="pause_menu" parent="." instance=ExtResource("8_11yd1")]
 visible = false
+
+[node name="mine_subarea" parent="." instance=ExtResource("7_1l4xe")]

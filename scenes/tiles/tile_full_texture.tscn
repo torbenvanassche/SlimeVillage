@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://drxmn747xmj4u"]
+
+[ext_resource type="Script" path="res://scripts/Tile.gd" id="1_bbgn7"]
+[ext_resource type="Resource" uid="uid://dfdnanmltqo5q" path="res://resources/tiles/General.tres" id="2_n1rbc"]
+[ext_resource type="PackedScene" uid="uid://vttvpx7ntaq5" path="res://models/Environment/initialized/sm_generic_ground_02.tscn" id="3_0uel4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jmkqf"]
+size = Vector3(1, 0.0455705, 1)
+
+[node name="mine_tile" type="Node3D"]
+script = ExtResource("1_bbgn7")
+tile_data = ExtResource("2_n1rbc")
+walkable_in_scene = true
+
+[node name="SM_Generic_Ground_02" parent="." instance=ExtResource("3_0uel4")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.5, 0, -0.5)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_jmkqf")

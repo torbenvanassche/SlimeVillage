@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cpte3k4aeq3sh"
-path="res://.godot/imported/SM_Generic_Ground_02.glb-65e16912212366c5d93faebf8ac3823e.scn"
+path="res://.godot/imported/SM_Generic_Ground_02.glb-4c5aca99acf630e4df5fac9727872dff.scn"
 
 [deps]
 
-source_file="res://models/Environment/SM_Generic_Ground_02.glb"
-dest_files=["res://.godot/imported/SM_Generic_Ground_02.glb-65e16912212366c5d93faebf8ac3823e.scn"]
+source_file="res://models/Environment/source/SM_Generic_Ground_02.glb"
+dest_files=["res://.godot/imported/SM_Generic_Ground_02.glb-4c5aca99acf630e4df5fac9727872dff.scn"]
 
 [params]
 

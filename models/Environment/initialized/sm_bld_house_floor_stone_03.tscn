@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1or2uhp4wy76"]
+
+[ext_resource type="PackedScene" uid="uid://bbg0a0jkksbjk" path="res://models/Environment/source/SM_Bld_House_Floor_Stone_03.glb" id="1_ybfoe"]
+[ext_resource type="Material" uid="uid://uiujthhjeqfu" path="res://materials/polygon_fantasy.tres" id="2_u8slq"]
+
+[node name="SM_Bld_House_Floor_Stone_03" instance=ExtResource("1_ybfoe")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[node name="SM_Bld_House_Floor_Stone_032" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_u8slq")

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bbg0a0jkksbjk"
-path="res://.godot/imported/SM_Bld_House_Floor_Stone_03.glb-5953e5b9530737e5dce16cc9a9041325.scn"
+path="res://.godot/imported/SM_Bld_House_Floor_Stone_03.glb-de37e5026a7d4d9db5497d19798e24c8.scn"
 
 [deps]
 
-source_file="res://models/Environment/SM_Bld_House_Floor_Stone_03.glb"
-dest_files=["res://.godot/imported/SM_Bld_House_Floor_Stone_03.glb-5953e5b9530737e5dce16cc9a9041325.scn"]
+source_file="res://models/Environment/source/SM_Bld_House_Floor_Stone_03.glb"
+dest_files=["res://.godot/imported/SM_Bld_House_Floor_Stone_03.glb-de37e5026a7d4d9db5497d19798e24c8.scn"]
 
 [params]
 
@@ -23,10 +23,10 @@ meshes/create_shadow_meshes=true
 meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 skins/use_named_skins=true
-animation/import=true
+animation/import=false
 animation/fps=30
 animation/trimming=false
-animation/remove_immutable_tracks=true
+animation/remove_immutable_tracks=false
 import_script/path=""
 _subresources={}
-gltf/embedded_image_handling=1
+gltf/embedded_image_handling=0

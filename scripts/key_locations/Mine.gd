@@ -9,7 +9,7 @@ func _entered():
 	_open_mine()
 
 func _open_mine():
-	Global.scene_manager.set_active_scene(Global.scene_manager.get_scene_by_name("mine"))
+	Global.scene_manager.set_active_scene(Global.scene_manager.get_scene_by_name("mine_subarea"))
 	var mine = Global.scene_manager.active_scene as Grid;
 	mine.generate(Settings.mine_grid_size, items, 1, 0)
 	pass
