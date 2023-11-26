@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://778ctls66plu"]
+
+[ext_resource type="PackedScene" uid="uid://cd748edhg0wfn" path="res://models/Environment/source/ores/SM_Env_Gem_Large_01.glb" id="1_06ahy"]
+[ext_resource type="Material" uid="uid://dlxnwaxpavp4k" path="res://materials/polygon_dungeon.tres" id="2_b28q7"]
+[ext_resource type="Material" uid="uid://3aluuv68jlmy" path="res://resources/items/materials/ores/iron_ore.tres" id="3_f3nvj"]
+
+[node name="SM_Env_Gem_Large_01" instance=ExtResource("1_06ahy")]
+
+[node name="SM_Env_Gem_Large_Base" parent="." index="0"]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0)
+material_override = ExtResource("2_b28q7")
+
+[node name="SM_Env_Gem_Large_Crystals" parent="SM_Env_Gem_Large_Base" index="0"]
+material_override = ExtResource("3_f3nvj")

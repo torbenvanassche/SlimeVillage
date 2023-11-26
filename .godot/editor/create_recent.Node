@@ -1,8 +1,8 @@
+Node3D
 HTTPRequest
 Node
 CollisionShape3D
 StaticBody3D
-Node3D
 MeshInstance3D
 WorldEnvironment
 Button

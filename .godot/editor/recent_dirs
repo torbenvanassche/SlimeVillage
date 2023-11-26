@@ -1,7 +1,9 @@
+res://resources/items/materials/ores
+res://resources/items/scenes/ores
+res://materials
 res://models/Environment/initialized
 res://resources/tiles
 res://models/Environment
-res://materials
 res://resources
 res://scenes/components
 E:/Private projects
@@ -10,8 +12,6 @@ res://scenes/locations
 res://scripts/ui
 res://scripts
 res://scenes/base_scenes
-res://resources/items/scenes/ores
-res://resources/items/materials
 res://
 res://scenes
 res://scripts/Utils

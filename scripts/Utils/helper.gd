@@ -14,7 +14,7 @@ static func arrays_have_same_content(array1: Array, array2: Array):
 			return false
 	return true
 
-func rand_item_weighted(arr: Array, fail_weight: int = 0):
+static func rand_item_weighted(arr: Array, fail_weight: int = 0):
 	if arr.size() == 0:
 		return null
 	

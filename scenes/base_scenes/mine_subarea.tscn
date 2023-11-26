@@ -6,3 +6,4 @@
 [node name="mine_inside" type="Node3D"]
 script = ExtResource("1_7qak8")
 tile_options = Array[Resource("res://scripts/resources/tile_data.gd")]([ExtResource("2_jpta7")])
+height_variation = Vector2(0, 0)
