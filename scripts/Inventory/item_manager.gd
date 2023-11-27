@@ -9,7 +9,9 @@ func _ready():
 func get_item_by_name(string: String) -> Dictionary:
 	if items.has(string):
 		return items[string]
-	return {}
+		
+	printerr(string + " does not exist in the itemdatabase.")
+	return {} 
 
 func get_scene(item: Dictionary) -> PackedScene:
 	var path = "res://resources/items/scenes/" + item["scene_path"] + ".tscn"
@@ -23,6 +25,13 @@ func get_sprite(item: Dictionary) -> Texture:
 		return load(path)
 	return null
 	
+func get_colors(item: Dictionary) -> Array[Color]:
+	var colors: Array = item["Colors"];
+	var output: Array[Color] = []
+	for c in colors:
+		output.append(Color(c));
+	return output;
+	
 func get_components(item: Dictionary) -> Array[Dictionary]:
 	var result: Array[Dictionary] = []
 	print(item["components"])
@@ -30,5 +39,8 @@ func get_components(item: Dictionary) -> Array[Dictionary]:
 		result.append(get_item_by_name(component))
 	return result
 	
-func craft(item: Dictionary, components: Array[Dictionary]):
-	return Helpers.arrays_have_same_content(get_components(item), components)
+func craft(item: Dictionary, components: Array[Dictionary], process: Helpers.CRAFT_METHOD = Helpers.CRAFT_METHOD.CRAFT):
+	if item["Process"] == process:	
+		return Helpers.arrays_have_same_content(get_components(item), components);
+		
+	return false;

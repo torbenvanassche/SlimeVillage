@@ -1,6 +1,14 @@
 class_name Helpers
 extends Node
 
+enum CRAFT_METHOD 
+{
+	CRAFT,
+	GRIND,
+	ALCHEMY,
+	FORGE
+}
+
 static func randarr_range(arr: Array):
 	return arr[randi_range(0, arr.size() - 1)]
 
