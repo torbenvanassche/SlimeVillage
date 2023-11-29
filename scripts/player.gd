@@ -17,21 +17,20 @@ func move():
 	if timer.is_stopped():
 		timer.start()
 		
-	#look_to_direction()
-		
 func set_position_to_current_tile(tile: Tile = current_tile):
 	if !tile:
 		print("No tile found to set position to, skipping...")
 		return
 	
 	current_tile = tile
-	self.global_position = current_tile.surface_point
+	self.get_parent().global_position = current_tile.surface_point
 
 func _process(_delta):
 	if Global.scene_manager.active_scene.pathfinder.current_nav.size() != 0:
 		progress = 1 - (timer.time_left / timer.wait_time)
-		position = current_tile.surface_point.lerp(Global.scene_manager.active_scene.pathfinder.current_nav[nav_index].surface_point, progress)
-
+		self.get_parent().position = current_tile.surface_point.lerp(Global.scene_manager.active_scene.pathfinder.current_nav[nav_index].surface_point, progress);
+		self.look_at(Global.scene_manager.active_scene.pathfinder.current_nav[nav_index].surface_point)
+		
 func _ready():
 	Global.player_instance = self
 	
@@ -55,18 +54,6 @@ func find_location() -> Tile:
 		return result.collider.get_parent() as Tile
 		
 	return null
-	
-func look_to_direction():
-	var tween := create_tween()
-	tween.tween_method(_tween_rotation, 0.0, 1.0, rotation_time)
-
-func _tween_rotation(p):
-	var lookat_target = Global.scene_manager.active_scene.pathfinder.current_nav[nav_index].surface_point
-	var lookat_transform = $mesh.global_transform.looking_at(lookat_target, Vector3.UP)
-	var initial_basis = $mesh.global_transform.basis
-	
-	$mesh.global_transform.basis = initial_basis.slerp(lookat_transform.basis, p)
-	$mesh.rotate_y(deg_to_rad(180))
 
 func _on_time():
 	if Global.scene_manager.active_scene.pathfinder.current_nav.size() == 0:

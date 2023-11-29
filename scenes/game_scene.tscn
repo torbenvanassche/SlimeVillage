@@ -27,14 +27,6 @@ environment = SubResource("Environment_jjbbm")
 [node name="UI" type="Node" parent="."]
 script = ExtResource("3_oubaf")
 
-[node name="Player" parent="." instance=ExtResource("6_o5cr0")]
-process_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-rotation_time = 0.01
-
-[node name="CameraRoot" parent="Player" instance=ExtResource("7_ca8bl")]
-unique_name_in_owner = true
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, -0.335797, 0.941934, 0, -0.941934, -0.335797, 0, 6.83928, -3.43085)
@@ -48,3 +40,18 @@ sky_mode = 1
 visible = false
 
 [node name="mine_subarea" parent="." instance=ExtResource("7_1l4xe")]
+
+[node name="PlayerRoot" type="Node3D" parent="."]
+
+[node name="CameraRoot" parent="PlayerRoot" node_paths=PackedStringArray("target") instance=ExtResource("7_ca8bl")]
+unique_name_in_owner = true
+target = NodePath("../Player")
+distance = 3.0
+max_distance = 10.0
+min_distance = 2.0
+
+[node name="Player" parent="PlayerRoot" instance=ExtResource("6_o5cr0")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+move_delay = 0.2
+rotation_time = 0.01
