@@ -68,5 +68,5 @@ func set_tile(data: Tile_Data):
 	navigation_weight = data.navigation_weight
 	
 	if data.randomize_rotation:
-		self.rotate_y(deg_to_rad(randi_range(0, side_count) * 360 / side_count))
+		self.rotate_y(deg_to_rad(randi_range(0, side_count) * 360.0 / side_count))
 
