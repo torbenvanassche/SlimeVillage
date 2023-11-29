@@ -1,8 +1,6 @@
 class_name Tile
 extends Node3D
 
-var active_option: Node3D
-
 var path_index: int
 
 var path_controller: Node
@@ -17,7 +15,15 @@ var neighbours := []
 		tile_data = value
 		set_tile(tile_data)
 
-@export var walkable_in_scene: bool
+@export var walkable_in_scene: bool:
+	set(value):
+		if path_controller:
+			if value:
+				path_controller.pathfinder.add_node(self);
+			else:
+				path_controller.pathfinder.remove_node(self)
+		walkable_in_scene = value;
+			
 var navigation_weight: int = 0
 
 func _add_neighbour(tile: Tile):
@@ -37,12 +43,11 @@ func _ready():
 	
 	find_surface()	
 	
-	if tile_data:
-		set_tile(tile_data)
+	set_tile(tile_data)
 	
 func find_surface():
 	var space_state = get_world_3d().direct_space_state
-	var q = PhysicsRayQueryParameters3D.create(self.global_position  + Vector3(0, 5, 0), self.global_position - Vector3(0, 5, 0))
+	var q = PhysicsRayQueryParameters3D.create(self.global_position  + Vector3(0, 1, 0), self.global_position - Vector3(0, 1, 0))
 	
 	var result = space_state.intersect_ray(q)
 	if result:
@@ -61,12 +66,7 @@ func set_tile(data: Tile_Data):
 		walkable_in_scene = data.walkable
 		
 	navigation_weight = data.navigation_weight
-			
-	if data.tile_options.size() != 0:	
-		var random_pick = data.tile_options.pick_random()
-		if random_pick != null:	
-			active_option = random_pick.instantiate()
-			if data.randomize_rotation:
-				active_option.rotate_y(deg_to_rad(randi_range(0, side_count) * 360 / side_count))
-		
-			$Ground.add_child(active_option)
+	
+	if data.randomize_rotation:
+		self.rotate_y(deg_to_rad(randi_range(0, side_count) * 360 / side_count))
+

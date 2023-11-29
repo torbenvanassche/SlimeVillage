@@ -12,4 +12,5 @@ func _open_mine():
 	Global.scene_manager.set_active_scene(Global.scene_manager.get_scene_by_name("mine_subarea"))
 	var mine = Global.scene_manager.active_scene as Grid;
 	mine.generate(Settings.mine_grid_size, items, Settings.mine_amount_to_spawn, Settings.mine_chance_to_fail)
-	pass
+	Global.player_instance.current_tile = mine.get_open_tile()
+	Global.player_instance.set_position_to_current_tile()

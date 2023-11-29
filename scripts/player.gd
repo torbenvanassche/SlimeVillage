@@ -17,7 +17,7 @@ func move():
 	if timer.is_stopped():
 		timer.start()
 		
-	look_to_direction()
+	#look_to_direction()
 		
 func set_position_to_current_tile(tile: Tile = current_tile):
 	if !tile:
@@ -30,7 +30,7 @@ func set_position_to_current_tile(tile: Tile = current_tile):
 func _process(_delta):
 	if Global.scene_manager.active_scene.pathfinder.current_nav.size() != 0:
 		progress = 1 - (timer.time_left / timer.wait_time)
-		position = current_tile.surface_point.slerp(Global.scene_manager.active_scene.pathfinder.current_nav[nav_index].surface_point, progress)
+		position = current_tile.surface_point.lerp(Global.scene_manager.active_scene.pathfinder.current_nav[nav_index].surface_point, progress)
 
 func _ready():
 	Global.player_instance = self

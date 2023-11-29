@@ -2,21 +2,43 @@ class_name path_finding
 extends Node
 
 var current_nav = []
-var hex_tiles_storage = []
+var hex_tiles_storage: Array[Tile] = []
 var path_finder = AStar2D.new()	
+var max_distance = 0;
 	
 func add_node(tile: Tile):
-	hex_tiles_storage.append(tile)
+	if(!hex_tiles_storage.has(tile)):
+		hex_tiles_storage.append(tile);
+		
+		set_neighbours();
+		generate_connections();		
+		
+func remove_node(tile: Tile):
+	if(hex_tiles_storage.has(tile)):
+		hex_tiles_storage.erase(tile);
+		
+	set_neighbours();
+	generate_connections();	
 	
 func clear_connections():
 	path_finder.clear()
 	for tile in hex_tiles_storage:
 		tile.neighbours.clear()
+		
+func clear(delete_tiles: bool):
+	clear_connections();
+	
+	if delete_tiles:
+		for tile in hex_tiles_storage:
+			tile.queue_free()
+		
 	
 func get_random_tile(): 
 	return hex_tiles_storage[randi_range(0, hex_tiles_storage.size() - 1)]
 	
-func set_neighbours(max_distance: float):
+func set_neighbours(distance: float = max_distance):
+	max_distance = distance;
+	
 	for current_tile in hex_tiles_storage:
 		if current_tile.walkable_in_scene:
 			current_tile.neighbours.clear()
