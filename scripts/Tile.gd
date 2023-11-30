@@ -58,6 +58,18 @@ func _execute_internal(_camera, _event, _pos, _normal, _shape_idx):
 		path_controller.pathfinder.calc_path(Global.player_instance.current_tile.path_index, path_index)
 		Global.player_instance.move()
 		
+func add_top(item_data: Dictionary):
+	var spawned = ItemManager.get_scene(item_data).instantiate()
+	if spawned is Interactable:
+		spawned.initialize(item_data);
+		#TODO
+		#spawned.interacted.connect(validate_interaction)
+			
+		add_child(spawned)
+		walkable_in_scene = false
+		is_used = true
+	pass
+		
 func set_tile(data: Tile_Data):
 	if !data: 
 		return

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2uyrj168ky8c"]
 
-[ext_resource type="Script" path="res://scripts/key_locations/mine.gd" id="1_4k0um"]
+[ext_resource type="Script" path="res://scripts/mechanics/mine.gd" id="1_4k0um"]
 [ext_resource type="PackedScene" uid="uid://t3ye1cbgdree" path="res://scenes/tiles/single_tile.tscn" id="2_l18f0"]
 
 [node name="Mine" type="Node3D" node_paths=PackedStringArray("entry_tile")]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://b0ajw5a07g334"]
 
 [ext_resource type="PackedScene" uid="uid://c3tqstoqyh5je" path="res://scenes/base_scenes/overworld.tscn" id="1_5qcad"]
-[ext_resource type="Script" path="res://scripts/scene_manager.gd" id="1_8x5qd"]
-[ext_resource type="Script" path="res://scripts/root_ui_reference.gd" id="3_oubaf"]
+[ext_resource type="Script" path="res://scripts/Utils/scene_manager.gd" id="1_8x5qd"]
+[ext_resource type="Script" path="res://scripts/ui/root_ui_reference.gd" id="3_oubaf"]
 [ext_resource type="PackedScene" uid="uid://bwrcc2gxqnosv" path="res://scenes/components/Player.tscn" id="6_o5cr0"]
 [ext_resource type="PackedScene" uid="uid://exnjdxf5vphk" path="res://scenes/base_scenes/mine_subarea.tscn" id="7_1l4xe"]
 [ext_resource type="PackedScene" uid="uid://cuqpjlp4i7pkb" path="res://scenes/components/camera.tscn" id="7_ca8bl"]

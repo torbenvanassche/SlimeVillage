@@ -18,12 +18,7 @@ func generate(grid_size: Vector2i, spawnables: Array = [], item_spawn_tries = 0,
 	for i in range(item_spawn_tries):
 		var item = Helpers.rand_item_weighted(spawnables, spawn_fail_weight)
 		if item:
-			var tile: Node3D = get_open_tile(Global.player_instance.current_tile)
-			var spawned_item = ItemManager.get_scene(item).instantiate()
-			
-			tile.add_child(spawned_item)
-			tile.walkable_in_scene = false
-			tile.is_used = true
+			var tile: Tile = get_open_tile(Global.player_instance.current_tile).add_top(item);
 
 	_init_pathfinder()
 	

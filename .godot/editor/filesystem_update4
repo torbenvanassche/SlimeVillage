@@ -2,4 +2,12 @@ res://scenes/game_scene.tscn
 res://scripts/key_locations/mine.gd
 res://materials/rock.tres
 res://scenes/locations/mine.tscn
-res://scripts/player.gd
+res://resources/items/scenes/ores/ore.tscn
+res://materials/polygon_dungeon.tres
+res://resources/items/materials/ores/iron_ore.tres
+res://scenes/base_scenes/mine_subarea.tscn
+res://scripts/mechanics/interactable.gd
+res://scripts/mechanics/item.gd
+res://scripts/Utils/grid.gd
+res://scripts/mechanics/mine.gd
+res://scripts/Tile.gd
