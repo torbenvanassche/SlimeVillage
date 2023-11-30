@@ -29,7 +29,9 @@ func _process(_delta):
 	if Global.scene_manager.active_scene.pathfinder.current_nav.size() != 0:
 		progress = 1 - (timer.time_left / timer.wait_time)
 		self.get_parent().position = current_tile.surface_point.lerp(Global.scene_manager.active_scene.pathfinder.current_nav[nav_index].surface_point, progress);
-		self.look_at(Global.scene_manager.active_scene.pathfinder.current_nav[nav_index].surface_point)
+		
+		if self.global_position.distance_to(Global.scene_manager.active_scene.pathfinder.current_nav[nav_index].surface_point) > 0.5:
+			self.look_at(Global.scene_manager.active_scene.pathfinder.current_nav[nav_index].surface_point)
 		
 func _ready():
 	Global.player_instance = self

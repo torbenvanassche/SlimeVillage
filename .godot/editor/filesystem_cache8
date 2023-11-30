@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1701349727
+::res://::1701351580
 icon.svg::CompressedTexture2D::6005263740792411663::1700824410::1700824410::1::::<><>::
 ::res://addons/::1700824410
 ::res://addons/plugin_refresher/::1700824410
@@ -15,14 +15,14 @@ plugin.cfg::TextFile::-1::1700824410::0::1::::<><>::
 snappy.gd::GDScript::-1::1700824410::0::1::::<>EditorPlugin<>::
 ::res://fonts/::1700824410
 Kenney Future Narrow.ttf::FontFile::4454373744168688336::1700824410::1700824410::1::::<><>::
-::res://materials/::1701349714
+::res://materials/::1701351336
 dirt.tres::StandardMaterial3D::7297620637653971879::1701264051::0::1::::<><>::uid://3ugfpqmai7es::::res://textures/albedo/PFK_Texture_Ground_Mud_01.png<>uid://daj4vioi6kpcu::::res://textures/normal/PFK_Texture_Ground_Base_Normals.png
 grass.tres::StandardMaterial3D::8544226759934097885::1700824410::0::1::::<><>::uid://c2ikrgnnugynm::::res://textures/albedo/PFK_Texture_Ground_Grass_01.png<>uid://daj4vioi6kpcu::::res://textures/normal/PFK_Texture_Ground_Base_Normals.png
 placeholder.tres::StandardMaterial3D::5426863629172573693::1700824410::0::1::::<><>::
 player.tres::StandardMaterial3D::348335014525633342::1700824410::0::1::::<><>::
 polygon_dungeon.tres::StandardMaterial3D::7979648664025782632::1701262415::0::1::::<><>::uid://6cntc5lpjqkb::::res://textures/dungeon/Dungeons_Texture_01.png
 polygon_fantasy.tres::StandardMaterial3D::1421523315881133774::1701088903::0::1::::<><>::uid://bgmlk6guw71c2::::res://textures/fantasy/PolygonFantasyKingdom_Texture_01_A.png
-rock.tres::StandardMaterial3D::3330604207971638305::1701349714::0::1::::<><>::
+rock.tres::StandardMaterial3D::3330604207971638305::1701351336::0::1::::<><>::
 ::res://models/::1701088903
 ::res://models/characters/::1701348046
 slime.glb::PackedScene::6287555220069429218::1700824410::1701348046::1::::<><>::
@@ -33,8 +33,8 @@ sm_generic_ground_02.tscn::PackedScene::1514380843113188454::1701349715::0::1:::
 ::res://models/Environment/source/::1701348103
 SM_Bld_House_Floor_Stone_03.glb::PackedScene::2470515046130073584::1701088903::1701348101::1::::<><>::
 SM_Generic_Ground_02.glb::PackedScene::5865190639523063259::1701088903::1701348103::1::::<><>::
-::res://models/Environment/source/ores/::1701088903
-SM_Env_Gem_Large_01.glb::PackedScene::5051287925474189143::1701088903::1701088903::1::::<><>::
+::res://models/Environment/source/ores/::1701351568
+SM_Env_Gem_Large_01.glb::PackedScene::5051287925474189143::1701088903::1701351568::1::::<><>::
 ::res://resources/::1700824410
 ::res://resources/items/::1701098321
 item_database.json::JSON::-1::1701098551::0::1::::<><>::
@@ -56,8 +56,8 @@ Dirt.tres::Resource/Resource::8844631174304305623::1700824410::0::1::::<><>::uid
 General.tres::Resource/Resource::7517189425304639444::1700824410::0::1::::<><>::uid://uiujthhjeqfu::::res://materials/polygon_fantasy.tres<>res://scripts/resources/tile_data.gd
 Grass.tres::Resource/Resource::8257294149933991432::1700824410::0::1::::<><>::uid://dty5fwmsj0t46::::res://materials/grass.tres<>res://scripts/resources/tile_data.gd
 Rock.tres::Resource/Resource::4154181133532665930::1700824410::0::1::::<><>::uid://bnpmtg15f2gxt::::res://materials/rock.tres<>res://scripts/resources/tile_data.gd
-::res://scenes/::1701334262
-game_scene.tscn::PackedScene::4141729091924138389::1701334262::0::1::::<><>::uid://c3tqstoqyh5je::::res://scenes/base_scenes/overworld.tscn<>res://scripts/scene_manager.gd<>res://scripts/root_ui_reference.gd<>uid://bwrcc2gxqnosv::::res://scenes/components/Player.tscn<>uid://exnjdxf5vphk::::res://scenes/base_scenes/mine_subarea.tscn<>uid://cuqpjlp4i7pkb::::res://scenes/components/camera.tscn<>uid://4obto2tpb0v3::::res://scenes/base_scenes/pause_menu.tscn
+::res://scenes/::1701351544
+game_scene.tscn::PackedScene::4141729091924138389::1701351544::0::1::::<><>::uid://c3tqstoqyh5je::::res://scenes/base_scenes/overworld.tscn<>res://scripts/scene_manager.gd<>res://scripts/root_ui_reference.gd<>uid://bwrcc2gxqnosv::::res://scenes/components/Player.tscn<>uid://exnjdxf5vphk::::res://scenes/base_scenes/mine_subarea.tscn<>uid://cuqpjlp4i7pkb::::res://scenes/components/camera.tscn<>uid://4obto2tpb0v3::::res://scenes/base_scenes/pause_menu.tscn
 option_selector.tscn::PackedScene::6794968367406994936::1700824410::0::1::::<><>::res://scripts/ui/ui_context_menu.gd
 ::res://scenes/base_scenes/::1701269119
 mine_subarea.tscn::PackedScene::329041649315274652::1701269119::0::1::::<><>::res://scripts/grid_generators/grid.gd<>uid://b0gk0yla13kvy::::res://resources/tiles/Rock.tres
@@ -66,21 +66,21 @@ pause_menu.tscn::PackedScene::2064473179056743778::1700824410::0::1::::<><>::res
 ::res://scenes/components/::1700824410
 camera.tscn::PackedScene::6210575713506958449::1700824410::0::1::::<><>::res://scripts/Utils/Camera3D.gd
 Player.tscn::PackedScene::3965796099588376697::1700824410::0::1::::<><>::res://scripts/player.gd<>uid://cvt0d66ofytw1::::res://models/characters/slime.glb
-::res://scenes/locations/::1701271747
-mine.tscn::PackedScene::6710715781345135620::1701271747::0::1::::<><>::res://scripts/key_locations/mine.gd<>uid://t3ye1cbgdree::::res://scenes/tiles/single_tile.tscn
+::res://scenes/locations/::1701351545
+mine.tscn::PackedScene::6710715781345135620::1701351545::0::1::::<><>::res://scripts/key_locations/mine.gd<>uid://t3ye1cbgdree::::res://scenes/tiles/single_tile.tscn
 ::res://scenes/tiles/::1701349665
 single_tile.tscn::PackedScene::1392856325988607464::1701349665::0::1::::<><>::res://scripts/Tile.gd<>uid://dfdnanmltqo5q::::res://resources/tiles/General.tres<>uid://c1or2uhp4wy76::::res://models/Environment/initialized/sm_bld_house_floor_stone_03.tscn
 tile_full_texture.tscn::PackedScene::8400706627534874786::1701088903::0::1::::<><>::res://scripts/Tile.gd<>uid://dfdnanmltqo5q::::res://resources/tiles/General.tres<>uid://vttvpx7ntaq5::::res://models/Environment/initialized/sm_generic_ground_02.tscn
 ::res://scenes/ui/::1700824410
 item_display.tscn::PackedScene::1624931973818253463::1700824410::0::1::::<><>::res://scripts/ui/ui_item_show.gd
 item_viewer.tscn::PackedScene::6907546675044960128::1700824410::0::1::::<><>::uid://crs820186kauh::::res://icon.svg<>uid://b4py5c2f05v57::::res://fonts/Kenney Future Narrow.ttf
-::res://scripts/::1701334262
+::res://scripts/::1701351543
 global.gd::GDScript::-1::1700824410::0::1::::<>Node<>::
 global_events.gd::GDScript::-1::1700824410::0::1::::<>Node<>::
 HTTP.gd::GDScript::-1::1701088903::0::1::::<>HTTPRequest<>::
 navigation_controller.gd::GDScript::-1::1701269104::0::1::::<>Node3D<>::
 path_finding.gd::GDScript::-1::1701265501::0::1::::path_finding<>Node<>::
-player.gd::GDScript::-1::1701334262::0::1::::Player<>Node3D<>::
+player.gd::GDScript::-1::1701351543::0::1::::Player<>Node3D<>::
 root_ui_reference.gd::GDScript::-1::1700824410::0::1::::<>Node<>::
 scene_manager.gd::GDScript::-1::1700824410::0::1::::SceneManager<>Node3D<>::
 Tile.gd::GDScript::-1::1701271744::0::1::::Tile<>Node3D<>::
@@ -90,10 +90,10 @@ grid.gd::GDScript::-1::1701268899::0::1::::Grid<>Node3D<>::
 inventory.gd::GDScript::-1::1700824410::0::1::::Inventory<>Node<>::
 item_manager.gd::GDScript::-1::1701098543::0::1::::<>Node<>::
 item_spawner.gd::GDScript::-1::1700824410::0::1::::TileTrigger<>Node3D<>::
-::res://scripts/key_locations/::1701349714
+::res://scripts/key_locations/::1701351336
 farm.gd::GDScript::-1::1700824410::0::1::::<>TileTrigger<>::
 market.gd::GDScript::-1::1700824410::0::1::::<>TileTrigger<>::
-mine.gd::GDScript::-1::1701349714::0::1::::<>TileTrigger<>::
+mine.gd::GDScript::-1::1701351336::0::1::::<>TileTrigger<>::
 ::res://scripts/resources/::1700824410
 mineable_data.gd::GDScript::-1::1700824410::0::1::::mineable_data<>Resource<>::
 tile_data.gd::GDScript::-1::1700824410::0::1::::Tile_Data<>Resource<>::

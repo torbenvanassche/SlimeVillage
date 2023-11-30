@@ -1,4 +1,5 @@
-res://models/Environment/initialized/sm_bld_house_floor_stone_03.tscn
+res://scenes/game_scene.tscn
 res://scripts/key_locations/mine.gd
 res://materials/rock.tres
-res://models/Environment/initialized/sm_generic_ground_02.tscn
+res://scenes/locations/mine.tscn
+res://scripts/player.gd
