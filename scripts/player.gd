@@ -59,7 +59,9 @@ func find_location() -> Tile:
 	
 func try_interact(tile: Tile, move_near: bool):
 	if move_near:
-		tile.path_controller.set_path(tile.path_controller.get_closest_walkable(current_tile, tile))
+		var path = tile.path_controller.pathfinder.get_valid_path(current_tile, tile);
+		tile.path_controller.pathfinder.set_path(path);
+		move();
 	
 	return tile.neighbours.has(current_tile);
 

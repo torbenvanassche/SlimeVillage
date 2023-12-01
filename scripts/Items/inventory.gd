@@ -11,9 +11,8 @@ func add_item(item: Dictionary, make_slot_if_full: bool = true, amount: int = 1)
 	var remaining_amount = amount
 	var indices = try_get_indices(item)
 	
-	if indices.size() == 0 and data.size() < max_slots:
-		data.append(item)
-		item["count"] = amount
+	if indices.size() == 0 and data.size() < max_slots && amount < item["stack_size"]:
+		data.append({"name": item["name"], "count": amount, "stack_size": item["stack_size"]})
 	else:
 		while remaining_amount > 0:
 			for slot in indices:

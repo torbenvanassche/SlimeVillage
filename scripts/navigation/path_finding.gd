@@ -51,8 +51,9 @@ func set_neighbours(distance: float = max_distance):
 					
 func generate_connections():
 	for tile in hex_tiles_storage:
-		tile.path_index = path_finder.get_point_count()		
-		path_finder.add_point(tile.path_index, Vector2(tile.global_position.x, tile.global_position.z), tile.navigation_weight)
+		if tile.walkable_in_scene:
+			tile.path_index = path_finder.get_point_count()		
+			path_finder.add_point(tile.path_index, Vector2(tile.global_position.x, tile.global_position.z), tile.navigation_weight)
 		
 	for tile in hex_tiles_storage:
 		for connected_tile in tile.neighbours:
@@ -70,20 +71,20 @@ func calc_path(from: int, to: int):
 		current_nav.append(hex_tiles_storage.filter(func(x): return x.path_index == t)[0])
 	current_nav.pop_front()
 	
-func get_closest_walkable(start: Tile, end: Tile):
-	var closest_path = []
+func get_valid_path(start: Tile, end: Tile) -> Array[Tile]:
+	var closest_path: PackedInt64Array = []
 	if start.walkable_in_scene:
 		if end.walkable_in_scene:
-			return path_finder.get_id_path(start.path_index, end.path_index);
+			return _indices_to_tiles(path_finder.get_id_path(start.path_index, end.path_index));
 		
 		for n in end.neighbours:
 			if n.walkable_in_scene:
 				var path = path_finder.get_id_path(start.path_index, n.path_index);
 				if path.size() < closest_path.size() || closest_path.size() == 0:
 					closest_path = path;
-	return closest_path;
+	return _indices_to_tiles(closest_path);
 	
-func get_tile_path(arr: Array[int]) -> Array[Tile]:
+func _indices_to_tiles(arr: PackedInt64Array) -> Array[Tile]:
 	var path: Array[Tile] = []
 	
 	for t in arr:
