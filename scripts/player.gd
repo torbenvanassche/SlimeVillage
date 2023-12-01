@@ -56,6 +56,12 @@ func find_location() -> Tile:
 		return result.collider.get_parent() as Tile
 		
 	return null
+	
+func try_interact(tile: Tile, move_near: bool):
+	if move_near:
+		tile.path_controller.set_path(tile.path_controller.get_closest_walkable(current_tile, tile))
+	
+	return tile.neighbours.has(current_tile);
 
 func _on_time():
 	if Global.scene_manager.active_scene.pathfinder.current_nav.size() == 0:

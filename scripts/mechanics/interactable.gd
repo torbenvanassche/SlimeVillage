@@ -1,7 +1,7 @@
 class_name Interactable
 extends Node
 
-signal interacted(data: Dictionary, tile: Tile)
+signal interacted(data: Dictionary)
 
 var item_data: Dictionary = {}
 
@@ -12,4 +12,6 @@ func initialize(data: Dictionary):
 
 func _on_interact(_camera, _event, _pos, _normal, _shape_idx):
 	if Input.is_action_just_pressed("mouse_left"):
-		interacted.emit(item_data)
+		if Global.player_instance.try_interact(self.get_parent(), true):
+			Global.player_instance.inventory.add_item(item_data);
+			print(item_data)

@@ -15,14 +15,7 @@ var neighbours := []
 		tile_data = value
 		set_tile(tile_data)
 
-@export var walkable_in_scene: bool:
-	set(value):
-		if path_controller:
-			if value:
-				path_controller.pathfinder.add_node(self);
-			else:
-				path_controller.pathfinder.remove_node(self)
-		walkable_in_scene = value;
+@export var walkable_in_scene: bool;
 			
 var navigation_weight: int = 0
 
@@ -30,15 +23,14 @@ func _add_neighbour(tile: Tile):
 	neighbours.append(tile)
 
 func _ready():			
-	if walkable_in_scene:
-		add_to_group("Walkable")
-		path_controller = self
-		while not path_controller.get("pathfinder"):
-			path_controller = path_controller.get_parent()
+	path_controller = self
+	while not path_controller.get("pathfinder"):
+		path_controller = path_controller.get_parent()
 		
-		path_controller.pathfinder.add_node(self)
+	path_controller.pathfinder.add_node(self)
 	
-	$StaticBody3D.input_event.connect(_execute_internal)
+	if walkable_in_scene:
+		$StaticBody3D.input_event.connect(_execute_internal)
 	$StaticBody3D.set_meta("tile", self)
 	
 	find_surface()	
@@ -62,13 +54,10 @@ func add_top(item_data: Dictionary):
 	var spawned = ItemManager.get_scene(item_data).instantiate()
 	if spawned is Interactable:
 		spawned.initialize(item_data);
-		#TODO
-		#spawned.interacted.connect(validate_interaction)
 			
 		add_child(spawned)
 		walkable_in_scene = false
 		is_used = true
-	pass
 		
 func set_tile(data: Tile_Data):
 	if !data: 

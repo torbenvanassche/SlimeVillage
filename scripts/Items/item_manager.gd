@@ -34,7 +34,6 @@ func get_colors(item: Dictionary) -> Array[Color]:
 	
 func get_components(item: Dictionary) -> Array[Dictionary]:
 	var result: Array[Dictionary] = []
-	print(item["components"])
 	for component in item["components"]:
 		result.append(get_item_by_name(component))
 	return result
