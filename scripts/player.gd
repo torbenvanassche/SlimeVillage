@@ -1,50 +1,24 @@
 class_name Player
 extends Node3D
 
-var timer: Timer = null
-var nav_index = 0
-var progress: float = 0
+var inventory: Inventory = Inventory.new();
 
-var current_tile: Tile = null
-var destination_tile: Tile = null
-var inventory: Inventory = Inventory.new()
-
-@export var move_delay: float = 0.25
-@export var rotation_time: float = 0.1
-
-func move():
-	nav_index = 0
-	if timer.is_stopped():
-		timer.start()
+@export var navigator: Navigator;
 		
-func set_position_to_current_tile(tile: Tile = current_tile):
+func _ready():
+	Global.player_instance = self
+	navigator.target = self;
+	
+	if not navigator.current_tile:
+		set_position_to_current_tile(find_location())
+		
+func set_position_to_current_tile(tile: Tile = navigator.current_tile):
 	if !tile:
 		print("No tile found to set position to, skipping...")
 		return
 	
-	current_tile = tile
-	self.get_parent().global_position = current_tile.surface_point
-
-func _process(_delta):
-	if Global.scene_manager.active_scene.pathfinder.current_nav.size() != 0:
-		progress = 1 - (timer.time_left / timer.wait_time)
-		self.get_parent().position = current_tile.surface_point.lerp(Global.scene_manager.active_scene.pathfinder.current_nav[nav_index].surface_point, progress);
-		
-		if self.global_position.distance_to(Global.scene_manager.active_scene.pathfinder.current_nav[nav_index].surface_point) > 0.5:
-			self.look_at(Global.scene_manager.active_scene.pathfinder.current_nav[nav_index].surface_point)
-		
-func _ready():
-	Global.player_instance = self
-	
-	timer = Timer.new()
-	add_child(timer)
-		
-	timer.wait_time = move_delay
-	timer.one_shot = false
-	timer.timeout.connect(_on_time)
-	
-	if not current_tile:
-		set_position_to_current_tile(find_location())
+	navigator.current_tile = tile
+	self.get_parent().global_position = navigator.current_tile.surface_point
 	
 func find_location() -> Tile:
 	var space_state = get_world_3d().direct_space_state
@@ -57,25 +31,10 @@ func find_location() -> Tile:
 		
 	return null
 	
-func try_interact(tile: Tile, move_near: bool):
+func try_move(tile: Tile, move_near: bool = true):
 	if move_near:
-		var path = tile.path_controller.pathfinder.get_valid_path(current_tile, tile);
+		var path = Global.scene_manager.active_scene.pathfinder.get_valid_path(navigator.current_tile, tile);
 		tile.path_controller.pathfinder.set_path(path);
-		move();
+		navigator.move();
 	
-	return tile.neighbours.has(current_tile);
-
-func _on_time():
-	if Global.scene_manager.active_scene.pathfinder.current_nav.size() == 0:
-		return
-	
-	if nav_index < Global.scene_manager.active_scene.pathfinder.current_nav.size() - 1:
-		current_tile = Global.scene_manager.active_scene.pathfinder.current_nav[nav_index]
-		nav_index += 1
-	else: 
-		current_tile = Global.scene_manager.active_scene.pathfinder.current_nav[nav_index]
-		Global.scene_manager.active_scene.pathfinder.current_nav.clear()
-		GlobalEvents.tile_destination_reached.emit(current_tile)
-		
-		nav_index = 0
-		timer.stop()
+	return tile.neighbours.has(navigator.current_tile);

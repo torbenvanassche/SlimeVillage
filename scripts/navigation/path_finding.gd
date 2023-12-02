@@ -57,7 +57,7 @@ func generate_connections():
 		
 	for tile in hex_tiles_storage:
 		for connected_tile in tile.neighbours:
-			if connected_tile.walkable_in_scene:
+			if connected_tile.walkable_in_scene && tile.walkable_in_scene:
 				path_finder.connect_points(tile.path_index, connected_tile.path_index)
 			
 func repath():

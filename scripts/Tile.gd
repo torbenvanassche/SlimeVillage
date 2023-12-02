@@ -46,9 +46,8 @@ func find_surface():
 		surface_point = result.position
 	
 func _execute_internal(_camera, _event, _pos, _normal, _shape_idx):
-	if Input.is_action_just_pressed("mouse_left") and walkable_in_scene and self != Global.player_instance.current_tile:
-		path_controller.pathfinder.calc_path(Global.player_instance.current_tile.path_index, path_index)
-		Global.player_instance.move()
+	if Input.is_action_just_pressed("mouse_left") and walkable_in_scene and self != Global.player_instance.navigator.current_tile:
+		Global.player_instance.try_move(self)
 		
 func add_top(item_data: Dictionary):
 	var spawned = ItemManager.get_scene(item_data).instantiate()
