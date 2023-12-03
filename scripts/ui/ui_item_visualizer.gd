@@ -1,5 +1,5 @@
 class_name ItemViewController
-extends WorldSpaceControl
+extends Node2D
 
 var item_scene: PackedScene = preload("res://scenes/ui/item_viewer.tscn")
  

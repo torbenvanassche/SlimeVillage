@@ -1,15 +1,5 @@
-res://resources/items/scenes/ores/ore.tscn
+res://scenes/game_scene.tscn
 res://scripts/mechanics/mine.gd
 res://materials/rock.tres
-res://materials/polygon_dungeon.tres
-res://resources/items/materials/ores/iron_ore.tres
-res://scripts/player.gd
-res://scenes/game_scene.tscn
-res://scenes/locations/mine.tscn
-res://scenes/base_scenes/mine_subarea.tscn
-res://scripts/navigation/path_finding.gd
 res://scripts/navigation/navigator.gd
 res://scripts/mechanics/interactable.gd
-res://scripts/Tile.gd
-res://scenes/components/Player.tscn
-res://scripts/Utils/grid.gd

@@ -11,5 +11,6 @@ func initialize(data: Dictionary):
 
 func _on_interact(_camera, _event, _pos, _normal, _shape_idx):
 	if Input.is_action_just_pressed("mouse_left"):
-		if Global.player_instance.navigator.try_move(self.get_parent(), true):
-			Global.player_instance.inventory.add_item(item_data);
+		Global.player_instance.navigator.try_move(self.get_parent(), true)
+		if Global.player_instance.navigator.is_adjacent(self.get_parent()):
+			print(item_data);

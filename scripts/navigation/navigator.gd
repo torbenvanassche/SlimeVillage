@@ -12,11 +12,7 @@ var target: Node3D;
 @export var move_delay: float = 0.25
 @export var rotation_time: float = 0.1
 
-func move():
-	if Global.scene_manager.active_scene.pathfinder.current_nav.size() != 0:
-		while !Global.scene_manager.active_scene.pathfinder.current_nav[-1].walkable_in_scene:
-			Global.scene_manager.active_scene.pathfinder.current_nav.pop_back();
-	
+func move():	
 	nav_index = 0
 	if timer.is_stopped():
 		timer.start()
@@ -49,7 +45,7 @@ func _on_time():
 		nav_index += 1
 	else: 
 		current_tile = Global.scene_manager.active_scene.pathfinder.current_nav[nav_index]
-		Global.scene_manager.active_scene.pathfinder.current_nav.clear()
+		Global.scene_manager.active_scene.pathfinder.current_nav.clear()		
 		GlobalEvents.tile_destination_reached.emit(current_tile)
 		
 		nav_index = 0
@@ -79,5 +75,6 @@ func try_move(tile: Tile, move_near: bool = true):
 		var path = Global.scene_manager.active_scene.pathfinder.get_valid_path(current_tile, tile);
 		tile.path_controller.pathfinder.set_path(path);
 		move();
-	
-	return tile.neighbours.has(current_tile);
+		
+func is_adjacent(tile1: Tile, tile2: Tile = current_tile):
+	return tile1.neighbours.has(tile2) || tile2.neighbours.has(tile1)
