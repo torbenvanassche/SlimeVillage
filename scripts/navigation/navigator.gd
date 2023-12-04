@@ -12,7 +12,7 @@ var target: Node3D;
 @export var move_delay: float = 0.25
 @export var rotation_time: float = 0.1
 
-var on_tile_destination_reached: Callable;
+var on_tile_destination_reached: Callable = Callable();
 
 func move():	
 	nav_index = 0
@@ -49,7 +49,10 @@ func _on_time():
 		current_tile = Global.scene_manager.active_scene.pathfinder.current_nav[nav_index]
 		Global.scene_manager.active_scene.pathfinder.current_nav.clear()		
 		GlobalEvents.tile_destination_reached.emit(current_tile)
-		on_tile_destination_reached.call();
+		
+		if !on_tile_destination_reached.is_null():
+			on_tile_destination_reached.call();
+			on_tile_destination_reached = Callable();
 		
 		nav_index = 0
 		timer.stop()

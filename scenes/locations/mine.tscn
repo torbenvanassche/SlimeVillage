@@ -5,30 +5,6 @@
 
 [node name="Mine" type="Node3D" node_paths=PackedStringArray("entry_tile")]
 script = ExtResource("1_4k0um")
-entry_tile = NodePath("Node3D9")
+entry_tile = NodePath("Node3D")
 
 [node name="Node3D" parent="." instance=ExtResource("2_l18f0")]
-
-[node name="Node3D2" parent="." instance=ExtResource("2_l18f0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
-
-[node name="Node3D3" parent="." instance=ExtResource("2_l18f0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-
-[node name="Node3D4" parent="." instance=ExtResource("2_l18f0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-
-[node name="Node3D5" parent="." instance=ExtResource("2_l18f0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
-
-[node name="Node3D6" parent="." instance=ExtResource("2_l18f0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
-
-[node name="Node3D7" parent="." instance=ExtResource("2_l18f0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
-
-[node name="Node3D8" parent="." instance=ExtResource("2_l18f0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1)
-
-[node name="Node3D9" parent="." instance=ExtResource("2_l18f0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)

@@ -2,6 +2,7 @@ class_name Grid
 extends Node3D
 
 var ground_tile: PackedScene = preload("res://scenes/tiles/tile_full_texture.tscn")
+
 @export var tile_options: Array[Tile_Data] = []
 
 @export var tile_size := 1.0
