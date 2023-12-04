@@ -1,5 +1,7 @@
 res://scenes/game_scene.tscn
 res://scripts/mechanics/mine.gd
 res://materials/rock.tres
-res://scripts/navigation/navigator.gd
 res://scripts/mechanics/interactable.gd
+res://scenes/locations/mine.tscn
+res://scripts/Utils/grid.gd
+res://scripts/navigation/navigator.gd
