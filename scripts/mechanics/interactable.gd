@@ -20,5 +20,5 @@ func _on_interact_internal():
 func _on_interact():
 	print("Not implemented.")
 	
-func init_virtual(data: Dictionary):
+func init_virtual(_data: Dictionary):
 	pass

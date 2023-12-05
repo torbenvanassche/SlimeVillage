@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="Tile_Data" load_steps=3 format=3 uid="uid://dfdnanmltqo5q"]
 
-[ext_resource type="Material" uid="uid://uiujthhjeqfu" path="res://materials/polygon_fantasy.tres" id="1_d3sbw"]
 [ext_resource type="Script" path="res://scripts/resources/tile_data.gd" id="1_jiyiq"]
+[ext_resource type="Material" uid="uid://bnpmtg15f2gxt" path="res://materials/rock.tres" id="1_riskk"]
 
 [resource]
 script = ExtResource("1_jiyiq")
 tile_options = Array[PackedScene]([])
 navigation_weight = 0
 walkable = true
-ground_material = ExtResource("1_d3sbw")
+ground_material = ExtResource("1_riskk")
 random_weight = 0.0
 randomize_rotation = true

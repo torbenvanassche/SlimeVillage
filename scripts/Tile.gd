@@ -63,7 +63,11 @@ func set_tile(data: Tile_Data):
 		return
 	
 	if !data.walkable:
-		walkable_in_scene = data.walkable
+		walkable_in_scene = data.walkable;
+		
+	var tile = get_node_or_null("SM_Generic_Ground_02/SM_Generic_Ground_02");
+	if tile && data.ground_material:
+		tile.set_material_override(data.ground_material);
 		
 	navigation_weight = data.navigation_weight
 	

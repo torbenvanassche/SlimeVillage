@@ -3,8 +3,8 @@ extends Interactable
 
 var item_data: Dictionary = {}
 
-func init_virtual(data: Dictionary):
-	item_data = data;
+func init_virtual(_data: Dictionary):
+	item_data = _data;
 
 func _on_interact():
 	$SM_Env_Gem_Large_Base/SM_Env_Gem_Large_Crystals.queue_free()

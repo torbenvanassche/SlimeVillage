@@ -1,14 +1,9 @@
 extends TileTrigger
 
-var area_transition_placeholder = preload("res://models/prototype/SM_Icon_SelectionRing_01.glb")
-
 func _ready():
 	super()
 	
 	items = JSON_HELPER.get_array_by_property(ItemManager.items, "location", "mine").filter(func(x): return x["available"] == true)
-	var transition_placeholder = area_transition_placeholder.instantiate();
-	
-	entry_tile.add_child(transition_placeholder);
 
 func _entered():
 	_open_mine()
