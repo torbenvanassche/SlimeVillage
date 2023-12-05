@@ -1,15 +1,6 @@
 res://scenes/game_scene.tscn
 res://scripts/mechanics/mine.gd
 res://materials/rock.tres
-res://scripts/mechanics/interactable.gd
-res://scenes/locations/mine.tscn
-res://scripts/navigation/navigator.gd
-res://scripts/mechanics/item.gd
-res://resources/items/scenes/ores/ore.tscn
-res://materials/polygon_dungeon.tres
-res://resources/items/materials/ores/iron_ore.tres
-res://scenes/base_scenes/mine_subarea.tscn
-res://scenes/tiles/tile_full_texture.tscn
-res://scripts/mechanics/market.gd
-res://scripts/Utils/grid.gd
 res://scenes/base_scenes/overworld.tscn
+res://scenes/locations/mine.tscn
+res://models/prototype/sm_icon_selection_ring_012.tscn

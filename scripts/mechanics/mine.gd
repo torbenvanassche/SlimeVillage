@@ -6,7 +6,9 @@ func _ready():
 	super()
 	
 	items = JSON_HELPER.get_array_by_property(ItemManager.items, "location", "mine").filter(func(x): return x["available"] == true)
-	entry_tile.add_child(area_transition_placeholder.instantiate());
+	var transition_placeholder = area_transition_placeholder.instantiate();
+	
+	entry_tile.add_child(transition_placeholder);
 
 func _entered():
 	_open_mine()
