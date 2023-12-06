@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://c3tqstoqyh5je" path="res://scenes/base_scenes/overworld.tscn" id="1_5qcad"]
 [ext_resource type="Script" path="res://scripts/Utils/scene_manager.gd" id="1_8x5qd"]
-[ext_resource type="Script" path="res://scripts/ui/root_ui_reference.gd" id="3_oubaf"]
 [ext_resource type="PackedScene" uid="uid://bwrcc2gxqnosv" path="res://scenes/components/Player.tscn" id="6_o5cr0"]
 [ext_resource type="PackedScene" uid="uid://exnjdxf5vphk" path="res://scenes/base_scenes/mine_subarea.tscn" id="7_1l4xe"]
 [ext_resource type="PackedScene" uid="uid://cuqpjlp4i7pkb" path="res://scenes/components/camera.tscn" id="7_ca8bl"]
@@ -12,6 +11,13 @@
 ambient_light_color = Color(0.47451, 0.47451, 0.47451, 1)
 tonemap_mode = 1
 tonemap_white = 1.55
+
+[sub_resource type="GDScript" id="GDScript_1q1rv"]
+script/source = "extends Node
+
+func _ready():
+	Global.ui_root = self
+"
 
 [node name="Node" type="Node3D" node_paths=PackedStringArray("scenes", "initial_scene")]
 process_mode = 3
@@ -25,7 +31,7 @@ environment = SubResource("Environment_jjbbm")
 [node name="overworld" parent="." instance=ExtResource("1_5qcad")]
 
 [node name="UI" type="Node" parent="."]
-script = ExtResource("3_oubaf")
+script = SubResource("GDScript_1q1rv")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 process_mode = 1

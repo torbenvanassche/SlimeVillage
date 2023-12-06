@@ -1,6 +1,6 @@
-class_name ItemViewController
 extends Node2D
 
+#TODO: Refactor this to managed inventory rather than checking in hierarchy
 var item_scene: PackedScene = preload("res://scenes/ui/item_viewer.tscn")
  
 func add_item(item: Dictionary):

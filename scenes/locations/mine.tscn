@@ -1,11 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2uyrj168ky8c"]
+[gd_scene load_steps=4 format=3 uid="uid://c2uyrj168ky8c"]
 
-[ext_resource type="Script" path="res://scripts/mechanics/mine.gd" id="1_4k0um"]
 [ext_resource type="PackedScene" uid="uid://t3ye1cbgdree" path="res://scenes/tiles/single_tile.tscn" id="2_l18f0"]
+[ext_resource type="Script" path="res://scripts/navigation/scene_transition_trigger.gd" id="3_fmxiv"]
+[ext_resource type="Script" path="res://scripts/navigation/tile_trigger.gd" id="4_x00b8"]
 
-[node name="Mine" type="Node3D" node_paths=PackedStringArray("entry_tile")]
-script = ExtResource("1_4k0um")
-entry_tile = NodePath("Node3D7")
+[node name="Mine" type="Node3D"]
 
 [node name="Node3D4" parent="." instance=ExtResource("2_l18f0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
@@ -18,6 +17,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
 
 [node name="Node3D7" parent="." instance=ExtResource("2_l18f0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="scene_transition" type="Node" parent="Node3D7" node_paths=PackedStringArray("trigger")]
+script = ExtResource("3_fmxiv")
+trigger = NodePath("../trigger")
+
+[node name="trigger" type="Node" parent="Node3D7"]
+script = ExtResource("4_x00b8")
 
 [node name="Node3D8" parent="." instance=ExtResource("2_l18f0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)

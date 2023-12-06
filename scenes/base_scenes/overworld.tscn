@@ -11,33 +11,33 @@ script = ExtResource("1_qkxrw")
 
 [node name="Mine" parent="." instance=ExtResource("2_h5aka")]
 
-[node name="mine_tile" parent="." instance=ExtResource("3_prrg5")]
+[node name="grass_tile" parent="." instance=ExtResource("3_prrg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 tile_data = ExtResource("4_ljbrp")
 
-[node name="mine_tile2" parent="." instance=ExtResource("3_prrg5")]
+[node name="grass_tile2" parent="." instance=ExtResource("3_prrg5")]
 tile_data = ExtResource("4_ljbrp")
 
-[node name="mine_tile3" parent="." instance=ExtResource("3_prrg5")]
+[node name="grass_tile3" parent="." instance=ExtResource("3_prrg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
 tile_data = ExtResource("4_ljbrp")
 
-[node name="mine_tile4" parent="." instance=ExtResource("3_prrg5")]
+[node name="grass_tile4" parent="." instance=ExtResource("3_prrg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 tile_data = ExtResource("4_ljbrp")
 
-[node name="mine_tile5" parent="." instance=ExtResource("3_prrg5")]
+[node name="grass_tile5" parent="." instance=ExtResource("3_prrg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
 tile_data = ExtResource("4_ljbrp")
 
-[node name="mine_tile6" parent="." instance=ExtResource("3_prrg5")]
+[node name="grass_tile6" parent="." instance=ExtResource("3_prrg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 tile_data = ExtResource("4_ljbrp")
 
-[node name="mine_tile7" parent="." instance=ExtResource("3_prrg5")]
+[node name="grass_tile7" parent="." instance=ExtResource("3_prrg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
 tile_data = ExtResource("4_ljbrp")
 
-[node name="mine_tile8" parent="." instance=ExtResource("3_prrg5")]
+[node name="grass_tile8" parent="." instance=ExtResource("3_prrg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 tile_data = ExtResource("4_ljbrp")

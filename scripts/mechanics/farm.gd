@@ -26,5 +26,5 @@ func _on_grow():
 		growth_timer.stop()
 		
 func _entered():
-	GlobalEvents.resource_location_interaction.emit(ItemManager.rand_item_weighted(items))
+	#GlobalEvents.resource_location_interaction.emit(ItemManager.rand_item_weighted(items))
 	pass

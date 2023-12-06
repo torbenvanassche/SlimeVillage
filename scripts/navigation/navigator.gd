@@ -19,7 +19,9 @@ func move():
 	if timer.is_stopped():
 		timer.start()
 	
-func ready():
+func _ready():
+	target = self.get_parent();
+	
 	timer = Timer.new()
 	add_child(timer)
 		
@@ -47,12 +49,10 @@ func _on_time():
 		nav_index += 1
 	else: 
 		current_tile = Global.scene_manager.active_scene.pathfinder.current_nav[nav_index]
-		Global.scene_manager.active_scene.pathfinder.current_nav.clear()		
-		GlobalEvents.tile_destination_reached.emit(current_tile)
+		Global.scene_manager.active_scene.pathfinder.current_nav.clear()	
 		
-		if !on_tile_destination_reached.is_null():
-			on_tile_destination_reached.call();
-			on_tile_destination_reached = Callable();
+		if current_tile.trigger:
+			current_tile.trigger.on_entered.emit()
 		
 		nav_index = 0
 		timer.stop()

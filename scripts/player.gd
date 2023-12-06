@@ -7,5 +7,4 @@ var inventory: Inventory = Inventory.new();
 		
 func _ready():
 	Global.player_instance = self
-	navigator.target = self;
-	navigator.ready();
+	navigator._ready();

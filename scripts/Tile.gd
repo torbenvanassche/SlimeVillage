@@ -16,6 +16,7 @@ var neighbours := []
 		set_tile(tile_data)
 
 @export var walkable_in_scene: bool;
+@export var trigger: TileTrigger;
 			
 var navigation_weight: int = 0
 
