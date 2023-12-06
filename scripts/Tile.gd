@@ -8,15 +8,15 @@ var is_used: bool = false
 
 var surface_point := Vector3()
 var neighbours := []
+var side_count: int = 4
 
-@export var side_count: int = 4
+@export var trigger: TileTrigger;
 @export var tile_data: Tile_Data: 
 	set(value): 
 		tile_data = value
 		set_tile(tile_data)
 
 @export var walkable_in_scene: bool;
-@export var trigger: TileTrigger;
 			
 var navigation_weight: int = 0
 

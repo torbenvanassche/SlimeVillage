@@ -1,16 +1,17 @@
 class_name Interactable
 extends Node
 
-func initialize(data: Dictionary):
-	$StaticBody3D.input_event.connect(_on_click)
+@export var interaction: Node;
 
-func _on_click(_camera, _event, _pos, _normal, _shape_idx):
+func initialize(data: Dictionary):
+	$StaticBody3D.input_event.connect(execute)
+	interaction.item_data = data;
+
+func execute(_camera = null, _event = null, _pos = Vector3.ZERO, _normal = Vector3.ZERO, _shape_idx = -1):
 	if Input.is_action_just_pressed("mouse_left"):
-		if !_on_interact_internal():
-			Global.player_instance.navigator.try_move(self.get_parent(), _on_interact_internal, true)
-	
-func _on_interact_internal():
-	if Global.player_instance.navigator.is_adjacent(self.get_parent()):
-		return true;
-		
-	return false;
+		if !Global.player_instance.navigator.is_adjacent(self.get_parent()):
+			Global.player_instance.navigator.try_move(self.get_parent(), true)
+		else:
+			if interaction && interaction.has_method("execute"):
+				interaction.execute();
+

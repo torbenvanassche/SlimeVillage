@@ -1,15 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://778ctls66plu"]
+[gd_scene load_steps=7 format=3 uid="uid://778ctls66plu"]
 
 [ext_resource type="PackedScene" uid="uid://cd748edhg0wfn" path="res://models/Environment/source/ores/SM_Env_Gem_Large_01.glb" id="1_06ahy"]
-[ext_resource type="Script" path="res://scripts/mechanics/item.gd" id="2_1p3tf"]
+[ext_resource type="Script" path="res://scripts/mechanics/interactable.gd" id="2_a5x5e"]
 [ext_resource type="Material" uid="uid://dlxnwaxpavp4k" path="res://materials/polygon_dungeon.tres" id="2_b28q7"]
 [ext_resource type="Material" uid="uid://3aluuv68jlmy" path="res://resources/items/materials/ores/iron_ore.tres" id="3_f3nvj"]
+[ext_resource type="Script" path="res://scripts/mechanics/item_interact.gd" id="5_on11k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bf2cw"]
 size = Vector3(0.546753, 0.841064, 0.480042)
 
-[node name="SM_Env_Gem_Large_01" instance=ExtResource("1_06ahy")]
-script = ExtResource("2_1p3tf")
+[node name="SM_Env_Gem_Large_01" node_paths=PackedStringArray("interaction") instance=ExtResource("1_06ahy")]
+script = ExtResource("2_a5x5e")
+interaction = NodePath("interaction")
 
 [node name="SM_Env_Gem_Large_Base" parent="." index="0"]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0)
@@ -23,3 +25,6 @@ material_override = ExtResource("3_f3nvj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0136108, 0.412584, 0.013031)
 shape = SubResource("BoxShape3D_bf2cw")
+
+[node name="interaction" type="Node" parent="." index="2"]
+script = ExtResource("5_on11k")

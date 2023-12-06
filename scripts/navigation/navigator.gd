@@ -52,7 +52,7 @@ func _on_time():
 		Global.scene_manager.active_scene.pathfinder.current_nav.clear()	
 		
 		if current_tile.trigger:
-			current_tile.trigger.on_entered.emit()
+			current_tile.trigger.on_entered.emit();
 		
 		nav_index = 0
 		timer.stop()
@@ -76,11 +76,10 @@ func find_location() -> Tile:
 		
 	return null
 
-func try_move(tile: Tile, on_move: Callable = Callable(), move_near: bool = true):
+func try_move(tile: Tile, move_near: bool = true):
 	if move_near:
 		var path = Global.scene_manager.active_scene.pathfinder.get_valid_path(current_tile, tile);
 		tile.path_controller.pathfinder.set_path(path);
-		on_tile_destination_reached = on_move;
 		move();
 		
 func is_adjacent(tile1: Tile, tile2: Tile = current_tile):

@@ -1,5 +1,5 @@
 class_name TileTrigger
-extends Node3D
+extends Node
 
 var items: Array = []
 
@@ -9,4 +9,4 @@ var area_transition_placeholder = preload("res://models/prototype/sm_icon_select
 
 func _ready():	
 	var transition_placeholder = area_transition_placeholder.instantiate();
-	self.get_parent().add_child(transition_placeholder);
+	self.get_parent().add_child.call_deferred(transition_placeholder);
