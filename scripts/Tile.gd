@@ -10,7 +10,7 @@ var surface_point := Vector3()
 var neighbours := []
 var side_count: int = 4
 
-@export var trigger: TileTrigger;
+@export var trigger: Triggerable;
 @export var tile_data: Tile_Data: 
 	set(value): 
 		tile_data = value

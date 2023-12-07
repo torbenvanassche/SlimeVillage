@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2uyrj168ky8c"]
+[gd_scene load_steps=4 format=3 uid="uid://c2uyrj168ky8c"]
 
 [ext_resource type="PackedScene" uid="uid://t3ye1cbgdree" path="res://scenes/tiles/single_tile.tscn" id="2_l18f0"]
+[ext_resource type="Script" path="res://scripts/navigation/triggerable.gd" id="2_sux4q"]
 [ext_resource type="Script" path="res://scripts/navigation/transition_mine.gd" id="3_a30h8"]
-[ext_resource type="Script" path="res://scripts/navigation/scene_transition_trigger.gd" id="3_fmxiv"]
-[ext_resource type="Script" path="res://scripts/navigation/tile_trigger.gd" id="4_x00b8"]
 
 [node name="Mine" type="Node3D"]
 
@@ -18,18 +17,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
 
 [node name="Node3D7" parent="." node_paths=PackedStringArray("trigger") instance=ExtResource("2_l18f0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
-trigger = NodePath("trigger")
+trigger = NodePath("triggerable")
 
-[node name="scene_transition" type="Node" parent="Node3D7" node_paths=PackedStringArray("trigger", "transition_info")]
-script = ExtResource("3_fmxiv")
-trigger = NodePath("../trigger")
-transition_info = NodePath("transition_info")
+[node name="triggerable" type="Node" parent="Node3D7" node_paths=PackedStringArray("function_target")]
+script = ExtResource("2_sux4q")
+function_target = NodePath("transition_mines")
 
-[node name="transition_info" type="Node" parent="Node3D7/scene_transition"]
+[node name="transition_mines" type="Node" parent="Node3D7/triggerable"]
 script = ExtResource("3_a30h8")
-
-[node name="trigger" type="Node" parent="Node3D7"]
-script = ExtResource("4_x00b8")
 
 [node name="Node3D8" parent="." instance=ExtResource("2_l18f0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)

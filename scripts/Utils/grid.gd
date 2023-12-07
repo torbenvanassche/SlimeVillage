@@ -25,8 +25,6 @@ func generate(grid_size: Vector2i, spawnables: Array = [], item_spawn_tries = 0,
 
 	_init_pathfinder()
 	
-	print(get_outer_ring().size());
-	
 func _generate_grid(grid_size: Vector2i):
 	for x in grid_size.x:
 		for y in grid_size.y:
