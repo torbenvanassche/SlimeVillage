@@ -1,9 +1,7 @@
 class_name Grid
 extends Node3D
 
-var ground_tile: PackedScene = preload("res://scenes/tiles/tile_full_texture.tscn")
-
-@export var tile_options: Array[Tile_Data] = []
+@export var data_options: Array[Tile_Data] = []
 
 @export var tile_size := 1.0
 @export var height_variation := Vector2(-0.1, 0.1)
@@ -28,7 +26,7 @@ func generate(grid_size: Vector2i, spawnables: Array = [], item_spawn_tries = 0,
 func _generate_grid(grid_size: Vector2i):
 	for x in grid_size.x:
 		for y in grid_size.y:
-			var newTile: Tile = ground_tile.instantiate()
+			var newTile: Tile = data_options.pick_random().tile_options.pick_random().instantiate()
 			newTile.position = Vector3(x * tile_size, randf_range(height_variation.x, height_variation.y), y * tile_size)
 			self.add_child(newTile)
 	

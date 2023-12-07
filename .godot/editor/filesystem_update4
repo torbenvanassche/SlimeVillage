@@ -1,13 +1,11 @@
 res://scenes/locations/mine.tscn
 res://materials/rock.tres
 res://materials/grass.tres
-res://scripts/navigation/tile_trigger.gd
-res://scripts/navigation/scene_transition_trigger.gd
-res://scripts/navigation/triggerable.gd
-res://scripts/Tile.gd
-res://scenes/game_scene.tscn
 res://materials/polygon_dungeon.tres
 res://resources/items/materials/ores/iron_ore.tres
+res://scripts/Utils/grid.gd
+res://scenes/tiles/tile_full_texture.tscn
+res://resources/tiles/Rock.tres
+res://scenes/game_scene.tscn
 res://scenes/base_scenes/overworld.tscn
 res://resources/items/scenes/ores/ore.tscn
-res://scripts/Utils/grid.gd

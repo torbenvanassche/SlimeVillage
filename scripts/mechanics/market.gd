@@ -1,4 +1,4 @@
-extends TileTrigger
+extends Node3D
 
 var spawn_timer: Timer
 var game_over_timer: Timer
