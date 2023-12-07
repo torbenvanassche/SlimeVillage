@@ -13,6 +13,6 @@ func _ready():
 	self.get_parent().add_child.call_deferred(visualizer_instance);
 	
 	if function_target && function_target.has_method(func_name):
-		on_entered.connect(function_target.execute)
+		on_entered.connect(Callable(function_target, func_name))
 	else: 
 		print(function_target.to_string() + "has no function named " + func_name)
