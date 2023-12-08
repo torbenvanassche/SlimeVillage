@@ -40,3 +40,15 @@ static func rand_item_weighted(arr: Array, fail_weight: int = 0):
 		if item.accumulated_weight >= roll:
 			return item
 	return null
+
+static func write_to_file(node: Node, file_name: String):
+	if(file_name != ""):
+		var packed_scene = PackedScene.new()
+		packed_scene.pack(node)
+		ResourceSaver.save(packed_scene, "res://procedural_storage/" + file_name + ".tscn")
+
+static func read_from_file(file_name: String):
+	if(file_name != ""):
+		if ResourceLoader.exists("res://procedural_storage/" + file_name + ".tscn"):
+			var scene = ResourceLoader.load("res://procedural_storage/" + file_name + ".tscn")
+			return scene;

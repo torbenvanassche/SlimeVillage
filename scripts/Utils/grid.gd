@@ -9,6 +9,8 @@ extends Node3D
 var pathfinder: path_finding = path_finding.new();
 var local_grid_size: Vector2i;
 
+@export var save_name: String;
+
 func generate(grid_size: Vector2i, spawnables: Array = [], item_spawn_tries = 0, spawn_fail_weight = 0, clear: bool = true):
 	if(clear):
 		pathfinder.clear(true);
@@ -19,7 +21,7 @@ func generate(grid_size: Vector2i, spawnables: Array = [], item_spawn_tries = 0,
 	for i in range(item_spawn_tries):
 		var item = Helpers.rand_item_weighted(spawnables, spawn_fail_weight)
 		if item:
-			get_open_tile(Global.player_instance.navigator.current_tile).add_top(item);
+			get_open_tile(Global.player_instance.current_tile).add_top(item);
 
 	_init_pathfinder()
 	
@@ -33,6 +35,8 @@ func _generate_grid(grid_size: Vector2i):
 func _init_pathfinder():
 	pathfinder.set_neighbours(1.1)
 	pathfinder.generate_connections()
+	
+	Helpers.write_to_file(self, save_name);
 
 func get_tile(idx: int) -> Tile:
 	return self.get_child(idx)
