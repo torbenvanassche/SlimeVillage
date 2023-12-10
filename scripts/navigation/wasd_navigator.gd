@@ -15,4 +15,10 @@ func _process(delta):
 			move(velocity)
 			
 func move(direction):
+	var forward = Global.camera.global_transform.basis.z.normalized();
+	forward.z = 0
+	forward *= direction.y;
+	var right = Global.camera.global_transform.basis.x * direction.x;
+	var cam_relative = -forward - right;
+	$MeshInstance3D.position = cam_relative;
 	pass

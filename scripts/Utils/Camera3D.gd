@@ -14,7 +14,8 @@ var twist_input: float = 0
 var mouse_position:Vector2
 
 func _ready():
-	$TwistPivot/PitchPivot/Camera3D.position.z = distance
+	%Camera3D.position.z = distance
+	Global.camera = %Camera3D;
 	
 func _process(_delta):
 	$TwistPivot.rotate_y(twist_input)
