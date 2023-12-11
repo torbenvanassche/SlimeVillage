@@ -12,13 +12,11 @@ func _process(delta):
 	if(any_valid):
 		var velocity = Input.get_vector(input_checks[0], input_checks[1], input_checks[2], input_checks[3])
 		if velocity != Vector2.ZERO:
-			move(velocity)
+			get_offset(velocity)
 			
-func move(direction):
-	var forward = Global.camera.global_transform.basis.z.normalized();
-	forward.z = 0
-	forward *= direction.y;
-	var right = Global.camera.global_transform.basis.x * direction.x;
-	var cam_relative = -forward - right;
-	$MeshInstance3D.position = cam_relative;
-	pass
+func get_offset(direction):
+	var cam_relative = (Global.camera.global_basis * Vector3(direction.x, 0, -direction.y)).normalized()
+	if (abs(cam_relative.x) > abs(cam_relative.z)):
+		return sign(cam_relative.x) * Vector3.RIGHT
+	else:
+		return sign(cam_relative.z) * Vector3.BACK

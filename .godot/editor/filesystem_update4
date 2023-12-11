@@ -1,11 +1,7 @@
-res://scenes/components/camera.tscn
+res://scenes/components/Player.tscn
 res://materials/rock.tres
 res://materials/grass.tres
-res://materials/polygon_dungeon.tres
-res://resources/items/materials/ores/iron_ore.tres
-res://scripts/global.gd
-res://scripts/Utils/Camera3D.gd
-res://scenes/components/Player.tscn
 res://scripts/navigation/wasd_navigator.gd
 res://scenes/game_scene.tscn
 res://scenes/base_scenes/overworld.tscn
+res://scenes/components/camera.tscn
