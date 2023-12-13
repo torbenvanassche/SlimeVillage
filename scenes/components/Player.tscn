@@ -1,11 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwrcc2gxqnosv"]
+[gd_scene load_steps=5 format=3 uid="uid://bwrcc2gxqnosv"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_spbeu"]
 [ext_resource type="PackedScene" uid="uid://cvt0d66ofytw1" path="res://models/characters/slime.glb" id="2_3wwn3"]
 [ext_resource type="Script" path="res://scripts/navigation/click_navigator.gd" id="3_lo4tn"]
 [ext_resource type="Script" path="res://scripts/navigation/wasd_navigator.gd" id="4_l0om5"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_1n0e8"]
 
 [node name="Player" type="Node3D" node_paths=PackedStringArray("click_navigator", "wasd_navigator")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
@@ -21,7 +19,3 @@ script = ExtResource("3_lo4tn")
 
 [node name="wasd_navigator" type="Node3D" parent="."]
 script = ExtResource("4_l0om5")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="wasd_navigator"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.25954, 0, -1.10113e-07)
-mesh = SubResource("SphereMesh_1n0e8")

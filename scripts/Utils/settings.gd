@@ -14,3 +14,8 @@ var forest_grid_size: Vector2i = Vector2i(5, 10)
 
 #Farm
 var crop_growth_speed = 2
+
+var input_mode: Global.NAV_STYLE = Global.NAV_STYLE.CLICK;
+
+func set_input_mode(style: Global.NAV_STYLE):
+	input_mode = style;

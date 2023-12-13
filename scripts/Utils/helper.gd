@@ -42,13 +42,30 @@ static func rand_item_weighted(arr: Array, fail_weight: int = 0):
 	return null
 
 static func write_to_file(node: Node, file_name: String):
-	if(file_name != ""):
+	if(file_name != "" && FileAccess.file_exists("res://procedural_storage/" + file_name + ".tscn")):
 		var packed_scene = PackedScene.new()
 		packed_scene.pack(node)
 		ResourceSaver.save(packed_scene, "res://procedural_storage/" + file_name + ".tscn")
+		return true;
+	return false;
 
-static func read_from_file(file_name: String):
+static func read_from_file(file_name: String) -> PackedScene:
 	if(file_name != ""):
 		if ResourceLoader.exists("res://procedural_storage/" + file_name + ".tscn"):
 			var scene = ResourceLoader.load("res://procedural_storage/" + file_name + ".tscn")
 			return scene;
+	return null;
+			
+static func just_pressed_from_list(input_arr: Array[String]):
+	var any_valid = false;
+	for input in input_arr:
+		if Input.is_action_just_pressed(input):
+			any_valid = true;
+	return any_valid;
+	
+static func pressed_from_list(input_arr: Array[String]):
+	var any_valid = false;
+	for input in input_arr:
+		if Input.is_action_pressed(input):
+			any_valid = true;
+	return any_valid;
