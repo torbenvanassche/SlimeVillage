@@ -14,4 +14,6 @@ func execute(_camera = null, _event = null, _pos = Vector3.ZERO, _normal = Vecto
 		else:
 			if interaction && interaction.has_method("execute"):
 				interaction.execute();
+			else:
+				print("interaction on " + self.name + " is not set.")
 

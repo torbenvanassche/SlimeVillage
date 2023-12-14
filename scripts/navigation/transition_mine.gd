@@ -8,3 +8,4 @@ func execute():
 	mine.generate(Settings.mine_grid_size, items, Settings.mine_amount_to_spawn, Settings.mine_chance_to_fail, true)
 	Global.player_instance.current_tile = mine.get_outer_ring().pick_random();
 	Global.player_instance.set_position_to_current_tile();
+	

@@ -15,4 +15,4 @@ func _ready():
 	if function_target && function_target.has_method(func_name):
 		on_entered.connect(Callable(function_target, func_name))
 	else: 
-		print(function_target.to_string() + "has no function named " + func_name)
+		print(self.get_parent().name + " has no " + func_name + " function.")
