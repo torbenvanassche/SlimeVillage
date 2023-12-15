@@ -62,4 +62,3 @@ min_distance = 2.0
 [node name="Player" parent="PlayerRoot" instance=ExtResource("6_o5cr0")]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-input_mode = 1

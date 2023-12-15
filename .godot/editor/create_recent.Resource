@@ -1,5 +1,0 @@
-StandardMaterial3D
-Tile_Data
-FogMaterial
-ShaderMaterial
-Resource
