@@ -22,15 +22,15 @@ func remove_node(tile: Tile, update_navigation = false):
 		set_neighbours();
 		generate_connections();	
 		
-func set_tiles(tileArr):
+func set_tiles(tileArr: Array[Tile]):
 	tiles_storage = tileArr;
 	
 func clear_connections():
-	path_finder.clear()
 	for tile in tiles_storage:
 		tile.neighbours.clear()
 		
 func clear(delete_tiles: bool):
+	path_finder.clear()
 	clear_connections();
 	
 	if delete_tiles:

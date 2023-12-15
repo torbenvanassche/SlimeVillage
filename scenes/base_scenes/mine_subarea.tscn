@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://exnjdxf5vphk"]
+[gd_scene load_steps=3 format=3 uid="uid://exnjdxf5vphk"]
 
 [ext_resource type="Script" path="res://scripts/Utils/generator.gd" id="1_7qak8"]
+[ext_resource type="PackedScene" uid="uid://drxmn747xmj4u" path="res://scenes/tiles/tile_full_texture.tscn" id="2_6vt5a"]
 
-[node name="mine_inside" type="Node3D"]
+[node name="mine_inside" type="Node3D" node_paths=PackedStringArray("entrance_tile")]
 script = ExtResource("1_7qak8")
-height_variation = Vector2(0, 0)
+entrance_tile = NodePath("mine_tile")
+
+[node name="mine_tile" parent="." instance=ExtResource("2_6vt5a")]

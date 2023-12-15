@@ -69,3 +69,12 @@ static func pressed_from_list(input_arr: Array[String]):
 		if Input.is_action_pressed(input):
 			any_valid = true;
 	return any_valid;
+	
+static func find_child_tiles(node: Node) -> Array[Tile]:
+	var tile_nodes: Array[Tile] = []
+	for child in node.get_children():
+		if child is Tile:
+			tile_nodes.append(child)
+			if child.get_child_count() > 0:
+				tile_nodes.append_array(find_child_tiles(child))
+	return tile_nodes

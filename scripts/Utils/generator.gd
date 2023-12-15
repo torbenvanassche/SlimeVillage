@@ -12,9 +12,10 @@ var local_grid_size: Vector2i;
 @export var save_name: String;
 
 func generate(spawnables: Array = [], item_spawn_tries = 0, spawn_fail_weight = 0):
-	pathfinder.clear(true);
+	pathfinder.clear(false);
 	
-	pathfinder.set_tiles(self.get_children());
+	pathfinder.set_tiles(Helpers.find_child_tiles(self));
+	print(pathfinder.tiles_storage.size());
 	
 	Global.player_instance.current_tile = entrance_tile;
 	
@@ -28,21 +29,20 @@ func generate(spawnables: Array = [], item_spawn_tries = 0, spawn_fail_weight = 
 func _init_pathfinder():
 	pathfinder.set_neighbours(1.1)
 	pathfinder.generate_connections()
-	
-	Helpers.write_to_file(self, save_name);
 
 func get_tile(idx: int) -> Tile:
 	return self.get_child(idx)
 	
 func get_open_tile(exclusion: Tile = null) -> Tile:
-	var subset = pathfinder.hex_tiles_storage.filter(func(tile: Tile): return !tile.is_used && tile != exclusion)
+	var subset = pathfinder.tiles_storage.filter(func(tile: Tile): return !tile.is_used && tile != exclusion)
+	print(subset.size())
 	return subset.pick_random()
 	
 func replace_tile(original: Tile, replacement: Tile) -> Tile:
 	replacement.position = original.position
-	pathfinder.hex_tiles_storage.erase(original)
+	pathfinder.tiles_storage.erase(original)
 	original.queue_free()
 	
 	add_child(replacement)
-	pathfinder.hex_tiles_storage.append(replacement)
+	pathfinder.tiles_storage.append(replacement)
 	return replacement
