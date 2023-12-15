@@ -4,19 +4,19 @@ extends Node3D
 @export var data_options: Array[Tile_Data] = []
 
 @export var tile_size := 1.0
-@export var height_variation := Vector2(-0.1, 0.1)
+@export var entrance_tile: Node3D = null;
 
 var pathfinder: path_finding = path_finding.new();
 var local_grid_size: Vector2i;
 
 @export var save_name: String;
 
-func generate(grid_size: Vector2i, spawnables: Array = [], item_spawn_tries = 0, spawn_fail_weight = 0, clear: bool = true):
-	if(clear):
-		pathfinder.clear(true);
+func generate(spawnables: Array = [], item_spawn_tries = 0, spawn_fail_weight = 0):
+	pathfinder.clear(true);
 	
-	_generate_grid(grid_size)
-	local_grid_size = grid_size;
+	pathfinder.set_tiles(self.get_children());
+	
+	Global.player_instance.current_tile = entrance_tile;
 	
 	for i in range(item_spawn_tries):
 		var item = Helpers.rand_item_weighted(spawnables, spawn_fail_weight)
@@ -24,13 +24,6 @@ func generate(grid_size: Vector2i, spawnables: Array = [], item_spawn_tries = 0,
 			get_open_tile(Global.player_instance.current_tile).add_top(item);
 
 	_init_pathfinder()
-	
-func _generate_grid(grid_size: Vector2i):
-	for x in grid_size.x:
-		for y in grid_size.y:
-			var newTile: Tile = data_options.pick_random().tile_options.pick_random().instantiate()
-			newTile.position = Vector3(x * tile_size, randf_range(height_variation.x, height_variation.y), y * tile_size)
-			self.add_child(newTile)
 	
 func _init_pathfinder():
 	pathfinder.set_neighbours(1.1)
@@ -53,11 +46,3 @@ func replace_tile(original: Tile, replacement: Tile) -> Tile:
 	add_child(replacement)
 	pathfinder.hex_tiles_storage.append(replacement)
 	return replacement
-
-func get_outer_ring() -> Array[Tile]:
-	var tileArr: Array[Tile] = [];
-	for i in range(pathfinder.hex_tiles_storage.size()):
-		if i < local_grid_size.x || i % local_grid_size.x == 0 || i % local_grid_size.x == local_grid_size.x - 1 || i > pathfinder.hex_tiles_storage.size() - local_grid_size.x:
-			if !tileArr.has(pathfinder.hex_tiles_storage[i]) && pathfinder.hex_tiles_storage[i].walkable_in_scene:
-				tileArr.append(pathfinder.hex_tiles_storage[i])
-	return tileArr;

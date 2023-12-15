@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://exnjdxf5vphk"]
 
-[ext_resource type="Script" path="res://scripts/Utils/grid.gd" id="1_7qak8"]
+[ext_resource type="Script" path="res://scripts/Utils/generator.gd" id="1_7qak8"]
 
 [node name="mine_inside" type="Node3D"]
 script = ExtResource("1_7qak8")
