@@ -23,6 +23,7 @@ func add_item(item: Dictionary, make_slot_if_full: bool = true, amount: int = 1)
 				
 			if make_slot_if_full:
 				add_item(item, make_slot_if_full, remaining_amount)
+				return;
 			else:
 				print("No slot created, controlled by parameter of add_item.")
 				

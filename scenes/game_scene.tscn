@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/Utils/scene_manager.gd" id="1_8x5qd"]
 [ext_resource type="Resource" uid="uid://b0gk0yla13kvy" path="res://resources/tiles/Rock.tres" id="5_f4qar"]
 [ext_resource type="PackedScene" uid="uid://bwrcc2gxqnosv" path="res://scenes/components/Player.tscn" id="6_o5cr0"]
-[ext_resource type="PackedScene" uid="uid://exnjdxf5vphk" path="res://scenes/base_scenes/mine_subarea.tscn" id="7_1l4xe"]
+[ext_resource type="PackedScene" uid="uid://exnjdxf5vphk" path="res://scenes/base_scenes/mine_underground.tscn" id="7_1l4xe"]
 [ext_resource type="PackedScene" uid="uid://cuqpjlp4i7pkb" path="res://scenes/components/camera.tscn" id="7_ca8bl"]
 [ext_resource type="PackedScene" uid="uid://4obto2tpb0v3" path="res://scenes/base_scenes/pause_menu.tscn" id="8_11yd1"]
 
@@ -23,7 +23,7 @@ func _ready():
 [node name="Node" type="Node3D" node_paths=PackedStringArray("scenes", "initial_scene")]
 process_mode = 3
 script = ExtResource("1_8x5qd")
-scenes = [NodePath("overworld"), NodePath("mine_subarea")]
+scenes = [NodePath("overworld"), NodePath("mine_underground")]
 initial_scene = NodePath("overworld")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -46,7 +46,8 @@ sky_mode = 1
 [node name="pause_menu" parent="." instance=ExtResource("8_11yd1")]
 visible = false
 
-[node name="mine_subarea" parent="." instance=ExtResource("7_1l4xe")]
+[node name="mine_underground" parent="." instance=ExtResource("7_1l4xe")]
+visible = false
 data_options = Array[Resource("res://scripts/resources/tile_data.gd")]([ExtResource("5_f4qar")])
 
 [node name="PlayerRoot" type="Node3D" parent="."]

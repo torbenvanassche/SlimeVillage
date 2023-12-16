@@ -1,3 +1,4 @@
+class_name transition
 extends Node
 
 @export var scene_name: String;

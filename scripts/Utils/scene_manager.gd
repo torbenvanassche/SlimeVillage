@@ -10,13 +10,19 @@ var active_scene: Node
 		
 func set_active_scene(scene: Node, remove_active_from_tree: bool = true):
 	if active_scene && remove_active_from_tree:
+		active_scene.set_meta("last_tile", Global.player_instance.current_tile)
 		self.remove_child(active_scene)
+		active_scene.visible = false;
 		
 	scene_changed.emit(active_scene, scene)
 	
 	active_scene = scene
 	if not scene.get_parent():
 		self.add_child(active_scene)
+		active_scene.visible = true;
+		if active_scene.has_meta("last_tile"):
+			Global.player_instance.current_tile = active_scene.get_meta("last_tile")
+			Global.player_instance.set_position_to_current_tile(); 
 		
 func get_active_scene():
 	return active_scene
