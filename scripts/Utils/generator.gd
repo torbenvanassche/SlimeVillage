@@ -1,9 +1,7 @@
 class_name Grid
 extends Node3D
 
-@export var data_options: Array[Tile_Data] = []
-
-@export var tile_size := 1.0
+var tile_size := 1.0
 @export var entrance_tile: Node3D = null;
 
 var pathfinder: path_finding = path_finding.new();
@@ -15,7 +13,6 @@ func generate(spawnables: Array = [], item_spawn_tries = 0, spawn_fail_weight = 
 	pathfinder.clear(false);
 	
 	pathfinder.set_tiles(Helpers.find_child_tiles(self));
-	print(pathfinder.tiles_storage.size());
 	
 	Global.player_instance.current_tile = entrance_tile;
 	

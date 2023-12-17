@@ -1,7 +1,7 @@
 extends Node
 
 var player_instance: Player = null
-var scene_manager: SceneManager
+var manager: Manager
 var camera: Camera3D
 
 var ui_root: Node

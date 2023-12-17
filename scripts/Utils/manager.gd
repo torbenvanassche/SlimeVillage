@@ -1,8 +1,9 @@
-class_name SceneManager
+class_name Manager
 extends Node3D
 
 @export var scenes: Array[Node]
 @export var initial_scene: Node
+@export var player_inventory_ui: InventoryUI;
 
 signal scene_changed(from: Node, to: Node)
 	
@@ -35,7 +36,7 @@ func get_scene_by_name(scene_name: String):
 		return null
 		
 func _ready():
-	Global.scene_manager = self
+	Global.manager = self
 	active_scene = initial_scene
 	
 	for s in scenes:

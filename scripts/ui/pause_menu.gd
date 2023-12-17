@@ -5,5 +5,5 @@ func _ready():
 	pass
 
 func _deferred_ready():
-	$VBoxContainer/Resume.button_up.connect(func(): Global.scene_manager.pause(false))
+	$VBoxContainer/Resume.button_up.connect(func(): Global.manager.pause(false))
 	$VBoxContainer/Quit.button_up.connect(func(): get_tree().quit())
