@@ -1,10 +1,10 @@
 class_name DefaultNavigator
-extends Node3D
+extends Node
 
 var input_checks: Array[String] = ["move_left", "move_right", "move_back", "move_forward"];
 var can_move: bool = true;
 
-func _process(delta):
+func _process(_delta):
 	if(Helpers.pressed_from_list(input_checks) && can_move):
 		var velocity = Input.get_vector(input_checks[0], input_checks[1], input_checks[2], input_checks[3])
 		if velocity != Vector2.ZERO:

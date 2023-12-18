@@ -1,5 +1,5 @@
-class_name Item
-extends Node2D
+class_name ItemViewer
+extends Control
 
 var textureRect: TextureRect;
 var counter: Label;
@@ -12,7 +12,8 @@ func _ready():
 	counter = $Label;
 	
 func set_item(item: Dictionary):
-	item_name = item["item_name"];
+	item_name = item["name"];
+	item_count = item["count"];
 	
 	textureRect.set_texture(ItemManager.get_sprite(item));
 	add_item();

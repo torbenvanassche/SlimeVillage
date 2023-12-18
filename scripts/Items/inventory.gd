@@ -11,21 +11,28 @@ func add_item(item: Dictionary, make_slot_if_full: bool = true, amount: int = 1)
 	var remaining_amount = amount
 	var indices = try_get_indices(item)
 	
-	if indices.size() == 0 and data.size() < max_slots && amount < item["stack_size"]:
-		data.append({"name": item["name"], "count": amount, "stack_size": item["stack_size"]})
-	else:
-		while remaining_amount > 0:
-			for slot in indices:
-				if _try_add(item, slot):
-					remaining_amount -= 1
-			if remaining_amount == 0:
-				return
+	if(indices.size() == 0):
+		data.append({"name": item["name"], "count": 1, "stack_size": item["stack_size"], "sprite_path": item["sprite_path"]})
+		remaining_amount -= 1;
+		add_item(item, make_slot_if_full, remaining_amount)
+		Global.manager.player_inventory_ui.update(data)
+		return
+	
+	while remaining_amount > 0:
+		for slot in indices:
+			if _try_add(item, slot):
+				remaining_amount -= 1
+				break;
+		if remaining_amount == 0:
+			Global.manager.player_inventory_ui.update(data)
+			return
 				
-			if make_slot_if_full:
-				add_item(item, make_slot_if_full, remaining_amount)
-				return;
-			else:
-				print("No slot created, controlled by parameter of add_item.")
+		if make_slot_if_full:
+			add_item(item, make_slot_if_full, remaining_amount)
+			Global.manager.player_inventory_ui.update(data)
+			return;
+		else:
+			print("No slot created, controlled by parameter of add_item.")
 				
 func _try_add(item: Dictionary, slot: int) -> bool:
 	if get_item_in_slot(slot)["name"] == item["name"] and data[slot]["count"] < data[slot]["stack_size"]:

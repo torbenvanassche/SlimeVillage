@@ -1,5 +1,5 @@
 class_name ClickNavigator
-extends Node3D
+extends Node
 
 var destination_tile: Tile = null
 
