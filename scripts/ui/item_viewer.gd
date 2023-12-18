@@ -16,8 +16,3 @@ func set_item(item: Dictionary):
 	item_count = item["count"];
 	
 	textureRect.set_texture(ItemManager.get_sprite(item));
-	add_item();
-	
-func add_item():
-	item_count += 1;
-	counter.text = str(item_count);
