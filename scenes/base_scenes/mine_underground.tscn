@@ -52,9 +52,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2)
 
 [node name="mine_tile15" parent="." instance=ExtResource("2_6vt5a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2)
+can_generate = false
 
 [node name="entrance" parent="." node_paths=PackedStringArray("trigger") instance=ExtResource("2_6vt5a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -2)
+can_generate = false
 trigger = NodePath("Triggerable")
 
 [node name="Triggerable" type="Node" parent="entrance" node_paths=PackedStringArray("function_target")]

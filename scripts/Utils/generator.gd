@@ -31,7 +31,7 @@ func get_tile(idx: int) -> Tile:
 	return self.get_child(idx)
 	
 func get_open_tile(exclusion: Tile = null) -> Tile:
-	var subset = pathfinder.tiles_storage.filter(func(tile: Tile): return !tile.is_used && tile != exclusion)
+	var subset = pathfinder.tiles_storage.filter(func(tile: Tile): return tile.can_generate && tile != exclusion)
 	return subset.pick_random()
 	
 func replace_tile(original: Tile, replacement: Tile) -> Tile:

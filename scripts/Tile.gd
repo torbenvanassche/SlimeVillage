@@ -4,7 +4,7 @@ extends Node3D
 var path_index: int
 
 var path_controller: Node
-var is_used: bool = false
+@export var can_generate: bool = true
 
 var surface_point := Vector3()
 var neighbours := []
@@ -56,7 +56,7 @@ func add_top(item_data: Dictionary):
 			
 		add_child(spawned)
 		walkable_in_scene = false
-		is_used = true
+		can_generate = false
 		
 func set_tile(data: Tile_Data):
 	if !data: 

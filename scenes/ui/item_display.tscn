@@ -1,12 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5ocjw6joaemy"]
+[gd_scene load_steps=6 format=3 uid="uid://c5ocjw6joaemy"]
 
 [ext_resource type="Script" path="res://scripts/ui/item_viewer.gd" id="1_0gbba"]
 [ext_resource type="Texture2D" uid="uid://b02gg40vw58wl" path="res://textures/ui/grey_box.png" id="1_wpbxb"]
 [ext_resource type="FontFile" uid="uid://b4py5c2f05v57" path="res://fonts/Kenney Future Narrow.ttf" id="2_f5q3g"]
+[ext_resource type="Texture2D" uid="uid://ccitpmtjk5bg4" path="res://resources/items/sprites/ores/iron_ore.png" id="3_p3jvb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aoki5"]
 font = ExtResource("2_f5q3g")
-font_size = 10
+font_size = 25
 font_color = Color(0, 0, 0, 1)
 
 [node name="Item" type="TextureRect"]
@@ -23,19 +24,22 @@ expand_mode = 4
 script = ExtResource("1_0gbba")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 2
+offset_left = 9.0
+offset_top = 7.5
+offset_right = 34.0
+offset_bottom = 32.5
+texture = ExtResource("3_p3jvb")
+expand_mode = 4
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -0.5
+offset_bottom = -0.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "0"
