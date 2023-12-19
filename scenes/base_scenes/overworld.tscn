@@ -28,6 +28,7 @@ trigger = NodePath("triggerable")
 
 [node name="triggerable" type="Node" parent="mine_entrance/Node3D7" node_paths=PackedStringArray("function_target")]
 script = ExtResource("5_jhoab")
+color = Color(0.34902, 0.168627, 0.117647, 1)
 function_target = NodePath("transition_mines")
 
 [node name="transition_mines" type="Node" parent="mine_entrance/Node3D7/triggerable"]
@@ -82,12 +83,14 @@ tile_data = ExtResource("4_ljbrp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 tile_data = ExtResource("4_ljbrp")
 
-[node name="grass_tile7" parent="walkable_ground" instance=ExtResource("3_prrg5")]
+[node name="grass_tile7" parent="walkable_ground" node_paths=PackedStringArray("trigger") instance=ExtResource("3_prrg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+trigger = NodePath("Triggerable")
 tile_data = ExtResource("4_ljbrp")
 
 [node name="Triggerable" type="Node" parent="walkable_ground/grass_tile7"]
 script = ExtResource("5_jhoab")
+color = Color(0, 0.552941, 0, 1)
 
 [node name="grass_tile8" parent="walkable_ground" instance=ExtResource("3_prrg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
