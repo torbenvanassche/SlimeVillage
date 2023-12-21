@@ -92,6 +92,8 @@ tile_data = ExtResource("4_ljbrp")
 script = ExtResource("5_jhoab")
 color = Color(0, 0.552941, 0, 1)
 
+[node name="transition_forest" type="Node" parent="walkable_ground/grass_tile7/Triggerable"]
+
 [node name="grass_tile8" parent="walkable_ground" instance=ExtResource("3_prrg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 tile_data = ExtResource("4_ljbrp")
