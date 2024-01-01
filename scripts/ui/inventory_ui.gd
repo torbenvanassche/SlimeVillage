@@ -1,7 +1,7 @@
 class_name InventoryUI
 extends Control
 
-var item_ui_packed: PackedScene = preload("res://scenes/ui/item_display.tscn");
+var item_ui_packed: PackedScene = preload("res://scenes/ui/item_display_2d.tscn");              
 var elements: Array[ItemViewer] = []
 
 func add(item: Dictionary):

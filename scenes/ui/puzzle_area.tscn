@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b251uevj7eclb"]
+
+[ext_resource type="Script" path="res://scripts/mechanics/fitting_puzzle.gd" id="1_8l1pk"]
+
+[node name="GridContainer" type="GridContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 5
+script = ExtResource("1_8l1pk")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+flat = true

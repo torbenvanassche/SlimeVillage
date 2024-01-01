@@ -1,7 +1,7 @@
 extends Node
 
 #Market
-var item_spawn_speed = 1
+var item_spawn_speed = 10
 var item_grace_period_on_buffer_full = 10
 
 #Mine controllers

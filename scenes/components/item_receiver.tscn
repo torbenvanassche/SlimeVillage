@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2lg5broo3djh"]
+
+[ext_resource type="PackedScene" uid="uid://drxmn747xmj4u" path="res://scenes/tiles/tile_full_texture.tscn" id="1_foekt"]
+[ext_resource type="PackedScene" uid="uid://dfxtgxixe7w0i" path="res://models/Environment/initialized/sm_prop_minecart_012.tscn" id="2_tkayl"]
+[ext_resource type="Script" path="res://scripts/mechanics/interactable.gd" id="3_bjgul"]
+[ext_resource type="Script" path="res://scripts/Items/item_deposit.gd" id="4_mniv2"]
+
+[node name="ItemReceiver" type="Node3D"]
+
+[node name="tile13" parent="." instance=ExtResource("1_foekt")]
+rotatable_in_scene = false
+
+[node name="SM_Prop_Minecart_012" parent="tile13" node_paths=PackedStringArray("interaction") instance=ExtResource("2_tkayl")]
+script = ExtResource("3_bjgul")
+interaction = NodePath("Node")
+
+[node name="Node" type="Node" parent="tile13/SM_Prop_Minecart_012"]
+script = ExtResource("4_mniv2")

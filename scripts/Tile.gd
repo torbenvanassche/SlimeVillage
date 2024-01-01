@@ -17,6 +17,7 @@ var side_count: int = 4
 		set_tile(tile_data)
 
 @export var walkable_in_scene: bool;
+@export var rotatable_in_scene: bool = true;
 			
 var navigation_weight: int = 0
 
@@ -71,6 +72,6 @@ func set_tile(data: Tile_Data):
 		
 	navigation_weight = data.navigation_weight
 	
-	if data.randomize_rotation:
+	if data.randomize_rotation && rotatable_in_scene:
 		self.rotate_y(deg_to_rad(randi_range(0, side_count) * 360.0 / side_count))
 

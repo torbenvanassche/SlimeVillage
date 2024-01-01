@@ -1,15 +1,15 @@
 class_name ItemViewer
-extends Control
+extends Node
 
-var textureRect: TextureRect;
-var counter: Label;
+var textureRect: Variant;
+var counter: Variant;
 
 var item_name: String = "";
 var item_count: int = 0;
 
 func _ready():
-	textureRect = $TextureRect;
-	counter = $Label;
+	textureRect = $ItemSprite;
+	counter = $Count;
 	
 func set_item(item: Dictionary):
 	item_name = item["name"];

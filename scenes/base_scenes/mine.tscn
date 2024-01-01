@@ -5,9 +5,9 @@
 [ext_resource type="Script" path="res://scripts/navigation/triggerable.gd" id="3_tntct"]
 [ext_resource type="Script" path="res://scripts/navigation/simple_transition.gd" id="4_cken4"]
 
-[node name="mine_inside" type="Node3D" node_paths=PackedStringArray("entrance_tile")]
+[node name="mine_inside" type="Node3D" node_paths=PackedStringArray("entrance")]
 script = ExtResource("1_7qak8")
-entrance_tile = NodePath("entrance")
+entrance = NodePath("entrance")
 
 [node name="mine_tile" parent="." instance=ExtResource("2_6vt5a")]
 

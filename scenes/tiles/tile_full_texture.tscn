@@ -7,7 +7,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_jmkqf"]
 size = Vector3(1, 0.0455705, 1)
 
-[node name="mine_tile" type="Node3D"]
+[node name="tile" type="Node3D"]
 script = ExtResource("1_bbgn7")
 tile_data = ExtResource("2_n1rbc")
 walkable_in_scene = true

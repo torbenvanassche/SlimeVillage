@@ -4,6 +4,8 @@ extends Node3D
 var current_tile: Tile = null;
 
 @export var inventory: Inventory;
+@export var inventory_ui: InventoryUI;
+
 @export var click_navigator: ClickNavigator;
 @export var wasd_navigator: DefaultNavigator;
 @export var input_mode: Global.NAV_STYLE = Settings.input_mode;
@@ -17,6 +19,7 @@ var nav_index = 0
 		
 func _ready():
 	Global.player_instance = self
+	inventory.init(inventory_ui);
 	
 	Settings.input_mode = input_mode;
 	read_input_mode();

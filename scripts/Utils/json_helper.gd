@@ -12,8 +12,8 @@ static func load_json(file_path: String):
 	else:
 		printerr("File does not exist!")
 
-static func get_array_by_property(dict: Dictionary, property_name: String, property_value: Variant):
-	var subset = []
+static func get_array_by_property(dict: Dictionary, property_name: String, property_value: Variant) -> Array[Dictionary]:
+	var subset: Array[Dictionary]
 	for item in dict.values():
 		if item[property_name] == property_value:
 			subset.append(item)

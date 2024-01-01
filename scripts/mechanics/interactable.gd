@@ -3,9 +3,10 @@ extends Node
 
 @export var interaction: Node;
 
-func initialize(data: Dictionary):
+func initialize(data: Dictionary = {}):
 	$StaticBody3D.input_event.connect(execute)
-	interaction.item_data = data;
+	if data != {}:
+		interaction.item_data = data;
 
 func execute(_camera = null, _event = null, _pos = Vector3.ZERO, _normal = Vector3.ZERO, _shape_idx = -1):
 	if Input.is_action_just_pressed("mouse_left"):
@@ -16,4 +17,3 @@ func execute(_camera = null, _event = null, _pos = Vector3.ZERO, _normal = Vecto
 				interaction.execute();
 			else:
 				print("interaction on " + self.name + " is not set.")
-
