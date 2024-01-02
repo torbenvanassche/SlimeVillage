@@ -4,10 +4,10 @@ extends Node
 var data: Array[Dictionary] = []
 var max_slots: int
 
-var inv_ui: InventoryUI = null;
+var ui: InventoryUI = null;
 
 func init(inventory_ui: InventoryUI, slots: int = 4):
-	inv_ui = inventory_ui;
+	ui = inventory_ui;
 	max_slots = slots;
 
 func add_item(item: Dictionary, make_slot_if_full: bool = true, amount: int = 1):
@@ -35,11 +35,11 @@ func add_item(item: Dictionary, make_slot_if_full: bool = true, amount: int = 1)
 	return remaining_amount;
 
 func _create_slot(item: Dictionary):
-	return {"name": item.name, "count": 0, "stack_size": item.stack_size, "sprite_path": item.sprite_path};
+	return {"name": item.name, "count": 0, "stack_size": item.stack_size, "sprite": ItemManager.get_sprite(item)};
 		
 func try_update_ui():
-	if inv_ui: 
-		inv_ui.update(data)
+	if ui: 
+		ui.update(data)
 	return true;
 				
 func _try_add(item: Dictionary, slot: int) -> bool:
@@ -65,7 +65,6 @@ func remove_item(item: Dictionary, count: int):
 				
 				if data[index].count == 0:
 					data.remove_at(index)
-	pass
 	
 func try_get_indices(item: Dictionary) -> Array[int]:
 	var indices: Array[int] = []
