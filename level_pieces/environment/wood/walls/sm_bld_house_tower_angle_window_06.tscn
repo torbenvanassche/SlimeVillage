@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy0c2wl6qc2n"]
+
+[ext_resource type="PackedScene" uid="uid://bviamtjneakp4" path="res://level_pieces/environment/base/walls/SM_Bld_House_Tower_Angle_Window_06.glb" id="1_n5drn"]
+[ext_resource type="PackedScene" uid="uid://dlt6wbw2rvsbm" path="res://level_pieces/environment/base/walls/SM_Bld_House_Tower_Angle_Window_06_Glass.glb" id="2_p8hnx"]
+[ext_resource type="PackedScene" uid="uid://dx4jm60hbamcp" path="res://level_pieces/environment/base/walls/SM_Bld_House_Wall_Angle_Flooring_01.glb" id="3_fgb76"]
+
+[node name="SM_Bld_House_Tower_Angle_Window_062" instance=ExtResource("1_n5drn")]
+
+[node name="SM_Bld_House_Tower_Angle_Window_06_Glass2" parent="." index="1" instance=ExtResource("2_p8hnx")]
+
+[node name="SM_Bld_House_Wall_Angle_Flooring_012" parent="." index="2" instance=ExtResource("3_fgb76")]

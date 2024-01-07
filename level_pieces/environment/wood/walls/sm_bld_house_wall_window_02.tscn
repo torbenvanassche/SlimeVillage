@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd6hnmg7ae8i2"]
+
+[ext_resource type="PackedScene" uid="uid://cagp5a4l3ntcm" path="res://level_pieces/environment/base/walls/SM_Bld_House_Wall_Window_02.glb" id="1_g3lxp"]
+[ext_resource type="PackedScene" uid="uid://cgtefxgfcuegj" path="res://level_pieces/environment/base/walls/SM_Bld_House_Wall_Window_02_Glass.glb" id="2_5qdrc"]
+[ext_resource type="PackedScene" uid="uid://btks5bc5r7gt5" path="res://level_pieces/environment/base/walls/SM_Bld_House_Wall_Window_02_Shutters_01.glb" id="3_u5mbp"]
+
+[node name="SM_Bld_House_Wall_Window_022" instance=ExtResource("1_g3lxp")]
+
+[node name="SM_Bld_House_Wall_Window_02_Glass2" parent="." index="1" instance=ExtResource("2_5qdrc")]
+
+[node name="SM_Bld_House_Wall_Window_02_Shutters_012" parent="." index="2" instance=ExtResource("3_u5mbp")]
+transform = Transform3D(0.965979, 0.000174576, 0.258622, -0.000210942, 1, 0.000112894, -0.258622, -0.0001636, 0.965979, 0.494998, 1.12191, 0.0589528)
+
+[node name="SM_Bld_House_Wall_Window_02_Shutters_013" parent="." index="3" instance=ExtResource("3_u5mbp")]
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 1.495, 1.12191, 0.0589505)

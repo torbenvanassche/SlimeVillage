@@ -14,8 +14,7 @@ offset_right = 75.0
 offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-columns = 5
+scale = Vector2(1.00526, 1)
+columns = 3
 script = ExtResource("1_8l1pk")
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 2
+grid_size = Vector2(3, 3)

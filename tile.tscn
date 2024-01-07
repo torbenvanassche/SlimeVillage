@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc1j7mvmx2tpw"]
+
+[ext_resource type="Script" path="res://scripts/tiles/tile_base.gd" id="1_pcih2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bm3qc"]
+size = Vector3(1, 0.0455705, 1)
+
+[node name="walkable_tile" type="StaticBody3D"]
+script = ExtResource("1_pcih2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_bm3qc")

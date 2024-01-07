@@ -15,6 +15,9 @@ func add(item: Dictionary):
 	
 func _set_selected(item: Dictionary):
 	selected_item = item;
+	
+func reset_selection():
+	selected_item.clear();
 
 func _clear():
 	for e in elements:

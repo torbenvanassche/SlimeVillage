@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cybyx88isdect"]
+
+[ext_resource type="Texture2D" uid="uid://dovq5pv35lv6o" path="res://textures/western/PolygonWesternFrontier_Texture_01_A.png" id="1_xbaai"]
+
+[resource]
+albedo_texture = ExtResource("1_xbaai")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://mcvr2tqukkpp"]
+
+[ext_resource type="PackedScene" uid="uid://hwviby0me6j8" path="res://level_pieces/environment/wood/walls/SM_Bld_House_Wall_Half_01.glb" id="1_tt2vm"]
+[ext_resource type="Material" uid="uid://co0irslel7ip8" path="res://materials/polygon/polygon_fantasy_ALT.tres" id="2_dmfmg"]
+
+[node name="SM_Bld_House_Wall_Half_012" instance=ExtResource("1_tt2vm")]
+
+[node name="SM_Bld_House_Wall_Half_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_dmfmg")

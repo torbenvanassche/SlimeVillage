@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c6xhejk3aqxkj"]
+
+[ext_resource type="Texture2D" uid="uid://ccgkpgeiu1kev" path="res://textures/fantasy/PolygonFantasyKingdon_Texture_Wall_Evil_01.png" id="1_rcfxt"]
+
+[resource]
+albedo_texture = ExtResource("1_rcfxt")

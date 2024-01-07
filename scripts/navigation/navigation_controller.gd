@@ -1,7 +1,7 @@
 class_name NavigationController
 extends Node3D
 
-var pathfinder: path_finding = path_finding.new()
+var pathfinder: PathFinder = PathFinder.new()
 @export var entrance: Node3D = null;
 
 #setting this value higher can result in inconsistent neighbour calculations, set this cautiously

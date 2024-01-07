@@ -1,37 +1,41 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0ajw5a07g334"]
+[gd_scene load_steps=9 format=3 uid="uid://b0ajw5a07g334"]
 
-[ext_resource type="PackedScene" uid="uid://c3tqstoqyh5je" path="res://scenes/base_scenes/overworld.tscn" id="1_5qcad"]
 [ext_resource type="Script" path="res://scripts/Utils/manager.gd" id="1_8x5qd"]
+[ext_resource type="Script" path="res://scripts/ui/ui_manager.gd" id="2_bvv38"]
 [ext_resource type="PackedScene" uid="uid://b251uevj7eclb" path="res://scenes/ui/puzzle_area.tscn" id="3_7ln7i"]
 [ext_resource type="PackedScene" uid="uid://dua5pm4pvshd0" path="res://scenes/ui/inventory.tscn" id="3_um3eb"]
 [ext_resource type="PackedScene" uid="uid://bwrcc2gxqnosv" path="res://scenes/components/Player.tscn" id="6_o5cr0"]
-[ext_resource type="PackedScene" uid="uid://exnjdxf5vphk" path="res://scenes/base_scenes/mine.tscn" id="7_1l4xe"]
 [ext_resource type="PackedScene" uid="uid://cuqpjlp4i7pkb" path="res://scenes/components/camera.tscn" id="7_ca8bl"]
 [ext_resource type="PackedScene" uid="uid://4obto2tpb0v3" path="res://scenes/base_scenes/pause_menu.tscn" id="8_11yd1"]
-[ext_resource type="PackedScene" uid="uid://b2qh6nwolwi4b" path="res://scenes/base_scenes/market.tscn" id="8_lmubg"]
 
 [sub_resource type="Environment" id="Environment_jjbbm"]
 ambient_light_color = Color(0.47451, 0.47451, 0.47451, 1)
 tonemap_mode = 1
 tonemap_white = 1.55
 
-[node name="Node" type="Node3D" node_paths=PackedStringArray("scenes", "initial_scene", "player_inventory_ui")]
+[node name="Node" type="Node3D"]
 process_mode = 3
 script = ExtResource("1_8x5qd")
-scenes = [NodePath("overworld"), NodePath("area_mine"), NodePath("market")]
-initial_scene = NodePath("overworld")
-player_inventory_ui = NodePath("UI/Inventory")
+initial_scene = null
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jjbbm")
 
-[node name="UI" type="Node" parent="."]
+[node name="UI" type="Node" parent="." node_paths=PackedStringArray("puzzle_ui")]
+script = ExtResource("2_bvv38")
+puzzle_ui = NodePath("puzzle_ui")
 
-[node name="Inventory" parent="UI" instance=ExtResource("3_um3eb")]
+[node name="player_inventory" parent="UI" instance=ExtResource("3_um3eb")]
 
-[node name="GridContainer" parent="UI" instance=ExtResource("3_7ln7i")]
+[node name="market_inventory" parent="UI" instance=ExtResource("3_um3eb")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+alignment = 2
 
-[node name="overworld" parent="." instance=ExtResource("1_5qcad")]
+[node name="puzzle_ui" parent="UI" instance=ExtResource("3_7ln7i")]
+visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 process_mode = 1
@@ -58,19 +62,5 @@ min_distance = 2.0
 [node name="Player" parent="PlayerRoot" node_paths=PackedStringArray("inventory_ui") instance=ExtResource("6_o5cr0")]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-inventory_ui = NodePath("../../UI/Inventory")
+inventory_ui = NodePath("../../UI/player_inventory")
 input_mode = 0
-
-[node name="market" parent="." instance=ExtResource("8_lmubg")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 0)
-visible = false
-
-[node name="Inventory" parent="market" instance=ExtResource("3_um3eb")]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-grow_horizontal = 0
-alignment = 2
-
-[node name="area_mine" parent="." instance=ExtResource("7_1l4xe")]
-visible = false

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bebel1mwk1vtg"]
+
+[ext_resource type="PackedScene" uid="uid://cm831p7hnf5n1" path="res://level_pieces/environment/base/walls/SM_Bld_House_Wall_Window_03.glb" id="1_1bich"]
+[ext_resource type="PackedScene" uid="uid://dctg8pfwfowpm" path="res://level_pieces/environment/base/walls/SM_Bld_House_Wall_Window_03_Glass.glb" id="2_ew3md"]
+
+[node name="SM_Bld_House_Wall_Window_032" instance=ExtResource("1_1bich")]
+
+[node name="SM_Bld_House_Wall_Window_03_Glass2" parent="." index="1" instance=ExtResource("2_ew3md")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.775699, 0)

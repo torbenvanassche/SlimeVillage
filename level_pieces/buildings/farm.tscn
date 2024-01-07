@@ -1,0 +1,131 @@
+[gd_scene load_steps=3 format=3 uid="uid://wfhwfccq88xv"]
+
+[ext_resource type="PackedScene" uid="uid://bpr3e7eqi0q0u" path="res://level_pieces/environment/sm_generic_ground_dirt.tscn" id="1_pkycq"]
+[ext_resource type="PackedScene" uid="uid://cxei47ypwxt3m" path="res://level_pieces/environment/sm_generic_ground_gravel.tscn" id="2_deg7m"]
+
+[node name="Farm" type="Node3D"]
+
+[node name="SM_Generic_Ground_026" parent="." instance=ExtResource("1_pkycq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="SM_Generic_Ground_027" parent="." instance=ExtResource("1_pkycq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="SM_Generic_Ground_028" parent="." instance=ExtResource("1_pkycq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="SM_Generic_Ground_029" parent="." instance=ExtResource("1_pkycq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="SM_Generic_Ground_034" parent="." instance=ExtResource("1_pkycq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="SM_Generic_Ground_035" parent="." instance=ExtResource("1_pkycq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
+
+[node name="SM_Generic_Ground_036" parent="." instance=ExtResource("1_pkycq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+
+[node name="SM_Generic_Ground_037" parent="." instance=ExtResource("1_pkycq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3)
+
+[node name="SM_Generic_Ground_030" parent="." instance=ExtResource("1_pkycq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="SM_Generic_Ground_038" parent="." instance=ExtResource("1_pkycq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+
+[node name="gravel" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="gravel11" parent="." instance=ExtResource("2_deg7m")]
+
+[node name="gravel12" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="gravel13" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="gravel14" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="gravel20" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="gravel21" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="gravel22" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 6)
+
+[node name="gravel23" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6)
+
+[node name="gravel24" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 6)
+
+[node name="gravel25" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 6)
+
+[node name="gravel26" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="gravel27" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 6)
+
+[node name="gravel2" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="gravel3" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="gravel4" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="gravel5" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="gravel6" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="gravel28" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1)
+
+[node name="gravel7" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="gravel8" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="gravel9" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="gravel10" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 5)
+
+[node name="gravel29" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 2)
+
+[node name="gravel30" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)
+
+[node name="gravel31" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 4)
+
+[node name="gravel32" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 5)
+
+[node name="gravel15" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1)
+
+[node name="gravel16" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 2)
+
+[node name="gravel17" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 3)
+
+[node name="gravel18" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 4)
+
+[node name="gravel19" parent="." instance=ExtResource("2_deg7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)

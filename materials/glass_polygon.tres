@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b611vpuqkwxq6"]
+
+[ext_resource type="Texture2D" uid="uid://bgmlk6guw71c2" path="res://textures/fantasy/PolygonFantasyKingdom_Texture_01_A.png" id="1_yiwim"]
+
+[resource]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.498039)
+albedo_texture = ExtResource("1_yiwim")
+metallic = 0.27
+roughness = 0.26
+heightmap_scale = -16.0
+backlight = Color(1, 1, 1, 1)
+refraction_scale = -0.03

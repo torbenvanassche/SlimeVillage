@@ -1,12 +1,12 @@
-class_name path_finding
+class_name PathFinder
 extends Node
 
 var current_nav = []
-var tiles_storage: Array[Tile] = []
+var tiles_storage: Array[TileBase] = []
 var path_finder = AStar2D.new()	
 var max_distance = 0;
 	
-func add_node(tile: Tile, update_navigation = false):
+func add_node(tile: TileBase, update_navigation = false):
 	if(!tiles_storage.has(tile)):
 		tiles_storage.append(tile);
 		
@@ -14,7 +14,7 @@ func add_node(tile: Tile, update_navigation = false):
 			set_neighbours();
 			generate_connections();		
 		
-func remove_node(tile: Tile, update_navigation = false):
+func remove_node(tile: TileBase, update_navigation = false):
 	if(tiles_storage.has(tile)):
 		tiles_storage.erase(tile);
 		
@@ -22,7 +22,7 @@ func remove_node(tile: Tile, update_navigation = false):
 		set_neighbours();
 		generate_connections();	
 		
-func set_tiles(tileArr: Array[Tile]):
+func set_tiles(tileArr: Array[TileBase]):
 	tiles_storage = tileArr;
 	
 func clear_connections():
@@ -74,7 +74,7 @@ func calc_path(from: int, to: int):
 		current_nav.append(tiles_storage.filter(func(x): return x.path_index == t)[0])
 	current_nav.pop_front()
 	
-func get_valid_path(start: Tile, end: Tile) -> Array[Tile]:
+func get_valid_path(start: TileBase, end: TileBase) -> Array[TileBase]:
 	var closest_path: PackedInt64Array = []
 	if end && start.walkable_in_scene:
 		if end && end.walkable_in_scene:
@@ -87,13 +87,13 @@ func get_valid_path(start: Tile, end: Tile) -> Array[Tile]:
 					closest_path = path;
 	return _indices_to_tiles(closest_path);
 	
-func _indices_to_tiles(arr: PackedInt64Array) -> Array[Tile]:
-	var path: Array[Tile] = []
+func _indices_to_tiles(arr: PackedInt64Array) -> Array[TileBase]:
+	var path: Array[TileBase] = []
 	
 	for t in arr:
 		path.append(tiles_storage.filter(func(x): return x.path_index == t)[0])
 	path.pop_front()
 	return path;
 	
-func set_path(arr: Array[Tile]):
+func set_path(arr: Array[TileBase]):
 	current_nav = arr;

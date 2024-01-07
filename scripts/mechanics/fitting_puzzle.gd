@@ -1,3 +1,4 @@
+class_name FittingPuzzle
 extends GridContainer
 
 @export var grid_size: Vector2 = Vector2(2, 2)
@@ -14,7 +15,14 @@ func _ready():
 		
 		btn.pressed.connect(_add_selected_item.bind(btn))
 		
+func _unhandled_input(event):
+	if Input.is_action_just_released("cancel"):
+		self.visible = false;
+		get_viewport().set_input_as_handled()
+		
 func _add_selected_item(btn: Button):
-	if Global.player_instance.inventory.ui.selected_item:
-		Global.player_instance.inventory.remove_item(Global.player_instance.inventory.ui.selected_item, 1);
-		btn.icon = Global.player_instance.inventory.ui.selected_item.sprite;
+	var selected = Global.player_instance.inventory.ui.selected_item;
+	if selected:
+		Global.player_instance.inventory.remove_item(selected, 1);
+		btn.icon = selected.sprite;
+		Global.player_instance.inventory.ui.reset_selection();

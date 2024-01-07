@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bn4klo41ua43g"]
+
+[ext_resource type="Texture2D" uid="uid://cklx6p2d718h7" path="res://textures/fantasy/PolygonFantasyKingdon_Texture_Roof_Tile_01.png" id="1_fvesw"]
+[ext_resource type="Texture2D" uid="uid://cw4sc7cvyi6gt" path="res://textures/fantasy/PolygonFantasyKingdon_Texture_Roof_Tile_Normal.png" id="2_jefxs"]
+
+[resource]
+albedo_texture = ExtResource("1_fvesw")
+normal_enabled = true
+normal_texture = ExtResource("2_jefxs")

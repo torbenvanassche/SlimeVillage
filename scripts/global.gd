@@ -4,7 +4,7 @@ var player_instance: Player = null
 var manager: Manager
 var camera: Camera3D
 
-var ui_root: Node
+var ui_root: UIManager
 
 enum NAV_STYLE 
 {

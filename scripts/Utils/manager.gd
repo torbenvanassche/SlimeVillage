@@ -3,7 +3,7 @@ extends Node3D
 
 @export var scenes: Array[Node]
 @export var initial_scene: Node
-@export var player_inventory_ui: InventoryUI;
+@export var UI_manager: UIManager;
 
 signal scene_changed(from: Node, to: Node)
 	
@@ -59,6 +59,6 @@ func pause(pause_game = true):
 		$pause_menu.hide()
 		
 
-func _input(_event):
-	if Input.is_action_just_released("open_pause"):
+func _unhandled_input(_event):
+	if Input.is_action_just_released("cancel"):
 		pause(!get_tree().paused)

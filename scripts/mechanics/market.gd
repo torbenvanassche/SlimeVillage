@@ -8,10 +8,11 @@ var can_game_over: bool = false
 var available_items: Array[Dictionary] = [{}]
 
 @export var max_item_count = 10
+@export var market_inventory_ui: InventoryUI;
 
 func _ready():
 	available_items = JSON_HELPER.get_array_by_property(ItemManager.items, "available", true)
-	current_orders.init($Inventory);
+	current_orders.init(market_inventory_ui);
 	
 	spawn_timer = Timer.new()
 	spawn_timer.wait_time = Settings.item_spawn_speed

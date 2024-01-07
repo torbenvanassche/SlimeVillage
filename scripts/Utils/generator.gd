@@ -4,7 +4,7 @@ extends Node3D
 var tile_size := 1.0
 @export var entrance: Node3D = null;
 
-var pathfinder: path_finding = path_finding.new();
+var pathfinder: PathFinder = PathFinder.new();
 var local_grid_size: Vector2i;
 
 @export var save_name: String;
@@ -25,14 +25,14 @@ func _init_pathfinder():
 	pathfinder.set_neighbours(1.1)
 	pathfinder.generate_connections()
 
-func get_tile(idx: int) -> Tile:
+func get_tile(idx: int) -> TileBase:
 	return self.get_child(idx)
 	
-func get_open_tile(exclusion: Tile = null) -> Tile:
-	var subset = pathfinder.tiles_storage.filter(func(tile: Tile): return tile.can_generate && tile != exclusion)
+func get_open_tile(exclusion: TileBase = null) -> TileBase:
+	var subset = pathfinder.tiles_storage.filter(func(tile: TileBase): return tile.can_generate && tile != exclusion)
 	return subset.pick_random()
 	
-func replace_tile(original: Tile, replacement: Tile) -> Tile:
+func replace_tile(original: TileBase, replacement: TileBase) -> TileBase:
 	replacement.position = original.position
 	pathfinder.tiles_storage.erase(original)
 	original.queue_free()

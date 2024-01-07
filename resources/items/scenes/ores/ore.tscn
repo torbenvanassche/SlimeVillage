@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://778ctls66plu"]
 
-[ext_resource type="PackedScene" uid="uid://cd748edhg0wfn" path="res://models/Environment/source/ores/SM_Env_Gem_Large_01.glb" id="1_06ahy"]
+[ext_resource type="PackedScene" uid="uid://cd748edhg0wfn" path="res://level_pieces/environment/ores/SM_Env_Gem_Large_01.glb" id="1_06ahy"]
 [ext_resource type="Script" path="res://scripts/mechanics/interactable.gd" id="2_a5x5e"]
-[ext_resource type="Material" uid="uid://dlxnwaxpavp4k" path="res://materials/polygon_dungeon.tres" id="2_b28q7"]
+[ext_resource type="Material" uid="uid://dlxnwaxpavp4k" path="res://materials/polygon/polygon_dungeon.tres" id="2_b28q7"]
 [ext_resource type="Material" uid="uid://3aluuv68jlmy" path="res://resources/items/materials/ores/iron_ore.tres" id="3_f3nvj"]
 [ext_resource type="Script" path="res://scripts/mechanics/item_interact.gd" id="5_on11k"]
 

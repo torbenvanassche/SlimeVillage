@@ -1,7 +1,7 @@
 class_name Player
 extends Node3D
 
-var current_tile: Tile = null;
+var current_tile: TileBase = null;
 
 @export var inventory: Inventory;
 @export var inventory_ui: InventoryUI;
@@ -64,7 +64,7 @@ func move():
 	if timer.is_stopped():
 		timer.start()
 	
-func set_position_to_current_tile(tile: Tile = current_tile):
+func set_position_to_current_tile(tile: TileBase = current_tile):
 	if !tile:
 		print("No tile found to set position to, skipping...")
 		return
@@ -72,21 +72,21 @@ func set_position_to_current_tile(tile: Tile = current_tile):
 	current_tile = tile
 	get_parent().global_position = current_tile.surface_point
 	
-func find_location() -> Tile:
+func find_location() -> TileBase:
 	var space_state = get_world_3d().direct_space_state
 	var q = PhysicsRayQueryParameters3D.create(self.global_position  + Vector3(0, 1, 0), self.global_position - Vector3(0, 2, 0))
 	
 	var result = space_state.intersect_ray(q)
 	
 	if result:
-		return result.collider.get_parent() as Tile
+		return result.collider.get_parent() as TileBase
 		
 	return null
 	
-func is_adjacent(tile1: Tile, tile2: Tile = current_tile):
+func is_adjacent(tile1: TileBase, tile2: TileBase = current_tile):
 	return tile1.neighbours.has(tile2) || tile2.neighbours.has(tile1)
 
-func try_move(tile: Tile, move_near: bool = true) -> bool:
+func try_move(tile: TileBase, move_near: bool = true) -> bool:
 	if move_near:
 		var path = Global.manager.active_scene.pathfinder.get_valid_path(current_tile, tile);
 		if path.size() != 0:

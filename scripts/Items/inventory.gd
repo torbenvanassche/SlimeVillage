@@ -65,6 +65,8 @@ func remove_item(item: Dictionary, count: int):
 				
 				if data[index].count == 0:
 					data.remove_at(index)
+					
+	try_update_ui()
 	
 func try_get_indices(item: Dictionary) -> Array[int]:
 	var indices: Array[int] = []

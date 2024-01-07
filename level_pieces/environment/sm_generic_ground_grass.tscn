@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://1n36xgx3n0q6"]
+
+[ext_resource type="PackedScene" uid="uid://cpte3k4aeq3sh" path="res://level_pieces/environment/base/SM_Generic_Ground_02.glb" id="1_5ya31"]
+[ext_resource type="Material" uid="uid://dty5fwmsj0t46" path="res://materials/grass.tres" id="2_ae6kh"]
+
+[node name="SM_Generic_Ground_022" instance=ExtResource("1_5ya31")]
+
+[node name="SM_Generic_Ground_02" parent="." index="0"]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_ae6kh")

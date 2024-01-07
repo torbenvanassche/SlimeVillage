@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxjhthgnhemex"]
+
+[ext_resource type="PackedScene" uid="uid://1j8shrfc457" path="res://level_pieces/environment/base/walls/SM_Bld_House_Wall_Door_01.glb" id="1_t1ok8"]
+[ext_resource type="PackedScene" uid="uid://2cgkowv2nrjt" path="res://level_pieces/environment/base/walls/SM_Bld_House_Wall_Door_01_Door.glb" id="2_rgujx"]
+
+[node name="SM_Bld_House_Wall_Door_012" instance=ExtResource("1_t1ok8")]
+
+[node name="SM_Bld_House_Wall_Door_01_Door2" parent="." index="1" instance=ExtResource("2_rgujx")]
+transform = Transform3D(0.234005, 0, 0.972235, 0, 1, 0, -0.972235, 0, 0.234005, 0.604901, 0, 0)
