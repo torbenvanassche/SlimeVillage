@@ -258,7 +258,7 @@ transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 6, 1, 0)
 [node name="wall_front" type="Node3D" parent="Building"]
 
 [node name="SM_Bld_House_Stairs_Stone_012" parent="Building/wall_front" instance=ExtResource("8_okivm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.98135)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.02979)
 
 [node name="SM_Bld_House_Wall_Half_012" parent="Building/wall_front" instance=ExtResource("10_nbes4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 1, 4.37114e-08)
