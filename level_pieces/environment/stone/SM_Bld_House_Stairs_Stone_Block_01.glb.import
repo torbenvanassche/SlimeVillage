@@ -33,7 +33,7 @@ _subresources={
 "materials": {
 "CastleSHD122": {
 "use_external/enabled": true,
-"use_external/path": "res://materials/polygon_fantasy.tres"
+"use_external/path": "res://materials/polygon/polygon_fantasy.tres"
 }
 }
 }

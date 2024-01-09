@@ -33,7 +33,7 @@ _subresources={
 "materials": {
 "Base_Lambert38": {
 "use_external/enabled": true,
-"use_external/path": "res://materials/polygon_elven.tres"
+"use_external/path": "res://materials/polygon/polygon_elven.tres"
 }
 }
 }

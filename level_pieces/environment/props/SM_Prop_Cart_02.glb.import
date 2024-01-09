@@ -33,7 +33,7 @@ _subresources={
 "materials": {
 "Frontier.272": {
 "use_external/enabled": true,
-"use_external/path": "res://materials/polygon_western_frontier.tres"
+"use_external/path": "res://materials/polygon/polygon_western_frontier.tres"
 }
 }
 }
