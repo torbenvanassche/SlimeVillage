@@ -1,6 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://dfowh7u2ix5g5"]
+[gd_scene load_steps=23 format=3 uid="uid://dfowh7u2ix5g5"]
 
+[ext_resource type="PackedScene" uid="uid://dc1j7mvmx2tpw" path="res://scenes/components/tile.tscn" id="2_76f0h"]
 [ext_resource type="PackedScene" uid="uid://dokao30kyth2g" path="res://level_pieces/environment/stone/SM_Bld_House_Base_Corner_01.glb" id="3_6nle8"]
+[ext_resource type="Script" path="res://scripts/tiles/tile_walkable.gd" id="3_rltxx"]
 [ext_resource type="PackedScene" uid="uid://y3a824q3midi" path="res://level_pieces/environment/wood/beams/SM_Bld_House_WoodBeam_01.glb" id="4_i57xu"]
 [ext_resource type="PackedScene" uid="uid://m6t4qe6sowh8" path="res://level_pieces/environment/stone/sm_bld_house_floor_stone_03.tscn" id="4_ojr6j"]
 [ext_resource type="PackedScene" uid="uid://duoobpl3thrgv" path="res://level_pieces/environment/stone/SM_Bld_House_Base_Wall_01.glb" id="5_i2mgj"]
@@ -24,6 +26,7 @@
 [node name="Market" type="Node3D"]
 
 [node name="Ground" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9407e-05, 0, 0.00761914)
 
 [node name="SM_Bld_House_Floor_Stone_032" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1)
@@ -31,8 +34,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1)
 [node name="SM_Bld_House_Floor_Stone_034" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 2)
 
+[node name="@StaticBody3D@45346" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_034" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
+
 [node name="SM_Bld_House_Floor_Stone_035" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 3)
+
+[node name="@StaticBody3D@45347" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_035" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
 
 [node name="SM_Bld_House_Floor_Stone_033" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1)
@@ -40,17 +53,42 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1)
 [node name="SM_Bld_House_Floor_Stone_036" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 2)
 
+[node name="@StaticBody3D@45350" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_036" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
+
 [node name="SM_Bld_House_Floor_Stone_037" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 3)
+
+[node name="@StaticBody3D@45349" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_037" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
 
 [node name="SM_Bld_House_Floor_Stone_038" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 1)
 
+[node name="@StaticBody3D@45344" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_038" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
+
 [node name="SM_Bld_House_Floor_Stone_039" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 2)
 
+[node name="@StaticBody3D@45345" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_039" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
+
 [node name="SM_Bld_House_Floor_Stone_040" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 3)
+
+[node name="@StaticBody3D@45348" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_040" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
 
 [node name="SM_Bld_House_Floor_Stone_041" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 1)
@@ -61,14 +99,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 1)
 [node name="SM_Bld_House_Floor_Stone_043" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 2)
 
+[node name="@StaticBody3D@45351" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_043" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
+
 [node name="SM_Bld_House_Floor_Stone_044" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 3)
+
+[node name="@StaticBody3D@45363" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_044" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
 
 [node name="SM_Bld_House_Floor_Stone_045" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 2)
 
+[node name="@StaticBody3D@45352" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_045" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
+
 [node name="SM_Bld_House_Floor_Stone_046" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 3)
+
+[node name="@StaticBody3D@45362" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_046" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
 
 [node name="SM_Bld_House_Floor_Stone_047" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 1)
@@ -76,17 +134,42 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 1)
 [node name="SM_Bld_House_Floor_Stone_048" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 2)
 
+[node name="@StaticBody3D@45358" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_048" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
+
 [node name="SM_Bld_House_Floor_Stone_049" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 3)
+
+[node name="@StaticBody3D@45361" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_049" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
 
 [node name="SM_Bld_House_Floor_Stone_050" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 1)
 
+[node name="@StaticBody3D@45355" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_050" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
+
 [node name="SM_Bld_House_Floor_Stone_051" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 7, 1, 2)
 
+[node name="@StaticBody3D@45357" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_051" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
+
 [node name="SM_Bld_House_Floor_Stone_052" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 7, 1, 3)
+
+[node name="@StaticBody3D@45360" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_052" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
 
 [node name="SM_Bld_House_Floor_Stone_053" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 7, 1, 1)
@@ -94,20 +177,50 @@ transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 7, 1, 1)
 [node name="SM_Bld_House_Floor_Stone_054" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 8, 1, 2)
 
+[node name="@StaticBody3D@45356" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_054" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
+
 [node name="SM_Bld_House_Floor_Stone_055" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 8, 1, 3)
+
+[node name="@StaticBody3D@45359" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_055" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
 
 [node name="SM_Bld_House_Floor_Stone_057" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 7, 1, 4)
 
+[node name="@StaticBody3D@45365" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_057" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
+
 [node name="SM_Bld_House_Floor_Stone_058" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 8, 1, 4)
+
+[node name="@StaticBody3D@45364" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_058" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
 
 [node name="SM_Bld_House_Floor_Stone_059" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 5, 1, 4)
 
+[node name="@StaticBody3D@45369" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_059" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
+
 [node name="SM_Bld_House_Floor_Stone_060" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 6, 1, 4)
+
+[node name="@StaticBody3D@45367" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_060" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
 
 [node name="SM_Bld_House_Floor_Stone_061" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 7, 1, 5)
@@ -118,8 +231,18 @@ transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 8, 1, 5)
 [node name="SM_Bld_House_Floor_Stone_063" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 5, 1, 5)
 
+[node name="@StaticBody3D@45368" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_063" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
+
 [node name="SM_Bld_House_Floor_Stone_064" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 6, 1, 5)
+
+[node name="@StaticBody3D@45366" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_064" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
 
 [node name="SM_Bld_House_Floor_Stone_056" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 8, 1, 1)
@@ -129,6 +252,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
 
 [node name="SM_Bld_House_Floor_Stone_066" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 0)
+
+[node name="@StaticBody3D@45343" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_066" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
 
 [node name="SM_Bld_House_Floor_Stone_067" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
@@ -142,6 +270,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 0)
 [node name="SM_Bld_House_Floor_Stone_070" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0)
 
+[node name="@StaticBody3D@45354" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_070" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
+
 [node name="SM_Bld_House_Floor_Stone_071" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 7, 1, 0)
 
@@ -153,6 +286,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
 
 [node name="SM_Bld_House_Floor_Stone_074" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, -1)
+
+[node name="@StaticBody3D@45342" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_074" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
 
 [node name="SM_Bld_House_Floor_Stone_075" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -1)
@@ -166,19 +304,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -1)
 [node name="SM_Bld_House_Floor_Stone_078" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -1)
 
+[node name="@StaticBody3D@45353" type="StaticBody3D" parent="Ground/SM_Bld_House_Floor_Stone_078" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
+
 [node name="SM_Bld_House_Floor_Stone_079" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 7, 1, -1)
 
 [node name="SM_Bld_House_Floor_Stone_080" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 8, 1, -1)
 
-[node name="gravel" parent="Ground" instance=ExtResource("22_47vpx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
-
 [node name="gravel2" parent="Ground" instance=ExtResource("22_47vpx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2.5)
+
+[node name="@StaticBody3D@48845" type="StaticBody3D" parent="Ground/gravel2" instance=ExtResource("2_76f0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+script = ExtResource("3_rltxx")
+walkable_in_scene = true
 
 [node name="Building" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9407e-05, 0, 0.00761914)
 
 [node name="wall_left" type="Node3D" parent="Building"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
@@ -258,13 +404,13 @@ transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 6, 1, 0)
 [node name="wall_front" type="Node3D" parent="Building"]
 
 [node name="SM_Bld_House_Stairs_Stone_012" parent="Building/wall_front" instance=ExtResource("8_okivm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.02979)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.673668, 1.5, 0, 2.02979)
 
 [node name="SM_Bld_House_Wall_Half_012" parent="Building/wall_front" instance=ExtResource("10_nbes4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 1, 4.37114e-08)
 
 [node name="SM_Bld_House_Base_Wall_013" parent="Building/wall_front" instance=ExtResource("5_i2mgj")]
-transform = Transform3D(-6.92318e-08, 0, -1, 0, 1, 0, 0.64531, 0, -1.07285e-07, 1, 0, -3.01992e-07)
+transform = Transform3D(-8.37156e-08, 0, -1, 0, 1, 0, 0.780314, 0, -1.07285e-07, 1, 0, -3.01992e-07)
 
 [node name="SM_Bld_House_Base_Wall_015" parent="Building/wall_front" instance=ExtResource("5_i2mgj")]
 transform = Transform3D(-1.03848e-07, 0, -1, 0, 1, 0, 0.967965, 0, -1.07285e-07, 1, 0, -1.93593)

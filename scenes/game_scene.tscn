@@ -22,9 +22,6 @@ scenes = [NodePath("overworld")]
 initial_scene = NodePath("overworld")
 UI_manager = NodePath("UI")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_jjbbm")
-
 [node name="UI" type="Node" parent="." node_paths=PackedStringArray("puzzle_ui")]
 script = ExtResource("2_bvv38")
 puzzle_ui = NodePath("puzzle_ui")
@@ -63,5 +60,12 @@ input_mode = 0
 
 [node name="overworld" parent="." instance=ExtResource("8_34vxr")]
 
-[node name="Pathfinding" type="Node" parent="."]
+[node name="Pathfinding" type="Node" parent="overworld"]
 script = ExtResource("9_3s661")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="overworld"]
+environment = SubResource("Environment_jjbbm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="overworld"]
+transform = Transform3D(-0.945522, 0.0532305, -0.321176, -0.248533, 0.519202, 0.817717, 0.210283, 0.852992, -0.477688, 0.648335, 5.71672, -1.0657)
+shadow_enabled = true
