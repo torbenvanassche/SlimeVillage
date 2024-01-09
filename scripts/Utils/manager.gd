@@ -17,7 +17,6 @@ func set_active_scene(scene: Node, remove_active_from_tree: bool = true):
 	scene_changed.emit(active_scene, scene)
 	
 	active_scene = scene
-
 	active_scene.visible = true;
 		
 	if active_scene.has_method("on_enable"):

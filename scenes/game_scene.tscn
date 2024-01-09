@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0ajw5a07g334"]
+[gd_scene load_steps=11 format=3 uid="uid://b0ajw5a07g334"]
 
 [ext_resource type="Script" path="res://scripts/Utils/manager.gd" id="1_8x5qd"]
 [ext_resource type="Script" path="res://scripts/ui/ui_manager.gd" id="2_bvv38"]
@@ -7,16 +7,20 @@
 [ext_resource type="PackedScene" uid="uid://bwrcc2gxqnosv" path="res://scenes/components/Player.tscn" id="6_o5cr0"]
 [ext_resource type="PackedScene" uid="uid://cuqpjlp4i7pkb" path="res://scenes/components/camera.tscn" id="7_ca8bl"]
 [ext_resource type="PackedScene" uid="uid://4obto2tpb0v3" path="res://scenes/base_scenes/pause_menu.tscn" id="8_11yd1"]
+[ext_resource type="PackedScene" uid="uid://bg1irjlbmoowb" path="res://scenes/docks.tscn" id="8_34vxr"]
+[ext_resource type="Script" path="res://scripts/navigation/path_finding.gd" id="9_3s661"]
 
 [sub_resource type="Environment" id="Environment_jjbbm"]
 ambient_light_color = Color(0.47451, 0.47451, 0.47451, 1)
 tonemap_mode = 1
 tonemap_white = 1.55
 
-[node name="Node" type="Node3D"]
+[node name="Node" type="Node3D" node_paths=PackedStringArray("scenes", "initial_scene", "UI_manager")]
 process_mode = 3
 script = ExtResource("1_8x5qd")
-initial_scene = null
+scenes = [NodePath("overworld")]
+initial_scene = NodePath("overworld")
+UI_manager = NodePath("UI")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jjbbm")
@@ -36,6 +40,7 @@ alignment = 2
 
 [node name="puzzle_ui" parent="UI" instance=ExtResource("3_7ln7i")]
 visible = false
+grid_size = Vector2i(2, 2)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 process_mode = 1
@@ -50,7 +55,7 @@ sky_mode = 1
 visible = false
 
 [node name="PlayerRoot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 1.5)
 
 [node name="CameraRoot" parent="PlayerRoot" node_paths=PackedStringArray("target") instance=ExtResource("7_ca8bl")]
 unique_name_in_owner = true
@@ -64,3 +69,8 @@ process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 inventory_ui = NodePath("../../UI/player_inventory")
 input_mode = 0
+
+[node name="overworld" parent="." instance=ExtResource("8_34vxr")]
+
+[node name="Pathfinding" type="Node" parent="."]
+script = ExtResource("9_3s661")

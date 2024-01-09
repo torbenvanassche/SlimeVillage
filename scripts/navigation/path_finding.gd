@@ -4,23 +4,29 @@ extends Node
 var current_nav = []
 var tiles_storage: Array[TileBase] = []
 var path_finder = AStar2D.new()	
-var max_distance = 0;
+var max_distance = 1.1;
+
+func _init():
+	Global.path_finder = self;
+	generate.call_deferred()
 	
 func add_node(tile: TileBase, update_navigation = false):
 	if(!tiles_storage.has(tile)):
 		tiles_storage.append(tile);
 		
 		if(update_navigation):
-			set_neighbours();
-			generate_connections();		
+			generate();
 		
 func remove_node(tile: TileBase, update_navigation = false):
 	if(tiles_storage.has(tile)):
 		tiles_storage.erase(tile);
 		
 	if(update_navigation):
-		set_neighbours();
-		generate_connections();	
+		generate();	
+		
+func generate():
+	set_neighbours();
+	generate_connections();	
 		
 func set_tiles(tileArr: Array[TileBase]):
 	tiles_storage = tileArr;
@@ -78,7 +84,9 @@ func get_valid_path(start: TileBase, end: TileBase) -> Array[TileBase]:
 	var closest_path: PackedInt64Array = []
 	if end && start.walkable_in_scene:
 		if end && end.walkable_in_scene:
-			return _indices_to_tiles(path_finder.get_id_path(start.path_index, end.path_index));
+			var path_ids = path_finder.get_id_path(start.path_index, end.path_index);
+			var path_tiles = _indices_to_tiles(path_ids);
+			return path_tiles;
 		
 		for n in end.neighbours:
 			if n.walkable_in_scene:

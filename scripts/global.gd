@@ -3,6 +3,7 @@ extends Node
 var player_instance: Player = null
 var manager: Manager
 var camera: Camera3D
+var path_finder: PathFinder;
 
 var ui_root: UIManager
 

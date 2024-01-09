@@ -41,20 +41,17 @@ func read_input_mode():
 			wasd_navigator.process_mode = Node.PROCESS_MODE_INHERIT;
 	
 func _on_time():
-	if Global.manager.active_scene.pathfinder.current_nav.size() == 0:
+	if Global.path_finder.current_nav.size() == 0:
 		return
 	
-	if nav_index < Global.manager.active_scene.pathfinder.current_nav.size() - 1:
-		current_tile = Global.manager.active_scene.pathfinder.current_nav[nav_index]
+	if nav_index < Global.path_finder.current_nav.size() - 1:
+		current_tile = Global.path_finder.current_nav[nav_index]
 		nav_index += 1
 	else: 
-		current_tile = Global.manager.active_scene.pathfinder.current_nav[nav_index]
-		Global.manager.active_scene.pathfinder.current_nav.clear()	
+		current_tile = Global.path_finder.current_nav[nav_index]
+		Global.path_finder.current_nav.clear()	
 		
 		wasd_navigator.can_move = true;
-		
-		if current_tile.trigger:
-			current_tile.trigger.on_entered.emit();
 		
 		nav_index = 0
 		timer.stop()
@@ -70,6 +67,7 @@ func set_position_to_current_tile(tile: TileBase = current_tile):
 		return
 	
 	current_tile = tile
+	tile.find_surface()
 	get_parent().global_position = current_tile.surface_point
 	
 func find_location() -> TileBase:
@@ -79,7 +77,7 @@ func find_location() -> TileBase:
 	var result = space_state.intersect_ray(q)
 	
 	if result:
-		return result.collider.get_parent() as TileBase
+		return result.collider as TileBase
 		
 	return null
 	
@@ -88,18 +86,18 @@ func is_adjacent(tile1: TileBase, tile2: TileBase = current_tile):
 
 func try_move(tile: TileBase, move_near: bool = true) -> bool:
 	if move_near:
-		var path = Global.manager.active_scene.pathfinder.get_valid_path(current_tile, tile);
+		var path = Global.path_finder.get_valid_path(current_tile, tile);
 		if path.size() != 0:
-			tile.path_controller.pathfinder.set_path(path);
+			Global.path_finder.set_path(path);
 			move();
 			
 		return path.size() != 0
 	return true;
 
 func _process(_delta):
-	if Global.manager.active_scene.pathfinder.current_nav.size() != 0:
+	if Global.path_finder.current_nav.size() != 0:
 		progress = 1 - (timer.time_left / timer.wait_time)
-		get_parent().position = current_tile.surface_point.lerp(Global.manager.active_scene.pathfinder.current_nav[nav_index].surface_point, progress);
+		get_parent().position = current_tile.surface_point.lerp(Global.path_finder.current_nav[nav_index].surface_point, progress);
 		
-		if global_position.distance_to(Global.manager.active_scene.pathfinder.current_nav[nav_index].surface_point) > 0.5:
-			self.look_at(Global.manager.active_scene.pathfinder.current_nav[nav_index].surface_point)
+		if global_position.distance_to(Global.path_finder.current_nav[nav_index].surface_point) > 0.5:
+			self.look_at(Global.path_finder.current_nav[nav_index].surface_point)

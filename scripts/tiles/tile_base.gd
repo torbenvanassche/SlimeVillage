@@ -3,8 +3,6 @@ extends Node3D
 
 var path_index: int
 
-var path_controller: PathFinder
-
 var surface_point := Vector3()
 var neighbours := []
 var side_count: int = 4
@@ -20,9 +18,7 @@ var navigation_weight: int = 0
 func _add_neighbour(tile: TileBase):
 	neighbours.append(tile)
 
-func _ready():					
-	path_controller.pathfinder.add_node(self)
-	
+func _ready():	
 	find_surface()	
 	set_tile(tile_data)
 	
@@ -40,9 +36,5 @@ func set_tile(data: Tile_Data):
 	
 	if !data.walkable:
 		walkable_in_scene = data.walkable;
-		
-	var tile = get_node_or_null("SM_Generic_Ground_02/SM_Generic_Ground_02");
-	if tile && data.ground_material:
-		tile.set_material_override(data.ground_material);
 		
 	navigation_weight = data.navigation_weight

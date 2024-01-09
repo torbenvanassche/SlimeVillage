@@ -1,7 +1,7 @@
 class_name FittingPuzzle
 extends GridContainer
 
-@export var grid_size: Vector2 = Vector2(2, 2)
+@export var grid_size: Vector2i = Vector2i(2, 2)
 var rect_theme = preload("res://scenes/ui/inventory_slot.tres")
 
 func _ready():
@@ -15,7 +15,7 @@ func _ready():
 		
 		btn.pressed.connect(_add_selected_item.bind(btn))
 		
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if Input.is_action_just_released("cancel"):
 		self.visible = false;
 		get_viewport().set_input_as_handled()

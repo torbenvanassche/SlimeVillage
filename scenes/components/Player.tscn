@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scripts/Items/inventory.gd" id="5_4bm4r"]
 
 [node name="Player" type="Node3D" node_paths=PackedStringArray("inventory", "click_navigator", "wasd_navigator")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-0.65, 0, -9.81473e-08, 0, 0.65, 0, 9.81473e-08, 0, -0.65, 0, 0, 0)
 script = ExtResource("1_spbeu")
 inventory = NodePath("Inventory")
 click_navigator = NodePath("click_navigator")

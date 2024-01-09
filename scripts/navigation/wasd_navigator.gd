@@ -19,7 +19,7 @@ func get_offset(direction):
 
 func start_move(moveVector: Vector3):
 	var player = get_parent() as Player;
-	var next_tile: Tile = null;
+	var next_tile: TileBase = null;
 	for tile in player.current_tile.neighbours:
 		if (player.current_tile.position + moveVector).distance_to(tile.position) < 0.25:
 			next_tile = tile;
