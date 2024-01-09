@@ -42,15 +42,6 @@ alignment = 2
 visible = false
 grid_size = Vector2i(2, 2)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-process_mode = 1
-transform = Transform3D(1, 0, 0, 0, -0.335797, 0.941934, 0, -0.941934, -0.335797, 0, 6.83928, -3.43085)
-light_color = Color(1, 0.956863, 0.839216, 1)
-shadow_enabled = true
-shadow_bias = 0.05
-shadow_normal_bias = 0.4
-sky_mode = 1
-
 [node name="pause_menu" parent="." instance=ExtResource("8_11yd1")]
 visible = false
 

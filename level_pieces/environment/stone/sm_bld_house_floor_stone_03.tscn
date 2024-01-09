@@ -1,10 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://m6t4qe6sowh8"]
+[gd_scene load_steps=2 format=3 uid="uid://m6t4qe6sowh8"]
 
 [ext_resource type="PackedScene" uid="uid://dxrjvdx21x7kv" path="res://level_pieces/environment/base/floors/SM_Bld_House_Floor_Stone_03.glb" id="1_1lvhq"]
-[ext_resource type="PackedScene" uid="uid://dc1j7mvmx2tpw" path="res://scenes/components/tile.tscn" id="2_df4qc"]
 
 [node name="SM_Bld_House_Floor_Stone_032" instance=ExtResource("1_1lvhq")]
-
-[node name="walkable_tile" parent="." index="1" instance=ExtResource("2_df4qc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
-walkable_in_scene = true
