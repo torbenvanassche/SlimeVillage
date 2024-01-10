@@ -3,15 +3,15 @@ extends Node
 var data_file_path: String = "res://resources/items/item_database.json"
 var items: Dictionary;
 
-func _ready():	
+func _init():	
 	items = JSON_HELPER.load_json(data_file_path)
 	
-func get_item_by_name(string: String) -> Dictionary:
-	var filter = items.values().filter(func(x): x["name"] == string);
-	if filter.size() == 1:
+func get_item_by_name(item_name: String) -> Dictionary:
+	var filter = items.values().filter(func(x): return x.name == item_name);
+	if filter.size() > 0:
 		return filter[0]
 		
-	printerr(string + " does not exist in the itemdatabase.")
+	printerr(item_name + " does not exist in the itemdatabase.")
 	return {} 
 
 func get_scene(item: Dictionary) -> PackedScene:

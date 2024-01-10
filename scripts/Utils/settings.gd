@@ -13,7 +13,7 @@ var mine_chance_to_fail: int = 1
 var forest_grid_size: Vector2i = Vector2i(5, 10)
 
 #Farm
-var crop_growth_speed = 2
+var crop_growth_modifier = 1
 
 var input_mode: Global.NAV_STYLE = Global.NAV_STYLE.CLICK;
 
