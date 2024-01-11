@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://dfowh7u2ix5g5"]
 
-[ext_resource type="PackedScene" uid="uid://dc1j7mvmx2tpw" path="res://scenes/components/tile.tscn" id="2_76f0h"]
+[ext_resource type="PackedScene" uid="uid://dc1j7mvmx2tpw" path="res://scenes/components/walkable_tile.tscn" id="2_76f0h"]
 [ext_resource type="PackedScene" uid="uid://dokao30kyth2g" path="res://level_pieces/environment/stone/SM_Bld_House_Base_Corner_01.glb" id="3_6nle8"]
 [ext_resource type="PackedScene" uid="uid://y3a824q3midi" path="res://level_pieces/environment/wood/beams/SM_Bld_House_WoodBeam_01.glb" id="4_i57xu"]
 [ext_resource type="PackedScene" uid="uid://m6t4qe6sowh8" path="res://level_pieces/environment/stone/sm_bld_house_floor_stone_03.tscn" id="4_ojr6j"]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/Utils/generator.gd" id="1_6dxsm"]
 [ext_resource type="PackedScene" uid="uid://dfowh7u2ix5g5" path="res://level_pieces/buildings/market.tscn" id="2_70pv6"]
 [ext_resource type="PackedScene" uid="uid://cxei47ypwxt3m" path="res://level_pieces/environment/sm_generic_ground_gravel.tscn" id="2_igwwi"]
-[ext_resource type="PackedScene" uid="uid://dc1j7mvmx2tpw" path="res://scenes/components/tile.tscn" id="3_5wrqg"]
+[ext_resource type="PackedScene" uid="uid://dc1j7mvmx2tpw" path="res://scenes/components/walkable_tile.tscn" id="3_5wrqg"]
 [ext_resource type="PackedScene" uid="uid://wfhwfccq88xv" path="res://level_pieces/buildings/farm.tscn" id="3_sgd1i"]
 
 [node name="main_scene" type="Node3D" node_paths=PackedStringArray("entrance")]
@@ -51,6 +51,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 2)
 [node name="@StaticBody3D@51183" parent="gravel4" instance=ExtResource("3_5wrqg")]
 
 [node name="Farm" parent="." instance=ExtResource("3_sgd1i")]
-transform = Transform3D(1, 0, 6.3573e-08, 0, 1, 0, -6.3573e-08, 0, 1, -1.99575, 0.007411, 5.00296)
+transform = Transform3D(1, 0, 6.3573e-08, 0, 1, 0, -6.3573e-08, 0, 1, -2.99575, 0.007411, 4.00296)
 
 [node name="Market" parent="." instance=ExtResource("2_70pv6")]
