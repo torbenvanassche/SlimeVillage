@@ -6,11 +6,12 @@ var _items: Dictionary;
 func _init():	
 	_items = JSON_HELPER.load_json(data_file_path)
 	
-func get_item(id: item_database.id):
-	var result = _items[item_database.id.keys()[id]];
-	if result:
-		return result
-	printerr(result + " not found in the item database.")
+func get_item(id: String):
+	if _items.keys().find(id) != -1:
+		var rv = _items[id];
+		rv.id = id;
+		return rv;
+	printerr(id + " not found in the item database.")
 	return null;
 
 func get_scene(item: Dictionary) -> PackedScene:

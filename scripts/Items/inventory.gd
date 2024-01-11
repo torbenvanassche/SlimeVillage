@@ -48,8 +48,8 @@ func _try_add(item: Dictionary, slot: int) -> bool:
 		return true
 	return false
 		
-func add_item_by_name(item: String, amount: int = 1):
-	add_item(ItemManager.items[item], amount)	
+func add_item_by_id(item: String, amount: int = 1):
+	add_item(ItemManager.get_item(item), amount)	
 
 func get_item_in_slot(slot: int) -> Dictionary:
 	return data[slot]
