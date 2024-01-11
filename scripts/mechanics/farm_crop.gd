@@ -20,14 +20,22 @@ func _ready():
 func _on_grow():
 	_crop_node.visible = true;
 	buffer = {"name": _item.id, "amount": _item.yield}
-	_item = {};
 	_growth_timer.stop()
 	
 func execute(options: Dictionary = {}) -> Dictionary:
 	if _growth_timer.is_stopped() && buffer:
 		options.player.inventory.add_item_by_id(buffer.name, buffer.amount)
-		buffer = {};
+		_reset(true)
 	return {};
+	
+func _reset(restart = false):
+	buffer = {};
+	_crop_node.visible = false;
+	
+	if restart:
+		set_plant(_item)
+	else:
+		_item = {};
 
 func set_plant(item: Dictionary):		
 	_item = item;
