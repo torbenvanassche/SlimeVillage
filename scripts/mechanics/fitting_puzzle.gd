@@ -1,16 +1,16 @@
 class_name FittingPuzzle
 extends GridContainer
 
-@export var grid_size: Vector2i = Vector2i(2, 2)
-var rect_theme = preload("res://scenes/ui/inventory_slot.tres")
+@export var _grid_size: Vector2i = Vector2i(2, 2)
+var _rect_theme = preload("res://scenes/ui/inventory_slot.tres")
 
 func _ready():
-	self.columns = grid_size.y;
-	for i in range(grid_size.x * grid_size.y):
+	self.columns = _grid_size.y;
+	for i in range(_grid_size.x * _grid_size.y):
 		var btn = Button.new();
 		btn.custom_minimum_size = Vector2(50, 50);
 		btn.expand_icon = true;
-		btn.theme = rect_theme;	
+		btn.theme = _rect_theme;	
 		self.add_child(btn)
 		
 		btn.pressed.connect(_add_selected_item.bind(btn))
