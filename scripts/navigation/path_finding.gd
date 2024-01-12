@@ -6,6 +6,8 @@ var tiles_storage: Array[TileBase] = []
 var path_finder = AStar2D.new()	
 var max_distance = 1.1;
 
+var registered_interaction: Callable = Callable();
+
 func _init():
 	Global.path_finder = self;
 	generate.call_deferred()
@@ -82,17 +84,21 @@ func calc_path(from: int, to: int):
 	
 func get_valid_path(start: TileBase, end: TileBase) -> Array[TileBase]:
 	var closest_path: PackedInt64Array = []
-	if end:
-		if end.walkable_in_scene:
-			var path_ids = path_finder.get_id_path(start.path_index, end.path_index);
-			var path_tiles = _indices_to_tiles(path_ids);
-			return path_tiles;
-		
+	if end.walkable_in_scene:
+		var path_ids = path_finder.get_id_path(start.path_index, end.path_index);
+		closest_path = path_ids;
+	else:
 		for n in end.neighbours:
 			if n.walkable_in_scene:
 				var path = path_finder.get_id_path(start.path_index, n.path_index);
 				if path.size() < closest_path.size() || closest_path.size() == 0:
 					closest_path = path;
+						
+	if closest_path.size() > 0 && end.has_method("on_move_complete"):
+		registered_interaction = Callable(end, "on_move_complete");
+	else:
+		registered_interaction = Callable();
+	
 	return _indices_to_tiles(closest_path);
 	
 func _indices_to_tiles(arr: PackedInt64Array) -> Array[TileBase]:

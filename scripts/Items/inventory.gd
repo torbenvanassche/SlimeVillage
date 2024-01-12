@@ -13,21 +13,18 @@ func init(inventory_ui: InventoryUI, slots: int = 4):
 func add_item(item: Dictionary, make_slot_if_full: bool = true, amount: int = 1):
 	var require_update: bool = false;		
 	var remaining_amount: int = amount
-	var indices: Array[int] = try_get_indices(item);
+	var slots: Array[Dictionary] = try_get_slots(item);
 	var current_index: int = 0;
 	
-	var current_slot: Dictionary;
-	if (data.size() < max_slots || make_slot_if_full):
-		if indices.size() == 0:
-			current_slot = _create_slot(item)
-			data.append(current_slot)
-	indices = try_get_indices(item)
-	
 	while remaining_amount > 0:
-		if _try_add(item, indices[current_index]):
+		if slots.size() == 0 && (data.size() < max_slots || make_slot_if_full):
+			slots.append(_create_slot(item))
+		
+		if _try_add(item, slots[0]):
 			remaining_amount -= 1;
 			require_update = true;
-		else: current_index += 1;
+		else:
+			slots.erase(slots[0])
 	
 	if require_update:
 		try_update_ui()
@@ -35,45 +32,30 @@ func add_item(item: Dictionary, make_slot_if_full: bool = true, amount: int = 1)
 	return remaining_amount;
 
 func _create_slot(item: Dictionary):
-	return {"name": item.name, "count": 0, "stack_size": item.stack_size, "sprite": ItemManager.get_sprite(item)};
+	var entry = {"name": item.name, "count": 0, "stack_size": item.stack_size, "sprite": ItemManager.get_sprite(item)};
+	data.append(entry);
+	return entry;
 		
 func try_update_ui():
 	if ui: 
 		ui.update(data)
 	return true;
 				
-func _try_add(item: Dictionary, slot: int) -> bool:
-	if get_item_in_slot(slot).name == item.name and data[slot].count < data[slot].stack_size:
-		data[slot].count += 1
+func _try_add(item: Dictionary, slot: Dictionary) -> bool:
+	if slot.name == item.name and slot.count < slot.stack_size:
+		slot.count += 1
 		return true
 	return false
 		
 func add_item_by_id(item: String, amount: int = 1):
-	add_item(ItemManager.get_item(item), amount)	
-
-func get_item_in_slot(slot: int) -> Dictionary:
-	return data[slot]
+	add_item(ItemManager.get_item(item), amount)
 	
-func remove_item(item: Dictionary, count: int):
-	var remove_count = count
-	var indices = try_get_indices(item)
-	while remove_count > 0:
-		for index in indices:
-			if data[index].count > 0:
-				data[index].count -= count
-				remove_count -= 1
-				
-				if data[index].count == 0:
-					data.remove_at(index)
-					
-	try_update_ui()
-	
-func try_get_indices(item: Dictionary) -> Array[int]:
-	var indices: Array[int] = []
+func try_get_slots(item: Dictionary) -> Array[Dictionary]:
+	var slots: Array[Dictionary] = []
 	for i in range(data.size()):
-		if data[i].name == item.name:
-			indices.append(i)
-	return indices
+		if data[i].name == item.name && data[i].count < data[i].stack_size:
+			slots.append(data[i])
+	return slots
 
 func get_item_count(item_name: String = ""):
 	var total_count = 0

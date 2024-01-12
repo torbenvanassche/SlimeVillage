@@ -28,7 +28,6 @@ func _ready():
 	add_child(timer)
 		
 	timer.wait_time = move_delay
-	timer.one_shot = false
 	timer.timeout.connect(_on_time)
 	
 func read_input_mode():
@@ -48,13 +47,14 @@ func _on_time():
 		current_tile = Global.path_finder.current_nav[nav_index]
 		nav_index += 1
 	else: 
+		
 		current_tile = Global.path_finder.current_nav[nav_index]
 		Global.path_finder.current_nav.clear()	
+
+		if Global.path_finder.registered_interaction.is_valid():
+			Global.path_finder.registered_interaction.call();
 		
 		wasd_navigator.can_move = true;
-		
-		if current_tile.has_method("on_move_complete"):
-			current_tile.on_move_complete()
 		
 		nav_index = 0
 		timer.stop()
@@ -87,11 +87,13 @@ func find_location() -> TileBase:
 func is_adjacent(tile1: TileBase, tile2: TileBase = current_tile):
 	return tile1.neighbours.has(tile2) || tile2.neighbours.has(tile1)
 
-func try_move(tile: TileBase):
+func try_move(tile: TileBase) -> bool:
 	var path = Global.path_finder.get_valid_path(current_tile, tile);
 	if path.size() != 0:
 		Global.path_finder.set_path(path);
 		move();
+		return true;
+	return false;
 
 func _process(_delta):
 	if Global.path_finder.current_nav.size() != 0:
