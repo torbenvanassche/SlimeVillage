@@ -27,6 +27,7 @@ script = ExtResource("2_bvv38")
 puzzle_ui = NodePath("puzzle_ui")
 
 [node name="player_inventory" parent="UI" instance=ExtResource("3_um3eb")]
+custom_minimum_size = Vector2(100, 50)
 
 [node name="market_inventory" parent="UI" instance=ExtResource("3_um3eb")]
 anchors_preset = 1

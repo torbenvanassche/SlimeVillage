@@ -53,6 +53,9 @@ func _on_time():
 		
 		wasd_navigator.can_move = true;
 		
+		if current_tile.has_method("on_move_complete"):
+			current_tile.on_move_complete()
+		
 		nav_index = 0
 		timer.stop()
 	
@@ -84,15 +87,11 @@ func find_location() -> TileBase:
 func is_adjacent(tile1: TileBase, tile2: TileBase = current_tile):
 	return tile1.neighbours.has(tile2) || tile2.neighbours.has(tile1)
 
-func try_move(tile: TileBase, move_near: bool = true) -> bool:
-	if move_near:
-		var path = Global.path_finder.get_valid_path(current_tile, tile);
-		if path.size() != 0:
-			Global.path_finder.set_path(path);
-			move();
-			
-		return path.size() != 0
-	return true;
+func try_move(tile: TileBase):
+	var path = Global.path_finder.get_valid_path(current_tile, tile);
+	if path.size() != 0:
+		Global.path_finder.set_path(path);
+		move();
 
 func _process(_delta):
 	if Global.path_finder.current_nav.size() != 0:

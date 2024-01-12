@@ -13,6 +13,7 @@ config_version=5
 config/name="InteractiveClicker"
 run/main_scene="res://scenes/game_scene.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
@@ -21,13 +22,20 @@ Global="*res://scripts/global.gd"
 ItemManager="*res://scripts/Items/item_manager.gd"
 Settings="*res://scripts/Utils/settings.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [dotnet]
 
 project/assembly_name="InteractiveClicker"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/snappy/plugin.cfg")
+enabled=PackedStringArray("res://addons/plugin_refresher/plugin.cfg", "res://addons/snappy/plugin.cfg")
 
 [filesystem]
 

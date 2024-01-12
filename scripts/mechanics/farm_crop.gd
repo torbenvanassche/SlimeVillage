@@ -22,11 +22,10 @@ func _on_grow():
 	buffer = {"name": _item.id, "amount": _item.yield}
 	_growth_timer.stop()
 	
-func execute(options: Dictionary = {}) -> Dictionary:
+func execute(options: Dictionary = {}):
 	if _growth_timer.is_stopped() && buffer:
 		options.player.inventory.add_item_by_id(buffer.name, buffer.amount)
 		_reset(true)
-	return {};
 	
 func _reset(restart = false):
 	buffer = {};

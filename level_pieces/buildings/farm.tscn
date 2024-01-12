@@ -5,12 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://dc1j7mvmx2tpw" path="res://scenes/components/walkable_tile.tscn" id="2_3g3gl"]
 [ext_resource type="PackedScene" uid="uid://1n36xgx3n0q6" path="res://level_pieces/environment/sm_generic_ground_grass.tscn" id="2_5ari3"]
 [ext_resource type="Script" path="res://scripts/mechanics/farm_crop.gd" id="2_d7pyt"]
-[ext_resource type="Script" path="res://scripts/tiles/tile_interactable.gd" id="6_rwwo7"]
+[ext_resource type="Script" path="res://scripts/tiles/tile_interactable.gd" id="6_i87xh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2ow8q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bm3qc"]
-size = Vector3(1, 0.69108, 1)
+size = Vector3(1, 0.542887, 1)
 
 [node name="Farm" type="Node3D"]
 
@@ -68,9 +68,9 @@ mesh = SubResource("BoxMesh_2ow8q")
 
 [node name="interactable_tile" type="StaticBody3D" parent="SM_Generic_Ground_025" node_paths=PackedStringArray("interaction")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
-script = ExtResource("6_rwwo7")
+script = ExtResource("6_i87xh")
 interaction = NodePath("../SM_Prop_PlantBox_Large_012")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SM_Generic_Ground_025/interactable_tile"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.326375, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24994, 0)
 shape = SubResource("BoxShape3D_bm3qc")
