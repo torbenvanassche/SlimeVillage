@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://wfhwfccq88xv"]
+[gd_scene load_steps=10 format=3 uid="uid://wfhwfccq88xv"]
 
 [ext_resource type="PackedScene" uid="uid://dy21y3d3464nv" path="res://level_pieces/environment/props/SM_Prop_PlantBox_Large_01.glb" id="1_1up8h"]
 [ext_resource type="PackedScene" uid="uid://bpr3e7eqi0q0u" path="res://level_pieces/environment/sm_generic_ground_dirt.tscn" id="1_pkycq"]
 [ext_resource type="PackedScene" uid="uid://dc1j7mvmx2tpw" path="res://scenes/components/walkable_tile.tscn" id="2_3g3gl"]
 [ext_resource type="PackedScene" uid="uid://1n36xgx3n0q6" path="res://level_pieces/environment/sm_generic_ground_grass.tscn" id="2_5ari3"]
 [ext_resource type="Script" path="res://scripts/mechanics/farm_crop.gd" id="2_d7pyt"]
+[ext_resource type="Script" path="res://scripts/tiles/tile_walkable.gd" id="3_g41gw"]
 [ext_resource type="Script" path="res://scripts/tiles/tile_interactable.gd" id="6_i87xh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2ow8q"]
@@ -19,14 +20,34 @@ size = Vector3(1, 0.542887, 1)
 [node name="SM_Generic_Ground_022" parent="walkable" instance=ExtResource("1_pkycq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
 
+[node name="walkable_tile" type="StaticBody3D" parent="walkable/SM_Generic_Ground_022" instance=ExtResource("2_3g3gl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+script = ExtResource("3_g41gw")
+walkable_in_scene = true
+
 [node name="SM_Generic_Ground_023" parent="walkable" instance=ExtResource("1_pkycq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="walkable_tile" type="StaticBody3D" parent="walkable/SM_Generic_Ground_023" instance=ExtResource("2_3g3gl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+script = ExtResource("3_g41gw")
+walkable_in_scene = true
 
 [node name="SM_Generic_Ground_025" parent="walkable" instance=ExtResource("1_pkycq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
 
+[node name="walkable_tile" type="StaticBody3D" parent="walkable/SM_Generic_Ground_025" instance=ExtResource("2_3g3gl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+script = ExtResource("3_g41gw")
+walkable_in_scene = true
+
 [node name="SM_Generic_Ground_027" parent="walkable" instance=ExtResource("1_pkycq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="walkable_tile" type="StaticBody3D" parent="walkable/SM_Generic_Ground_027" instance=ExtResource("2_3g3gl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+script = ExtResource("3_g41gw")
+walkable_in_scene = true
 
 [node name="SM_Generic_Ground_033" parent="walkable" instance=ExtResource("1_pkycq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)

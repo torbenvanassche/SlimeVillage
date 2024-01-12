@@ -82,8 +82,8 @@ func calc_path(from: int, to: int):
 	
 func get_valid_path(start: TileBase, end: TileBase) -> Array[TileBase]:
 	var closest_path: PackedInt64Array = []
-	if end && start.walkable_in_scene:
-		if end && end.walkable_in_scene:
+	if end:
+		if end.walkable_in_scene:
 			var path_ids = path_finder.get_id_path(start.path_index, end.path_index);
 			var path_tiles = _indices_to_tiles(path_ids);
 			return path_tiles;

@@ -37,10 +37,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 2)
 
 [node name="@StaticBody3D@45346" parent="Ground/SM_Bld_House_Floor_Stone_034" instance=ExtResource("2_76f0h")]
 
-[node name="SM_Bld_House_Floor_Stone_035" parent="Ground" instance=ExtResource("4_ojr6j")]
+[node name="SM_Bld_House_Floor_Stone_035" parent="Ground" node_paths=PackedStringArray("destination") instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 3)
+script = ExtResource("4_7bsy6")
+destination = NodePath("../gravel2/interactable_tile")
 
-[node name="_StaticBody3D_45347" parent="Ground/SM_Bld_House_Floor_Stone_035" instance=ExtResource("2_76f0h")]
+[node name="interactable_tile" parent="Ground/SM_Bld_House_Floor_Stone_035" instance=ExtResource("5_3wc26")]
+walkable_in_scene = true
 
 [node name="SM_Bld_House_Floor_Stone_033" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1)
@@ -235,7 +238,7 @@ transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 8, 1, -1
 [node name="gravel2" parent="Ground" node_paths=PackedStringArray("destination") instance=ExtResource("22_47vpx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2.5)
 script = ExtResource("4_7bsy6")
-destination = NodePath("../SM_Bld_House_Floor_Stone_035/_StaticBody3D_45347")
+destination = NodePath("../SM_Bld_House_Floor_Stone_035/interactable_tile")
 
 [node name="interactable_tile" parent="Ground/gravel2" node_paths=PackedStringArray("interaction") instance=ExtResource("5_3wc26")]
 interaction = NodePath("..")

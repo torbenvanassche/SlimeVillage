@@ -21,7 +21,6 @@ func _add_neighbour(tile: TileBase):
 func _ready():	
 	find_surface()	
 	set_tile(tile_data);
-	self.walkable_in_scene = false;
 	
 func find_surface():
 	var space_state = get_world_3d().direct_space_state
