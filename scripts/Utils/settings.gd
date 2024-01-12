@@ -10,5 +10,5 @@ func set_input_mode(style: Global.NAV_STYLE):
 	input_mode = style;
 	
 #camera sensitivity
-var camera_rotation_sensitivity = 0.01
+var camera_rotation_sensitivity = 0.01;
 var camera_zoom_sensitivity = 0.5;
