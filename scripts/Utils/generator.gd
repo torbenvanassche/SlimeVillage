@@ -7,7 +7,7 @@ extends Node3D
 var local_grid_size: Vector2i;
 var tile_size := 1.0
 
-func generate(spawnables: Array = [], item_spawn_tries = 0, spawn_fail_weight = 0):	
+func generate(spawnables: Dictionary = {}, item_spawn_tries = 0, spawn_fail_weight = 0):	
 	for i in range(item_spawn_tries):
 		var item = Helpers.rand_item_weighted(spawnables, spawn_fail_weight)
 		if item:

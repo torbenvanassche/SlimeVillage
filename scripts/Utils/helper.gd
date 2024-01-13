@@ -22,23 +22,23 @@ static func arrays_have_same_content(array1: Array, array2: Array):
 			return false
 	return true
 
-static func rand_item_weighted(arr: Array, fail_weight: int = 0):
-	if arr.size() == 0:
+static func rand_item_weighted(dict: Dictionary, fail_weight: int = 0):
+	if dict.keys().size() == 0:
 		return null
 	
 	var total_weight = 0
-	for item in arr:
-		total_weight += item["random_weight"]
-		item.accumulated_weight = total_weight
+	for item in dict.keys():
+		total_weight += dict[item].random_weight
+		dict[item].accumulated_weight = total_weight
 	
 	var roll: int = randi_range(-fail_weight, total_weight)
 		
 	if roll < 0:
 		return null
 	
-	for item in arr:
-		if item.accumulated_weight >= roll:
-			return item
+	for item in dict.keys():
+		if dict[item].accumulated_weight >= roll:
+			return dict[item]
 	return null
 
 static func write_to_file(node: Node, file_name: String):

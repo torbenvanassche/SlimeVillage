@@ -13,6 +13,14 @@ func get_item(id: String):
 		return rv;
 	printerr(id + " not found in the item database.")
 	return null;
+	
+func get_available_items():
+	var a_items: Dictionary = {};
+	for entry in _items.keys():
+		if _items[entry].available == true:
+			a_items[_items[entry].id] = _items[entry];			
+	print(a_items)
+	return a_items;
 
 func get_scene(item: Dictionary) -> PackedScene:
 	var path = "res://resources/items/scenes/" + item.scene_path + ".tscn"

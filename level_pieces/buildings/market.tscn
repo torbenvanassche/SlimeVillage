@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://dfowh7u2ix5g5"]
+[gd_scene load_steps=25 format=3 uid="uid://dfowh7u2ix5g5"]
 
+[ext_resource type="Script" path="res://scripts/mechanics/market.gd" id="1_8kal8"]
 [ext_resource type="PackedScene" uid="uid://dc1j7mvmx2tpw" path="res://scenes/components/walkable_tile.tscn" id="2_76f0h"]
 [ext_resource type="PackedScene" uid="uid://dokao30kyth2g" path="res://level_pieces/environment/stone/SM_Bld_House_Base_Corner_01.glb" id="3_6nle8"]
 [ext_resource type="Script" path="res://scripts/navigation/teleport_player.gd" id="4_7bsy6"]
@@ -25,6 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://cxei47ypwxt3m" path="res://level_pieces/environment/sm_generic_ground_gravel.tscn" id="22_47vpx"]
 
 [node name="Market" type="Node3D"]
+script = ExtResource("1_8kal8")
+max_item_count = 2
 
 [node name="Ground" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9407e-05, 0, 0.00761914)

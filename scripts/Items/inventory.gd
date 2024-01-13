@@ -14,7 +14,6 @@ func add_item(item: Dictionary, make_slot_if_full: bool = true, amount: int = 1)
 	var require_update: bool = false;		
 	var remaining_amount: int = amount
 	var slots: Array[Dictionary] = try_get_slots(item);
-	var current_index: int = 0;
 	
 	while remaining_amount > 0:
 		if slots.size() == 0 && (data.size() < max_slots || make_slot_if_full):
@@ -38,7 +37,6 @@ func remove_item(item: Dictionary, amount: int = 1):
 	var require_update: bool = false;		
 	var remaining_amount: int = amount
 	var slots: Array[Dictionary] = try_get_slots(item);
-	var current_index: int = 0;
 	
 	while remaining_amount > 0:		
 		if slots.size() == 0:
