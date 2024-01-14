@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dfowh7u2ix5g5"]
+[gd_scene load_steps=27 format=3 uid="uid://dfowh7u2ix5g5"]
 
 [ext_resource type="Script" path="res://scripts/mechanics/market.gd" id="1_8kal8"]
 [ext_resource type="PackedScene" uid="uid://dc1j7mvmx2tpw" path="res://scenes/components/walkable_tile.tscn" id="2_76f0h"]
@@ -24,6 +24,10 @@
 [ext_resource type="PackedScene" uid="uid://cp2jpkw3orbyy" path="res://level_pieces/environment/props/SM_Prop_Quest_Board_01.glb" id="20_u6nuf"]
 [ext_resource type="PackedScene" uid="uid://1n36xgx3n0q6" path="res://level_pieces/environment/sm_generic_ground_grass.tscn" id="21_yelar"]
 [ext_resource type="PackedScene" uid="uid://cxei47ypwxt3m" path="res://level_pieces/environment/sm_generic_ground_gravel.tscn" id="22_47vpx"]
+[ext_resource type="Script" path="res://scripts/mechanics/interactable_prop.gd" id="24_rysrk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4x36n"]
+size = Vector3(2.04382, 1.10573, 0.296631)
 
 [node name="Market" type="Node3D"]
 script = ExtResource("1_8kal8")
@@ -497,6 +501,13 @@ transform = Transform3D(-0.85, 0, -1.28346e-07, 0, 0.85, 0, 1.28346e-07, 0, -0.8
 
 [node name="SM_Prop_Quest_Board_012" parent="." instance=ExtResource("20_u6nuf")]
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 7.84569, 1, 4.70037)
+script = ExtResource("24_rysrk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SM_Prop_Quest_Board_012"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_Prop_Quest_Board_012/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00286865, 1.06284, -0.0318608)
+shape = SubResource("BoxShape3D_4x36n")
 
 [node name="Unwalkable ground" type="Node3D" parent="."]
 

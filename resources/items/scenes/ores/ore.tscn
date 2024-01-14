@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/mechanics/interactable.gd" id="2_a5x5e"]
 [ext_resource type="Material" uid="uid://dlxnwaxpavp4k" path="res://materials/polygon/polygon_dungeon.tres" id="2_b28q7"]
 [ext_resource type="Material" uid="uid://3aluuv68jlmy" path="res://resources/items/materials/ores/iron_ore.tres" id="3_f3nvj"]
-[ext_resource type="Script" path="res://scripts/mechanics/item_interact.gd" id="5_on11k"]
+[ext_resource type="Script" path="res://scripts/mechanics/interactable_prop.gd" id="5_on11k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bf2cw"]
 size = Vector3(0.546753, 0.841064, 0.480042)
