@@ -27,7 +27,7 @@
 [ext_resource type="Script" path="res://scripts/mechanics/interactable_prop.gd" id="24_rysrk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4x36n"]
-size = Vector3(2.04382, 1.10573, 0.296631)
+size = Vector3(2.04382, 1.10573, 0.145569)
 
 [node name="Market" type="Node3D"]
 script = ExtResource("1_8kal8")
@@ -170,8 +170,12 @@ transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 6, 1, 4)
 [node name="SM_Bld_House_Floor_Stone_061" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 7, 1, 5)
 
+[node name="walkable_tile" parent="Ground/SM_Bld_House_Floor_Stone_061" instance=ExtResource("2_76f0h")]
+
 [node name="SM_Bld_House_Floor_Stone_062" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 8, 1, 5)
+
+[node name="walkable_tile" parent="Ground/SM_Bld_House_Floor_Stone_062" instance=ExtResource("2_76f0h")]
 
 [node name="SM_Bld_House_Floor_Stone_063" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 5, 1, 5)
@@ -506,7 +510,7 @@ script = ExtResource("24_rysrk")
 [node name="StaticBody3D" type="StaticBody3D" parent="SM_Prop_Quest_Board_012"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SM_Prop_Quest_Board_012/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00286865, 1.06284, -0.0318608)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00286865, 1.06284, 0.0150442)
 shape = SubResource("BoxShape3D_4x36n")
 
 [node name="Unwalkable ground" type="Node3D" parent="."]
