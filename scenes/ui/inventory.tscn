@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dua5pm4pvshd0"]
-
-[ext_resource type="Script" path="res://scripts/ui/inventory_ui.gd" id="1_ih0wk"]
-
-[node name="Inventory" type="HFlowContainer"]
-script = ExtResource("1_ih0wk")

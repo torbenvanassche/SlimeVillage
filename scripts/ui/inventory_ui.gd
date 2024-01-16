@@ -1,15 +1,20 @@
 class_name InventoryUI
-extends Control
+extends Window
 
 var item_ui_packed: PackedScene = preload("res://scenes/ui/item_display_2d.tscn");              
 var elements: Array[ItemViewer] = []
 
 var selected_item: Dictionary;
 
+@onready var root: Node = $HFlowContainer;
+
+func _ready():
+	close_requested.connect(hide)
+
 func add(item: Dictionary):
 	var item_ui = item_ui_packed.instantiate() as ItemViewer;
 	item_ui.pressed.connect(_set_selected.bind(item));
-	self.add_child(item_ui);
+	root.add_child(item_ui);
 	elements.append(item_ui);
 	item_ui.set_item(item);
 	

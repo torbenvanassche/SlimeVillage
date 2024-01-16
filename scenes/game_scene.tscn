@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0ajw5a07g334"]
+[gd_scene load_steps=12 format=3 uid="uid://b0ajw5a07g334"]
 
 [ext_resource type="Script" path="res://scripts/Utils/manager.gd" id="1_8x5qd"]
 [ext_resource type="Script" path="res://scripts/ui/ui_manager.gd" id="2_bvv38"]
 [ext_resource type="PackedScene" uid="uid://b251uevj7eclb" path="res://scenes/ui/puzzle_area.tscn" id="3_7ln7i"]
-[ext_resource type="PackedScene" uid="uid://dua5pm4pvshd0" path="res://scenes/ui/inventory.tscn" id="3_um3eb"]
+[ext_resource type="PackedScene" uid="uid://bv61tx74mg8u" path="res://scenes/ui/inventory_window.tscn" id="4_wd5ap"]
+[ext_resource type="FontFile" uid="uid://b4py5c2f05v57" path="res://fonts/Kenney Future Narrow.ttf" id="5_ss0yc"]
 [ext_resource type="PackedScene" uid="uid://bwrcc2gxqnosv" path="res://scenes/components/Player.tscn" id="6_o5cr0"]
 [ext_resource type="PackedScene" uid="uid://cuqpjlp4i7pkb" path="res://scenes/components/camera.tscn" id="7_ca8bl"]
 [ext_resource type="PackedScene" uid="uid://4obto2tpb0v3" path="res://scenes/base_scenes/pause_menu.tscn" id="8_11yd1"]
@@ -22,16 +23,23 @@ scenes = [NodePath("overworld")]
 initial_scene = NodePath("overworld")
 UI_manager = NodePath("UI")
 
-[node name="UI" type="Node" parent="." node_paths=PackedStringArray("puzzle_ui", "player_inventory")]
+[node name="UI" type="Node" parent="." node_paths=PackedStringArray("puzzle_ui")]
 script = ExtResource("2_bvv38")
 puzzle_ui = NodePath("puzzle_ui")
-player_inventory = NodePath("player_inventory")
-
-[node name="player_inventory" parent="UI" instance=ExtResource("3_um3eb")]
-custom_minimum_size = Vector2(100, 50)
 
 [node name="puzzle_ui" parent="UI" instance=ExtResource("3_7ln7i")]
 visible = false
+
+[node name="inventory_window" parent="UI" instance=ExtResource("4_wd5ap")]
+title = "Inventory"
+initial_position = 1
+size = Vector2i(500, 500)
+visible = false
+min_size = Vector2i(500, 500)
+max_size = Vector2i(500, 500)
+content_scale_mode = 1
+content_scale_aspect = 4
+theme_override_fonts/title_font = ExtResource("5_ss0yc")
 
 [node name="pause_menu" parent="." instance=ExtResource("8_11yd1")]
 visible = false
@@ -49,7 +57,7 @@ min_distance = 2.0
 [node name="Player" parent="PlayerRoot" node_paths=PackedStringArray("inventory_ui") instance=ExtResource("6_o5cr0")]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-inventory_ui = NodePath("../../UI/player_inventory")
+inventory_ui = NodePath("../../UI/inventory_window")
 input_mode = 0
 
 [node name="overworld" parent="." instance=ExtResource("8_34vxr")]

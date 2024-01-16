@@ -84,3 +84,7 @@ func get_item_count(item_name: String = ""):
 		if item_name == "" || item_name == i.name:
 			total_count += i.count
 	return total_count
+	
+func _input(event):
+	if Input.is_action_just_pressed("inventory_open"):
+		ui.show()

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv61tx74mg8u"]
+
+[ext_resource type="Script" path="res://scripts/ui/inventory_ui.gd" id="1_wqw80"]
+
+[node name="ui_window" type="Window"]
+initial_position = 3
+current_screen = 0
+script = ExtResource("1_wqw80")
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

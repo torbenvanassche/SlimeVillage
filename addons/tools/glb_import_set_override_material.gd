@@ -16,6 +16,8 @@ func _run():
 			var ss = cfg.get_section_keys("params")
 			var s = cfg.get_value("params", "_subresources");
 	
+	
+			#Invalid get index 'materials' (on base: 'Dictionary')
 			for mat in s.materials:
 				s.materials[mat]["use_external/enabled"] = true;
 				s.materials[mat]["use_external/path"] = material;
