@@ -2,11 +2,17 @@
 
 [ext_resource type="Script" path="res://scripts/ui/inventory_ui.gd" id="1_wqw80"]
 
-[node name="ui_window" type="Window"]
-initial_position = 3
-current_screen = 0
+[node name="ui_window" type="Popup"]
+handle_input_locally = false
+title = "Inventory"
+position = Vector2i(10, 35)
+size = Vector2i(212, 50)
+visible = true
+borderless = false
+min_size = Vector2i(200, 50)
 script = ExtResource("1_wqw80")
 
-[node name="HFlowContainer" type="HFlowContainer" parent="."]
+[node name="Grid" type="GridContainer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+columns = 4

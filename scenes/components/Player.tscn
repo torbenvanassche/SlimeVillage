@@ -24,3 +24,5 @@ script = ExtResource("4_l0om5")
 
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource("5_4bm4r")
+unlocked_slots = 4
+max_slots = 20

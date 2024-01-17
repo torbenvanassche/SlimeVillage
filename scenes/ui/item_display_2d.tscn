@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5ocjw6joaemy"]
+[gd_scene load_steps=5 format=3 uid="uid://c5ocjw6joaemy"]
 
 [ext_resource type="Theme" uid="uid://i6g0q6pji4oi" path="res://scenes/ui/inventory_slot.tres" id="1_r3poh"]
-[ext_resource type="Script" path="res://scripts/ui/item_viewer.gd" id="2_j5fkp"]
-[ext_resource type="Texture2D" uid="uid://ccitpmtjk5bg4" path="res://resources/items/sprites/ores/iron_ore.png" id="3_1hr1t"]
+[ext_resource type="Script" path="res://scripts/ui/item_slot_ui.gd" id="2_baon0"]
 [ext_resource type="FontFile" uid="uid://b4py5c2f05v57" path="res://fonts/Kenney Future Narrow.ttf" id="4_lo1q7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aoki5"]
@@ -20,27 +19,31 @@ offset_right = 25.0
 offset_bottom = -299.0
 grow_vertical = 2
 theme = ExtResource("1_r3poh")
-script = ExtResource("2_j5fkp")
+alignment = 2
+script = ExtResource("2_baon0")
 
 [node name="ItemSprite" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(25, 25)
+custom_minimum_size = Vector2(40, 35)
 layout_mode = 1
-offset_left = 9.0
-offset_top = 7.5
-offset_right = 34.0
-offset_bottom = 32.5
-texture = ExtResource("3_1hr1t")
+offset_left = 1.0
+offset_top = 1.5
+offset_right = 31.0
+offset_bottom = 31.5
 expand_mode = 4
 
 [node name="Count" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -0.5
-offset_bottom = -0.5
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -20.0
+offset_top = -27.5
+offset_right = 1.0
+offset_bottom = 1.5
+grow_horizontal = 0
+grow_vertical = 0
 text = "0"
 label_settings = SubResource("LabelSettings_aoki5")
 horizontal_alignment = 2

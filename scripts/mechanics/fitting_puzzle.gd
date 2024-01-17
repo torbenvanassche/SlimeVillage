@@ -15,10 +15,10 @@ func _ready():
 		
 		btn.pressed.connect(_add_selected_item.bind(btn))
 		
-func _unhandled_input(_event):
-	if Input.is_action_just_released("cancel"):
-		self.visible = false;
+func _unhandled_input(event):
+	if event.is_action_pressed("cancel"):
 		get_viewport().set_input_as_handled()
+		hide()
 		
 func _add_selected_item(btn: Button):
 	var selected = Global.player_instance.inventory.ui.selected_item;

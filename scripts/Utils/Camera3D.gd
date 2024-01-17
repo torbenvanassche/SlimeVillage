@@ -23,7 +23,11 @@ func _process(_delta):
 	twist_input = 0.0
 	pitch_input = 0.0
 	
-func _input(_event):
+func _input(event):
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		twist_input = - event.relative.x * Settings.camera_rotation_sensitivity;
+		pitch_input = - event.relative.y * Settings.camera_rotation_sensitivity;
+	
 	if Input.is_action_just_pressed("rotate_camera"):
 		mouse_position = get_viewport().get_mouse_position()
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -41,8 +45,3 @@ func _input(_event):
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	pass
-
-func _unhandled_input(event):
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		twist_input = - event.relative.x * Settings.camera_rotation_sensitivity;
-		pitch_input = - event.relative.y * Settings.camera_rotation_sensitivity;

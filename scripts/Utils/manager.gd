@@ -49,15 +49,3 @@ func _ready():
 	for s in scenes:
 		if s != initial_scene:
 			s.visible = false;
-
-func pause(pause_game = true):
-	get_tree().paused = pause_game
-	if get_tree().paused:
-		$pause_menu.show()
-	else:
-		$pause_menu.hide()
-		
-
-func _unhandled_input(_event):
-	if Input.is_action_just_released("cancel"):
-		pause(!get_tree().paused)
