@@ -17,13 +17,13 @@
 [ext_resource type="PackedScene" uid="uid://cy0c2wl6qc2n" path="res://level_pieces/environment/wood/walls/sm_bld_house_tower_angle_window_06.tscn" id="14_jcu76"]
 [ext_resource type="PackedScene" uid="uid://bebel1mwk1vtg" path="res://level_pieces/environment/wood/walls/sm_bld_house_wall_window_03.tscn" id="15_md5bs"]
 [ext_resource type="PackedScene" uid="uid://mxvvcedginbb" path="res://level_pieces/environment/rails/SM_Env_Mine_Track_Straight_01.glb" id="18_bubf4"]
-[ext_resource type="PackedScene" uid="uid://bctydd7lfe7tk" path="res://level_pieces/environment/props/SM_Prop_Cart_02.glb" id="18_xi3gg"]
 [ext_resource type="PackedScene" uid="uid://c0tg6befkqd24" path="res://level_pieces/environment/ui/SM_Icon_Cross_01.glb" id="19_e16ak"]
 [ext_resource type="PackedScene" uid="uid://o0xxjm82utnm" path="res://level_pieces/environment/rails/SM_Env_Mine_Track_Ending_Block_01.glb" id="19_gt6pe"]
 [ext_resource type="PackedScene" uid="uid://ya085cctv6wx" path="res://level_pieces/environment/rails/SM_Env_Mine_Track_Angled_04.glb" id="20_n6nto"]
 [ext_resource type="PackedScene" uid="uid://cp2jpkw3orbyy" path="res://level_pieces/environment/props/SM_Prop_Quest_Board_01.glb" id="20_u6nuf"]
 [ext_resource type="PackedScene" uid="uid://1n36xgx3n0q6" path="res://level_pieces/environment/sm_generic_ground_grass.tscn" id="21_yelar"]
 [ext_resource type="PackedScene" uid="uid://cxei47ypwxt3m" path="res://level_pieces/environment/sm_generic_ground_gravel.tscn" id="22_47vpx"]
+[ext_resource type="PackedScene" uid="uid://boov62g3smjpb" path="res://level_pieces/environment/props/sm_prop_cart_02.tscn" id="22_80qns"]
 [ext_resource type="Script" path="res://scripts/mechanics/interactable_prop.gd" id="24_rysrk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4x36n"]
@@ -500,8 +500,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0540086, -1.57623)
 [node name="SM_Env_Mine_Track_Angled_044" parent="Rails/SM_Env_Mine_Track_Straight_014" instance=ExtResource("20_n6nto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53674e-07, -1.38283e-05, 2.4)
 
-[node name="SM_Prop_Cart_022" parent="Rails" instance=ExtResource("18_xi3gg")]
-transform = Transform3D(-0.85, 0, -1.28346e-07, 0, 0.85, 0, 1.28346e-07, 0, -0.85, 2.00866, 1.12226, 1.32544)
+[node name="SM_Prop_Cart_023" parent="Rails" instance=ExtResource("22_80qns")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00866, 1.12226, 1.32544)
 
 [node name="SM_Prop_Quest_Board_012" parent="." instance=ExtResource("20_u6nuf")]
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 7.84569, 1, 4.70037)

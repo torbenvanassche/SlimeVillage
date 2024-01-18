@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bctydd7lfe7tk"
-path="res://.godot/imported/SM_Prop_Cart_02.glb-d7402b76211fea01de874679ac80dc8c.scn"
+path="res://.godot/imported/SM_Prop_Cart_02.glb-c5b8550658b6f3812fffbeb7f7cb0d90.scn"
 
 [deps]
 
-source_file="res://level_pieces/environment/props/SM_Prop_Cart_02.glb"
-dest_files=["res://.godot/imported/SM_Prop_Cart_02.glb-d7402b76211fea01de874679ac80dc8c.scn"]
+source_file="res://level_pieces/environment/base/SM_Prop_Cart_02.glb"
+dest_files=["res://.godot/imported/SM_Prop_Cart_02.glb-c5b8550658b6f3812fffbeb7f7cb0d90.scn"]
 
 [params]
 

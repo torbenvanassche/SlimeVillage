@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://boov62g3smjpb"]
+
+[ext_resource type="PackedScene" uid="uid://bctydd7lfe7tk" path="res://level_pieces/environment/base/SM_Prop_Cart_02.glb" id="1_v7aff"]
+[ext_resource type="Script" path="res://scripts/mechanics/interactable_prop.gd" id="2_dtmao"]
+[ext_resource type="Script" path="res://scripts/mechanics/open_market_puzzle.gd" id="3_e5jwu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0tbiu"]
+size = Vector3(0.61969, 0.415176, 1.00488)
+
+[node name="SM_Prop_Cart_022" instance=ExtResource("1_v7aff")]
+script = ExtResource("2_dtmao")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+script = ExtResource("3_e5jwu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00961304, 0.505043, -0.00244141)
+shape = SubResource("BoxShape3D_0tbiu")

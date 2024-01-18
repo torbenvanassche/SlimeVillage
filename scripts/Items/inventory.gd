@@ -92,4 +92,7 @@ func get_item_count(item_name: String = ""):
 	
 func _input(event):
 	if Input.is_action_just_pressed("inventory_open"):
-		ui.enable(get_viewport().get_mouse_position());
+		show_ui()
+		
+func show_ui(pos: Vector2 = get_viewport().get_mouse_position()):
+	ui.enable(pos);
