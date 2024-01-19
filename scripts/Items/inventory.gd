@@ -5,19 +5,16 @@ var data: Array[Dictionary] = []
 @export var unlocked_slots: int
 @export var max_slots: int;
 
-var ui: InventoryUI = null;
+signal inventory_changed(data: Array[Dictionary]);
 
-func init(inventory_ui: InventoryUI):
-	ui = inventory_ui;
-	
+func _ready():	
 	for i in range(max_slots):
 		var slot = {};
 		slot.is_available = false;
 		if i < unlocked_slots:
 			slot.is_available = true;
+			slot.item = {};
 		data.append(slot)
-		
-	try_update_ui()
 	
 func add_item(item: Dictionary, amount: int = 1):
 	var require_update: bool = false;
@@ -33,9 +30,9 @@ func add_item(item: Dictionary, amount: int = 1):
 			require_update = true;
 		else:
 			slots.erase(slots[0])
-	
+			
 	if require_update:
-		try_update_ui()
+		inventory_changed.emit(data)
 		
 	return remaining_amount;
 	
@@ -54,16 +51,11 @@ func remove_item(item: Dictionary, amount: int = 1):
 		if slots[0].item.count <= 0:
 			slots.erase(slots[0])
 			data[slots[0].slot_index].item = {}
-	
+			
 	if require_update:
-		try_update_ui()
+		inventory_changed.emit(data)
 		
 	return remaining_amount;
-		
-func try_update_ui():
-	if ui: 
-		ui.update(data)
-	return true;
 				
 func _try_add(item: Dictionary, slot: Dictionary) -> bool:	
 	if slot.item == {}:
@@ -78,16 +70,17 @@ func _try_add(item: Dictionary, slot: Dictionary) -> bool:
 func add_item_by_id(item: String, amount: int = 1):
 	add_item(ItemManager.get_item(item), amount)
 	
-func try_get_slots(item: Dictionary) -> Array[Dictionary]:
+func try_get_slots(dict: Dictionary) -> Array[Dictionary]:
 	var slots: Array[Dictionary] = []
 	for i in range(data.size()):
-		if data[i].item == {}:
-			data[i].slot_index = i - 1;
-			slots.append(data[i]);
-			continue;		
-		if data[i].item.name == item.name &&  data[i].item.count < data[i].item.stack_size:
-			data[i].slot_index = i - 1;
-			slots.append(data[i])
+		if data[i].is_available:
+			if data[i].item == {}:
+				data[i].slot_index = i - 1;
+				slots.append(data[i]);
+				continue;		
+			if data[i].item.name == dict.name &&  data[i].item.count < data[i].item.stack_size:
+				data[i].slot_index = i - 1;
+				slots.append(data[i])
 	return slots
 
 func get_item_count(item_name: String = ""):
@@ -96,10 +89,3 @@ func get_item_count(item_name: String = ""):
 		if item_name == "" || item_name == i.item.name:
 			total_count += i.item.count
 	return total_count
-	
-func _input(event):
-	if Input.is_action_just_pressed("inventory_open"):
-		show_ui()
-		
-func show_ui(pos: Vector2 = get_viewport().get_mouse_position()):
-	ui.get_parent().enable(pos);

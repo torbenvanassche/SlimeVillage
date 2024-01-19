@@ -12,7 +12,6 @@ var available_items: Dictionary = {}
 
 func _ready():
 	available_items = ItemManager.get_available_items()
-	current_orders.init(market_inventory_ui);
 	
 	spawn_timer = Timer.new()
 	spawn_timer.wait_time = 1
@@ -38,7 +37,6 @@ func _on_spawn():
 	
 func _add_item(item: Dictionary):
 	current_orders.add_item(item, false)
-	current_orders.try_update_ui()
 	
 func _remove_item(item: Dictionary, count: int):
 	current_orders.remove_item(item, count)

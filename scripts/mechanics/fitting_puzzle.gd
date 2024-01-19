@@ -23,8 +23,8 @@ func _unhandled_input(event):
 		hide()
 		
 func _add_selected_item(btn: Button):
-	var selected = $"../../InventoryPanel/Inventory".selected_item;
+	var selected = inventoryUI.selected_item;
 	if selected && btn.icon == null:
 		Global.player_instance.inventory.remove_item(selected, 1);
-		inventoryUI.update(Global.player_instance.inventory.data)
 		btn.icon = selected.sprite;
+		inventoryUI.update()

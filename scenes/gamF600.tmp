@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://b0ajw5a07g334"]
+
+[ext_resource type="Script" path="res://scripts/Utils/manager.gd" id="1_8x5qd"]
+[ext_resource type="Script" path="res://scripts/ui/ui_manager.gd" id="2_bvv38"]
+[ext_resource type="PackedScene" uid="uid://b251uevj7eclb" path="res://scenes/ui/puzzle_area.tscn" id="3_7ln7i"]
+[ext_resource type="PackedScene" uid="uid://bv61tx74mg8u" path="res://scenes/ui/inventory_window.tscn" id="4_wd5ap"]
+[ext_resource type="PackedScene" uid="uid://bwrcc2gxqnosv" path="res://scenes/components/Player.tscn" id="6_o5cr0"]
+[ext_resource type="PackedScene" uid="uid://cuqpjlp4i7pkb" path="res://scenes/components/camera.tscn" id="7_ca8bl"]
+[ext_resource type="PackedScene" uid="uid://4obto2tpb0v3" path="res://scenes/base_scenes/pause_menu.tscn" id="8_11yd1"]
+[ext_resource type="PackedScene" uid="uid://bg1irjlbmoowb" path="res://scenes/docks.tscn" id="8_34vxr"]
+[ext_resource type="Script" path="res://scripts/navigation/path_finding.gd" id="9_3s661"]
+
+[sub_resource type="Environment" id="Environment_jjbbm"]
+ambient_light_color = Color(0.47451, 0.47451, 0.47451, 1)
+tonemap_mode = 1
+tonemap_white = 1.55
+
+[node name="Node" type="Node3D" node_paths=PackedStringArray("initial_scene", "UI_manager")]
+process_mode = 3
+script = ExtResource("1_8x5qd")
+initial_scene = NodePath("overworld")
+UI_manager = NodePath("UI")
+
+[node name="UI" type="Control" parent="." node_paths=PackedStringArray("puzzle_ui", "player_inventory")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_bvv38")
+puzzle_ui = NodePath("puzzle_ui")
+player_inventory = NodePath("inventory_window")
+
+[node name="pause_menu" parent="UI" instance=ExtResource("8_11yd1")]
+visible = false
+layout_mode = 1
+
+[node name="puzzle_ui" parent="UI" instance=ExtResource("3_7ln7i")]
+process_mode = 1
+visible = false
+
+[node name="inventory_window" parent="UI" instance=ExtResource("4_wd5ap")]
+process_mode = 1
+visible = false
+exclusive = true
+content_scale_mode = 1
+content_scale_aspect = 4
+
+[node name="PlayerRoot" type="Node3D" parent="."]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 1.5)
+
+[node name="CameraRoot" parent="PlayerRoot" node_paths=PackedStringArray("target") instance=ExtResource("7_ca8bl")]
+unique_name_in_owner = true
+target = NodePath("../Player")
+distance = 3.0
+max_distance = 10.0
+min_distance = 2.0
+
+[node name="Player" parent="PlayerRoot" node_paths=PackedStringArray("inventory_ui") instance=ExtResource("6_o5cr0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+inventory_ui = NodePath("../../UI/inventory_window/Grid")
+input_mode = 0
+
+[node name="overworld" parent="." instance=ExtResource("8_34vxr")]
+process_mode = 1
+
+[node name="Pathfinding" type="Node" parent="overworld"]
+script = ExtResource("9_3s661")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="overworld"]
+environment = SubResource("Environment_jjbbm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="overworld"]
+transform = Transform3D(-0.945522, 0.0532305, -0.321176, -0.248533, 0.519202, 0.817717, 0.210283, 0.852992, -0.477688, 0.648335, 5.71672, -1.0657)
+shadow_enabled = true
+
+[editable path="UI/inventory_window"]

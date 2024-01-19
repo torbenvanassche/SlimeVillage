@@ -9,6 +9,9 @@ func _init():
 	Global.ui_root = self;
 
 func _unhandled_input(event):
+	if event.is_action_pressed("inventory_open"):
+		player_inventory.enable()
+		
 	if event.is_action_pressed("cancel"):
 		if get_children().all(func(x): return !x.visible || x == pause_menu):
 			get_viewport().set_input_as_handled()

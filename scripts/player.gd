@@ -19,7 +19,7 @@ var nav_index = 0
 		
 func _ready():
 	Global.player_instance = self
-	inventory.init(inventory_ui);
+	inventory_ui.controller = inventory;
 	
 	Settings.input_mode = input_mode;
 	read_input_mode();

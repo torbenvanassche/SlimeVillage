@@ -5,6 +5,11 @@ var item_ui_packed: PackedScene = preload("res://scenes/ui/item_display_2d.tscn"
 var elements: Array[ItemSlot] = []
 
 var selected_item: Dictionary;
+var controller: Inventory;
+
+func set_controller(con: Inventory):
+	controller = con;
+	controller.inventory_changed.connect(_update);
 
 func add(dict: Dictionary):
 	var item_ui = item_ui_packed.instantiate() as ItemSlot;
@@ -33,7 +38,10 @@ func _clear():
 		e.queue_free();
 	elements.clear();
 	
-func update(data: Array[Dictionary]):
+func _update(data: Array[Dictionary]):
 	_clear();
 	for index in range(data.size()):
 		add(data[index])
+		
+func on_enable():
+	_update(controller.data)
