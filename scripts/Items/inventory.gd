@@ -50,8 +50,10 @@ func remove_item(item: Dictionary, amount: int = 1):
 			
 		slots[0].item.count -= 1;
 		remaining_amount -= 1;
+		require_update = true;
 		if slots[0].item.count <= 0:
 			slots.erase(slots[0])
+			data[slots[0].slot_index].item = {}
 	
 	if require_update:
 		try_update_ui()
@@ -64,7 +66,7 @@ func try_update_ui():
 	return true;
 				
 func _try_add(item: Dictionary, slot: Dictionary) -> bool:	
-	if !slot.has("item"):
+	if slot.item == {}:
 		slot.item = {"name": item.name, "count": 1, "stack_size": item.stack_size, "sprite": ItemManager.get_sprite(item)};
 		return true;
 	
@@ -79,7 +81,12 @@ func add_item_by_id(item: String, amount: int = 1):
 func try_get_slots(item: Dictionary) -> Array[Dictionary]:
 	var slots: Array[Dictionary] = []
 	for i in range(data.size()):
-		if data[i].has("is_available") && (!data[i].has("item") || (data[i].item.name == item.name && data[i].item.count < data[i].item.stack_size)):
+		if data[i].item == {}:
+			data[i].slot_index = i - 1;
+			slots.append(data[i]);
+			continue;		
+		if data[i].item.name == item.name &&  data[i].item.count < data[i].item.stack_size:
+			data[i].slot_index = i - 1;
 			slots.append(data[i])
 	return slots
 

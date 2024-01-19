@@ -28,7 +28,6 @@ func set_active_scene(scene: Node, remove_active_from_tree: bool = true):
 		Global.player_instance.current_tile = active_scene.entrance;
 	Global.player_instance.set_position_to_current_tile();                   
 
-		
 func get_active_scene():
 	return active_scene
 

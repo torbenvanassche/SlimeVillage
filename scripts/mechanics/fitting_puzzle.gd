@@ -4,6 +4,8 @@ extends GridContainer
 @export var _grid_size: Vector2i = Vector2i(2, 2)
 var _rect_theme = preload("res://scenes/ui/inventory_slot.tres")
 
+@onready var inventoryUI: InventoryUI = $"../../InventoryPanel/Inventory";
+
 func _ready():
 	self.columns = _grid_size.y;
 	for i in range(_grid_size.x * _grid_size.y):
@@ -21,8 +23,8 @@ func _unhandled_input(event):
 		hide()
 		
 func _add_selected_item(btn: Button):
-	var selected = Global.player_instance.inventory.ui.selected_item;
-	if selected:
+	var selected = $"../../InventoryPanel/Inventory".selected_item;
+	if selected && btn.icon == null:
 		Global.player_instance.inventory.remove_item(selected, 1);
+		inventoryUI.update(Global.player_instance.inventory.data)
 		btn.icon = selected.sprite;
-		Global.player_instance.inventory.ui.reset_selection();

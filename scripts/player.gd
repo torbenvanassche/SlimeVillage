@@ -30,6 +30,8 @@ func _ready():
 	timer.wait_time = move_delay
 	timer.timeout.connect(_on_time)
 	
+	inventory.add_item_by_id("wheat", 5)
+	
 func read_input_mode():
 	match Settings.input_mode:
 		Global.NAV_STYLE.CLICK:

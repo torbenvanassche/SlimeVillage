@@ -1,7 +1,7 @@
 class_name UIManager
 extends Node
 
-@export var puzzle_ui: Control
+@export var puzzle_ui: Window
 @export var player_inventory: Window;
 @onready var pause_menu: Node = $pause_menu;
 

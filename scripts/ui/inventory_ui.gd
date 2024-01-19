@@ -13,13 +13,17 @@ func add(dict: Dictionary):
 	
 	if dict.has("is_available"):
 		item_ui.visible = dict.is_available;
+		
+	if !dict.has("item"):
+		dict.item = {};
+		
+	item_ui.pressed.connect(_set_selected.bind(dict));
 	
-	if dict.has("item"):
-		item_ui.pressed.connect(_set_selected.bind(dict));
+	if dict.item != {}:
 		item_ui.set_item(dict);
 	
-func _set_selected(item: Dictionary):
-	selected_item = item;
+func _set_selected(dict: Dictionary):
+	selected_item = dict.item;
 	
 func reset_selection():
 	selected_item.clear();
