@@ -13,3 +13,6 @@ func _unhandled_input(event):
 		if get_children().all(func(x): return !x.visible || x == pause_menu):
 			get_viewport().set_input_as_handled()
 			pause_menu.pause(!get_tree().paused)
+
+func ui_is_open():
+	return get_children().all(func(x): return !x.visible);

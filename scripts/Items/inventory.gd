@@ -95,4 +95,4 @@ func _input(event):
 		show_ui()
 		
 func show_ui(pos: Vector2 = get_viewport().get_mouse_position()):
-	ui.enable(pos);
+	ui.get_parent().enable(pos);

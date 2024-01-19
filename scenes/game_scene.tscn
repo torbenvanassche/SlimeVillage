@@ -40,7 +40,6 @@ layout_mode = 1
 [node name="puzzle_ui" parent="UI" instance=ExtResource("3_7ln7i")]
 process_mode = 1
 visible = false
-layout_mode = 1
 
 [node name="inventory_window" parent="UI" instance=ExtResource("4_wd5ap")]
 process_mode = 1
@@ -62,7 +61,7 @@ min_distance = 2.0
 
 [node name="Player" parent="PlayerRoot" node_paths=PackedStringArray("inventory_ui") instance=ExtResource("6_o5cr0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-inventory_ui = NodePath("../../UI/inventory_window")
+inventory_ui = NodePath("../../UI/inventory_window/Grid")
 input_mode = 0
 
 [node name="overworld" parent="." instance=ExtResource("8_34vxr")]
@@ -77,3 +76,5 @@ environment = SubResource("Environment_jjbbm")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="overworld"]
 transform = Transform3D(-0.945522, 0.0532305, -0.321176, -0.248533, 0.519202, 0.817717, 0.210283, 0.852992, -0.477688, 0.648335, 5.71672, -1.0657)
 shadow_enabled = true
+
+[editable path="UI/inventory_window"]

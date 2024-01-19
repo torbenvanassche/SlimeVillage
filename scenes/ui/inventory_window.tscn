@@ -1,18 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv61tx74mg8u"]
+[gd_scene load_steps=3 format=3 uid="uid://bv61tx74mg8u"]
 
+[ext_resource type="Script" path="res://scripts/ui/inventory_window.gd" id="1_6w46p"]
 [ext_resource type="Script" path="res://scripts/ui/inventory_ui.gd" id="1_wqw80"]
 
-[node name="ui_window" type="Popup"]
+[node name="ui_window" type="Window"]
 handle_input_locally = false
 title = "Inventory"
 position = Vector2i(10, 35)
 size = Vector2i(212, 50)
-visible = true
-borderless = false
 min_size = Vector2i(200, 50)
-script = ExtResource("1_wqw80")
+script = ExtResource("1_6w46p")
 
 [node name="Grid" type="GridContainer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 columns = 4
+script = ExtResource("1_wqw80")
