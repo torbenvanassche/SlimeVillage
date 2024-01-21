@@ -59,7 +59,7 @@ func remove_item(item: Dictionary, amount: int = 1):
 				
 func _try_add(item: Dictionary, slot: Dictionary) -> bool:	
 	if slot.item == {}:
-		slot.item = {"name": item.name, "count": 1, "stack_size": item.stack_size, "sprite": ItemManager.get_sprite(item)};
+		slot.item = {"name": item.name, "count": 1, "stack_size": item.stack_size, "sprite": ItemManager.get_sprite(item), "layout": ItemManager.get_layout(item)};
 		return true;
 	
 	if (slot.item.name == item.name and slot.item.count < slot.item.stack_size):

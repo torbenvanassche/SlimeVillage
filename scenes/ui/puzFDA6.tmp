@@ -108,4 +108,4 @@ script = ExtResource("2_n46lc")
 
 [node name="item_layout" parent="." instance=ExtResource("5_jbspe")]
 visible = false
-mouse_filter = 2
+data = null

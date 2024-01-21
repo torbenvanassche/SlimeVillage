@@ -7,6 +7,8 @@ var elements: Array[ItemSlot] = []
 var selected_item: Dictionary;
 var controller: Inventory;
 
+signal item_clicked(dict: Dictionary);
+
 func set_controller(con: Inventory):
 	controller = con;
 	controller.inventory_changed.connect(_update);
@@ -22,15 +24,16 @@ func add(dict: Dictionary):
 		
 	if !dict.has("item"):
 		dict.item = {};
-		
-	item_ui.pressed.connect(_set_selected.bind(dict));
+	else:
+		item_ui.pressed.connect(func(): item_clicked.emit(dict))
+	item_ui.pressed.connect(_set_selected.bind(dict));		
 	
 	if dict.item != {}:
 		item_ui.set_item(dict);
 	
 func _set_selected(dict: Dictionary):
 	selected_item = dict.item;
-	
+
 func reset_selection():
 	selected_item.clear();
 
