@@ -10,6 +10,7 @@ var controller: Inventory;
 func set_controller(con: Inventory):
 	controller = con;
 	controller.inventory_changed.connect(_update);
+	_update(controller.data)
 
 func add(dict: Dictionary):
 	var item_ui = item_ui_packed.instantiate() as ItemSlot;

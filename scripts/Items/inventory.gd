@@ -39,7 +39,7 @@ func add_item(item: Dictionary, amount: int = 1):
 func remove_item(item: Dictionary, amount: int = 1):
 	var require_update: bool = false;		
 	var remaining_amount: int = amount
-	var slots: Array[Dictionary] = try_get_slots(item);
+	var slots: Array[Dictionary] = try_get_slots(item, false);
 	
 	while remaining_amount > 0:		
 		if slots.size() == 0:
@@ -70,11 +70,11 @@ func _try_add(item: Dictionary, slot: Dictionary) -> bool:
 func add_item_by_id(item: String, amount: int = 1):
 	add_item(ItemManager.get_item(item), amount)
 	
-func try_get_slots(dict: Dictionary) -> Array[Dictionary]:
+func try_get_slots(dict: Dictionary, can_have_empty: bool = true) -> Array[Dictionary]:
 	var slots: Array[Dictionary] = []
 	for i in range(data.size()):
 		if data[i].is_available:
-			if data[i].item == {}:
+			if data[i].item == {} || can_have_empty:
 				data[i].slot_index = i - 1;
 				slots.append(data[i]);
 				continue;		

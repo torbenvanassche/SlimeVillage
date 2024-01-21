@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5ocjw6joaemy"]
 
-[ext_resource type="Theme" uid="uid://i6g0q6pji4oi" path="res://scenes/ui/inventory_slot.tres" id="1_r3poh"]
+[ext_resource type="Theme" uid="uid://i6g0q6pji4oi" path="res://themes/inventory/inventory_slot.tres" id="1_n0g4o"]
 [ext_resource type="Script" path="res://scripts/ui/item_slot_ui.gd" id="2_baon0"]
 [ext_resource type="FontFile" uid="uid://b4py5c2f05v57" path="res://fonts/Kenney Future Narrow.ttf" id="4_lo1q7"]
 
@@ -18,7 +18,7 @@ offset_top = -324.0
 offset_right = 25.0
 offset_bottom = -299.0
 grow_vertical = 2
-theme = ExtResource("1_r3poh")
+theme = ExtResource("1_n0g4o")
 alignment = 2
 script = ExtResource("2_baon0")
 

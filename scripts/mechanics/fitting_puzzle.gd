@@ -2,9 +2,8 @@ class_name FittingPuzzle
 extends GridContainer
 
 @export var _grid_size: Vector2i = Vector2i(2, 2)
-var _rect_theme = preload("res://scenes/ui/inventory_slot.tres")
-
-@onready var inventoryUI: InventoryUI = $"../../InventoryPanel/Inventory";
+var _rect_theme = preload("res://themes/inventory/inventory_slot.tres")
+@export var inventoryUI: InventoryUI;
 
 func _ready():
 	self.columns = _grid_size.y;
@@ -27,4 +26,3 @@ func _add_selected_item(btn: Button):
 	if selected && btn.icon == null:
 		Global.player_instance.inventory.remove_item(selected, 1);
 		btn.icon = selected.sprite;
-		inventoryUI.update()

@@ -1,55 +1,105 @@
-[gd_scene load_steps=4 format=3 uid="uid://b251uevj7eclb"]
+[gd_scene load_steps=8 format=3 uid="uid://b251uevj7eclb"]
 
 [ext_resource type="Script" path="res://scripts/mechanics/fitting_puzzle.gd" id="1_8l1pk"]
-[ext_resource type="Script" path="res://scenes/ui/puzzle_window.gd" id="1_tu2gb"]
+[ext_resource type="Script" path="res://scripts/ui/windows/puzzle_window.gd" id="1_c4nsa"]
+[ext_resource type="Texture2D" uid="uid://dlsovgfasvn0h" path="res://textures/ui/ui_nineslice.png" id="2_jbvwo"]
 [ext_resource type="Script" path="res://scripts/ui/inventory_ui.gd" id="2_n46lc"]
 
-[node name="Window" type="Window"]
+[sub_resource type="Theme" id="Theme_86kcu"]
+VFlowContainer/constants/h_separation = 4
+VFlowContainer/constants/v_separation = 4
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u450v"]
+
+[sub_resource type="Theme" id="Theme_m34lm"]
+Panel/styles/panel = SubResource("StyleBoxTexture_u450v")
+
+[node name="Window" type="Window" node_paths=PackedStringArray("inventory_ui")]
 title = "Puzzle"
 initial_position = 2
-size = Vector2i(800, 500)
-script = ExtResource("1_tu2gb")
+size = Vector2i(600, 350)
+unresizable = true
+script = ExtResource("1_c4nsa")
+inventory_ui = NodePath("InventoryPanel/MarginContainer/VFlowContainer/Inventory")
 
-[node name="PuzzlePanel" type="Panel" parent="."]
-anchors_preset = 9
+[node name="PuzzlePanel" type="NinePatchRect" parent="."]
+anchors_preset = -1
+anchor_right = 0.6
 anchor_bottom = 1.0
-offset_right = 500.0
-grow_vertical = 2
-
-[node name="Puzzle" type="GridContainer" parent="PuzzlePanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_top = -20.0
-offset_bottom = 20.0
+offset_right = -20.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_jbvwo")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="MarginContainer" type="MarginContainer" parent="PuzzlePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+
+[node name="VFlowContainer" type="VBoxContainer" parent="PuzzlePanel/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_86kcu")
+
+[node name="Label" type="Label" parent="PuzzlePanel/MarginContainer/VFlowContainer"]
+layout_mode = 2
+text = "The box"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Puzzle" type="GridContainer" parent="PuzzlePanel/MarginContainer/VFlowContainer" node_paths=PackedStringArray("inventoryUI")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 columns = 5
 script = ExtResource("1_8l1pk")
 _grid_size = Vector2i(5, 5)
+inventoryUI = NodePath("../../../../InventoryPanel/MarginContainer/VFlowContainer/Inventory")
 
-[node name="InventoryPanel" type="Panel" parent="."]
+[node name="InventoryPanel" type="NinePatchRect" parent="."]
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -300.0
+offset_left = -250.0
 grow_horizontal = 0
 grow_vertical = 2
+theme = SubResource("Theme_m34lm")
+texture = ExtResource("2_jbvwo")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
 
-[node name="Inventory" type="GridContainer" parent="InventoryPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="InventoryPanel"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_top = -20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_top = 20
+
+[node name="VFlowContainer" type="VBoxContainer" parent="InventoryPanel/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_86kcu")
+
+[node name="Label" type="Label" parent="InventoryPanel/MarginContainer/VFlowContainer"]
+layout_mode = 2
+text = "Your inventory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Inventory" type="GridContainer" parent="InventoryPanel/MarginContainer/VFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 columns = 4
 script = ExtResource("2_n46lc")

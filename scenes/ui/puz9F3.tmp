@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://b251uevj7eclb"]
+
+[ext_resource type="Script" path="res://scripts/mechanics/fitting_puzzle.gd" id="1_8l1pk"]
+[ext_resource type="Script" path="res://scripts/ui/windows/puzzle_window.gd" id="1_c4nsa"]
+[ext_resource type="Texture2D" uid="uid://dlsovgfasvn0h" path="res://textures/ui/ui_nineslice.png" id="2_jbvwo"]
+[ext_resource type="Script" path="res://scripts/ui/inventory_ui.gd" id="2_n46lc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u450v"]
+
+[sub_resource type="Theme" id="Theme_m34lm"]
+Panel/styles/panel = SubResource("StyleBoxTexture_u450v")
+
+[node name="Window" type="Window"]
+title = "Puzzle"
+initial_position = 2
+size = Vector2i(800, 500)
+script = ExtResource("1_c4nsa")
+
+[node name="PuzzlePanel" type="NinePatchRect" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 490.0
+grow_vertical = 2
+texture = ExtResource("2_jbvwo")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="Puzzle" type="GridContainer" parent="PuzzlePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+script = ExtResource("1_8l1pk")
+_grid_size = Vector2i(5, 5)
+
+[node name="InventoryPanel" type="NinePatchRect" parent="."]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = SubResource("Theme_m34lm")
+texture = ExtResource("2_jbvwo")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="Inventory" type="GridContainer" parent="InventoryPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+script = ExtResource("2_n46lc")

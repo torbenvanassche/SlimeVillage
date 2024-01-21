@@ -1,5 +1,4 @@
 extends StaticBody3D
 
 func execute(options: Dictionary):
-	Global.ui_root.puzzle_ui.show();
-
+	Global.ui_root.puzzle_ui.enable(options);
