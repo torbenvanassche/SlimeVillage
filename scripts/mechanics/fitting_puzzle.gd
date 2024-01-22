@@ -3,7 +3,7 @@ extends GridContainer
 
 @export var _grid_size: Vector2i = Vector2i(2, 2)
 var _rect_theme = preload("res://themes/inventory/inventory_slot.tres")
-@export var inventoryUI: InventoryUI;
+@export var window: Window;
 
 func _ready():
 	self.columns = _grid_size.y;
@@ -22,7 +22,14 @@ func _unhandled_input(event):
 		hide()
 		
 func _add_selected_item(btn: Button):
-	var selected = inventoryUI.selected_item;
+	var selected = window.inventory_ui.selected_item;
+	var shape = window.item_layout.relative_store;
+	
+	var btn_index = get_children().find(btn)
+	
+	for coord:Vector2i in shape:
+		pass
+	
 	if selected && btn.icon == null:
 		Global.player_instance.inventory.remove_item(selected, 1);
 		btn.icon = selected.sprite;
