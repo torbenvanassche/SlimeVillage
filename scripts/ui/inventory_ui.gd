@@ -42,6 +42,7 @@ func _clear():
 		e.queue_free();
 	elements.clear();
 	
+#TODO: Remove selected item when the stack is empty
 func _update(data: Array[Dictionary]):
 	_clear();
 	for index in range(data.size()):

@@ -1,44 +1,28 @@
 extends GridContainer
 
-@export var data: Array[bool] = [true]
-@export var column_count = 1;
-@export var pivot_index: int = 0;
+var shape_data: Array = [];
 
-var relative_store: Array[Vector2i] = []
-
-var offset: Vector2 = Vector2();
-var realtime_position: Vector2;
-
-func open():
+func _clear():
 	for c in get_children():
 		c.queue_free()
-		
-	columns = column_count;
-	var arr_2d: Array = []
-	var curr_arr: Array = []
-		
-	for x in data:
-		var rect = ColorRect.new();
-		rect.custom_minimum_size = Vector2i(50, 50);
-		rect.color = Color(0, 0, 0, 0.5) if x else Color.TRANSPARENT;
-		rect.mouse_filter = Control.MOUSE_FILTER_IGNORE;
-		
-		curr_arr.append(x)
-		if get_child_count() % column_count == column_count - 1:
-			arr_2d.append(curr_arr.duplicate());
-			curr_arr.clear();
-		add_child(rect)
-		
-	offset = (get_child(pivot_index).position + get_child(pivot_index).size / 2)
-	
-	_relativate_pivot(arr_2d)
 
-func _relativate_pivot(data: Array):
-	relative_store.clear();
-	var row = pivot_index / column_count;
-	var col = pivot_index % column_count;
-	
-	for x in range(data.size()):
-		for y in range(data[x].size()):
-			if data[x][y]:
-				relative_store.append(Vector2i(y, x) - Vector2i(col, row));
+func open(data: Array[bool] = [true], column_count = 1, visual: bool = false):		
+	columns = column_count;
+	var curr_arr: Array = []
+	shape_data.clear()
+		
+	for x in range(data.size()):	
+		if visual:
+			_add_visual(data[x])
+			
+		curr_arr.append(data[x])
+		if x % column_count == column_count - 1:
+			shape_data.append(curr_arr.duplicate());
+			curr_arr.clear();
+
+func _add_visual(b: bool):
+	var rect = ColorRect.new();
+	rect.custom_minimum_size = Vector2i(50, 50);
+	rect.color = Color(0, 0, 0, 0.5) if b else Color.TRANSPARENT;
+	rect.mouse_filter = Control.MOUSE_FILTER_IGNORE;
+	add_child(rect)

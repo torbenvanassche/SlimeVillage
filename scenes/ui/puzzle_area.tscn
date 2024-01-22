@@ -56,13 +56,14 @@ text = "The box"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Puzzle" type="GridContainer" parent="PuzzlePanel/MarginContainer/VFlowContainer"]
+[node name="Puzzle" type="GridContainer" parent="PuzzlePanel/MarginContainer/VFlowContainer" node_paths=PackedStringArray("window")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 5
 script = ExtResource("1_8l1pk")
 _grid_size = Vector2i(5, 5)
+window = NodePath("../../../..")
 
 [node name="InventoryPanel" type="NinePatchRect" parent="."]
 anchors_preset = 11
@@ -108,5 +109,3 @@ script = ExtResource("2_n46lc")
 [node name="item_layout" parent="." instance=ExtResource("5_jbspe")]
 visible = false
 mouse_filter = 2
-data = Array[bool]([true])
-column_count = 1

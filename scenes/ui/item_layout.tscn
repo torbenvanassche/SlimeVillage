@@ -11,5 +11,3 @@ grow_vertical = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 script = ExtResource("1_3u1ld")
-data = Array[bool]([true, false, false, false, false, true])
-column_count = 3
