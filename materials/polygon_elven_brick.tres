@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dtssxno6jxeeu"]
+
+[ext_resource type="Texture2D" uid="uid://cyqs68cwuaahc" path="res://textures/albedo/PFER_Texture_Brick_01.png" id="1_lig6a"]
+[ext_resource type="Texture2D" uid="uid://sh0rnwiqiu68" path="res://textures/normal/PFER_Texture_Brick_01_Normals.png" id="2_3ohga"]
+
+[resource]
+albedo_texture = ExtResource("1_lig6a")
+normal_enabled = true
+normal_texture = ExtResource("2_3ohga")

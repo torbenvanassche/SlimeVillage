@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://u2j3wlb5fcu4"
-path="res://.godot/imported/SM_Generic_Ground_02.glb-30712b51bcde4f5a18b4133a62bdb178.scn"
+uid="uid://cb87d7jlip7xc"
+path="res://.godot/imported/SM_Bld_Wall_01.glb-a11ecf074ec04329463369cbbd978fec.scn"
 
 [deps]
 
-source_file="res://level_pieces/environment/stone/SM_Generic_Ground_02.glb"
-dest_files=["res://.godot/imported/SM_Generic_Ground_02.glb-30712b51bcde4f5a18b4133a62bdb178.scn"]
+source_file="res://level_pieces/environment/stone/elven/SM_Bld_Wall_01.glb"
+dest_files=["res://.godot/imported/SM_Bld_Wall_01.glb-a11ecf074ec04329463369cbbd978fec.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=0.2
+nodes/root_scale=0.8
 meshes/ensure_tangents=false
 meshes/generate_lods=false
 meshes/create_shadow_meshes=false
@@ -31,9 +31,13 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "materials": {
-"CastleSHD298": {
+"T_Elven_Brick27": {
 "use_external/enabled": true,
-"use_external/path": "res://materials/grass.tres"
+"use_external/path": "res://materials/polygon_elven_brick.tres"
+},
+"T_Elven_Interior65": {
+"use_external/enabled": false,
+"use_external/path": "res://materials/polygon/polygon_elven.tres"
 }
 }
 }

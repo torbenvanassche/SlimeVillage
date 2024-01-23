@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://duoobpl3thrgv"
-path="res://.godot/imported/SM_Bld_House_Base_Wall_01.glb-446fa492bc01c24c8892849dcd13d5dc.scn"
+uid="uid://d04n7cgtu2mg1"
+path="res://.godot/imported/SM_Prop_Dock_Rope_01.glb-3bacbe9f39f72fed4c98bd42ebbef4e5.scn"
 
 [deps]
 
-source_file="res://level_pieces/environment/stone/SM_Bld_House_Base_Wall_01.glb"
-dest_files=["res://.godot/imported/SM_Bld_House_Base_Wall_01.glb-446fa492bc01c24c8892849dcd13d5dc.scn"]
+source_file="res://level_pieces/environment/props/SM_Prop_Dock_Rope_01.glb"
+dest_files=["res://.godot/imported/SM_Prop_Dock_Rope_01.glb-3bacbe9f39f72fed4c98bd42ebbef4e5.scn"]
 
 [params]
 
@@ -31,9 +31,9 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "materials": {
-"CastleSHD27": {
+"PolygonElven_MAT.012": {
 "use_external/enabled": true,
-"use_external/path": "res://materials/polygon/polygon_fantasy.tres"
+"use_external/path": "res://materials/polygon/polygon_elven.tres"
 }
 }
 }

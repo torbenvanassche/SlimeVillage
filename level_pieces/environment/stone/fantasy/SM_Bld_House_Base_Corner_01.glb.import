@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://nul2tdp0j53l"
-path="res://.godot/imported/SM_Bld_House_Stairs_Stone_01.glb-21c09710af5d7fe7663b07c9bc43252b.scn"
+uid="uid://dokao30kyth2g"
+path="res://.godot/imported/SM_Bld_House_Base_Corner_01.glb-d40ddb7c2ec19d456e00b042c178aa6d.scn"
 
 [deps]
 
-source_file="res://level_pieces/environment/stone/SM_Bld_House_Stairs_Stone_01.glb"
-dest_files=["res://.godot/imported/SM_Bld_House_Stairs_Stone_01.glb-21c09710af5d7fe7663b07c9bc43252b.scn"]
+source_file="res://level_pieces/environment/stone/fantasy/SM_Bld_House_Base_Corner_01.glb"
+dest_files=["res://.godot/imported/SM_Bld_House_Base_Corner_01.glb-d40ddb7c2ec19d456e00b042c178aa6d.scn"]
 
 [params]
 
@@ -31,7 +31,7 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "materials": {
-"CastleSHD120": {
+"CastleSHD25": {
 "use_external/enabled": true,
 "use_external/path": "res://materials/polygon/polygon_fantasy.tres"
 }

@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b0u1a7m8qe3lu"
-path="res://.godot/imported/SM_Bld_House_StoneArch_01.glb-e3f2d0c081454354ee7252b3815d1607.scn"
+uid="uid://ct2wdduxac0mo"
+path="res://.godot/imported/SM_Bld_House_Stairs_Stone_Block_01.glb-e2c4d8eb950a501bf4593f5ab8aad505.scn"
 
 [deps]
 
-source_file="res://level_pieces/environment/stone/SM_Bld_House_StoneArch_01.glb"
-dest_files=["res://.godot/imported/SM_Bld_House_StoneArch_01.glb-e3f2d0c081454354ee7252b3815d1607.scn"]
+source_file="res://level_pieces/environment/stone/fantasy/SM_Bld_House_Stairs_Stone_Block_01.glb"
+dest_files=["res://.godot/imported/SM_Bld_House_Stairs_Stone_Block_01.glb-e2c4d8eb950a501bf4593f5ab8aad505.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=0.8
+nodes/root_scale=0.6
 meshes/ensure_tangents=false
 meshes/generate_lods=false
 meshes/create_shadow_meshes=false
@@ -31,7 +31,7 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "materials": {
-"CastleSHD126": {
+"CastleSHD122": {
 "use_external/enabled": true,
 "use_external/path": "res://materials/polygon/polygon_fantasy.tres"
 }

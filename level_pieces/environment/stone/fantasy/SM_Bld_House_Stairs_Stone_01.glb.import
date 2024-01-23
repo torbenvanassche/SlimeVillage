@@ -1,0 +1,41 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://nul2tdp0j53l"
+path="res://.godot/imported/SM_Bld_House_Stairs_Stone_01.glb-839dbb44ad1198d65769a4b6a96e42cd.scn"
+
+[deps]
+
+source_file="res://level_pieces/environment/stone/fantasy/SM_Bld_House_Stairs_Stone_01.glb"
+dest_files=["res://.godot/imported/SM_Bld_House_Stairs_Stone_01.glb-839dbb44ad1198d65769a4b6a96e42cd.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=0.8
+meshes/ensure_tangents=false
+meshes/generate_lods=false
+meshes/create_shadow_meshes=false
+meshes/light_baking=0
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=false
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"materials": {
+"CastleSHD120": {
+"use_external/enabled": true,
+"use_external/path": "res://materials/polygon/polygon_fantasy.tres"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=0
