@@ -35,7 +35,7 @@ func _set_selected(dict: Dictionary):
 	selected_item = dict.item;
 
 func reset_selection():
-	selected_item.clear();
+	selected_item = {}
 
 func _clear():
 	for e in elements:

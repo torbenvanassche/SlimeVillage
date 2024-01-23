@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://b251uevj7eclb"]
+[gd_scene load_steps=10 format=3 uid="uid://b251uevj7eclb"]
 
+[ext_resource type="FontFile" uid="uid://b4py5c2f05v57" path="res://fonts/Kenney Future Narrow.ttf" id="1_4jyr5"]
 [ext_resource type="Script" path="res://scripts/mechanics/fitting_puzzle.gd" id="1_8l1pk"]
 [ext_resource type="Script" path="res://scripts/ui/windows/puzzle_window.gd" id="1_c4nsa"]
 [ext_resource type="Texture2D" uid="uid://dlsovgfasvn0h" path="res://textures/ui/ui_nineslice.png" id="2_jbvwo"]
@@ -20,6 +21,7 @@ title = "Puzzle"
 initial_position = 2
 size = Vector2i(600, 350)
 unresizable = true
+theme_override_fonts/title_font = ExtResource("1_4jyr5")
 script = ExtResource("1_c4nsa")
 inventory_ui = NodePath("InventoryPanel/MarginContainer/VFlowContainer/Inventory")
 item_layout = NodePath("item_layout")
@@ -52,6 +54,7 @@ theme = SubResource("Theme_86kcu")
 
 [node name="Label" type="Label" parent="PuzzlePanel/MarginContainer/VFlowContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_4jyr5")
 text = "The box"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -95,6 +98,7 @@ theme = SubResource("Theme_86kcu")
 
 [node name="Label" type="Label" parent="InventoryPanel/MarginContainer/VFlowContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_4jyr5")
 text = "Your inventory"
 horizontal_alignment = 1
 vertical_alignment = 1

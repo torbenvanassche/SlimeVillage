@@ -6,6 +6,8 @@ var inventory_2d: Array[Array] = []
 var _rect_theme = preload("res://themes/inventory/inventory_slot.tres")
 @export var window: Window;
 
+var items = []
+
 func _ready():
 	self.columns = _grid_size.y;
 	var curr_arr: Array = []
@@ -17,7 +19,7 @@ func _ready():
 		btn.theme = _rect_theme;	
 		self.add_child(btn)
 				
-		btn.pressed.connect(_add_selected_item.bind(btn))
+		btn.gui_input.connect(_on_slot_clicked.bind(btn))
 		
 		curr_arr.append(false)
 		if i % self.columns == self.columns - 1:
@@ -30,17 +32,35 @@ func _unhandled_input(event):
 		get_viewport().set_input_as_handled()
 		hide()
 		
-func _add_selected_item(btn: Button):
-	var selected = window.inventory_ui.selected_item;
-	var shape = window.item_layout.shape_data;
-
+func _on_slot_clicked(event: InputEvent, btn: Button):
 	var btn_index = self.get_children().find(btn)
-	var intersections = _intersect(inventory_2d, shape, Vector2i(btn_index / columns, btn_index % columns));
-	if selected && intersections.size() > 0:
-		Global.player_instance.inventory.remove_item(selected, 1);
-		for intersection in intersections:
-			inventory_2d[intersection.y][intersection.x] = true;
-			(self.get_children()[intersection.x * self.columns + intersection.y] as Button).icon = selected.sprite;
+	if event is InputEventMouseButton and event.is_pressed():
+		if event.button_index == 1:
+			var selected = window.inventory_ui.selected_item;
+			var shape = window.item_layout.shape_data;
+			var item_connections = [];
+
+			var intersections = _intersect(inventory_2d, shape, Vector2i(btn_index / columns, btn_index % columns));
+			if selected && intersections.size() > 0:
+				Global.player_instance.inventory.remove_item(selected, 1);
+				for intersection in intersections:
+					var idx = intersection.x * self.columns + intersection.y;
+					item_connections.append({"x": intersection.y, "y": intersection.x, "key": selected.id, "index": idx})
+					inventory_2d[intersection.y][intersection.x] = true;
+					(self.get_children()[intersection.x * self.columns + intersection.y] as Button).icon = selected.sprite;
+				window.inventory_ui.reset_selection();
+				items.append(item_connections);
+		elif event.button_index == 2:
+			#remove tile clicked and others from same shape
+			var clicked_shape = []
+			for item_shape in items:
+				for tile in item_shape:
+					if tile.index == btn_index:
+						clicked_shape = item_shape;
+			for tile in clicked_shape:
+				inventory_2d[tile.x][tile.y] = false;
+				self.get_child(tile.index).icon = null;
+				Global.player_instance.inventory.add_item(ItemManager.get_item(tile.key), 1);
 
 func _intersect(inventory, item, chosen_position: Vector2i) -> Array:
 	var result = [];
