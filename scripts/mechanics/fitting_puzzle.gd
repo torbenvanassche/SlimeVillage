@@ -44,27 +44,33 @@ func _on_slot_clicked(event: InputEvent, btn: Button):
 			if selected && intersections.size() > 0:
 				Global.player_instance.inventory.remove_item(selected, 1);
 				for intersection in intersections:
-					var idx = intersection.x * self.columns + intersection.y;
-					item_connections.append({"x": intersection.y, "y": intersection.x, "key": selected.id, "index": idx})
-					inventory_2d[intersection.y][intersection.x] = true;
-					(self.get_children()[intersection.x * self.columns + intersection.y] as Button).icon = selected.sprite;
+					item_connections.append({"x": intersection.y, "y": intersection.x, "key": selected.id, "index": intersection.x * self.columns + intersection.y})
+					set_state(intersection, selected.sprite)
 				window.inventory_ui.reset_selection();
 				items.append(item_connections);
 		elif event.button_index == 2:
-			#remove tile clicked and others from same shape
-			var clicked_shape = []
-			for item_shape in items:
-				for tile in item_shape:
-					if tile.index == btn_index:
-						clicked_shape = item_shape;
-			for tile in clicked_shape:
-				inventory_2d[tile.x][tile.y] = false;
-				self.get_child(tile.index).icon = null;
-				Global.player_instance.inventory.add_item(ItemManager.get_item(tile.key), 1);
+			reset_tiles(get_item_shape_indices(btn_index))
+
+func set_state(intersection: Vector2i, sprite: Texture):
+	inventory_2d[intersection.y][intersection.x] = true;
+	(self.get_children()[intersection.x * self.columns + intersection.y] as Button).icon = sprite;
+				
+func get_item_shape_indices(btn_index: int):
+	var clicked_shape = []
+	for item_shape in items:
+		for tile in item_shape:
+			if tile.index == btn_index:
+				clicked_shape = item_shape;
+	return clicked_shape;
+				
+func reset_tiles(clicked_shape: Array):
+	for tile in clicked_shape:
+		inventory_2d[tile.x][tile.y] = false;
+		self.get_child(tile.index).icon = null;
+		Global.player_instance.inventory.add_item(ItemManager.get_item(tile.key), 1);
 
 func _intersect(inventory, item, chosen_position: Vector2i) -> Array:
 	var result = [];
-
 	for row_idx in item.size():
 		var row = item[row_idx]
 		for col_idx in row.size():
