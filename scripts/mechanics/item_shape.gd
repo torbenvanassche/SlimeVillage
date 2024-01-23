@@ -1,3 +1,4 @@
+class_name Shaper
 extends GridContainer
 
 var shape_data: Array = [];

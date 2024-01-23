@@ -1,7 +1,7 @@
 extends Window
 
 @export var inventory_ui: InventoryUI;
-@export var item_layout: Node;
+@export var item_layout: Shaper;
 
 func _ready():
 	close_requested.connect(hide)
@@ -12,5 +12,5 @@ func enable(options: Dictionary):
 	show();
 	
 func _set_to_cursor(data: Dictionary):
-	item_layout.open();
+	item_layout.open([false, true, true, false], 2)
 	pass

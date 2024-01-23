@@ -67,7 +67,7 @@ func reset_tiles(clicked_shape: Array):
 	for tile in clicked_shape:
 		inventory_2d[tile.x][tile.y] = false;
 		self.get_child(tile.index).icon = null;
-		Global.player_instance.inventory.add_item(ItemManager.get_item(tile.key), 1);
+	Global.player_instance.inventory.add_item(ItemManager.get_item(clicked_shape[0].key), 1);
 
 func _intersect(inventory, item, chosen_position: Vector2i) -> Array:
 	var result = [];

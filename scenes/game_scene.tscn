@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bwrcc2gxqnosv" path="res://scenes/components/Player.tscn" id="6_o5cr0"]
 [ext_resource type="PackedScene" uid="uid://cuqpjlp4i7pkb" path="res://scenes/components/camera.tscn" id="7_ca8bl"]
 [ext_resource type="PackedScene" uid="uid://4obto2tpb0v3" path="res://scenes/base_scenes/pause_menu.tscn" id="8_11yd1"]
-[ext_resource type="PackedScene" uid="uid://bg1irjlbmoowb" path="res://scenes/docks.tscn" id="8_34vxr"]
+[ext_resource type="PackedScene" uid="uid://bg1irjlbmoowb" path="res://scenes/overworld.tscn" id="8_34vxr"]
 [ext_resource type="Script" path="res://scripts/navigation/path_finding.gd" id="9_3s661"]
 
 [sub_resource type="Environment" id="Environment_jjbbm"]
