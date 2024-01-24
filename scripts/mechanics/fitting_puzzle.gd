@@ -24,7 +24,6 @@ func _ready():
 		curr_arr.append(false)
 		if i % self.columns == self.columns - 1:
 			inventory_2d.append(curr_arr.duplicate());
-			print(curr_arr)
 			curr_arr.clear();
 		
 func _unhandled_input(event):
@@ -40,7 +39,7 @@ func _on_slot_clicked(event: InputEvent, btn: Button):
 			var shape = window.item_layout.shape_data;
 			var item_connections = [];
 
-			var intersections = _intersect(inventory_2d, shape, Vector2i(btn_index / columns, btn_index % columns));
+			var intersections = _intersect(inventory_2d, shape, Vector2i(int(btn_index / float(columns)), btn_index % columns));
 			if selected && intersections.size() > 0:
 				Global.player_instance.inventory.remove_item(selected, 1);
 				for intersection in intersections:

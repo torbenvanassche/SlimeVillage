@@ -11,6 +11,6 @@ func enable(options: Dictionary):
 	inventory_ui.item_clicked.connect(_set_to_cursor)
 	show();
 	
-func _set_to_cursor(data: Dictionary):
+func _set_to_cursor(_data: Dictionary):
 	item_layout.open([false, true, true, false], 2)
 	pass

@@ -13,16 +13,14 @@ var animation_delay = 0.2
 @export var input_mode: Global.NAV_STYLE = Settings.input_mode;
 
 @export var move_delay: float = 0.5
-@export var rotation_time: float = 0.1
-var move_tween: Tween;
+@export var rotation_time: float = 0.1;
 
 var nav_index = 0
 		
 func _ready():
 	Global.player_instance = self
 	inventory_ui.controller = inventory;
-	#animator.speed_scale = 1 / move_delay;
-	animator.animation_finished.connect(func(anim_name): print(anim_name))
+	animator.speed_scale = 1 / move_delay;
 	
 	Settings.input_mode = input_mode;
 	read_input_mode();
@@ -36,36 +34,22 @@ func read_input_mode():
 			click_navigator.process_mode = Node.PROCESS_MODE_DISABLED;
 			wasd_navigator.process_mode = Node.PROCESS_MODE_INHERIT;
 	
-func _on_time():
-	if Global.path_finder.current_nav.size() == 0:
-		return
-
-	await get_tree().create_timer(animation_delay).timeout;
-	if nav_index < Global.path_finder.current_nav.size() - 1:
-		current_tile = Global.path_finder.current_nav[nav_index]
-		nav_index += 1
-	else: 
-		current_tile = Global.path_finder.current_nav[nav_index]
-		Global.path_finder.current_nav.clear()	
-
-		if Global.path_finder.registered_interaction.is_valid():
-			Global.path_finder.registered_interaction.call();
-		
-		wasd_navigator.can_move = true;
-		animator.stop();
-		
-		nav_index = 0
-	
 func move():	
-	nav_index = 0
-	#animator.play("hop");
-	move_tween = get_tree().create_tween()
-	var nav = Global.path_finder.current_nav;
-	for mover in nav:
-		move_tween.chain().tween_method(look_at.bind(Vector3.UP), global_position - global_basis.z, mover.surface_point, rotation_time)
-		move_tween.chain().tween_property(self, "global_position", mover.surface_point, move_delay)
-		move_tween.step_finished.connect(func(idx: int): current_tile = Global.path_finder.current_nav[idx / 2])
+	_move_next(0, Global.path_finder.current_nav)
 	
+func _move_next(idx: int, path: Array[TileBase]):
+	animator.play("hop");
+	var tween := get_tree().create_tween();
+	tween.tween_property(self.get_parent(), "global_position", path[idx].surface_point, move_delay);
+	tween.parallel().tween_method(self.look_at.bind(Vector3.UP), global_transform.origin, path[idx].surface_point, rotation_time).set_ease(Tween.EASE_OUT)
+	tween.finished.connect(func(): current_tile = path[idx])
+	
+	if idx < path.size() - 1:
+		tween.tween_callback(_move_next.bind(idx + 1, path))
+	else:
+		tween.finished.connect(func(): current_tile = Global.path_finder.current_nav[-1])
+		tween.finished.connect(animator.stop)
+
 func set_position_to_current_tile(tile: TileBase = current_tile):
 	if !tile:
 		print("No tile found to set position to, skipping...")
