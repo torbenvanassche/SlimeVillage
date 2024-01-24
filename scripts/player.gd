@@ -5,6 +5,8 @@ var current_tile: TileBase = null;
 
 @export var inventory: Inventory;
 @export var inventory_ui: InventoryUI;
+@export var animator: AnimationPlayer;
+var animation_delay = 0.2
 
 @export var click_navigator: ClickNavigator;
 @export var wasd_navigator: DefaultNavigator;
@@ -13,13 +15,15 @@ var current_tile: TileBase = null;
 var timer: Timer = null
 var progress: float = 0
 
-@export var move_delay: float = 0.25
+@export var move_delay: float = 0.5
 @export var rotation_time: float = 0.1
 var nav_index = 0
 		
 func _ready():
 	Global.player_instance = self
 	inventory_ui.controller = inventory;
+	#animator.speed_scale = 1 / move_delay;
+	animator.animation_finished.connect(func(anim_name): print(anim_name))
 	
 	Settings.input_mode = input_mode;
 	read_input_mode();
@@ -29,8 +33,6 @@ func _ready():
 		
 	timer.wait_time = move_delay
 	timer.timeout.connect(_on_time)
-	
-	inventory.add_item_by_id("wheat", 5)
 	
 func read_input_mode():
 	match Settings.input_mode:
@@ -44,12 +46,12 @@ func read_input_mode():
 func _on_time():
 	if Global.path_finder.current_nav.size() == 0:
 		return
-	
+
+	await get_tree().create_timer(animation_delay).timeout;
 	if nav_index < Global.path_finder.current_nav.size() - 1:
 		current_tile = Global.path_finder.current_nav[nav_index]
 		nav_index += 1
 	else: 
-		
 		current_tile = Global.path_finder.current_nav[nav_index]
 		Global.path_finder.current_nav.clear()	
 
@@ -57,12 +59,13 @@ func _on_time():
 			Global.path_finder.registered_interaction.call();
 		
 		wasd_navigator.can_move = true;
+		animator.stop();
 		
 		nav_index = 0
-		timer.stop()
 	
 func move():	
 	nav_index = 0
+	animator.play("hop");
 	if timer.is_stopped():
 		timer.start()
 	
