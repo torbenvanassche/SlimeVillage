@@ -12,11 +12,10 @@ var animation_delay = 0.2
 @export var wasd_navigator: DefaultNavigator;
 @export var input_mode: Global.NAV_STYLE = Settings.input_mode;
 
-var timer: Timer = null
-var progress: float = 0
-
 @export var move_delay: float = 0.5
 @export var rotation_time: float = 0.1
+var move_tween: Tween;
+
 var nav_index = 0
 		
 func _ready():
@@ -27,12 +26,6 @@ func _ready():
 	
 	Settings.input_mode = input_mode;
 	read_input_mode();
-	
-	timer = Timer.new()
-	add_child(timer)
-		
-	timer.wait_time = move_delay
-	timer.timeout.connect(_on_time)
 	
 func read_input_mode():
 	match Settings.input_mode:
@@ -65,9 +58,13 @@ func _on_time():
 	
 func move():	
 	nav_index = 0
-	animator.play("hop");
-	if timer.is_stopped():
-		timer.start()
+	#animator.play("hop");
+	move_tween = get_tree().create_tween()
+	var nav = Global.path_finder.current_nav;
+	for mover in nav:
+		move_tween.chain().tween_method(look_at.bind(Vector3.UP), global_position - global_basis.z, mover.surface_point, rotation_time)
+		move_tween.chain().tween_property(self, "global_position", mover.surface_point, move_delay)
+		move_tween.step_finished.connect(func(idx: int): current_tile = Global.path_finder.current_nav[idx / 2])
 	
 func set_position_to_current_tile(tile: TileBase = current_tile):
 	if !tile:
@@ -99,11 +96,3 @@ func try_move(tile: TileBase) -> bool:
 		move();
 		return true;
 	return false;
-
-func _process(_delta):
-	if Global.path_finder.current_nav.size() != 0:
-		progress = 1 - (timer.time_left / timer.wait_time)
-		get_parent().position = current_tile.surface_point.lerp(Global.path_finder.current_nav[nav_index].surface_point, progress);
-		
-		if global_position.distance_to(Global.path_finder.current_nav[nav_index].surface_point) > 0.5:
-			self.look_at(Global.path_finder.current_nav[nav_index].surface_point)
