@@ -16,6 +16,7 @@ var animation_delay = 0.2
 @export var rotation_time: float = 0.1;
 
 var move_tween: Tween;
+var move_index: int = 0;
 		
 func _ready():
 	Global.player_instance = self
@@ -34,24 +35,39 @@ func read_input_mode():
 			click_navigator.process_mode = Node.PROCESS_MODE_DISABLED;
 			wasd_navigator.process_mode = Node.PROCESS_MODE_INHERIT;
 	
-func move():
-	_move_next(0, Global.path_finder.current_nav)
+func move():    
+	if move_tween && move_tween.is_running():
+		move_index = 0;
+	else:
+		_move_next()
 	
-func _move_next(idx: int, path: Array[TileBase]):		
+func _move_next(idx: int = 0):		
 	if !animator.is_playing():
 		animator.play("hop");
 		
 	move_tween = get_tree().create_tween();
 
-	move_tween.tween_property(self.get_parent(), "global_position", path[idx].surface_point, move_delay).set_trans(Tween.TRANS_QUAD).set_delay(0.05);
-	move_tween.parallel().tween_method(self.look_at.bind(Vector3.UP), global_transform.origin, path[idx].surface_point, rotation_time)
-	move_tween.finished.connect(func(): current_tile = path[idx])
+	move_tween.tween_property(self.get_parent(), "global_position", Global.path_finder.current_nav[move_index].surface_point, move_delay).set_trans(Tween.TRANS_QUAD).set_delay(0.05);
+	#move_tween.parallel().tween_method(self.look_at.bind(Vector3.UP), global_transform.origin, Global.path_finder.current_nav[move_index].surface_point, rotation_time)
+	move_tween.finished.connect(func(): current_tile = Global.path_finder.current_nav[move_index])
 	
-	if idx < path.size() - 1:
-		move_tween.tween_callback(_move_next.bind(idx + 1, path))
+	if idx < Global.path_finder.current_nav.size() - 1:
+		print(move_index)
+		move_index = move_index + 1;
+		move_tween.finished.connect(_move_next.bind(move_index))
 	else:
 		move_tween.finished.connect(_set_to_last_tile)
 		move_tween.finished.connect(animator.stop)
+		move_tween.finished.connect(func(): move_index = 0)
+		
+func try_move(tile: TileBase) -> bool:
+	var path = Global.path_finder.get_valid_path(current_tile, tile);
+	if path.size() != 0:
+		Global.path_finder.set_path(path);
+		
+		move();
+		return true;
+	return false;
 		
 func _set_to_last_tile():
 	current_tile = Global.path_finder.current_nav[-1]
@@ -78,11 +94,3 @@ func find_location() -> TileBase:
 	
 func is_adjacent(tile1: TileBase, tile2: TileBase = current_tile):
 	return tile1.neighbours.has(tile2) || tile2.neighbours.has(tile1)
-
-func try_move(tile: TileBase) -> bool:
-	var path = Global.path_finder.get_valid_path(current_tile, tile);
-	if path.size() != 0:
-		Global.path_finder.set_path(path);
-		move();
-		return true;
-	return false;
