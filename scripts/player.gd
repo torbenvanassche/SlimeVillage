@@ -16,6 +16,7 @@ var animation_delay = 0.2
 @export var rotation_time: float = 0.1;
 
 var move_tween: Tween;
+var is_moving := false;
 		
 func _ready():
 	Global.player_instance = self
@@ -34,24 +35,31 @@ func read_input_mode():
 			click_navigator.process_mode = Node.PROCESS_MODE_DISABLED;
 			wasd_navigator.process_mode = Node.PROCESS_MODE_INHERIT;
 	
-func move():    
+func move(): 
 	_move_next()
 	
 func _move_next(idx: int = 0):		
 	if !animator.is_playing():
 		animator.play("hop");
 		
-	move_tween = get_tree().create_tween();
+	if !is_moving:
+		move_tween = get_tree().create_tween();
+		is_moving = true;
+		
 	for mover in Global.path_finder.current_nav:
 		move_tween.chain().tween_property(self, "global_position", mover.surface_point, move_delay).set_trans(Tween.TRANS_QUAD).set_delay(0.05);
 	move_tween.step_finished.connect(_set_to_index)
 	move_tween.finished.connect(animator.stop);
 	move_tween.finished.connect(_set_to_index);
+	move_tween.finished.connect(func(): is_moving = false);
 		
 func try_move(tile: TileBase) -> bool:
 	var path = Global.path_finder.get_valid_path(current_tile, tile);
 	if path.size() != 0:
-		Global.path_finder.set_path(path);
+		if !is_moving:
+			Global.path_finder.set_path(path);
+		else:
+			return false;
 		move();
 		return true;
 	return false;
