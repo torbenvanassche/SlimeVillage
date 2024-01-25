@@ -1,3 +1,42 @@
-[gd_scene format=3 uid="uid://dco82c2p6gn4g"]
+[gd_scene load_steps=5 format=3 uid="uid://dco82c2p6gn4g"]
+
+[ext_resource type="PackedScene" uid="uid://duutscgje7a3g" path="res://level_pieces/environment/dock_pieces/SM_Bld_Dock_03.glb" id="1_tvf40"]
+[ext_resource type="PackedScene" uid="uid://bekbr0ig38jbc" path="res://level_pieces/environment/dock_pieces/SM_Bld_Dock_02.glb" id="2_cnui0"]
+[ext_resource type="PackedScene" uid="uid://bu3t30e42ic0r" path="res://level_pieces/environment/dock_pieces/SM_Bld_Dock_01.glb" id="3_8xn72"]
+[ext_resource type="PackedScene" uid="uid://0h0om65fh3x1" path="res://level_pieces/environment/dock_pieces/SM_Bld_Dock_Stairs_01.glb" id="4_rdpcg"]
 
 [node name="Docks" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="SM_Bld_Dock_032" parent="." instance=ExtResource("1_tvf40")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.499737, -1.69658, 0.440577)
+
+[node name="SM_Bld_Dock_034" parent="." instance=ExtResource("1_tvf40")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.495274, -1.76083, -2.26298)
+
+[node name="SM_Bld_Dock_033" parent="." instance=ExtResource("1_tvf40")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.37748, -1.36106, -2.79524)
+
+[node name="SM_Bld_Dock_022" parent="." instance=ExtResource("2_cnui0")]
+transform = Transform3D(0.999002, -0.0444835, -0.00413455, 0.044444, 0.998969, -0.0091986, 0.00453948, 0.00900566, 0.999949, 0.499737, -1.28528, -0.462523)
+
+[node name="SM_Bld_Dock_012" parent="." instance=ExtResource("3_8xn72")]
+transform = Transform3D(0.999925, 0.012217, 0, -0.012217, 0.999925, 0, 0, 0, 1, -0.512647, -1.30301, -1.35574)
+
+[node name="SM_Bld_Dock_Stairs_014" parent="." instance=ExtResource("4_rdpcg")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.37138, 0.101728, -1.16778)
+
+[node name="SM_Bld_Dock_013" parent="." instance=ExtResource("3_8xn72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1.26854, -0.419462)
+
+[node name="SM_Bld_Dock_016" parent="." instance=ExtResource("3_8xn72")]
+transform = Transform3D(-1, 9.71279e-05, -0.000423209, 9.73013e-05, 1, -0.000477903, 0.000423169, -0.000477938, -1, -0.46278, -1.26854, 0.493639)
+
+[node name="SM_Bld_Dock_014" parent="." instance=ExtResource("3_8xn72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41162, -1.26854, -0.419462)
+
+[node name="SM_Bld_Dock_017" parent="." instance=ExtResource("3_8xn72")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.37625, -0.888918, -1.89513)
+
+[node name="SM_Bld_Dock_015" parent="." instance=ExtResource("3_8xn72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41162, -1.26854, 0.495491)

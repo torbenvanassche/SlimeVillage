@@ -60,7 +60,7 @@ max_distance = 10.0
 min_distance = 2.0
 
 [node name="Player" parent="PlayerRoot" node_paths=PackedStringArray("inventory_ui") instance=ExtResource("6_o5cr0")]
-transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 1)
 inventory_ui = NodePath("../../UI/inventory_window/Grid")
 input_mode = 0
 

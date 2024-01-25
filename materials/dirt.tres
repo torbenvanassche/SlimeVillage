@@ -3,6 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://daj4vioi6kpcu" path="res://textures/normal/PFK_Texture_Ground_Base_Normals.png" id="2_ok6ei"]
 
 [resource]
-albedo_color = Color(0.435294, 0.34902, 0.262745, 1)
+albedo_color = Color(0.313726, 0.25098, 0.180392, 1)
 normal_enabled = true
 normal_texture = ExtResource("2_ok6ei")

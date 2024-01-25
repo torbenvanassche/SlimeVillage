@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg1irjlbmoowb"]
+[gd_scene load_steps=8 format=3 uid="uid://bg1irjlbmoowb"]
 
 [ext_resource type="Script" path="res://scripts/Utils/generator.gd" id="1_6dxsm"]
 [ext_resource type="PackedScene" uid="uid://dfowh7u2ix5g5" path="res://level_pieces/buildings/market.tscn" id="2_70pv6"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dc1j7mvmx2tpw" path="res://scenes/components/walkable_tile.tscn" id="3_5wrqg"]
 [ext_resource type="PackedScene" uid="uid://wfhwfccq88xv" path="res://level_pieces/buildings/farm.tscn" id="3_sgd1i"]
 [ext_resource type="PackedScene" uid="uid://dco82c2p6gn4g" path="res://level_pieces/buildings/docks.tscn" id="6_2fky7"]
+[ext_resource type="PackedScene" uid="uid://0h0om65fh3x1" path="res://level_pieces/environment/dock_pieces/SM_Bld_Dock_Stairs_01.glb" id="8_8pt1x"]
 
 [node name="main_scene" type="Node3D" node_paths=PackedStringArray("entrance")]
 script = ExtResource("1_6dxsm")
@@ -58,4 +59,7 @@ transform = Transform3D(1, 0, 6.3573e-08, 0, 1, 0, -6.3573e-08, 0, 1, -2.99575, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9407e-05, 0, 0.492381)
 
 [node name="Docks" parent="." instance=ExtResource("6_2fky7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -4)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.82244, 0.480506, -1.47385)
+
+[node name="SM_Bld_Dock_Stairs_012" parent="." instance=ExtResource("8_8pt1x")]
+transform = Transform3D(-2, 0, 1.74846e-07, 0, 2, 0, -1.74846e-07, 0, -2, -2, 0, 1)

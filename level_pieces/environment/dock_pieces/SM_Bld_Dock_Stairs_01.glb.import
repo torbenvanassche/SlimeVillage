@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dvqeo18p4cv4h"
-path="res://.godot/imported/SM_Bld_Wall_Beam_01.glb-5ef120cbdaa74e25289c5bd963078276.scn"
+uid="uid://0h0om65fh3x1"
+path="res://.godot/imported/SM_Bld_Dock_Stairs_01.glb-36b0065765ea41851d11e0fa5f86299e.scn"
 
 [deps]
 
-source_file="res://level_pieces/environment/wood/beams/SM_Bld_Wall_Beam_01.glb"
-dest_files=["res://.godot/imported/SM_Bld_Wall_Beam_01.glb-5ef120cbdaa74e25289c5bd963078276.scn"]
+source_file="res://level_pieces/environment/dock_pieces/SM_Bld_Dock_Stairs_01.glb"
+dest_files=["res://.godot/imported/SM_Bld_Dock_Stairs_01.glb-36b0065765ea41851d11e0fa5f86299e.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=0.4
+nodes/root_scale=25.0
 meshes/ensure_tangents=false
 meshes/generate_lods=false
 meshes/create_shadow_meshes=false
@@ -31,9 +31,9 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "materials": {
-"T_ELVEN122": {
+"Texture_01.341": {
 "use_external/enabled": true,
-"use_external/path": "res://materials/polygon/polygon_elven.tres"
+"use_external/path": "res://materials/polygon/polygon_pirates.tres"
 }
 }
 }

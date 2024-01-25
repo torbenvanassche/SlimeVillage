@@ -13,7 +13,7 @@ var animation_delay = 0.2
 @export var input_mode: Global.NAV_STYLE = Settings.input_mode;
 
 @export var move_delay: float = 0.5
-@export var rotation_time: float = 0.1;
+@export var rotation_time: float = 0.01;
 
 var move_tween: Tween;
 var is_moving := false;
@@ -38,7 +38,7 @@ func read_input_mode():
 func move(): 
 	_move_next()
 	
-func _move_next(idx: int = 0):		
+func _move_next():
 	if !animator.is_playing():
 		animator.play("hop");
 		
@@ -47,24 +47,26 @@ func _move_next(idx: int = 0):
 		is_moving = true;
 		
 	for mover in Global.path_finder.current_nav:
-		move_tween.chain().tween_property(self, "global_position", mover.surface_point, move_delay).set_trans(Tween.TRANS_QUAD).set_delay(0.05);
+		move_tween.chain().tween_property(self.get_parent(), "global_position", mover.surface_point, move_delay).set_trans(Tween.TRANS_QUAD).set_delay(0.05);
+		move_tween.parallel().tween_method(self.look_at.bind(Vector3.UP), global_transform.origin, mover.surface_point, rotation_time)
 	move_tween.step_finished.connect(_set_to_index)
 	move_tween.finished.connect(animator.stop);
 	move_tween.finished.connect(_set_to_index);
 	move_tween.finished.connect(func(): is_moving = false);
-		
+	if !Global.path_finder.registered_interaction.is_null():
+		move_tween.finished.connect(Global.path_finder.registered_interaction)
+
 func try_move(tile: TileBase) -> bool:
 	var path = Global.path_finder.get_valid_path(current_tile, tile);
 	if path.size() != 0:
-		if !is_moving:
-			Global.path_finder.set_path(path);
-		else:
-			return false;
+		Global.path_finder.set_path(path);
 		move();
 		return true;
 	return false;
 		
 func _set_to_index(idx: int = -1):
+	if idx > 0:
+		idx = (int)(idx / 2);
 	current_tile = Global.path_finder.current_nav[idx]
 
 func set_position_to_current_tile(tile: TileBase = current_tile):
