@@ -26,11 +26,6 @@ func _ready():
 	
 	Settings.input_mode = input_mode;
 	read_input_mode();
-
-func _process(_delta):
-	#if we're not moving but have a path, start moving
-	if !is_moving and ( Global.path_finder.current_nav.size() > 0 or buffered_target_tile ):
-		move()
 	
 func read_input_mode():
 	match Settings.input_mode:
@@ -45,6 +40,7 @@ func move():
 	if buffered_target_tile:
 		is_moving = false
 		try_move(buffered_target_tile)
+		return
 	
 	if  Global.path_finder.current_nav.size() < 1 and not buffered_target_tile:
 		is_moving = false
@@ -62,20 +58,18 @@ func _move_next():
 	move_tween.tween_property(self.get_parent(), "global_position", next_target.surface_point, move_delay).set_trans(Tween.TRANS_QUAD).set_delay(0.05);
 	move_tween.finished.connect(_update_current_tile.bind(next_target))
 	move_tween.finished.connect(move)
-	pass
 
 func _update_current_tile(new_tile:TileBase):
 	current_tile = new_tile
 
 func try_move(tile: TileBase) -> bool:
+	buffered_target_tile = tile
 	var path = Global.path_finder.get_valid_path(current_tile, tile);
 	if path.size() != 0:
-		if is_moving:
-			buffered_target_tile = tile
-			print("Add buffered_target " + str(buffered_target_tile.surface_point))
-		else:
+		if !is_moving:
 			buffered_target_tile = null
 			Global.path_finder.set_path(path);
+			move()
 		return true;
 	return false;
 		
