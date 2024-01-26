@@ -37,8 +37,25 @@ func read_input_mode():
 	
 func move(): 
 	_move_next()
+
 	
 func _move_next():
+	if  Global.path_finder.current_nav.size() < 1: 
+		is_moving = false
+		return
+	is_moving = true
+	var next_target = Global.path_finder.current_nav.pop_front()
+	move_tween = get_tree().create_tween();
+	move_tween.tween_property(self.get_parent(), "global_position", next_target.surface_point, move_delay).set_trans(Tween.TRANS_QUAD).set_delay(0.05);
+	move_tween.finished.connect(_update_current_tile.bind(next_target))
+	move_tween.finished.connect(move)
+	print("position: " + str(get_parent().global_position) + " target: " + str(next_target.surface_point) )
+	pass
+
+func _update_current_tile(new_tile:TileBase):
+	current_tile = new_tile
+
+func _to_be_saved_move_next():
 	if !animator.is_playing():
 		animator.play("hop");
 		
@@ -60,7 +77,8 @@ func try_move(tile: TileBase) -> bool:
 	var path = Global.path_finder.get_valid_path(current_tile, tile);
 	if path.size() != 0:
 		Global.path_finder.set_path(path);
-		move();
+		if !is_moving:
+			move();
 		return true;
 	return false;
 		
