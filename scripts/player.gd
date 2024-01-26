@@ -17,6 +17,7 @@ var animation_delay = 0.2
 
 var move_tween: Tween;
 var is_moving := false;
+var buffered_target_tile: TileBase
 		
 func _ready():
 	Global.player_instance = self
@@ -25,6 +26,11 @@ func _ready():
 	
 	Settings.input_mode = input_mode;
 	read_input_mode();
+
+func _process(_delta):
+	#if we're not moving but have a path, start moving
+	if !is_moving and ( Global.path_finder.current_nav.size() > 0 or buffered_target_tile ):
+		move()
 	
 func read_input_mode():
 	match Settings.input_mode:
@@ -36,49 +42,40 @@ func read_input_mode():
 			wasd_navigator.process_mode = Node.PROCESS_MODE_INHERIT;
 	
 func move(): 
-	_move_next()
-
+	if buffered_target_tile:
+		is_moving = false
+		try_move(buffered_target_tile)
 	
-func _move_next():
-	if  Global.path_finder.current_nav.size() < 1: 
+	if  Global.path_finder.current_nav.size() < 1 and not buffered_target_tile:
 		is_moving = false
 		return
+	
+	_move_next()
+	#if not is_moving and buffered_target_tile:
+	#	try_move(buffered_target_tile) #creates new path
+	
+func _move_next():
 	is_moving = true
 	var next_target = Global.path_finder.current_nav.pop_front()
+	print("position: " + str(get_parent().global_position) + " target: " + str(next_target.surface_point) )
 	move_tween = get_tree().create_tween();
 	move_tween.tween_property(self.get_parent(), "global_position", next_target.surface_point, move_delay).set_trans(Tween.TRANS_QUAD).set_delay(0.05);
 	move_tween.finished.connect(_update_current_tile.bind(next_target))
 	move_tween.finished.connect(move)
-	print("position: " + str(get_parent().global_position) + " target: " + str(next_target.surface_point) )
 	pass
 
 func _update_current_tile(new_tile:TileBase):
 	current_tile = new_tile
 
-func _to_be_saved_move_next():
-	if !animator.is_playing():
-		animator.play("hop");
-		
-	if !is_moving:
-		move_tween = get_tree().create_tween();
-		is_moving = true;
-		
-	for mover in Global.path_finder.current_nav:
-		move_tween.chain().tween_property(self.get_parent(), "global_position", mover.surface_point, move_delay).set_trans(Tween.TRANS_QUAD).set_delay(0.05);
-		move_tween.parallel().tween_method(self.look_at.bind(Vector3.UP), global_transform.origin, mover.surface_point, rotation_time)
-	move_tween.step_finished.connect(_set_to_index)
-	move_tween.finished.connect(animator.stop);
-	move_tween.finished.connect(_set_to_index);
-	move_tween.finished.connect(func(): is_moving = false);
-	if !Global.path_finder.registered_interaction.is_null():
-		move_tween.finished.connect(Global.path_finder.registered_interaction)
-
 func try_move(tile: TileBase) -> bool:
 	var path = Global.path_finder.get_valid_path(current_tile, tile);
 	if path.size() != 0:
-		Global.path_finder.set_path(path);
-		if !is_moving:
-			move();
+		if is_moving:
+			buffered_target_tile = tile
+			print("Add buffered_target " + str(buffered_target_tile.surface_point))
+		else:
+			buffered_target_tile = null
+			Global.path_finder.set_path(path);
 		return true;
 	return false;
 		
