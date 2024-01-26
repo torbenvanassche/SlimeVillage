@@ -47,16 +47,18 @@ func move():
 		return
 	
 	_move_next()
-	#if not is_moving and buffered_target_tile:
-	#	try_move(buffered_target_tile) #creates new path
 	
 func _move_next():
+	if !animator.is_playing():
+		animator.play("hop");
+	
 	is_moving = true
 	var next_target = Global.path_finder.current_nav.pop_front()
-	print("position: " + str(get_parent().global_position) + " target: " + str(next_target.surface_point) )
 	move_tween = get_tree().create_tween();
 	move_tween.tween_property(self.get_parent(), "global_position", next_target.surface_point, move_delay).set_trans(Tween.TRANS_QUAD).set_delay(0.05);
+	move_tween.parallel().tween_method(look_at.bind(Vector3.UP), global_transform.origin, next_target.surface_point, rotation_time)
 	move_tween.finished.connect(_update_current_tile.bind(next_target))
+	move_tween.finished.connect(animator.stop)
 	move_tween.finished.connect(move)
 
 func _update_current_tile(new_tile:TileBase):
