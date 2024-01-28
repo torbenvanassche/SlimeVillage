@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0ajw5a07g334"]
+[gd_scene load_steps=12 format=3 uid="uid://b0ajw5a07g334"]
 
 [ext_resource type="Script" path="res://scripts/Utils/manager.gd" id="1_8x5qd"]
 [ext_resource type="Script" path="res://scripts/ui/ui_manager.gd" id="2_bvv38"]
 [ext_resource type="PackedScene" uid="uid://b251uevj7eclb" path="res://scenes/ui/puzzle_area.tscn" id="3_7ln7i"]
 [ext_resource type="PackedScene" uid="uid://bv61tx74mg8u" path="res://scenes/ui/inventory_window.tscn" id="4_wd5ap"]
 [ext_resource type="PackedScene" uid="uid://bwrcc2gxqnosv" path="res://scenes/components/Player.tscn" id="6_o5cr0"]
+[ext_resource type="PackedScene" uid="uid://ccxngymkwjkx3" path="res://scenes/ui/settings.tscn" id="6_qmixb"]
 [ext_resource type="PackedScene" uid="uid://cuqpjlp4i7pkb" path="res://scenes/components/camera.tscn" id="7_ca8bl"]
 [ext_resource type="PackedScene" uid="uid://4obto2tpb0v3" path="res://scenes/base_scenes/pause_menu.tscn" id="8_11yd1"]
 [ext_resource type="PackedScene" uid="uid://bg1irjlbmoowb" path="res://scenes/overworld.tscn" id="8_34vxr"]
@@ -48,8 +49,7 @@ exclusive = true
 content_scale_mode = 1
 content_scale_aspect = 4
 
-[node name="Settings" type="Window" parent="UI"]
-visible = false
+[node name="Settings" parent="UI" instance=ExtResource("6_qmixb")]
 
 [node name="PlayerRoot" type="Node3D" parent="."]
 process_mode = 1
