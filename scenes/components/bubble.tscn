@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://daq5n7qfrx8vm"]
+
+[ext_resource type="Material" uid="uid://ftyuyi87sm15" path="res://materials/bubble.tres" id="1_bsk1c"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4v46l"]
+
+[node name="Bubble" type="MeshInstance3D"]
+mesh = SubResource("SphereMesh_4v46l")
+surface_material_override/0 = ExtResource("1_bsk1c")

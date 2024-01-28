@@ -18,7 +18,8 @@ func get_available_items():
 	var a_items: Dictionary = {};
 	for entry in _items.keys():
 		if _items[entry].available == true:
-			a_items[_items[entry].id] = _items[entry];
+			a_items[entry] = _items[entry];
+			a_items[entry].id = entry;
 	return a_items;
 
 func get_scene(item: Dictionary) -> PackedScene:

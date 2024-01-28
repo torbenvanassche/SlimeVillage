@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1l8vy5sjafwh"]
+
+[ext_resource type="Material" uid="uid://p0624e67ff7c" path="res://materials/underwater_tile.tres" id="1_jrr8t"]
+[ext_resource type="PackedScene" uid="uid://dc1j7mvmx2tpw" path="res://scenes/components/walkable_tile.tscn" id="2_b0mqr"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_rqbpv"]
+
+[node name="underwater_tile" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.5, 0, 0.5)
+mesh = SubResource("QuadMesh_rqbpv")
+surface_material_override/0 = ExtResource("1_jrr8t")
+
+[node name="walkable_tile" parent="." instance=ExtResource("2_b0mqr")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)

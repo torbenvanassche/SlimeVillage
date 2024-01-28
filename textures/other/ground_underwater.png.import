@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlsovgfasvn0h"
-path.s3tc="res://.godot/imported/ui_nineslice.png-d46f8926cfe87f0de072aa84af4762d9.s3tc.ctex"
+uid="uid://86jcupdvxe8w"
+path.s3tc="res://.godot/imported/ground_underwater.png-e1d5f12cf0ecc061327d1e9514538f5b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/ui/ui_nineslice.png"
-dest_files=["res://.godot/imported/ui_nineslice.png-d46f8926cfe87f0de072aa84af4762d9.s3tc.ctex"]
+source_file="res://textures/other/ground_underwater.png"
+dest_files=["res://.godot/imported/ground_underwater.png-e1d5f12cf0ecc061327d1e9514538f5b.s3tc.ctex"]
 
 [params]
 
