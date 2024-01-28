@@ -51,13 +51,10 @@ func get_random_tile():
 	
 func set_neighbours(distance: float = max_distance):
 	max_distance = distance;
-	
 	for current_tile in tiles_storage:
-		if !current_tile.neighbours_custom:
-			current_tile.neighbours.clear()
 		for potential_neighbour in tiles_storage:
 			if current_tile != potential_neighbour:
-				var dist = Vector2(current_tile.global_position.x, current_tile.global_position.z).distance_squared_to(Vector2(potential_neighbour.global_position.x, potential_neighbour.global_position.z))
+				var dist = Vector3(current_tile.global_position.x, current_tile.global_position.y, current_tile.global_position.z).distance_squared_to(Vector3(potential_neighbour.global_position.x, potential_neighbour.global_position.y, potential_neighbour.global_position.z))
 				if dist < max_distance:
 					if !current_tile.neighbours.has(potential_neighbour):
 						current_tile._add_neighbour(potential_neighbour)

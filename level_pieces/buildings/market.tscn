@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dfowh7u2ix5g5"]
+[gd_scene load_steps=28 format=3 uid="uid://dfowh7u2ix5g5"]
 
 [ext_resource type="Script" path="res://scripts/mechanics/market.gd" id="1_8kal8"]
 [ext_resource type="PackedScene" uid="uid://dc1j7mvmx2tpw" path="res://scenes/components/walkable_tile.tscn" id="2_76f0h"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://2mx71idpkoil" path="res://scenes/components/interactable_tile.tscn" id="5_3wc26"]
 [ext_resource type="PackedScene" uid="uid://duoobpl3thrgv" path="res://level_pieces/environment/stone/fantasy/SM_Bld_House_Base_Wall_01.glb" id="5_i2mgj"]
 [ext_resource type="PackedScene" uid="uid://daxsht6m0jyye" path="res://level_pieces/environment/wood/walls/SM_Bld_House_Wall_SupportBeams_03.glb" id="6_bm2uo"]
+[ext_resource type="Script" path="res://scripts/tiles/tile_walkable.gd" id="7_a4048"]
 [ext_resource type="PackedScene" uid="uid://nul2tdp0j53l" path="res://level_pieces/environment/stone/fantasy/SM_Bld_House_Stairs_Stone_01.glb" id="8_okivm"]
 [ext_resource type="PackedScene" uid="uid://hwviby0me6j8" path="res://level_pieces/environment/wood/walls/SM_Bld_House_Wall_Half_01.glb" id="10_nbes4"]
 [ext_resource type="PackedScene" uid="uid://dxjhthgnhemex" path="res://level_pieces/environment/wood/walls/sm_bld_house_wall_door_01.tscn" id="11_bdljt"]
@@ -247,12 +248,13 @@ transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 7, 1, -1
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 8, 1, -1)
 
 [node name="gravel2" parent="Ground" node_paths=PackedStringArray("destination") instance=ExtResource("22_47vpx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2.5)
 script = ExtResource("4_7bsy6")
 destination = NodePath("../SM_Bld_House_Floor_Stone_035/interactable_tile")
 
-[node name="interactable_tile" parent="Ground/gravel2" node_paths=PackedStringArray("interaction") instance=ExtResource("5_3wc26")]
-interaction = NodePath("..")
+[node name="interactable_tile" parent="Ground/gravel2" instance=ExtResource("5_3wc26")]
+script = ExtResource("7_a4048")
+player_can_stop = true
 walkable_in_scene = true
 
 [node name="Building" type="Node3D" parent="."]
@@ -336,7 +338,7 @@ transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 6, 1, 0)
 [node name="wall_front" type="Node3D" parent="Building"]
 
 [node name="SM_Bld_House_Stairs_Stone_012" parent="Building/wall_front" instance=ExtResource("8_okivm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.673668, 1.5, 0, 2.02979)
+transform = Transform3D(1.30715, 0, 0, 0, 0.959301, 0, 0, 0, 0.673668, 0.961012, 0, 1.99946)
 
 [node name="SM_Bld_House_Wall_Half_012" parent="Building/wall_front" instance=ExtResource("10_nbes4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 1, 4.37722e-08)

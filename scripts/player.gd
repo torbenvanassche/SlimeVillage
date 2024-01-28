@@ -18,14 +18,6 @@ var move_tween: Tween;
 var is_moving := false;
 var buffered_target_tile: TileBase
 
-func _input(event):
-	if Input.is_action_just_pressed("switch_input"):
-		print("hi")
-		if Settings.input_mode == 0:
-			Settings.input_mode = 1
-		else:
-			Settings.input_mode = 0;
-		read_input_mode();
 func _ready():
 	Global.player_instance = self
 	inventory_ui.controller = inventory;
@@ -83,7 +75,7 @@ func try_move(tile: TileBase) -> bool:
 		
 func _set_to_index(idx: int = -1):
 	if idx > 0:
-		idx = (int)(idx / 2);
+		idx = (int)(float(idx) / 2);
 	current_tile = Global.path_finder.current_nav[idx]
 
 func set_position_to_current_tile(tile: TileBase = current_tile):

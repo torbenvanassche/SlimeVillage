@@ -4,7 +4,7 @@ extends Node
 var crop_growth_modifier = 0.1
 
 #Navigation mode controller
-var input_mode: Global.NAV_STYLE = Global.NAV_STYLE.WASD;
+var input_mode: Global.NAV_STYLE = Global.NAV_STYLE.CLICK;
 
 func set_input_mode(style: Global.NAV_STYLE):
 	input_mode = style;
