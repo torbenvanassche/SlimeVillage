@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bt3vm3cgd4v2s"]
 
-[ext_resource type="Material" uid="uid://bmcd8gpc5amqx" path="res://materials/polygon_outdoor_wood.tres" id="1_fbbpy"]
+[ext_resource type="Material" uid="uid://bmcd8gpc5amqx" path="res://materials/tileable/polygon_outdoor_wood.tres" id="1_fbbpy"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_u0xjn"]
 

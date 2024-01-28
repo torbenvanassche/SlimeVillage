@@ -3,7 +3,7 @@ extends GridContainer
 
 @export var _grid_size: Vector2i = Vector2i(2, 2)
 var inventory_2d: Array[Array] = []
-var _rect_theme = preload("res://themes/inventory/inventory_slot.tres")
+var _rect_theme = preload("res://theming/inventory/theme_inventory_slot.tres")
 @export var window: Window;
 
 var items = []

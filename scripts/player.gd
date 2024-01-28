@@ -10,7 +10,6 @@ var animation_delay = 0.2
 
 @export var click_navigator: ClickNavigator;
 @export var wasd_navigator: DefaultNavigator;
-@export var input_mode: Global.NAV_STYLE = Settings.input_mode;
 
 @export var move_delay: float = 0.5
 @export var rotation_time: float = 0.01;
@@ -18,13 +17,20 @@ var animation_delay = 0.2
 var move_tween: Tween;
 var is_moving := false;
 var buffered_target_tile: TileBase
-		
+
+func _input(event):
+	if Input.is_action_just_pressed("switch_input"):
+		print("hi")
+		if Settings.input_mode == 0:
+			Settings.input_mode = 1
+		else:
+			Settings.input_mode = 0;
+		read_input_mode();
 func _ready():
 	Global.player_instance = self
 	inventory_ui.controller = inventory;
 	animator.speed_scale = (1 / (move_delay + 0.1));
 	
-	Settings.input_mode = input_mode;
 	read_input_mode();
 	
 func read_input_mode():

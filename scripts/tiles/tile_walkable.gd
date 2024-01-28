@@ -1,9 +1,12 @@
 extends TileBase
 
+@export var player_can_stop: bool = true;
+
 func _ready():
 	super();
 	self.walkable_in_scene = true;
-	self.input_event.connect(execute)
+	if player_can_stop:
+		self.input_event.connect(execute)
 	Global.path_finder.add_node(self)
 
 func execute(_camera = null, _event = null, _pos = Vector3.ZERO, _normal = Vector3.ZERO, _shape_idx = -1):

@@ -53,12 +53,14 @@ func set_neighbours(distance: float = max_distance):
 	max_distance = distance;
 	
 	for current_tile in tiles_storage:
-		current_tile.neighbours.clear()
+		if !current_tile.neighbours_custom:
+			current_tile.neighbours.clear()
 		for potential_neighbour in tiles_storage:
 			if current_tile != potential_neighbour:
 				var dist = Vector2(current_tile.global_position.x, current_tile.global_position.z).distance_squared_to(Vector2(potential_neighbour.global_position.x, potential_neighbour.global_position.z))
 				if dist < max_distance:
-					current_tile._add_neighbour(potential_neighbour)
+					if !current_tile.neighbours.has(potential_neighbour):
+						current_tile._add_neighbour(potential_neighbour)
 					
 func generate_connections():
 	for tile in tiles_storage:

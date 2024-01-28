@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cesm3cw6ng2a0"]
 
-[ext_resource type="Material" uid="uid://c6xhejk3aqxkj" path="res://materials/brick.tres" id="1_apaq5"]
+[ext_resource type="Material" uid="uid://c6xhejk3aqxkj" path="res://materials/tileable/brick.tres" id="1_apaq5"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_u0xjn"]
 

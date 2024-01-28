@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://1n36xgx3n0q6"]
 
 [ext_resource type="PackedScene" uid="uid://cpte3k4aeq3sh" path="res://level_pieces/environment/base/SM_Generic_Ground_02.glb" id="1_5ya31"]
-[ext_resource type="Material" uid="uid://dty5fwmsj0t46" path="res://materials/grass.tres" id="2_ae6kh"]
+[ext_resource type="Material" uid="uid://dty5fwmsj0t46" path="res://materials/tileable/grass.tres" id="2_ae6kh"]
 
 [node name="SM_Generic_Ground_022" instance=ExtResource("1_5ya31")]
 

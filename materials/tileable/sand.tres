@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bmtpduryxtck5"]
+
+[ext_resource type="Texture2D" uid="uid://drnbbeodo81mi" path="res://textures/tileable/diffuse/Sand_Texture_02.png" id="1_kva84"]
+[ext_resource type="Texture2D" uid="uid://ctydxovuobsn3" path="res://textures/tileable/normal/Sand_Normals_02.png" id="2_riu0g"]
+
+[resource]
+albedo_texture = ExtResource("1_kva84")
+normal_enabled = true
+normal_texture = ExtResource("2_riu0g")

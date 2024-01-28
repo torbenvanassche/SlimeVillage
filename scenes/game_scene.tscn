@@ -48,6 +48,9 @@ exclusive = true
 content_scale_mode = 1
 content_scale_aspect = 4
 
+[node name="Settings" type="Window" parent="UI"]
+visible = false
+
 [node name="PlayerRoot" type="Node3D" parent="."]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 1.5)
@@ -62,7 +65,6 @@ min_distance = 2.0
 [node name="Player" parent="PlayerRoot" node_paths=PackedStringArray("inventory_ui") instance=ExtResource("6_o5cr0")]
 transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
 inventory_ui = NodePath("../../UI/inventory_window/Grid")
-input_mode = 0
 
 [node name="overworld" parent="." instance=ExtResource("8_34vxr")]
 process_mode = 1

@@ -21,9 +21,10 @@ func start_move(moveVector: Vector3):
 	var player = get_parent() as Player;
 	var next_tile: TileBase = null;
 	for tile in player.current_tile.neighbours:
-		if (player.current_tile.position + moveVector).distance_to(tile.position) < 0.25:
+		if (player.current_tile.surface_point + moveVector).distance_to(tile.surface_point) < 0.25:
 			next_tile = tile;
 			break;
 	
 	if next_tile:
 		can_move = !player.try_move(next_tile)
+		player.move_tween.finished.connect(func(): can_move = true);

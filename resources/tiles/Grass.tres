@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Tile_Data" load_steps=3 format=3 uid="uid://dpv5otbxnlhbc"]
 
-[ext_resource type="Material" uid="uid://dty5fwmsj0t46" path="res://materials/grass.tres" id="1_nkkoo"]
+[ext_resource type="Material" uid="uid://dty5fwmsj0t46" path="res://materials/tileable/grass.tres" id="1_nkkoo"]
 [ext_resource type="Script" path="res://scripts/resources/tile_data.gd" id="2_k6hp5"]
 
 [resource]

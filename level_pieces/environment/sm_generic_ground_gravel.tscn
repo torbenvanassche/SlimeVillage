@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxei47ypwxt3m"]
 
-[ext_resource type="Material" uid="uid://cjk2wew0nnlwn" path="res://materials/placeholder.tres" id="1_1caci"]
+[ext_resource type="Material" uid="uid://b1o5ek4jnmiar" path="res://materials/tileable/gravel.tres" id="1_s75gg"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_cop11"]
 
@@ -9,4 +9,4 @@
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.5, 0, -0.5)
 mesh = SubResource("QuadMesh_cop11")
-surface_material_override/0 = ExtResource("1_1caci")
+surface_material_override/0 = ExtResource("1_s75gg")
