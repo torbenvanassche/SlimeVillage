@@ -10,8 +10,10 @@ var available_items: Dictionary = {}
 @export var max_item_count = 10
 @export var market_inventory_ui: InventoryUI;
 
+signal item_spawned(id: String);
+
 func _ready():
-	available_items = ItemManager.get_available_items()
+	available_items = ItemManager.get_by_property("available", true)
 	
 	spawn_timer = Timer.new()
 	spawn_timer.wait_time = 1
@@ -28,10 +30,12 @@ func _ready():
 func _on_spawn():
 	var generated_item = Helpers.rand_item_weighted(available_items)
 	self._add_item(ItemManager.get_item(generated_item.id));
-	
-	#control potential game over state
+	item_spawned.emit(generated_item.id)
+
 	if current_orders.get_item_count() >= max_item_count:
 		spawn_timer.stop()
+		
+		#control potential game over state
 		if can_game_over:
 			game_over_timer.start()
 	

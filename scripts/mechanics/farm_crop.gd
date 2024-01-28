@@ -8,6 +8,8 @@ var _growth_timer: Timer
 var _item: Dictionary;
 var buffer: Dictionary;
 
+signal crop_grow(name: String)
+
 func _ready():
 	_crop_node.visible = false;
 	_growth_timer = Timer.new()
@@ -20,6 +22,7 @@ func _ready():
 func _on_grow():
 	_crop_node.visible = true;
 	buffer = {"name": _item.id, "amount": _item.yield}
+	crop_grow.emit(_item.id);
 	_growth_timer.stop()
 	
 func execute(options: Dictionary = {}):

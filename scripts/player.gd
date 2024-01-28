@@ -14,6 +14,8 @@ var animation_delay = 0.2
 @export var move_delay: float = 0.5
 @export var rotation_time: float = 0.01;
 
+signal on_move_complete(tile: TileBase);
+
 var move_tween: Tween;
 var is_moving := false;
 var buffered_target_tile: TileBase
@@ -56,6 +58,7 @@ func _move_next():
 	move_tween.tween_property(self.get_parent(), "global_position", next_target.surface_point, move_delay).set_trans(Tween.TRANS_QUAD).set_delay(0.05);
 	move_tween.parallel().tween_method(look_at.bind(Vector3.UP), global_transform.origin, next_target.surface_point, rotation_time)
 	move_tween.finished.connect(_update_current_tile.bind(next_target))
+	move_tween.finished.connect(func(): on_move_complete.emit(next_target))
 	move_tween.finished.connect(animator.stop)
 	move_tween.finished.connect(move)
 

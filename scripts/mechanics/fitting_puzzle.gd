@@ -8,6 +8,9 @@ var _rect_theme = preload("res://theming/inventory/theme_inventory_slot.tres")
 
 var items = []
 
+signal item_added(id: String);
+signal item_removed(id: String);
+
 func _ready():
 	self.columns = _grid_size.y;
 	var curr_arr: Array = []
@@ -34,8 +37,8 @@ func _unhandled_input(event):
 func _on_slot_clicked(event: InputEvent, btn: Button):
 	var btn_index = self.get_children().find(btn)
 	if event is InputEventMouseButton and event.is_pressed():
+		var selected = window.inventory_ui.selected_item;
 		if event.button_index == 1:
-			var selected = window.inventory_ui.selected_item;
 			var shape = window.item_layout.shape_data;
 			var item_connections = [];
 
@@ -47,8 +50,10 @@ func _on_slot_clicked(event: InputEvent, btn: Button):
 					set_state(intersection, selected.sprite)
 				window.inventory_ui.reset_selection();
 				items.append(item_connections);
+				item_added.emit(selected.id)
 		elif event.button_index == 2:
 			reset_tiles(get_item_shape_indices(btn_index))
+			item_removed.emit(selected.id)
 
 func set_state(intersection: Vector2i, sprite: Texture):
 	inventory_2d[intersection.y][intersection.x] = true;

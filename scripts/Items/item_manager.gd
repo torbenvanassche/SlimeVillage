@@ -14,11 +14,11 @@ func get_item(id: String):
 	printerr(id + " not found in the item database.")
 	return null;
 	
-func get_available_items():
+func get_by_property(prop: String, value: Variant, dict: Dictionary = _items):
 	var a_items: Dictionary = {};
-	for entry in _items.keys():
-		if _items[entry].available == true:
-			a_items[entry] = _items[entry];
+	for entry in dict.keys():
+		if dict[entry][prop] == value:
+			a_items[entry] = dict[entry];
 			a_items[entry].id = entry;
 	return a_items;
 
