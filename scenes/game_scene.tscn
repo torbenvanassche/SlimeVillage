@@ -49,8 +49,6 @@ exclusive = true
 content_scale_mode = 1
 content_scale_aspect = 4
 
-[node name="Settings" parent="UI" instance=ExtResource("6_qmixb")]
-
 [node name="PlayerRoot" type="Node3D" parent="."]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 1.5)
@@ -78,5 +76,7 @@ environment = SubResource("Environment_jjbbm")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="overworld"]
 transform = Transform3D(-0.945522, 0.0532305, -0.321176, -0.248533, 0.519202, 0.817717, 0.210283, 0.852992, -0.477688, 0.648335, 5.71672, -1.0657)
 shadow_enabled = true
+
+[node name="Settings" parent="." instance=ExtResource("6_qmixb")]
 
 [editable path="UI/inventory_window"]
