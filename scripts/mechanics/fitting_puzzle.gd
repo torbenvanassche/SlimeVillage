@@ -29,11 +29,6 @@ func _ready():
 			inventory_2d.append(curr_arr.duplicate());
 			curr_arr.clear();
 		
-func _unhandled_input(event):
-	if event.is_action_pressed("cancel"):
-		get_viewport().set_input_as_handled()
-		hide()
-		
 func _on_slot_clicked(event: InputEvent, btn: Button):
 	var btn_index = self.get_children().find(btn)
 	if event is InputEventMouseButton and event.is_pressed():

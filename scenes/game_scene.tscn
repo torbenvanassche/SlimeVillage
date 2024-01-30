@@ -38,6 +38,11 @@ player_inventory = NodePath("inventory_window")
 visible = false
 layout_mode = 1
 
+[node name="Settings" parent="UI" instance=ExtResource("6_qmixb")]
+process_mode = 3
+visible = false
+layout_mode = 1
+
 [node name="puzzle_ui" parent="UI" instance=ExtResource("3_7ln7i")]
 process_mode = 1
 visible = false
@@ -76,7 +81,5 @@ environment = SubResource("Environment_jjbbm")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="overworld"]
 transform = Transform3D(-0.945522, 0.0532305, -0.321176, -0.248533, 0.519202, 0.817717, 0.210283, 0.852992, -0.477688, 0.648335, 5.71672, -1.0657)
 shadow_enabled = true
-
-[node name="Settings" parent="." instance=ExtResource("6_qmixb")]
 
 [editable path="UI/inventory_window"]

@@ -5,6 +5,11 @@ extends Window
 
 func _ready():
 	close_requested.connect(hide)
+	
+func _unhandled_input(event):
+	if event.is_action_pressed("cancel"):
+		get_viewport().set_input_as_handled()
+		hide()
 
 func enable(options: Dictionary):
 	inventory_ui.set_controller(options.player.inventory);

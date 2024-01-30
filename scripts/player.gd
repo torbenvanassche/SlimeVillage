@@ -24,11 +24,10 @@ func _ready():
 	Global.player_instance = self
 	inventory_ui.controller = inventory;
 	animator.speed_scale = (1 / (move_delay + 0.1));
+	Settings.input_mode_changed.connect(read_input_mode)
 	
-	read_input_mode();
-	
-func read_input_mode():
-	match Settings.input_mode:
+func read_input_mode(nav: Global.NAV_STYLE):
+	match nav:
 		Global.NAV_STYLE.CLICK:
 			wasd_navigator.process_mode = Node.PROCESS_MODE_DISABLED;
 			click_navigator.process_mode = Node.PROCESS_MODE_INHERIT;

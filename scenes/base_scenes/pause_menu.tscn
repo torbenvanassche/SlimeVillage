@@ -2,19 +2,17 @@
 
 [ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="1_k1r5q"]
 
-[node name="Control" type="ColorRect"]
+[node name="Control" type="Window"]
 process_mode = 2
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.439216, 0.439216, 0.439216, 0.537255)
+initial_position = 1
+size = Vector2i(300, 300)
+borderless = true
+always_on_top = true
+transparent = true
 script = ExtResource("1_k1r5q")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(300, 0)
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
