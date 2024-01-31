@@ -1,4 +1,4 @@
-extends Window
+extends Control
 
 @onready var settings_screen: Window = $"../Settings";
 
