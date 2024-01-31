@@ -2,17 +2,17 @@
 
 [ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="1_k1r5q"]
 
-[node name="Control" type="Window"]
+[node name="Control" type="Control"]
 process_mode = 2
-initial_position = 1
-size = Vector2i(300, 300)
-borderless = true
-always_on_top = true
-transparent = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 300.0
+offset_bottom = 300.0
 script = ExtResource("1_k1r5q")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
