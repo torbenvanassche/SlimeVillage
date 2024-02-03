@@ -36,6 +36,7 @@ player_inventory = NodePath("inventory_window")
 
 [node name="pause_menu" parent="UI" instance=ExtResource("8_11yd1")]
 visible = false
+layout_mode = 1
 
 [node name="Settings" parent="UI" instance=ExtResource("6_qmixb")]
 process_mode = 3

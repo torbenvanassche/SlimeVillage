@@ -100,5 +100,8 @@ func find_location() -> TileBase:
 		
 	return null
 	
-func is_adjacent(tile1: TileBase, tile2: TileBase = current_tile):
+func is_adjacent(tile1: TileBase, tile2: TileBase = current_tile) -> bool:
 	return tile1.neighbours.has(tile2) || tile2.neighbours.has(tile1)
+	
+func is_near(node: Node3D, max_distance: float = 1) -> bool:
+	return global_position.distance_to(node.global_position) <= max_distance;
