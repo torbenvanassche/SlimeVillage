@@ -6,13 +6,13 @@ var current_tile: TileBase = null;
 @export var inventory: Inventory;
 @export var inventory_ui: InventoryUI;
 @export var animator: AnimationPlayer;
-var animation_delay = 0.2
 
 @export var click_navigator: ClickNavigator;
 @export var wasd_navigator: DefaultNavigator;
 
-@export var move_delay: float = 0.5
+@export var move_delay: float = 0.5;
 @export var rotation_time: float = 0.01;
+@export var animation_delay: float = 0.2;
 
 signal on_move_complete(tile: TileBase);
 
@@ -23,8 +23,12 @@ var buffered_target_tile: TileBase
 func _ready():
 	Global.player_instance = self
 	inventory_ui.controller = inventory;
-	animator.speed_scale = (1 / (move_delay + 0.1));
+	animator.speed_scale = (1 / (move_delay + animation_delay));
 	Settings.input_mode_changed.connect(read_input_mode)
+	
+func set_speed(speed: float):
+	move_delay = speed;
+	animator.speed_scale = (1 / (move_delay + animation_delay));
 	
 func read_input_mode(nav: Global.NAV_STYLE):
 	match nav:

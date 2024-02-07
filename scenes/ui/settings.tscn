@@ -21,6 +21,7 @@ offset_top = 10.0
 offset_right = 200.0
 offset_bottom = 45.0
 grow_horizontal = 2
+theme_override_constants/separation = 20
 
 [node name="movement_mode" type="Control" parent="VBoxContainer"]
 custom_minimum_size = Vector2(300, 35)
@@ -54,6 +55,39 @@ offset_bottom = 17.5
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 0
+
+[node name="movement_speed" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/movement_speed"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -9.0
+offset_right = 189.0
+offset_bottom = 9.0
+grow_vertical = 2
+size_flags_horizontal = 8
+theme = ExtResource("2_1t6v6")
+text = "Movement speed"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/movement_speed"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -83.0625
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+max_value = 10.0
+step = 0.1
+alignment = 2
 
 [node name="volume_main" type="Control" parent="VBoxContainer"]
 custom_minimum_size = Vector2(300, 35)

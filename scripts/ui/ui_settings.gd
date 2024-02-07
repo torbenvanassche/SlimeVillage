@@ -2,6 +2,7 @@ extends Window
 
 @onready var movement_dropdown: OptionButton = $VBoxContainer/movement_mode/move_mode;
 @onready var volume_main: HSlider = $VBoxContainer/volume_main/volume_slider;
+@onready var movement_speed: SpinBox = $VBoxContainer/movement_speed/SpinBox;
 
 func _ready():
 	#movement option toggles
@@ -16,5 +17,11 @@ func _ready():
 	#Audio
 	volume_main.value_changed.connect(func(value): Settings.volume_changed.emit(value, "Master"))
 	
+	_ready_deferred.call_deferred();
+	
 func _on_close():
 	Global.ui_root.disable_ui(self)
+	
+func _ready_deferred():
+	movement_speed.value = Global.player_instance.move_delay;
+	movement_speed.value_changed.connect(Global.player_instance.set_speed);

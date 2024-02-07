@@ -9,6 +9,7 @@ size = Vector3(0.61969, 0.415176, 1.00488)
 
 [node name="SM_Prop_Cart_022" instance=ExtResource("1_v7aff")]
 script = ExtResource("2_dtmao")
+require_adjacent = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
 script = ExtResource("3_e5jwu")
