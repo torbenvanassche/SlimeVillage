@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://wfhwfccq88xv"]
+[gd_scene load_steps=3 format=3 uid="uid://wfhwfccq88xv"]
 
 [ext_resource type="PackedScene" uid="uid://b1l8vy5sjafwh" path="res://level_pieces/environment/underwater_tile.tscn" id="1_6tf04"]
+[ext_resource type="PackedScene" uid="uid://dw3dbd0jaq6yo" path="res://scenes/components/crop_field.tscn" id="2_sui7c"]
 
 [node name="Farm" type="Node3D"]
 
 [node name="underwater_tile" parent="." instance=ExtResource("1_6tf04")]
+
+[node name="CropField" parent="." instance=ExtResource("2_sui7c")]

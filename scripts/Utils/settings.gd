@@ -1,7 +1,7 @@
 extends Node
 
 #Farm
-var crop_growth_modifier = 0.1
+var crop_growth_modifier = 1
 
 #Navigation mode controller
 var input_mode: Global.NAV_STYLE = Global.NAV_STYLE.CLICK;

@@ -23,7 +23,7 @@ func get_by_property(prop: String, value: Variant, dict: Dictionary = _items):
 	return a_items;
 
 func get_scene(item: Dictionary) -> PackedScene:
-	var path = "res://resources/items/scenes/" + item.scene_path + ".tscn"
+	var path = "res://resources/items/scenes/" + item.scene_path
 	if FileAccess.file_exists(path):
 		return load(path)
 	return null

@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var _crop_node: Node3D
+var _crop: Node3D
 var _growth_timer: Timer
 
 @export var _item_id: String;
@@ -10,8 +10,7 @@ var buffer: Dictionary;
 
 signal crop_grow(name: String)
 
-func _ready():
-	_crop_node.visible = false;
+func _ready():	
 	_growth_timer = Timer.new()
 	_growth_timer.timeout.connect(_on_grow)
 	add_child(_growth_timer)
@@ -20,7 +19,7 @@ func _ready():
 		set_plant(ItemManager.get_item(_item_id))
 	
 func _on_grow():
-	_crop_node.visible = true;
+	_crop.visible = true;
 	buffer = {"name": _item.id, "amount": _item.yield}
 	crop_grow.emit(_item.id);
 	_growth_timer.stop()
@@ -32,7 +31,7 @@ func execute(options: Dictionary = {}):
 	
 func _reset(restart = false):
 	buffer = {};
-	_crop_node.visible = false;
+	_crop.visible = false;
 	
 	if restart:
 		set_plant(_item)
@@ -42,4 +41,9 @@ func _reset(restart = false):
 func set_plant(item: Dictionary):		
 	_item = item;
 	_growth_timer.wait_time = item.grow_time * Settings.crop_growth_modifier;
+
+	_crop = ItemManager.get_scene(item).instantiate()
+	_crop.visible = false;
+	add_child(_crop)
+	
 	_growth_timer.start()

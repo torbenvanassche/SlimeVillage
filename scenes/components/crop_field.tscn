@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw3dbd0jaq6yo"]
+
+[ext_resource type="Script" path="res://scripts/mechanics/farm_crop.gd" id="1_pa1sq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mqhth"]
+
+[node name="CropField" type="Node3D"]
+script = ExtResource("1_pa1sq")
+_item_id = "wheat"
+_auto_start = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5)
+shape = SubResource("BoxShape3D_mqhth")
