@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7ch7o4st81l8"]
+
+[ext_resource type="Script" path="res://scenes/ui/grinder.gd" id="1_u5vnk"]
+
+[node name="Grinder" type="Window"]
+initial_position = 1
+script = ExtResource("1_u5vnk")

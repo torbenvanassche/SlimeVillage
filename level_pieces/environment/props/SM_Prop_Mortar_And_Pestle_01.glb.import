@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://4mk1shii4jnb"
-path="res://.godot/imported/SM_Prop_Frame_01.glb-54c828789536f19b0084ca71e67767ff.scn"
+uid="uid://cfifo4gep5tpw"
+path="res://.godot/imported/SM_Prop_Mortar_And_Pestle_01.glb-15e4faadf82adb35d5a92339ab24cbba.scn"
 
 [deps]
 
-source_file="res://level_pieces/environment/props/SM_Prop_Frame_01.glb"
-dest_files=["res://.godot/imported/SM_Prop_Frame_01.glb-54c828789536f19b0084ca71e67767ff.scn"]
+source_file="res://level_pieces/environment/props/SM_Prop_Mortar_And_Pestle_01.glb"
+dest_files=["res://.godot/imported/SM_Prop_Mortar_And_Pestle_01.glb-15e4faadf82adb35d5a92339ab24cbba.scn"]
 
 [params]
 
@@ -31,9 +31,9 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "materials": {
-"Base_Lambert38": {
+"lambert1716": {
 "use_external/enabled": true,
-"use_external/path": "res://materials/polygon/polygon_elven.tres"
+"use_external/path": "res://materials/polygon/polygon_fantasy.tres"
 }
 }
 }

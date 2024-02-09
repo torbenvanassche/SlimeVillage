@@ -14,12 +14,16 @@ require_adjacent = true
 [node name="SM_Generic_Ground_022" parent="." instance=ExtResource("2_tfs8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="SM_Generic_Ground_022"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SM_Generic_Ground_022" node_paths=PackedStringArray("_spawn_parent")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 script = ExtResource("1_pa1sq")
+_spawn_parent = NodePath("../../pivot")
 _item_id = "wheat"
 _auto_start = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SM_Generic_Ground_022/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5)
 shape = SubResource("BoxShape3D_mqhth")
+
+[node name="pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)

@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://duutscgje7a3g"
-path="res://.godot/imported/SM_Bld_Dock_03.glb-b9184b95da8467fc527b4044ff562444.scn"
+uid="uid://g1hl32iu28nu"
+path="res://.godot/imported/SM_Generic_TreeStump_01.glb-1cfe9da937644a358a48f15db9755041.scn"
 
 [deps]
 
-source_file="res://level_pieces/environment/dock_pieces/SM_Bld_Dock_03.glb"
-dest_files=["res://.godot/imported/SM_Bld_Dock_03.glb-b9184b95da8467fc527b4044ff562444.scn"]
+source_file="res://level_pieces/environment/props/SM_Generic_TreeStump_01.glb"
+dest_files=["res://.godot/imported/SM_Generic_TreeStump_01.glb-1cfe9da937644a358a48f15db9755041.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=25.0
+nodes/root_scale=0.8
 meshes/ensure_tangents=false
 meshes/generate_lods=false
 meshes/create_shadow_meshes=false
@@ -31,9 +31,9 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "materials": {
-"Texture_01.339": {
+"lambert1132": {
 "use_external/enabled": true,
-"use_external/path": "res://materials/polygon/polygon_pirates.tres"
+"use_external/path": "res://materials/polygon/polygon_fantasy.tres"
 }
 }
 }

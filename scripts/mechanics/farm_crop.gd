@@ -3,6 +3,7 @@ extends Node3D
 var _crop: Node3D
 var _growth_timer: Timer
 
+@export var _spawn_parent: Node3D;
 @export var _item_id: String;
 @export var _auto_start: bool;
 var _item: Dictionary;
@@ -43,7 +44,7 @@ func set_plant(item: Dictionary):
 	_growth_timer.wait_time = item.grow_time * Settings.crop_growth_modifier;
 
 	_crop = ItemManager.get_scene(item).instantiate()
+	_spawn_parent.add_child.call_deferred(_crop)
 	_crop.visible = false;
-	get_parent().add_child.call_deferred(_crop)
 	
 	_growth_timer.start()

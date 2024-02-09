@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg1irjlbmoowb"]
+[gd_scene load_steps=8 format=3 uid="uid://bg1irjlbmoowb"]
 
 [ext_resource type="Script" path="res://scripts/Utils/generator.gd" id="1_6dxsm"]
 [ext_resource type="PackedScene" uid="uid://dfowh7u2ix5g5" path="res://level_pieces/buildings/market.tscn" id="2_70pv6"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dc1j7mvmx2tpw" path="res://scenes/components/walkable_tile.tscn" id="3_5wrqg"]
 [ext_resource type="PackedScene" uid="uid://dco82c2p6gn4g" path="res://level_pieces/buildings/docks.tscn" id="6_2fky7"]
 [ext_resource type="PackedScene" uid="uid://wfhwfccq88xv" path="res://level_pieces/buildings/farm.tscn" id="6_cw6qc"]
+[ext_resource type="PackedScene" uid="uid://cian04esup0gc" path="res://scenes/components/grinder.tscn" id="7_4rq48"]
 
 [node name="main_scene" type="Node3D" node_paths=PackedStringArray("entrance")]
 script = ExtResource("1_6dxsm")
@@ -59,3 +60,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.82244, 0.480506, -1.47385)
 
 [node name="Farm" parent="." instance=ExtResource("6_cw6qc")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 6)
+
+[node name="Grinder" parent="." instance=ExtResource("7_4rq48")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53476, 0.0227852, 4.4892)
