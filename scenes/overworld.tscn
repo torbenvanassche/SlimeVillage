@@ -58,4 +58,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9407e-05, 0, 0.492381)
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.82244, 0.480506, -1.47385)
 
 [node name="Farm" parent="." instance=ExtResource("6_cw6qc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 6)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 6)

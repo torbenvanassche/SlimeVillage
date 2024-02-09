@@ -7,7 +7,7 @@ func _ready():
 	if !interaction:
 		interaction = $StaticBody3D;
 	
-	$StaticBody3D.input_event.connect(execute)
+	interaction.input_event.connect(execute)
 
 func execute(_camera = null, _event = null, _pos = Vector3.ZERO, _normal = Vector3.ZERO, _shape_idx = -1):
 	if !require_adjacent || Global.player_instance.is_near(self, 1.5):

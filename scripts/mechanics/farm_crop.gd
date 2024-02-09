@@ -44,6 +44,6 @@ func set_plant(item: Dictionary):
 
 	_crop = ItemManager.get_scene(item).instantiate()
 	_crop.visible = false;
-	add_child(_crop)
+	get_parent().add_child.call_deferred(_crop)
 	
 	_growth_timer.start()
