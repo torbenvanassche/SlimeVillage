@@ -18,4 +18,5 @@ func enable(pos: Vector2 = get_tree().root.get_viewport().get_mouse_position()):
 func _unhandled_input(event):	
 	if event.is_action_pressed("cancel"):
 		get_viewport().set_input_as_handled()
+		inventory_ui.reset_selection();
 		hide()

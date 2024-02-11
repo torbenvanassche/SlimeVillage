@@ -17,7 +17,7 @@ func get_item(id: String):
 func get_by_property(prop: String, value: Variant, dict: Dictionary = _items):
 	var a_items: Dictionary = {};
 	for entry in dict.keys():
-		if dict[entry][prop] == value:
+		if dict[entry].has(prop) && dict[entry][prop] == value:
 			a_items[entry] = dict[entry];
 			a_items[entry].id = entry;
 	return a_items;
@@ -53,8 +53,8 @@ func get_components(item: Dictionary) -> Array[Dictionary]:
 		result.append(get_item(component))
 	return result
 	
-func craft(item: Dictionary, components: Array[Dictionary], process: Helpers.CRAFT_METHOD = Helpers.CRAFT_METHOD.CRAFT):
-	if item.process == process:	
-		return Helpers.arrays_have_same_content(get_components(item), components);
-		
-	return false;
+func get_craftables(components: Array[String], process: Helpers.CRAFT_METHOD):
+	#TODO: Fix getting by property not workign for enum values
+	var options = get_by_property("process", process, get_by_property("available", true));
+	print(options)
+	return options;

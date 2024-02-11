@@ -26,7 +26,7 @@ func add(dict: Dictionary):
 		dict.item = {};
 	else:
 		item_ui.pressed.connect(func(): item_clicked.emit(dict))
-	item_ui.pressed.connect(_set_selected.bind(dict));		
+	item_ui.pressed.connect(_set_selected.bind(dict));
 	
 	if dict.item != {}:
 		item_ui.set_item(dict);
@@ -42,7 +42,6 @@ func _clear():
 		e.queue_free();
 	elements.clear();
 	
-#TODO: Remove selected item when the stack is empty
 func _update(data: Array[Dictionary]):
 	_clear();
 	for index in range(data.size()):

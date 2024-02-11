@@ -21,6 +21,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00334746, 0.323647, -0.0079
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 script = ExtResource("4_6f31y")
 ui_to_open = "Grinder"
+add_to_undo = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0201416, 0.211945, -0.0063324)
