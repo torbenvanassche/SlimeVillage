@@ -14,6 +14,6 @@ func _ready():
 	counter.visible = show_amount;
 	
 func set_item(data: Dictionary):
-	item_name = data.item.key;
+	item_name = data.item.id;
 	counter.set_text(str(data.item.count));
 	textureRect.set_texture(data.item.sprite);

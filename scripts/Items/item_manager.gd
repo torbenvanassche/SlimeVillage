@@ -54,7 +54,5 @@ func get_components(item: Dictionary) -> Array[Dictionary]:
 	return result
 	
 func get_craftables(components: Array[String], process: Helpers.CRAFT_METHOD):
-	#TODO: Fix getting by property not workign for enum values
-	var options = get_by_property("process", process, get_by_property("available", true));
-	print(options)
+	var options = get_by_property("process", Helpers.convert_craft_method(process), get_by_property("available", true));
 	return options;

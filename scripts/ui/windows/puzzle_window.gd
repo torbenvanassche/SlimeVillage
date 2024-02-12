@@ -11,11 +11,11 @@ func _unhandled_input(event):
 		get_viewport().set_input_as_handled()
 		hide()
 
-func enable(options: Dictionary):
-	inventory_ui.set_controller(options.player.inventory);
+func on_enable():
+	inventory_ui.set_controller(Global.player_instance.inventory);
 	inventory_ui.item_clicked.connect(_set_to_cursor)
 	show();
 	
 func _set_to_cursor(_data: Dictionary):
-	item_layout.open([false, true, true, false], 2)
+	item_layout.open([true], 2)
 	pass

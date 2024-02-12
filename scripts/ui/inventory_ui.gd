@@ -7,9 +7,12 @@ var elements: Array[ItemSlot] = []
 var selected_item: Dictionary;
 var controller: Inventory;
 
+@export var show_locked: bool = false;
+
 signal item_clicked(dict: Dictionary);
 
 func set_controller(con: Inventory):
+	print(con.max_slots)
 	controller = con;
 	controller.inventory_changed.connect(_update);
 	_update(controller.data)
@@ -19,7 +22,9 @@ func add(dict: Dictionary):
 	add_child(item_ui);
 	elements.append(item_ui);
 	
-	if dict.has("is_available"):
+	if show_locked:
+		item_ui.disabled = !dict.is_available;
+	else:
 		item_ui.visible = dict.is_available;
 		
 	if !dict.has("item"):

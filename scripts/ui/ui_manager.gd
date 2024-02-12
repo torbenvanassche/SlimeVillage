@@ -30,6 +30,9 @@ func enable_ui(to_enable: Node, position: Vector2 = Vector2.ZERO, add_to_undo_st
 	if position != Vector2.ZERO:
 		to_enable.position = position;
 		
+	if to_enable.has_method("on_enable"):
+		to_enable.on_enable();
+		
 func disable_ui(to_disable: Node, return_to_previous = true):
 	to_disable.visible = false;
 	if scene_history.has(to_disable):

@@ -11,6 +11,9 @@ enum CRAFT_METHOD
 
 static func randarr_range(arr: Array):
 	return arr[randi_range(0, arr.size() - 1)]
+	
+static func convert_craft_method(value: int):
+	return CRAFT_METHOD.keys()[value];
 
 static func arrays_have_same_content(array1: Array, array2: Array):
 	if array1.size() != array2.size(): 
