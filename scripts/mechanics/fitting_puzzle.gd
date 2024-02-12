@@ -1,19 +1,34 @@
 class_name FittingPuzzle
 extends GridContainer
 
+var _rect_theme = preload("res://theming/inventory/theme_inventory_slot.tres")
+@onready var window: Window = $"../../../../..";
+
 @export var _grid_size: Vector2i = Vector2i(2, 2)
 var inventory_2d: Array[Array] = []
-var _rect_theme = preload("res://theming/inventory/theme_inventory_slot.tres")
-@export var window: Window;
+
+#Will be populated on selection changed
+var item_shape: Array[bool] = []
+var item_selected: Dictionary = {}
 
 var items = []
 
 signal item_added(id: String);
 signal item_removed(id: String);
 
+func _on_item_clicked(_data: Dictionary):
+	item_shape = Helpers.convert_to_2D(_data.layout, 1)
+	item_selected = _data;
+	
+func _reset_item():
+	item_shape = [];
+	item_selected = {};
+
 func _ready():
 	self.columns = _grid_size.y;
 	var curr_arr: Array = []
+	
+	window.inventory.item_clicked.connect(_on_item_clicked)
 	
 	for i in range(_grid_size.x * _grid_size.y):
 		var btn = Button.new();
@@ -32,23 +47,23 @@ func _ready():
 func _on_slot_clicked(event: InputEvent, btn: Button):
 	var btn_index = self.get_children().find(btn)
 	if event is InputEventMouseButton and event.is_pressed():
-		var selected = window.inventory_ui.selected_item;
 		if event.button_index == 1:
-			var shape = window.item_layout.shape_data;
 			var item_connections = [];
 
-			var intersections = _intersect(inventory_2d, shape, Vector2i(int(btn_index / float(columns)), btn_index % columns));
-			if selected && intersections.size() > 0:
-				Global.player_instance.inventory.remove_item(selected, 1);
+			var intersections = _intersect(inventory_2d, item_shape, Vector2i(int(btn_index / float(columns)), btn_index % columns));
+			if item_selected && intersections.size() > 0:
+				Global.player_instance.inventory.remove_item(item_selected, 1);
 				for intersection in intersections:
-					item_connections.append({"x": intersection.y, "y": intersection.x, "key": selected.id, "index": intersection.x * self.columns + intersection.y})
-					set_state(intersection, selected.sprite)
-				window.inventory_ui.reset_selection();
+					item_connections.append({"x": intersection.y, "y": intersection.x, "key": item_selected.id, "index": intersection.x * self.columns + intersection.y})
+					set_state(intersection, item_selected.sprite)
+				window.inventory.reset_selection();
 				items.append(item_connections);
-				item_added.emit(selected.id)
+				item_added.emit(item_selected.id)
 		elif event.button_index == 2:
 			reset_tiles(get_item_shape_indices(btn_index))
-			item_removed.emit(selected.id)
+			item_removed.emit(item_selected.id)
+			_reset_item()
+			
 
 func set_state(intersection: Vector2i, sprite: Texture):
 	inventory_2d[intersection.y][intersection.x] = true;

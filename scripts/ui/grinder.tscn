@@ -16,7 +16,6 @@ initial_position = 1
 size = Vector2i(600, 300)
 unresizable = true
 script = ExtResource("1_g56ps")
-process_method = "GRIND"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 anchors_preset = 4

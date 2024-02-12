@@ -3,79 +3,40 @@
 [ext_resource type="FontFile" uid="uid://b4py5c2f05v57" path="res://fonts/Kenney Future Narrow.ttf" id="1_4jyr5"]
 [ext_resource type="Script" path="res://scripts/mechanics/fitting_puzzle.gd" id="1_8l1pk"]
 [ext_resource type="Script" path="res://scripts/ui/windows/puzzle_window.gd" id="1_c4nsa"]
+[ext_resource type="Script" path="res://scenes/ui/gameplay_window_control.gd" id="2_fyhgc"]
 [ext_resource type="Texture2D" uid="uid://dlsovgfasvn0h" path="res://textures/ui/ui_nineslice.png" id="2_jbvwo"]
 [ext_resource type="Script" path="res://scripts/ui/inventory_ui.gd" id="2_n46lc"]
-[ext_resource type="PackedScene" uid="uid://cvgct1c7kjafc" path="res://scenes/ui/item_layout.tscn" id="5_jbspe"]
-
-[sub_resource type="Theme" id="Theme_86kcu"]
-VFlowContainer/constants/h_separation = 4
-VFlowContainer/constants/v_separation = 4
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u450v"]
 
 [sub_resource type="Theme" id="Theme_m34lm"]
 Panel/styles/panel = SubResource("StyleBoxTexture_u450v")
 
-[node name="Window" type="Window" node_paths=PackedStringArray("inventory_ui", "item_layout")]
+[sub_resource type="Theme" id="Theme_86kcu"]
+VFlowContainer/constants/h_separation = 4
+VFlowContainer/constants/v_separation = 4
+
+[node name="Window" type="Window"]
 title = "Puzzle"
 initial_position = 2
 size = Vector2i(600, 350)
 unresizable = true
 theme_override_fonts/title_font = ExtResource("1_4jyr5")
-script = ExtResource("1_c4nsa")
-inventory_ui = NodePath("InventoryPanel/MarginContainer/VFlowContainer/Inventory")
-item_layout = NodePath("item_layout")
+script = ExtResource("2_fyhgc")
 
-[node name="PuzzlePanel" type="NinePatchRect" parent="."]
-anchors_preset = -1
-anchor_right = 0.6
+[node name="Inventory" type="MarginContainer" parent="."]
+anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = -20.0
-grow_horizontal = 2
+offset_right = 300.0
 grow_vertical = 2
-texture = ExtResource("2_jbvwo")
-patch_margin_left = 32
-patch_margin_top = 32
-patch_margin_right = 32
-patch_margin_bottom = 32
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="PuzzlePanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_top = 20
-
-[node name="VFlowContainer" type="VBoxContainer" parent="PuzzlePanel/MarginContainer"]
+[node name="InventoryPanel" type="NinePatchRect" parent="Inventory"]
+custom_minimum_size = Vector2(212, 0)
 layout_mode = 2
-theme = SubResource("Theme_86kcu")
-
-[node name="Label" type="Label" parent="PuzzlePanel/MarginContainer/VFlowContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_4jyr5")
-text = "The box"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Puzzle" type="GridContainer" parent="PuzzlePanel/MarginContainer/VFlowContainer" node_paths=PackedStringArray("window")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-columns = 5
-script = ExtResource("1_8l1pk")
-_grid_size = Vector2i(5, 5)
-window = NodePath("../../../..")
-
-[node name="InventoryPanel" type="NinePatchRect" parent="."]
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -250.0
-grow_horizontal = 0
-grow_vertical = 2
 theme = SubResource("Theme_m34lm")
 texture = ExtResource("2_jbvwo")
 patch_margin_left = 32
@@ -83,7 +44,7 @@ patch_margin_top = 32
 patch_margin_right = 32
 patch_margin_bottom = 32
 
-[node name="MarginContainer" type="MarginContainer" parent="InventoryPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="Inventory/InventoryPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,24 +53,70 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_top = 20
 
-[node name="VFlowContainer" type="VBoxContainer" parent="InventoryPanel/MarginContainer"]
+[node name="VFlowContainer" type="VBoxContainer" parent="Inventory/InventoryPanel/MarginContainer"]
 layout_mode = 2
 theme = SubResource("Theme_86kcu")
 
-[node name="Label" type="Label" parent="InventoryPanel/MarginContainer/VFlowContainer"]
+[node name="Label" type="Label" parent="Inventory/InventoryPanel/MarginContainer/VFlowContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_4jyr5")
 text = "Your inventory"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Inventory" type="GridContainer" parent="InventoryPanel/MarginContainer/VFlowContainer"]
+[node name="Inventory" type="GridContainer" parent="Inventory/InventoryPanel/MarginContainer/VFlowContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 4
 script = ExtResource("2_n46lc")
 
-[node name="item_layout" parent="." instance=ExtResource("5_jbspe")]
-visible = false
-mouse_filter = 2
+[node name="GridPuzzle" type="MarginContainer" parent="."]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -355.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_c4nsa")
+
+[node name="PuzzlePanel" type="NinePatchRect" parent="GridPuzzle"]
+layout_mode = 2
+texture = ExtResource("2_jbvwo")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="MarginContainer" type="MarginContainer" parent="GridPuzzle/PuzzlePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+
+[node name="VFlowContainer" type="VBoxContainer" parent="GridPuzzle/PuzzlePanel/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_86kcu")
+
+[node name="Label" type="Label" parent="GridPuzzle/PuzzlePanel/MarginContainer/VFlowContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_4jyr5")
+text = "The box"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Puzzle" type="GridContainer" parent="GridPuzzle/PuzzlePanel/MarginContainer/VFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 5
+script = ExtResource("1_8l1pk")
+_grid_size = Vector2i(5, 5)

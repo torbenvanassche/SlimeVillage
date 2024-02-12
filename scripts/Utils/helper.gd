@@ -81,3 +81,15 @@ static func find_child_tiles(node: Node) -> Array[TileBase]:
 			if child.get_child_count() > 0:
 				tile_nodes.append_array(find_child_tiles(child))
 	return tile_nodes
+
+static func convert_to_2D(data: Array[Variant] = [true], column_count = 1):
+	var shape_data: Array = [];	
+	var curr_arr: Array = []
+	shape_data.clear()
+		
+	for x in range(data.size()):
+		curr_arr.append(data[x])
+		if x % column_count == column_count - 1:
+			shape_data.append(curr_arr.duplicate());
+			curr_arr.clear();
+	return shape_data;
