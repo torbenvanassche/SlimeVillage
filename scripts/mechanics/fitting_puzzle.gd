@@ -69,7 +69,7 @@ func _on_slot_clicked(event: InputEvent, btn: Button):
 			if shape != []:
 				reset_tiles(shape);
 				items.erase(shape);
-				item_removed.emit(item_selected.id)
+				item_removed.emit(shape[0].key)
 				_reset_item()
 			
 

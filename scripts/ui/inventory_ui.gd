@@ -13,8 +13,11 @@ var controller: Inventory;
 signal item_clicked(dict: Dictionary);
 
 func set_controller(con: Inventory):
+	if controller && con != controller:
+		controller.inventory_changed.disconnect(_update)
 	controller = con;
-	controller.inventory_changed.connect(_update);
+	if !controller.inventory_changed.is_connected(_update):
+		controller.inventory_changed.connect(_update);
 	_update(controller.data)
 
 func add(dict: Dictionary):

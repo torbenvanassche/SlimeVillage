@@ -12,7 +12,7 @@ func _init():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("inventory_open"):
-		enable_ui(player_inventory, get_global_mouse_position(), false)
+		enable_ui(player_inventory, "Inventory", get_global_mouse_position(), false)
 		
 	if event.is_action_pressed("cancel"):
 		if get_children().all(func(x): return !x.visible || x == pause_menu):
@@ -22,7 +22,7 @@ func _unhandled_input(event):
 func ui_is_open():
 	return get_children().all(func(x): return !x.visible);
 
-func enable_ui(to_enable: Node, position: Vector2 = Vector2.ZERO, add_to_undo_stack: bool = true):
+func enable_ui(to_enable: Node, window_name: String, position: Vector2 = Vector2.ZERO, add_to_undo_stack: bool = true):
 	to_enable.visible = true;
 	if add_to_undo_stack && !scene_history.has(to_enable):
 		scene_history.append(to_enable);
@@ -31,7 +31,7 @@ func enable_ui(to_enable: Node, position: Vector2 = Vector2.ZERO, add_to_undo_st
 		to_enable.position = position;
 		
 	if to_enable.has_method("on_enable"):
-		to_enable.on_enable();
+		to_enable.on_enable({"title": window_name});
 		
 func disable_ui(to_disable: Node, return_to_previous = true):
 	to_disable.visible = false;
