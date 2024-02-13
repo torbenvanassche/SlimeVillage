@@ -79,7 +79,7 @@ func try_get_slots(dict: Dictionary) -> Array[Dictionary]:
 				data[i].slot_index = i;
 				slots.append(data[i]);
 				continue;		
-			if data[i].item.name == dict.name &&  data[i].item.count < data[i].item.stack_size:
+			if data[i].item.id == dict.id &&  data[i].item.count < data[i].item.stack_size:
 				data[i].slot_index = i;
 				slots.append(data[i])
 	return slots

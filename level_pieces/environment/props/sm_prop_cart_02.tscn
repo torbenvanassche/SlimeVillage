@@ -14,6 +14,9 @@ require_adjacent = true
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
 script = ExtResource("3_mp8mr")
 ui_to_open = "puzzle_ui"
+ui_position = null
+use_mouse_position = false
+add_to_undo = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00961304, 0.505043, -0.00244141)

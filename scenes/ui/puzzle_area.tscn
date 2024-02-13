@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://b251uevj7eclb"]
+[gd_scene load_steps=9 format=3 uid="uid://b251uevj7eclb"]
 
 [ext_resource type="FontFile" uid="uid://b4py5c2f05v57" path="res://fonts/Kenney Future Narrow.ttf" id="1_4jyr5"]
 [ext_resource type="Script" path="res://scripts/mechanics/fitting_puzzle.gd" id="1_8l1pk"]
-[ext_resource type="Script" path="res://scripts/ui/windows/puzzle_window.gd" id="1_c4nsa"]
 [ext_resource type="Script" path="res://scenes/ui/gameplay_window_control.gd" id="2_fyhgc"]
 [ext_resource type="Texture2D" uid="uid://dlsovgfasvn0h" path="res://textures/ui/ui_nineslice.png" id="2_jbvwo"]
 [ext_resource type="Script" path="res://scripts/ui/inventory_ui.gd" id="2_n46lc"]
@@ -24,7 +23,7 @@ unresizable = true
 theme_override_fonts/title_font = ExtResource("1_4jyr5")
 script = ExtResource("2_fyhgc")
 
-[node name="Inventory" type="MarginContainer" parent="."]
+[node name="Inventory" type="MarginContainer" parent="." node_paths=PackedStringArray("visual_element")]
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 300.0
@@ -33,6 +32,8 @@ theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 5
+script = ExtResource("2_n46lc")
+visual_element = NodePath("InventoryPanel/MarginContainer/VFlowContainer/Inventory")
 
 [node name="InventoryPanel" type="NinePatchRect" parent="Inventory"]
 custom_minimum_size = Vector2(212, 0)
@@ -69,9 +70,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 4
-script = ExtResource("2_n46lc")
 
-[node name="GridPuzzle" type="MarginContainer" parent="."]
+[node name="GridPuzzle" type="MarginContainer" parent="." node_paths=PackedStringArray("visual_element")]
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
@@ -83,7 +83,9 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
-script = ExtResource("1_c4nsa")
+script = ExtResource("1_8l1pk")
+_grid_size = Vector2i(5, 5)
+visual_element = NodePath("PuzzlePanel/MarginContainer/VFlowContainer/Puzzle")
 
 [node name="PuzzlePanel" type="NinePatchRect" parent="GridPuzzle"]
 layout_mode = 2
@@ -118,5 +120,3 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 5
-script = ExtResource("1_8l1pk")
-_grid_size = Vector2i(5, 5)

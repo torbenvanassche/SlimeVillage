@@ -36,8 +36,11 @@ func get_sprite(item: Dictionary) -> Texture:
 	
 func get_layout(item: Dictionary) -> Array[bool]:
 	var result: Array[bool] = []
-	for c in item.layout:
-		result.append(bool(int(c)))
+	if item.has("layout"):
+		for c in item.layout:
+			result.append(bool(int(c)))
+	else:
+		result.append(true);
 	return result;
 	
 func get_colors(item: Dictionary) -> Array[Color]:

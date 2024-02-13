@@ -1,5 +1,5 @@
 class_name InventoryUI
-extends Node #Window does not properly close when clicked outside ( https://github.com/godotengine/godot/issues/87291 )
+extends Control #Window does not properly close when clicked outside ( https://github.com/godotengine/godot/issues/87291 )
 
 var item_ui_packed: PackedScene = preload("res://scenes/ui/item_display_2d.tscn");              
 var elements: Array[ItemSlot] = []
@@ -8,6 +8,7 @@ var selected_item: Dictionary;
 var controller: Inventory;
 
 @export var show_locked: bool = false;
+@export var visual_element: Control = self;
 
 signal item_clicked(dict: Dictionary);
 
@@ -18,7 +19,7 @@ func set_controller(con: Inventory):
 
 func add(dict: Dictionary):
 	var item_ui = item_ui_packed.instantiate() as ItemSlot;
-	add_child(item_ui);
+	visual_element.add_child(item_ui);
 	elements.append(item_ui);
 	
 	if show_locked:
@@ -52,4 +53,5 @@ func _update(data: Array[Dictionary]):
 		add(data[index])
 		
 func on_enable():
+	set_controller(Global.player_instance.inventory)
 	_update(controller.data)

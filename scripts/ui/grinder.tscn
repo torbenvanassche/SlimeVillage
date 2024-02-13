@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7ch7o4st81l8"]
+[gd_scene load_steps=4 format=3 uid="uid://c7ch7o4st81l8"]
 
-[ext_resource type="Script" path="res://scenes/ui/item_processor.gd" id="1_g56ps"]
 [ext_resource type="PackedScene" uid="uid://c5ocjw6joaemy" path="res://scenes/ui/item_display_2d.tscn" id="2_66ft2"]
-[ext_resource type="Texture2D" uid="uid://dlsovgfasvn0h" path="res://textures/ui/ui_nineslice.png" id="2_g0i6g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dee1"]
 bg_color = Color(0.14902, 0.14902, 0.14902, 1)
@@ -10,25 +8,7 @@ bg_color = Color(0.14902, 0.14902, 0.14902, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ucmg"]
 bg_color = Color(0.839216, 0.839216, 0.839216, 1)
 
-[node name="Grinder" type="Window"]
-title = "Grinder"
-initial_position = 1
-size = Vector2i(600, 300)
-unresizable = true
-script = ExtResource("1_g56ps")
-
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 150.0
-offset_right = 150.0
-grow_vertical = 2
-texture = ExtResource("2_g0i6g")
-region_rect = Rect2(16, 16, 64, 64)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
-layout_mode = 1
+[node name="VBoxContainer" type="VBoxContainer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -40,23 +20,23 @@ offset_right = 50.0
 offset_bottom = 93.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 5
 
-[node name="Item" parent="NinePatchRect/VBoxContainer" instance=ExtResource("2_66ft2")]
+[node name="Item" parent="." instance=ExtResource("2_66ft2")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 show_amount = false
 
-[node name="Timer" type="Timer" parent="NinePatchRect/VBoxContainer/Item"]
+[node name="Timer" type="Timer" parent="Item"]
 one_shot = true
 
-[node name="ProgressBar" type="ProgressBar" parent="NinePatchRect/VBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="."]
 custom_minimum_size = Vector2(100, 25)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_2dee1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1ucmg")
 show_percentage = false
 
-[node name="Start" type="Button" parent="NinePatchRect/VBoxContainer"]
+[node name="Start" type="Button" parent="."]
 layout_mode = 2
 text = "Grind"
