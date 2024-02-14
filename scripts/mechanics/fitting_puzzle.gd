@@ -19,9 +19,9 @@ signal item_removed(id: String);
 @export var visual_element: Control = self
 
 func _on_item_clicked(data: Dictionary):
-	if data.item && !data.has("layout"):
-		item_shape = Helpers.convert_to_2D(data.item.layout, 1)
-	item_selected = data.item;
+	if data && data.has("layout"):
+		item_shape = Helpers.convert_to_2D(data.layout, 1)
+	item_selected = data;
 	
 func _reset_item():
 	item_shape = [];
@@ -48,6 +48,7 @@ func _ready():
 	
 func _deferred_ready():
 	window.inventory.item_clicked.connect(_on_item_clicked)
+	window.close_requested.connect(on_close)
 		
 func _on_slot_clicked(event: InputEvent, btn: Button):
 	var btn_index = visual_element.get_children().find(btn)
@@ -56,7 +57,7 @@ func _on_slot_clicked(event: InputEvent, btn: Button):
 			var item_connections = [];
 
 			var intersections = _intersect(inventory_2d, item_shape, Vector2i(int(btn_index / float(visual_element.columns)), btn_index % visual_element.columns));
-			if item_selected && intersections.size() > 0:
+			if item_selected != {} && intersections.size() > 0:
 				window.inventory.controller.remove_item(item_selected, 1);
 				for intersection in intersections:
 					item_connections.append({"x": intersection.y, "y": intersection.x, "key": item_selected.id, "index": intersection.x * visual_element.columns + intersection.y})
@@ -104,3 +105,6 @@ func _intersect(inventory, item, chosen_position: Vector2i) -> Array:
 			elif item_state:
 				result.append(Vector2i(row_idx+chosen_position.x, col_idx+chosen_position.y))
 	return result
+	
+func on_close():
+		visible = false;

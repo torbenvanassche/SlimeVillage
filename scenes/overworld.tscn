@@ -46,6 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 5)
 
 [node name="_StaticBody3D_51182" parent="gravel8" instance=ExtResource("3_5wrqg")]
+player_can_stop = false
 walkable_in_scene = false
 
 [node name="gravel4" parent="." instance=ExtResource("2_igwwi")]

@@ -21,6 +21,8 @@
         "available": true,
         "stack_size": 10,
         "random_weight": 5,
+        "sprite_path": "other/flour",
+        "scene_path": "growable/SM_Prop_Plant_Wheat_03.glb",
         "components": [
             "wheat"
         ],

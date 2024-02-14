@@ -10,6 +10,8 @@ extends Control
 @export var process_method: Helpers.CRAFT_METHOD;
 
 var input_item: Dictionary;
+var possible_output: Dictionary;
+var output_options: Array;
 
 func _ready():
 	start_button.pressed.connect(_start_process)
@@ -17,7 +19,8 @@ func _ready():
 	_deferred_ready.call_deferred()
 	
 func _deferred_ready():
-	window.inventory.item_clicked.connect(set_item)
+	window.inventory.item_clicked.connect(_set_item)
+	window.close_requested.connect(on_close)
 	
 func _process(delta):
 	if !processing_timer.is_stopped():
@@ -28,10 +31,22 @@ func _start_process():
 		processing_timer.start();
 		
 func _process_item():
-	ItemManager.get_craftables(input_item.id, Helpers.CRAFT_METHOD.GRIND)
+	window.inventory.controller.remove_item(input_item)
+	window.inventory.controller.add_item(possible_output)
+	item_slot.set_item({});
+	input_item = {};
 
-func set_item(data: Dictionary):
-	input_item = data.item;
-	item_slot.set_item(data);
-	var craftable = ItemManager.get_craftables([input_item.id], Helpers.CRAFT_METHOD.GRIND);
-	processing_timer.wait_time = craftable.values()[0].processing_time;
+func _set_item(data: Dictionary, prepare_craft: bool = true):
+	if data != {} && data.has("id"):
+		output_options = ItemManager.get_craftables([data.id], Helpers.CRAFT_METHOD.GRIND).values();
+		possible_output = output_options[0];
+		if prepare_craft:
+			processing_timer.wait_time = possible_output.processing_time;	
+		input_item = data;
+		item_slot.set_item(data);
+		
+func on_close():
+		input_item = {};
+		item_slot.set_item({});
+		processing_timer.stop();
+		visible = false;

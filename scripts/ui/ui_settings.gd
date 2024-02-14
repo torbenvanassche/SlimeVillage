@@ -18,7 +18,12 @@ func _ready():
 	volume_main.value_changed.connect(func(value): Settings.volume_changed.emit(value, "Master"))
 	
 	_ready_deferred.call_deferred();
-	
+
+func _unhandled_input(event):	
+	if event.is_action_pressed("cancel"):
+		get_viewport().set_input_as_handled()
+		close_requested.emit()
+		
 func _on_close():
 	Global.ui_root.disable_ui(self)
 	

@@ -35,6 +35,7 @@ custom_minimum_size = Vector2(100, 25)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_2dee1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1ucmg")
+max_value = 1.0
 show_percentage = false
 
 [node name="Start" type="Button" parent="."]

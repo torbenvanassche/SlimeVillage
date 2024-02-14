@@ -33,11 +33,11 @@ func add(dict: Dictionary):
 	if !dict.has("item"):
 		dict.item = {};
 	else:
-		item_ui.pressed.connect(func(): item_clicked.emit(dict))
+		item_ui.pressed.connect(func(): item_clicked.emit(dict.item))
 	item_ui.pressed.connect(_set_selected.bind(dict));
 	
 	if dict.item != {}:
-		item_ui.set_item(dict);
+		item_ui.set_item(dict.item);
 	
 func _set_selected(dict: Dictionary):
 	selected_item = dict.item;

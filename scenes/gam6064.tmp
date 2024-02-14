@@ -22,7 +22,7 @@ script = ExtResource("1_8x5qd")
 initial_scene = NodePath("overworld")
 UI_manager = NodePath("UI")
 
-[node name="UI" type="Control" parent="." node_paths=PackedStringArray("mechanic_window", "player_inventory")]
+[node name="UI" type="Control" parent="." node_paths=PackedStringArray("player_inventory")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,7 +31,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_bvv38")
-mechanic_window = NodePath("mechanics_window")
 player_inventory = NodePath("inventory_window")
 
 [node name="pause_menu" parent="UI" instance=ExtResource("8_11yd1")]
@@ -42,7 +41,7 @@ layout_mode = 1
 process_mode = 3
 visible = false
 
-[node name="mechanics_window" parent="UI" instance=ExtResource("3_7ln7i")]
+[node name="puzzle_ui" parent="UI" instance=ExtResource("3_7ln7i")]
 process_mode = 1
 visible = false
 

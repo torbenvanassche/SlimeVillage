@@ -24,15 +24,19 @@ func get_by_property(prop: String, value: Variant, dict: Dictionary = _items):
 
 func get_scene(item: Dictionary) -> PackedScene:
 	var path = "res://resources/items/scenes/" + item.scene_path
-	if FileAccess.file_exists(path):
+	if ResourceLoader.exists(path):
 		return load(path)
 	return null
 	
 func get_sprite(item: Dictionary) -> Texture:
-	var path = "res://resources/items/sprites/" + item.sprite_path + ".png"
-	if FileAccess.file_exists(path):
-		return load(path)
-	return null
+	if item.has("sprite"):
+		return item.sprite;
+	else:
+		var path = "res://resources/items/sprites/" + item.sprite_path + ".png"
+		if ResourceLoader.exists(path):
+			item.sprite = load(path);
+			return item.sprite;
+		return null
 	
 func get_layout(item: Dictionary) -> Array[bool]:
 	var result: Array[bool] = []
