@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/mechanics/interactable_prop.gd" id="1_m6pjh"]
 [ext_resource type="Script" path="res://scripts/mechanics/farm_crop.gd" id="1_pa1sq"]
-[ext_resource type="PackedScene" uid="uid://bpr3e7eqi0q0u" path="res://level_pieces/environment/sm_generic_ground_dirt.tscn" id="2_tfs8i"]
+[ext_resource type="PackedScene" uid="uid://bpr3e7eqi0q0u" path="res://level_pieces/environment/walkable/sm_generic_ground_dirt.tscn" id="2_tfs8i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mqhth"]
 

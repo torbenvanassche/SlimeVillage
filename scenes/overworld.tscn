@@ -1,67 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bg1irjlbmoowb"]
+[gd_scene load_steps=4 format=3 uid="uid://bg1irjlbmoowb"]
 
 [ext_resource type="Script" path="res://scripts/Utils/generator.gd" id="1_6dxsm"]
 [ext_resource type="PackedScene" uid="uid://dfowh7u2ix5g5" path="res://level_pieces/buildings/market.tscn" id="2_70pv6"]
-[ext_resource type="PackedScene" uid="uid://cxei47ypwxt3m" path="res://level_pieces/environment/sm_generic_ground_gravel.tscn" id="2_igwwi"]
-[ext_resource type="PackedScene" uid="uid://dc1j7mvmx2tpw" path="res://scenes/components/walkable_tile.tscn" id="3_5wrqg"]
 [ext_resource type="PackedScene" uid="uid://dco82c2p6gn4g" path="res://level_pieces/buildings/docks.tscn" id="6_2fky7"]
-[ext_resource type="PackedScene" uid="uid://wfhwfccq88xv" path="res://level_pieces/buildings/farm.tscn" id="6_cw6qc"]
-[ext_resource type="PackedScene" uid="uid://cian04esup0gc" path="res://scenes/components/grinder.tscn" id="7_4rq48"]
 
-[node name="main_scene" type="Node3D" node_paths=PackedStringArray("entrance")]
+[node name="main_scene" type="Node3D"]
 script = ExtResource("1_6dxsm")
-entrance = NodePath("gravel4")
-
-[node name="gravel" parent="." instance=ExtResource("2_igwwi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
-
-[node name="@StaticBody3D@51178" parent="gravel" instance=ExtResource("3_5wrqg")]
-
-[node name="gravel2" parent="." instance=ExtResource("2_igwwi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 3)
-
-[node name="@StaticBody3D@51179" parent="gravel2" instance=ExtResource("3_5wrqg")]
-
-[node name="gravel3" parent="." instance=ExtResource("2_igwwi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3)
-
-[node name="@StaticBody3D@51180" parent="gravel3" instance=ExtResource("3_5wrqg")]
-
-[node name="gravel5" parent="." instance=ExtResource("2_igwwi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
-
-[node name="@StaticBody3D@51181" parent="gravel5" instance=ExtResource("3_5wrqg")]
-
-[node name="gravel6" parent="." instance=ExtResource("2_igwwi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 4)
-
-[node name="@StaticBody3D@51182" parent="gravel6" instance=ExtResource("3_5wrqg")]
-
-[node name="gravel7" parent="." instance=ExtResource("2_igwwi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 5)
-
-[node name="_StaticBody3D_51181" parent="gravel7" instance=ExtResource("3_5wrqg")]
-
-[node name="gravel8" parent="." instance=ExtResource("2_igwwi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 5)
-
-[node name="_StaticBody3D_51182" parent="gravel8" instance=ExtResource("3_5wrqg")]
-player_can_stop = false
-walkable_in_scene = false
-
-[node name="gravel4" parent="." instance=ExtResource("2_igwwi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 2)
-
-[node name="@StaticBody3D@51183" parent="gravel4" instance=ExtResource("3_5wrqg")]
 
 [node name="Market" parent="." instance=ExtResource("2_70pv6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9407e-05, 0, 0.492381)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.999911, 0, 0.492381)
 
 [node name="Docks" parent="." instance=ExtResource("6_2fky7")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.82244, 0.480506, -1.47385)
-
-[node name="Farm" parent="." instance=ExtResource("6_cw6qc")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 6)
-
-[node name="Grinder" parent="." instance=ExtResource("7_4rq48")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53476, 0.0227852, 4.4892)
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -1.0004, 0.017282, 6.00295)

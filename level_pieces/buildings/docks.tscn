@@ -1,4 +1,104 @@
-[gd_scene format=3 uid="uid://dco82c2p6gn4g"]
+[gd_scene load_steps=2 format=3 uid="uid://dco82c2p6gn4g"]
+
+[ext_resource type="PackedScene" uid="uid://cqgc1sx1fjxag" path="res://level_pieces/environment/walkable/SM_Env_Dwarf_Floor_06.glb" id="1_smgj5"]
 
 [node name="Docks" type="Node3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="SM_Env_Dwarf_Floor_062" parent="." instance=ExtResource("1_smgj5")]
+
+[node name="SM_Env_Dwarf_Floor_063" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="SM_Env_Dwarf_Floor_064" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="SM_Env_Dwarf_Floor_065" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="SM_Env_Dwarf_Floor_066" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+
+[node name="SM_Env_Dwarf_Floor_068" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="SM_Env_Dwarf_Floor_069" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0.5)
+
+[node name="SM_Env_Dwarf_Floor_074" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+
+[node name="SM_Env_Dwarf_Floor_075" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.5)
+
+[node name="SM_Env_Dwarf_Floor_076" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="SM_Env_Dwarf_Floor_077" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0.5)
+
+[node name="SM_Env_Dwarf_Floor_078" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
+
+[node name="SM_Env_Dwarf_Floor_079" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0.5)
+
+[node name="SM_Env_Dwarf_Floor_080" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="SM_Env_Dwarf_Floor_081" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0.5)
+
+[node name="SM_Env_Dwarf_Floor_082" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 0)
+
+[node name="SM_Env_Dwarf_Floor_083" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 0.5)
+
+[node name="SM_Env_Dwarf_Floor_084" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="SM_Env_Dwarf_Floor_085" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0.5)
+
+[node name="SM_Env_Dwarf_Floor_086" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -1)
+
+[node name="SM_Env_Dwarf_Floor_087" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -0.5)
+
+[node name="SM_Env_Dwarf_Floor_088" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -1)
+
+[node name="SM_Env_Dwarf_Floor_089" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -0.5)
+
+[node name="SM_Env_Dwarf_Floor_090" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1)
+
+[node name="SM_Env_Dwarf_Floor_092" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -1.5)
+
+[node name="SM_Env_Dwarf_Floor_093" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -1.5)
+
+[node name="SM_Env_Dwarf_Floor_094" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1.5)
+
+[node name="SM_Env_Dwarf_Floor_091" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -0.5)
+
+[node name="SM_Env_Dwarf_Floor_067" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 1)
+
+[node name="SM_Env_Dwarf_Floor_070" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
+
+[node name="SM_Env_Dwarf_Floor_071" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 1.5)
+
+[node name="SM_Env_Dwarf_Floor_072" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="SM_Env_Dwarf_Floor_073" parent="." instance=ExtResource("1_smgj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 2)

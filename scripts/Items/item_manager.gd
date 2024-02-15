@@ -62,4 +62,5 @@ func get_components(item: Dictionary) -> Array[Dictionary]:
 	
 func get_craftables(components: Array[String], process: Helpers.CRAFT_METHOD):
 	var options = get_by_property("process", Helpers.convert_craft_method(process), get_by_property("available", true));
+	options = get_by_property("components", components, options)
 	return options;

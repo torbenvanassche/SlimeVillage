@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://beoyvjyncclr6"]
+
+[ext_resource type="Texture2D" uid="uid://bljh3p5pinb40" path="res://textures/dungeon_realm/Dungeons_2_Texture_01_A.png" id="1_clva4"]
+[ext_resource type="Texture2D" uid="uid://5tf8jogs0fkp" path="res://textures/dungeon_realm/Dungeons_2_Texture_Emission_01.png" id="2_5o5w7"]
+
+[resource]
+albedo_texture = ExtResource("1_clva4")
+emission_enabled = true
+emission_texture = ExtResource("2_5o5w7")

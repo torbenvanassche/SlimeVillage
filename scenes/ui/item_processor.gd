@@ -39,6 +39,9 @@ func _process_item():
 func _set_item(data: Dictionary, prepare_craft: bool = true):
 	if data != {} && data.has("id"):
 		output_options = ItemManager.get_craftables([data.id], Helpers.CRAFT_METHOD.GRIND).values();
+		print(output_options)
+		if output_options.size() == 0:
+			return
 		possible_output = output_options[0];
 		if prepare_craft:
 			processing_timer.wait_time = possible_output.processing_time;	
