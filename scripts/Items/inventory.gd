@@ -9,12 +9,14 @@ signal inventory_changed(data: Array[Dictionary]);
 
 func _ready():	
 	for i in range(max_slots):
-		var slot = {};
-		slot.is_available = false;
-		if i < unlocked_slots:
-			slot.is_available = true;
-			slot.item = {};
+		var slot = _create_slot_data(i < unlocked_slots);
 		data.append(slot)
+		
+func _create_slot_data(available: bool):
+	var slot = {};
+	slot.is_available = available;
+	slot.item = {};
+	return slot;
 	
 func add_item(item: Dictionary, amount: int = 1):
 	var require_update: bool = false;
@@ -35,6 +37,9 @@ func add_item(item: Dictionary, amount: int = 1):
 		inventory_changed.emit(data)
 		
 	return remaining_amount;
+	
+func refresh_ui():
+	inventory_changed.emit(data)
 	
 func remove_item(item: Dictionary, amount: int = 1):
 	var require_update: bool = false;		
@@ -90,3 +95,10 @@ func get_item_count(item_name: String = ""):
 		if item_name == "" || item_name == i.item.name:
 			total_count += i.item.count
 	return total_count
+
+func swap_slots(item: Dictionary, index: int, previous_index: int):
+	var old_value = data[index];
+	data[index] = item;
+	data[previous_index] = old_value;
+	inventory_changed.emit(data)
+	item.erase("previous_index")

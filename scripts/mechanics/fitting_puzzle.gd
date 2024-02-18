@@ -47,7 +47,7 @@ func _ready():
 	_deferred_ready.call_deferred();
 	
 func _deferred_ready():
-	window.inventory.item_clicked.connect(_on_item_clicked)
+	#window.inventory.item_clicked.connect(_on_item_clicked)
 	window.close_requested.connect(on_close)
 		
 func _on_slot_clicked(event: InputEvent, btn: Button):

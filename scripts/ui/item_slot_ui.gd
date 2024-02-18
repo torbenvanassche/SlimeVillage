@@ -3,7 +3,7 @@ extends Button
 
 var textureRect: Variant;
 var counter: Variant;
-var item_name: String = "";
+var item_data: Dictionary = {};
 
 @export var show_amount: bool = true:
 	set(value):
@@ -19,11 +19,13 @@ func _ready():
 	
 func set_item(data: Dictionary):
 	var sprite: Texture = null;
+	counter.visible = false;
 	
 	if data.has("id"):
-		item_name = data.id;
+		item_data = data;
 		sprite = ItemManager.get_sprite(data);
 		if !data.has("count"):
 			data.count = 1;
 		counter.set_text(str(data.count));
+		counter.visible = true;
 	textureRect.set_texture(sprite);

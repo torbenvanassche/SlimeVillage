@@ -19,7 +19,7 @@ func _ready():
 	_deferred_ready.call_deferred()
 	
 func _deferred_ready():
-	window.inventory.item_clicked.connect(_set_item)
+	#window.inventory.item_clicked.connect(_set_item)
 	window.close_requested.connect(on_close)
 	
 func _process(delta):
@@ -39,7 +39,6 @@ func _process_item():
 func _set_item(data: Dictionary, prepare_craft: bool = true):
 	if data != {} && data.has("id"):
 		output_options = ItemManager.get_craftables([data.id], Helpers.CRAFT_METHOD.GRIND).values();
-		print(output_options)
 		if output_options.size() == 0:
 			return
 		possible_output = output_options[0];

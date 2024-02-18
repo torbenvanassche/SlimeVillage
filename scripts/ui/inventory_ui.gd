@@ -10,7 +10,8 @@ var controller: Inventory;
 @export var show_locked: bool = false;
 @export var visual_element: Control = self;
 
-signal item_clicked(dict: Dictionary);
+signal item_drag_started(con: ItemSlot);
+signal item_drag_ended(con: ItemSlot);
 
 func set_controller(con: Inventory):
 	if controller && con != controller:
@@ -32,12 +33,7 @@ func add(dict: Dictionary):
 		
 	if !dict.has("item"):
 		dict.item = {};
-	else:
-		item_ui.pressed.connect(func(): item_clicked.emit(dict.item))
-	item_ui.pressed.connect(_set_selected.bind(dict));
-	
-	if dict.item != {}:
-		item_ui.set_item(dict.item);
+	item_ui.set_item(dict.item);
 	
 func _set_selected(dict: Dictionary):
 	selected_item = dict.item;
