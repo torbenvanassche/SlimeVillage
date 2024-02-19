@@ -2,16 +2,16 @@ class_name FittingPuzzle
 extends Control
 
 var _rect_theme = preload("res://theming/inventory/theme_inventory_slot.tres")
+var item_ui_packed: PackedScene = preload("res://scenes/ui/item_display_2d.tscn");  
 @onready var window: Window = $"../";
 
 @export var _grid_size: Vector2i = Vector2i(2, 2)
 var inventory_2d: Array[Array] = []
+var items = []
 
 #Will be populated on selection changed
 var item_shape: Array = []
 var item_selected: Dictionary = {}
-
-var items = []
 
 signal item_added(id: String);
 signal item_removed(id: String);
@@ -32,10 +32,8 @@ func _ready():
 	var curr_arr: Array = []
 	
 	for i in range(_grid_size.x * _grid_size.y):
-		var btn = Button.new();
-		btn.custom_minimum_size = Vector2(50, 50);
-		btn.expand_icon = true;
-		btn.theme = _rect_theme;	
+		var btn = item_ui_packed.instantiate();
+		btn.show_amount = false;
 		visual_element.add_child(btn)
 				
 		btn.gui_input.connect(_on_slot_clicked.bind(btn))

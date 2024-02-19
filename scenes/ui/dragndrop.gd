@@ -33,3 +33,4 @@ func _notification(what):
 		NOTIFICATION_DRAG_END:
 			if !is_drag_successful() && is_dragging:
 				(Global.player_instance.inventory as Inventory).refresh_ui();
+				is_dragging = false;
