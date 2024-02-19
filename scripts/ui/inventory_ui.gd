@@ -19,10 +19,10 @@ func set_controller(con: Inventory):
 	controller = con;
 	if !controller.inventory_changed.is_connected(_update):
 		controller.inventory_changed.connect(_update);
-	_update(controller.data)
+	controller.refresh_ui();
 
-func add(dict: Dictionary):
-	var item_ui = item_ui_packed.instantiate() as ItemSlot;
+func add(dict: ItemSlot):
+	var item_ui = item_ui_packed.instantiate() as ItemSlotUI;
 	visual_element.add_child(item_ui);
 	elements.append(item_ui);
 	
@@ -30,9 +30,6 @@ func add(dict: Dictionary):
 		item_ui.disabled = !dict.is_available;
 	else:
 		item_ui.visible = dict.is_available;
-		
-	if !dict.has("item"):
-		dict.item = {};
 	item_ui.set_item(dict.item);
 	
 func _set_selected(dict: Dictionary):
@@ -46,11 +43,11 @@ func _clear():
 		e.queue_free();
 	elements.clear();
 	
-func _update(data: Array[Dictionary]):
+func _update(data: Array[ItemSlot]):
 	_clear();
 	for index in range(data.size()):
 		add(data[index])
 		
 func on_enable():
 	set_controller(Global.player_instance.inventory)
-	_update(controller.data)
+	controller.refresh_ui();

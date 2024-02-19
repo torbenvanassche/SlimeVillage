@@ -1,7 +1,7 @@
 class_name ItemProcessor
 extends Control
 
-@onready var item_slot: ItemSlot = $PuzzlePanel/MarginContainer/VBoxContainer/Item;
+@onready var item_slot_ui: ItemSlotUI = $PuzzlePanel/MarginContainer/VBoxContainer/Item;
 @onready var progress_bar: ProgressBar = $PuzzlePanel/MarginContainer/VBoxContainer/ProgressBar;
 @onready var start_button: Button = $PuzzlePanel/MarginContainer/VBoxContainer/Start;
 @onready var processing_timer: Timer = $PuzzlePanel/MarginContainer/VBoxContainer/Item/Timer;
@@ -27,13 +27,13 @@ func _process(delta):
 		progress_bar.value = 1 - (processing_timer.time_left / processing_timer.wait_time);
 
 func _start_process():
-	if !item_slot.item_name.is_empty():
+	if !item_slot_ui.item_name.is_empty():
 		processing_timer.start();
 		
 func _process_item():
 	window.inventory.controller.remove_item(input_item)
 	window.inventory.controller.add_item(possible_output)
-	item_slot.set_item({});
+	item_slot_ui.set_item({});
 	input_item = {};
 
 func _set_item(data: Dictionary, prepare_craft: bool = true):
@@ -45,10 +45,10 @@ func _set_item(data: Dictionary, prepare_craft: bool = true):
 		if prepare_craft:
 			processing_timer.wait_time = possible_output.processing_time;	
 		input_item = data;
-		item_slot.set_item(data);
+		item_slot_ui.set_item(data);
 		
 func on_close():
 		input_item = {};
-		item_slot.set_item({});
+		item_slot_ui.set_item({});
 		processing_timer.stop();
 		visible = false;

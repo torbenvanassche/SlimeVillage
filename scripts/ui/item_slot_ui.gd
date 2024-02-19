@@ -1,4 +1,4 @@
-class_name ItemSlot
+class_name ItemSlotUI
 extends Button
 
 var textureRect: Variant;

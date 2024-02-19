@@ -12,20 +12,21 @@ func _get_drag_data(at_position):
 	var preview = Control.new();
 	preview.add_child(preview_texture);
 	
-	var item_data = (Global.player_instance.inventory as Inventory).data[get_parent().get_index()];
+	#change this to make it work regardless of where it is. possibly need the Item to store a reference to its item data
+	var slot = (Global.player_instance.inventory as Inventory).data[get_parent().get_index()];
 	get_parent().set_item({})
-	item_data.previous_index = get_parent().get_index();
+	slot.set_meta("previous", get_parent());
 	set_drag_preview(preview);
 	
 	is_dragging = true;
-	
-	return item_data
+	return slot
 	
 func _can_drop_data(at_position, data):
 	return data is Dictionary && data.item != {} && !get_parent().disabled;
 	
 func _drop_data(at_position, data):
-	(Global.player_instance.inventory as Inventory).swap_slots(data, get_parent().get_index(), data.previous_index);
+	(Global.player_instance.inventory as Inventory).swap_slots(data, get_parent().get_index(), data.get_meta("previous"));
+	data.remove_meta("previous")
 	is_dragging = false;
 	
 func _notification(what):
