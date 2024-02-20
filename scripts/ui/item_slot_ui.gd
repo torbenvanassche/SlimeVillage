@@ -4,6 +4,7 @@ extends Button
 var textureRect: Variant;
 var counter: Variant;
 var item_data: Dictionary = {};
+var slot_data: ItemSlot;
 
 @export var show_amount: bool = true:
 	set(value):
@@ -16,6 +17,10 @@ func _ready():
 	counter = $Count;
 	
 	counter.visible = show_amount;
+	
+func set_reference(data: ItemSlot):
+	slot_data = data;
+	set_item(data.item);
 	
 func set_item(data: Dictionary):
 	var sprite: Texture = null;

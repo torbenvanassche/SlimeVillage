@@ -33,6 +33,7 @@ func _ready():
 	
 	for i in range(_grid_size.x * _grid_size.y):
 		var btn = item_ui_packed.instantiate();
+		btn.slot_data = ItemSlot.new();
 		btn.show_amount = false;
 		visual_element.add_child(btn)
 				
@@ -47,7 +48,7 @@ func _ready():
 func _deferred_ready():
 	#window.inventory.item_clicked.connect(_on_item_clicked)
 	window.close_requested.connect(on_close)
-		
+
 func _on_slot_clicked(event: InputEvent, btn: Button):
 	var btn_index = visual_element.get_children().find(btn)
 	if event is InputEventMouseButton and event.is_pressed():

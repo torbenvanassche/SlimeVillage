@@ -13,6 +13,8 @@ func has_space(id: String, amount: int = 1) -> bool:
 		
 	if item == {}:
 		return true;
+	elif item.id != id:
+		return false;
 		
 	return item.stack_size - item.count - amount > 0;
 	
@@ -27,3 +29,11 @@ func add(amount: int = 1, dict: Dictionary = item) -> int:
 		item.count += amount_to_add
 		return amount - amount_to_add
 	return amount;
+
+func remove(amount: int = 1) -> int:
+	if item == {}:
+		return amount;
+	
+	var amount_to_remove = min(amount, item.count)
+	item.count -= amount_to_remove
+	return amount - amount_to_remove

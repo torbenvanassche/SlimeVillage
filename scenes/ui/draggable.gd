@@ -3,6 +3,9 @@ extends TextureRect
 var is_dragging := false;
 
 func _get_drag_data(at_position):
+	if get_parent().slot_data.item == {}:
+		return null;
+	
 	var preview_texture = TextureRect.new();
 	
 	preview_texture.texture = texture;
@@ -10,23 +13,21 @@ func _get_drag_data(at_position):
 	preview_texture.size = size * 0.75;
 	
 	var preview = Control.new();
+	preview.z_index = RenderingServer.CANVAS_ITEM_Z_MAX;
 	preview.add_child(preview_texture);
 	
-	#change this to make it work regardless of where it is. possibly need the Item to store a reference to its item data
-	var slot = (Global.player_instance.inventory as Inventory).data[get_parent().get_index()];
-	get_parent().set_item({})
-	slot.set_meta("previous", get_parent());
+	var slotUI = get_parent();
+	#DragController.on_drag_start.emit();
 	set_drag_preview(preview);
 	
 	is_dragging = true;
-	return slot
+	return slotUI
 	
 func _can_drop_data(at_position, data):
-	return data is Dictionary && data.item != {} && !get_parent().disabled;
+	return data is ItemSlotUI && data.slot_data.item != {} && !get_parent().disabled;
 	
 func _drop_data(at_position, data):
-	(Global.player_instance.inventory as Inventory).swap_slots(data, get_parent().get_index(), data.get_meta("previous"));
-	data.remove_meta("previous")
+	#DragController.on_drag_end.emit()
 	is_dragging = false;
 	
 func _notification(what):

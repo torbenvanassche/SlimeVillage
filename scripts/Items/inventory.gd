@@ -9,7 +9,8 @@ signal inventory_changed(data: Array[ItemSlot]);
 
 func _ready():	
 	for i in range(max_slots):
-		data.append(ItemSlot.new(i < unlocked_slots))
+		var slot = ItemSlot.new(i < unlocked_slots);
+		data.append(slot)
 	
 func add_item(item: Dictionary, amount: int = 1):
 	var require_update: bool = false;
@@ -69,3 +70,9 @@ func get_item_count(item_name: String = ""):
 		if item_name == "" || item_name == i.item.name:
 			total_count += i.item.count
 	return total_count
+
+func swap_slot_data(start_slot: ItemSlot, end_slot: ItemSlot):
+	var old_value = start_slot.item;
+	start_slot.item = end_slot.item;
+	end_slot.item = old_value;
+	Global.player_instance.inventory.refresh_ui();
