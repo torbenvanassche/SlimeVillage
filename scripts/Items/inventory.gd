@@ -9,7 +9,7 @@ signal inventory_changed(data: Array[ItemSlot]);
 
 func _ready():	
 	for i in range(max_slots):
-		var slot = ItemSlot.new(i < unlocked_slots);
+		var slot = ItemSlot.new(i < unlocked_slots, "Inventory");
 		data.append(slot)
 	
 func add_item(item: Dictionary, amount: int = 1):
@@ -22,7 +22,7 @@ func add_item(item: Dictionary, amount: int = 1):
 			break;
 		
 		item = {"name": item.name, "id": item.id, "stack_size": item.stack_size, "sprite": ItemManager.get_sprite(item), "layout": ItemManager.get_layout(item)};
-		remaining_amount = slots[0].add(remaining_amount, item);
+		remaining_amount = slots[0].add(item, remaining_amount);
 		require_update = true;
 			
 	if require_update:

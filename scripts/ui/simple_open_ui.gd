@@ -1,6 +1,5 @@
 extends StaticBody3D
 
-@export var ui_to_open: String;
 @export var ui_position: Vector2 = Vector2.ZERO;
 @export var use_mouse_position: bool = true;
 @export var add_to_undo: bool = true;

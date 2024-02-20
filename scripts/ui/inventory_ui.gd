@@ -46,5 +46,5 @@ func _update(data: Array[ItemSlot]):
 		add(data[index])
 		
 func on_enable():
-	set_controller(Global.player_instance.inventory)
+	set_controller(Global.player_instance.inventory);
 	controller.refresh_ui();

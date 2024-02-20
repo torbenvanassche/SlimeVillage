@@ -21,7 +21,6 @@ config/icon="res://icon.svg"
 Global="*res://scripts/global.gd"
 ItemManager="*res://scripts/Items/item_manager.gd"
 Settings="*res://scripts/Utils/settings.gd"
-DragController="*res://scripts/Utils/drag_controller.gd"
 
 [display]
 
