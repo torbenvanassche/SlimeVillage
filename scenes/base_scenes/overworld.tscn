@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bg1irjlbmoowb"]
 
 [ext_resource type="Script" path="res://scripts/Utils/generator.gd" id="1_6dxsm"]
-[ext_resource type="PackedScene" uid="uid://dfowh7u2ix5g5" path="res://level_pieces/buildings/market.tscn" id="2_70pv6"]
-[ext_resource type="PackedScene" uid="uid://dco82c2p6gn4g" path="res://level_pieces/buildings/docks.tscn" id="6_2fky7"]
+[ext_resource type="PackedScene" uid="uid://dfowh7u2ix5g5" path="res://scenes/base_scenes/market.tscn" id="2_70pv6"]
+[ext_resource type="PackedScene" uid="uid://dco82c2p6gn4g" path="res://scenes/base_scenes/docks.tscn" id="6_2fky7"]
 
 [node name="main_scene" type="Node3D"]
 script = ExtResource("1_6dxsm")

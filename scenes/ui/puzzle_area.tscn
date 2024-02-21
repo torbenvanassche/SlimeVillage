@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://b251uevj7eclb"]
 
 [ext_resource type="FontFile" uid="uid://b4py5c2f05v57" path="res://fonts/Kenney Future Narrow.ttf" id="1_4jyr5"]
-[ext_resource type="Script" path="res://scripts/mechanics/fitting_puzzle.gd" id="1_8l1pk"]
-[ext_resource type="Script" path="res://scenes/ui/gameplay_window_control.gd" id="2_fyhgc"]
+[ext_resource type="Script" path="res://scripts/mechanics/UI/fitting_puzzle.gd" id="1_8l1pk"]
+[ext_resource type="Script" path="res://scripts/ui/windows/gameplay_window_control.gd" id="2_fyhgc"]
 [ext_resource type="Texture2D" uid="uid://dlsovgfasvn0h" path="res://textures/ui/ui_nineslice.png" id="2_jbvwo"]
-[ext_resource type="Script" path="res://scripts/ui/inventory_ui.gd" id="2_n46lc"]
+[ext_resource type="Script" path="res://scripts/ItemManagement/UI/inventory_ui.gd" id="2_n46lc"]
 [ext_resource type="PackedScene" uid="uid://c5ocjw6joaemy" path="res://scenes/ui/item_display_2d.tscn" id="6_6nrjd"]
-[ext_resource type="Script" path="res://scenes/ui/item_processor.gd" id="6_nohx8"]
+[ext_resource type="Script" path="res://scripts/mechanics/item_processor.gd" id="6_nohx8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u450v"]
 

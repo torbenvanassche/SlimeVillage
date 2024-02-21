@@ -22,7 +22,7 @@ func _ready():
 func _deferred_ready():
 	window.close_requested.connect(on_close)
 	
-func _process(delta):
+func _process(_delta):
 	if !processing_timer.is_stopped():
 		progress_bar.value = 1 - (processing_timer.time_left / processing_timer.wait_time);
 

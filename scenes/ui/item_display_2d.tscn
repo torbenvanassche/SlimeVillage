@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c5ocjw6joaemy"]
 
 [ext_resource type="Theme" uid="uid://i6g0q6pji4oi" path="res://theming/inventory/theme_inventory_slot.tres" id="1_n0g4o"]
-[ext_resource type="Script" path="res://scripts/ui/item_slot_ui.gd" id="2_baon0"]
-[ext_resource type="Script" path="res://scripts/Draggables/draggable_player_inventory.gd" id="3_mr2v3"]
+[ext_resource type="Script" path="res://scripts/ItemManagement/UI/item_slot_ui.gd" id="2_rfq8a"]
+[ext_resource type="Script" path="res://scripts/Draggables/draggable_node.gd" id="3_7hbu0"]
 [ext_resource type="FontFile" uid="uid://b4py5c2f05v57" path="res://fonts/Kenney Future Narrow.ttf" id="4_lo1q7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aoki5"]
@@ -21,7 +21,7 @@ offset_bottom = -490.0
 grow_vertical = 2
 theme = ExtResource("1_n0g4o")
 alignment = 2
-script = ExtResource("2_baon0")
+script = ExtResource("2_rfq8a")
 textureRect = NodePath("ItemSprite")
 counter = NodePath("Count")
 
@@ -34,7 +34,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 4
-script = ExtResource("3_mr2v3")
+script = ExtResource("3_7hbu0")
 
 [node name="Count" type="Label" parent="."]
 layout_mode = 1

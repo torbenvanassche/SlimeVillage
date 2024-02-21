@@ -1,7 +1,6 @@
 class_name FittingPuzzle
 extends Control
 
-var _rect_theme = preload("res://theming/inventory/theme_inventory_slot.tres")
 var item_ui_packed: PackedScene = preload("res://scenes/ui/item_display_2d.tscn");  
 @onready var window: Window = $"../";
 

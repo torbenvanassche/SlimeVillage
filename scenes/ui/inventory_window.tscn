@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/ui/windows/inventory_window.gd" id="1_6w46p"]
 [ext_resource type="FontFile" uid="uid://b4py5c2f05v57" path="res://fonts/Kenney Future Narrow.ttf" id="1_rpei1"]
-[ext_resource type="Script" path="res://scripts/ui/inventory_ui.gd" id="1_wqw80"]
+[ext_resource type="Script" path="res://scripts/ItemManagement/UI/inventory_ui.gd" id="1_wqw80"]
 
 [node name="ui_window" type="Window"]
 handle_input_locally = false
