@@ -5,6 +5,9 @@ extends Button
 @export var counter: Label;
 var slot_data: ItemSlot;
 
+@export var default_color = Color(Color.WHITE)
+@export var dragging_color = Color(Color.WHITE, 0.3);
+
 @export var show_amount: bool = true:
 	set(value):
 		counter.visible = value;
@@ -14,12 +17,12 @@ func _ready():
 	counter.visible = show_amount;
 	
 func as_blank():
-	textureRect.modulate = Color(Color.WHITE, 0.3)
+	textureRect.modulate = dragging_color;
 	counter.visible = false;
 	
 func redraw():
 	var sprite = null;
-	textureRect.modulate = Color(Color.WHITE)
+	textureRect.modulate = default_color
 	counter.visible = false;
 	
 	if slot_data.item.has("id"):

@@ -20,7 +20,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00334746, 0.323647, -0.0079
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 script = ExtResource("4_6f31y")
-use_mouse_position = false
 add_to_undo = false
 window_id = "grinder"
 window_title = "GRINDER"
