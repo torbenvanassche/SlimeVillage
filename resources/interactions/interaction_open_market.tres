@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InteractionOpenUI" load_steps=2 format=3 uid="uid://5deukfp877c4"]
+
+[ext_resource type="Script" path="res://scripts/ui/simple_open_ui.gd" id="1_b11op"]
+
+[resource]
+script = ExtResource("1_b11op")
+add_to_undo = true
+window_id = "market"
+window_title = "NEEDS CUSTOM"
+use_mouse_position = false

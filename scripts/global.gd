@@ -15,3 +15,5 @@ enum NAV_STYLE
 
 func game_over():
 	print("You failed to deliver the items on time.")
+	
+@onready var viewport: Node = get_tree().root.get_viewport();

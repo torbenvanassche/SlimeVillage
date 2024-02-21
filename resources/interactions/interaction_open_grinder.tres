@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InteractionOpenUI" load_steps=2 format=3 uid="uid://c8dax7xy5h6g0"]
+
+[ext_resource type="Script" path="res://scripts/ui/simple_open_ui.gd" id="1_qrda1"]
+
+[resource]
+script = ExtResource("1_qrda1")
+add_to_undo = true
+window_id = "grinder"
+window_title = "GRINDER"
+use_mouse_position = false

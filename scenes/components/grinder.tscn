@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" path="res://scripts/mechanics/interactable_prop.gd" id="1_qmleb"]
 [ext_resource type="PackedScene" uid="uid://g1hl32iu28nu" path="res://level_pieces/environment/props/SM_Generic_TreeStump_01.glb" id="2_26ir3"]
+[ext_resource type="Resource" uid="uid://c8dax7xy5h6g0" path="res://resources/interactions/interaction_open_grinder.tres" id="2_gmc7m"]
 [ext_resource type="PackedScene" uid="uid://cfifo4gep5tpw" path="res://level_pieces/environment/props/SM_Prop_Mortar_And_Pestle_01.glb" id="3_7gpvm"]
-[ext_resource type="Script" path="res://scripts/ui/simple_open_ui.gd" id="4_6f31y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xar7o"]
 size = Vector3(0.439209, 0.503845, 0.410858)
 
-[node name="Grinder" type="Node3D" node_paths=PackedStringArray("interaction")]
+[node name="Grinder" type="Node3D"]
 editor_description = "Replace with jumpable activator or water wheel."
 script = ExtResource("1_qmleb")
-interaction = NodePath("StaticBody3D")
+interaction = ExtResource("2_gmc7m")
 
 [node name="SM_Generic_TreeStump_012" parent="." instance=ExtResource("2_26ir3")]
 
@@ -19,10 +19,6 @@ interaction = NodePath("StaticBody3D")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00334746, 0.323647, -0.00798526)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-script = ExtResource("4_6f31y")
-add_to_undo = false
-window_id = "grinder"
-window_title = "GRINDER"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0201416, 0.211945, -0.0063324)

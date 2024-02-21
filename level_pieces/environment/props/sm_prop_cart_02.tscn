@@ -2,20 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://bctydd7lfe7tk" path="res://level_pieces/environment/base/SM_Prop_Cart_02.glb" id="1_v7aff"]
 [ext_resource type="Script" path="res://scripts/mechanics/interactable_prop.gd" id="2_dtmao"]
-[ext_resource type="Script" path="res://scripts/ui/simple_open_ui.gd" id="3_mp8mr"]
+[ext_resource type="Resource" uid="uid://b0ykwmxucb7gg" path="res://resources/interactions/interaction_open_puzzle.tres" id="3_k6tl7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0tbiu"]
 size = Vector3(0.61969, 0.415176, 1.00488)
 
 [node name="SM_Prop_Cart_022" instance=ExtResource("1_v7aff")]
 script = ExtResource("2_dtmao")
+interaction = ExtResource("3_k6tl7")
 require_adjacent = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
-script = ExtResource("3_mp8mr")
-use_mouse_position = false
-window_id = "grinder"
-window_title = "GRINDER"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00961304, 0.505043, -0.00244141)

@@ -1,14 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bg1irjlbmoowb"]
+[gd_scene load_steps=2 format=3 uid="uid://bg1irjlbmoowb"]
 
-[ext_resource type="Script" path="res://scripts/Utils/generator.gd" id="1_6dxsm"]
 [ext_resource type="PackedScene" uid="uid://dfowh7u2ix5g5" path="res://scenes/base_scenes/market.tscn" id="2_70pv6"]
-[ext_resource type="PackedScene" uid="uid://dco82c2p6gn4g" path="res://scenes/base_scenes/docks.tscn" id="6_2fky7"]
 
 [node name="main_scene" type="Node3D"]
-script = ExtResource("1_6dxsm")
 
 [node name="Market" parent="." instance=ExtResource("2_70pv6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.999911, 0, 0.492381)
-
-[node name="Docks" parent="." instance=ExtResource("6_2fky7")]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -1.0004, 0.017282, 6.00295)

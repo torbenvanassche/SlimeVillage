@@ -8,7 +8,7 @@ var can_game_over: bool = false
 var available_items: Dictionary = {}
 
 @export var max_item_count = 10
-@export var market_inventory_ui: InventoryUI;
+@export var market_window: Window;
 
 signal item_spawned(id: String);
 

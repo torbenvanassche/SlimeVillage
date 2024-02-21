@@ -2,7 +2,6 @@ class_name Grid
 extends Node3D
 
 @export var entrance: Node3D = null;
-
 var local_grid_size: Vector2i;
 var tile_size := 1.0
 

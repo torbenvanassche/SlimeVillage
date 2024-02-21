@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InteractionOpenUI" load_steps=2 format=3 uid="uid://b0ykwmxucb7gg"]
+
+[ext_resource type="Script" path="res://scripts/ui/simple_open_ui.gd" id="1_kkssy"]
+
+[resource]
+script = ExtResource("1_kkssy")
+add_to_undo = true
+window_id = "puzzle"
+window_title = "PUZZLE"
+use_mouse_position = false

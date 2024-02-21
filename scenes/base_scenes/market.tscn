@@ -1,9 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://dfowh7u2ix5g5"]
+[gd_scene load_steps=25 format=3 uid="uid://dfowh7u2ix5g5"]
 
 [ext_resource type="Script" path="res://scripts/mechanics/market.gd" id="1_8kal8"]
 [ext_resource type="PackedScene" uid="uid://dc1j7mvmx2tpw" path="res://scenes/components/walkable_tile.tscn" id="2_76f0h"]
 [ext_resource type="PackedScene" uid="uid://dokao30kyth2g" path="res://level_pieces/environment/stone/fantasy/SM_Bld_House_Base_Corner_01.glb" id="3_6nle8"]
-[ext_resource type="Script" path="res://scripts/navigation/teleport_player.gd" id="4_7bsy6"]
 [ext_resource type="PackedScene" uid="uid://y3a824q3midi" path="res://level_pieces/environment/wood/beams/SM_Bld_House_WoodBeam_01.glb" id="4_i57xu"]
 [ext_resource type="PackedScene" uid="uid://m6t4qe6sowh8" path="res://level_pieces/environment/stone/fantasy/sm_bld_house_floor_stone_03.tscn" id="4_ojr6j"]
 [ext_resource type="PackedScene" uid="uid://2mx71idpkoil" path="res://scenes/components/interactable_tile.tscn" id="5_3wc26"]
@@ -29,8 +28,6 @@
 size = Vector3(2.04382, 1.10573, 0.145569)
 
 [node name="Market" type="Node3D"]
-script = ExtResource("1_8kal8")
-max_item_count = 2
 
 [node name="Ground" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9407e-05, 0, 0.00761914)
@@ -41,13 +38,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1)
 [node name="SM_Bld_House_Floor_Stone_034" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 2)
 
-[node name="@StaticBody3D@45346" parent="Ground/SM_Bld_House_Floor_Stone_034" instance=ExtResource("2_76f0h")]
+[node name="@StaticBody3D@45346" parent="Ground/SM_Bld_House_Floor_Stone_034" node_paths=PackedStringArray("exclusions") instance=ExtResource("2_76f0h")]
+exclusions = [NodePath("../../SM_Bld_House_Floor_Stone_035/interactable_tile")]
 
 [node name="SM_Bld_House_Floor_Stone_035" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 3)
-script = ExtResource("4_7bsy6")
 
-[node name="interactable_tile" parent="Ground/SM_Bld_House_Floor_Stone_035" instance=ExtResource("5_3wc26")]
+[node name="interactable_tile" parent="Ground/SM_Bld_House_Floor_Stone_035" node_paths=PackedStringArray("exclusions") instance=ExtResource("5_3wc26")]
+exclusions = [NodePath("../../SM_Bld_House_Floor_Stone_034/@StaticBody3D@45346")]
 walkable_in_scene = true
 
 [node name="SM_Bld_House_Floor_Stone_033" parent="Ground" instance=ExtResource("4_ojr6j")]
@@ -502,6 +500,9 @@ script = ExtResource("24_rysrk")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SM_Prop_Quest_Board_012/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00286865, 1.06284, 0.0150442)
 shape = SubResource("BoxShape3D_4x36n")
+
+[node name="Node" type="Node" parent="SM_Prop_Quest_Board_012"]
+script = ExtResource("1_8kal8")
 
 [node name="Unwalkable ground" type="Node3D" parent="."]
 

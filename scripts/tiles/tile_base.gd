@@ -5,9 +5,10 @@ var path_index: int
 
 var surface_point := Vector3()
 
-@export var neighbours: Array[TileBase] = []
+var neighbours: Array[TileBase] = [];
 var side_count: int = 4
 
+@export var exclusions: Array[TileBase] = [];
 @export var walkable_in_scene: bool;
 var navigation_weight: int = 0
 
