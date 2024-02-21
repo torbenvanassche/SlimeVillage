@@ -27,6 +27,7 @@ func _ready():
 	Settings.input_mode_changed.connect(read_input_mode)
 	
 	inventory.add_item_by_id("wheat", 5);
+	inventory.add_item_by_id("flour", 2);
 	
 func set_speed(speed: float):
 	move_delay = speed;

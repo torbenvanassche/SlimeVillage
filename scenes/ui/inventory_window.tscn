@@ -8,7 +8,7 @@
 handle_input_locally = false
 use_debanding = true
 title = "Inventory"
-position = Vector2i(10, 35)
+position = Vector2i(10, 36)
 size = Vector2i(212, 50)
 min_size = Vector2i(200, 50)
 theme_override_fonts/title_font = ExtResource("1_rpei1")

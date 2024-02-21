@@ -14,11 +14,12 @@ func _ready():
 	counter.visible = show_amount;
 	
 func as_blank():
-	textureRect.texture = null;
+	textureRect.modulate = Color(Color.WHITE, 0.3)
 	counter.visible = false;
 	
 func redraw():
 	var sprite = null;
+	textureRect.modulate = Color(Color.WHITE)
 	counter.visible = false;
 	
 	if slot_data.item.has("id"):

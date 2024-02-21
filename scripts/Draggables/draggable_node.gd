@@ -13,8 +13,7 @@ func _get_drag_data(_at_position):
 	var preview = Control.new();
 	preview.z_index = RenderingServer.CANVAS_ITEM_Z_MAX;
 	preview.add_child(preview_texture);
-	Global.ui_root.set_drag_preview(preview)
-	#set_drag_preview(preview);
+	set_drag_preview(preview);
 	
 	var result := get_parent();
 	DragController.DRAG_START(result, result.slot_data.window_id)

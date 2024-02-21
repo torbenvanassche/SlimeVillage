@@ -1,7 +1,11 @@
 class_name ItemSlot;
 extends Node;
 
-var item: Dictionary = {};
+var item: Dictionary = {}: 
+	set(value):
+		item = value;
+		has_changed.emit();
+	
 var is_available = false;
 var window_id: String = ""
 
