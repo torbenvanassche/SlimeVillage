@@ -1,5 +1,5 @@
 class_name InteractionOpenUI
-extends Resource
+extends Interaction
 
 @export var add_to_undo: bool = true;
 @export var window_id: String = "PLACEHOLDER";

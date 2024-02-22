@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var interaction: InteractionOpenUI;
+@export var interaction: Interaction;
 @export var require_adjacent: bool = false;
 
 func _ready():
