@@ -8,12 +8,19 @@ var surface_point := Vector3()
 var neighbours: Array[TileBase] = [];
 var side_count: int = 4
 
-@export var exclusions: Array[TileBase] = [];
+@export var exclusions: Array[Node3D] = [];
 @export var walkable_in_scene: bool;
 var navigation_weight: int = 0
 
 func _add_neighbour(tile: TileBase):
 	neighbours.append(tile)
+
+func _init():
+	for ex in exclusions:
+		if not ex is TileBase:
+			for child in ex.get_children(false):
+				if child is TileBase:
+					ex = child;
 
 func _ready():	
 	find_surface()	

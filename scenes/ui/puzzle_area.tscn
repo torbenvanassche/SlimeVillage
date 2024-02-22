@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dlsovgfasvn0h" path="res://textures/ui/ui_nineslice.png" id="2_jbvwo"]
 [ext_resource type="Script" path="res://scripts/ItemManagement/UI/inventory_ui.gd" id="2_n46lc"]
 [ext_resource type="PackedScene" uid="uid://c5ocjw6joaemy" path="res://scenes/ui/item_display_2d.tscn" id="6_6nrjd"]
-[ext_resource type="Script" path="res://scripts/mechanics/item_processor.gd" id="6_nohx8"]
+[ext_resource type="Script" path="res://scripts/mechanics/UI/item_processor.gd" id="6_nohx8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u450v"]
 
