@@ -4,12 +4,18 @@ extends Node
 var data: Array[ItemSlot] = []
 @export var unlocked_slots: int
 @export var max_slots: int;
+@export var identifier: String = "Inventory";
 
 signal inventory_changed(data: Array[ItemSlot]);
 
+func _init(slots: int = 1, id: String = "Inventory"):
+	identifier = id;
+	max_slots = slots;
+	unlocked_slots = slots;
+
 func _ready():	
 	for i in range(max_slots):
-		var slot = ItemSlot.new(i < unlocked_slots, "Inventory");
+		var slot = ItemSlot.new(i < unlocked_slots, identifier);
 		data.append(slot)
 	
 func add_item(item: Dictionary, amount: int = 1):
