@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dfowh7u2ix5g5"]
+[gd_scene load_steps=26 format=3 uid="uid://dfowh7u2ix5g5"]
 
 [ext_resource type="Script" path="res://scripts/mechanics/market.gd" id="1_8kal8"]
 [ext_resource type="PackedScene" uid="uid://dc1j7mvmx2tpw" path="res://scenes/components/walkable_tile.tscn" id="2_76f0h"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://ya085cctv6wx" path="res://level_pieces/environment/rails/SM_Env_Mine_Track_Angled_04.glb" id="20_n6nto"]
 [ext_resource type="PackedScene" uid="uid://cp2jpkw3orbyy" path="res://level_pieces/environment/props/SM_Prop_Quest_Board_01.glb" id="20_u6nuf"]
 [ext_resource type="PackedScene" uid="uid://boov62g3smjpb" path="res://level_pieces/environment/props/sm_prop_cart_02.tscn" id="22_80qns"]
+[ext_resource type="Resource" uid="uid://5deukfp877c4" path="res://resources/interactions/interaction_open_market.tres" id="23_kyaek"]
 [ext_resource type="PackedScene" uid="uid://1n36xgx3n0q6" path="res://level_pieces/environment/walkable/sm_generic_ground_grass.tscn" id="24_lvgvf"]
 [ext_resource type="Script" path="res://scripts/mechanics/interactable_prop.gd" id="24_rysrk"]
 
@@ -496,6 +497,7 @@ require_adjacent = false
 [node name="SM_Prop_Quest_Board_012" parent="." instance=ExtResource("20_u6nuf")]
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 7.84569, 1, 4.70037)
 script = ExtResource("24_rysrk")
+interaction = ExtResource("23_kyaek")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SM_Prop_Quest_Board_012"]
 

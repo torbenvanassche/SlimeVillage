@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0ajw5a07g334"]
+[gd_scene load_steps=13 format=3 uid="uid://b0ajw5a07g334"]
 
 [ext_resource type="Script" path="res://scripts/Utils/manager.gd" id="1_8x5qd"]
 [ext_resource type="Script" path="res://scripts/Utils/ui_manager.gd" id="2_bvv38"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bwrcc2gxqnosv" path="res://scenes/components/Player.tscn" id="6_o5cr0"]
 [ext_resource type="PackedScene" uid="uid://ccxngymkwjkx3" path="res://scenes/ui/settings.tscn" id="6_qmixb"]
 [ext_resource type="PackedScene" uid="uid://cuqpjlp4i7pkb" path="res://scenes/components/camera.tscn" id="7_ca8bl"]
+[ext_resource type="PackedScene" uid="uid://b4mwx1uqpo1hi" path="res://scenes/ui/market_window.tscn" id="7_m6ysw"]
 [ext_resource type="PackedScene" uid="uid://4obto2tpb0v3" path="res://scenes/base_scenes/pause_menu.tscn" id="8_11yd1"]
 [ext_resource type="PackedScene" uid="uid://bg1irjlbmoowb" path="res://scenes/base_scenes/overworld.tscn" id="8_34vxr"]
 [ext_resource type="Script" path="res://scripts/navigation/path_finding.gd" id="9_3s661"]
@@ -33,6 +34,13 @@ mouse_filter = 2
 script = ExtResource("2_bvv38")
 mechanic_window = NodePath("mechanics_window")
 player_inventory = NodePath("inventory_window")
+window_data = {
+"INVENTORY": NodePath("inventory_window"),
+"MARKET": NodePath("market_window"),
+"MECHANICS": NodePath("mechanics_window"),
+"PAUSE": NodePath("pause_menu"),
+"SETTINGS": NodePath("Settings")
+}
 
 [node name="pause_menu" parent="UI" instance=ExtResource("8_11yd1")]
 visible = false
@@ -52,6 +60,9 @@ visible = false
 exclusive = true
 content_scale_mode = 1
 content_scale_aspect = 4
+
+[node name="market_window" parent="UI" instance=ExtResource("7_m6ysw")]
+visible = false
 
 [node name="PlayerRoot" type="Node3D" parent="."]
 process_mode = 1

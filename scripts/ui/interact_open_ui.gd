@@ -6,10 +6,11 @@ extends Interaction
 @export var window_title: String;
 @export var use_mouse_position: bool = true;
 
-func execute(options: Dictionary = {}):
-	Global.ui_root.mechanic_window.initial_position = Window.WINDOW_INITIAL_POSITION_CENTER_PRIMARY_SCREEN;
+func execute(_options: Dictionary = {}):
+	var selected_window = Global.ui_root.get_subwindow(window_id)
+	selected_window.initial_position = Window.WINDOW_INITIAL_POSITION_CENTER_PRIMARY_SCREEN;
 	var position := Vector2.ZERO;
 	if use_mouse_position:
-		position = Global.ui_root.get_global_mouse_position().clamp(Vector2(10, 35), Global.viewport.size - Global.ui_root.mechanic_window.size);
-		Global.ui_root.mechanic_window.initial_position = Window.WINDOW_INITIAL_POSITION_ABSOLUTE;
-	Global.ui_root.enable_ui(Global.ui_root.mechanic_window, window_title, window_id, position, add_to_undo)
+		position = Global.ui_root.get_global_mouse_position().clamp(Vector2(10, 35), Global.viewport.size - selected_window.size);
+		selected_window.initial_position = Window.WINDOW_INITIAL_POSITION_ABSOLUTE;
+	Global.ui_root.enable_ui(window_title, selected_window, window_id, position, add_to_undo)

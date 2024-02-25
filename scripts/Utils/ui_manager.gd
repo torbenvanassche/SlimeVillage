@@ -5,14 +5,17 @@ extends Node
 @export var player_inventory: Window;
 @onready var pause_menu: Node = $pause_menu;
 
+@export var window_data: Dictionary = {};
+
 var scene_history: Array[Node] = []
 
 func _init():
 	Global.ui_root = self;
+	window_data["test"] = self;
 
 func _unhandled_input(event):
 	if event.is_action_pressed("inventory_open") && !get_tree().paused:
-		enable_ui(player_inventory, "Inventory", "", get_global_mouse_position(), false)
+		enable_ui("Inventory", player_inventory, "", get_global_mouse_position(), false)
 		
 	if event.is_action_pressed("cancel"):
 		if get_children().all(func(x): return !x.visible || x == pause_menu):
@@ -21,11 +24,24 @@ func _unhandled_input(event):
 
 func ui_is_open():
 	return get_children().all(func(x): return !x.visible);
+	
+func get_subwindow(s: String) -> Node:
+	if window_data.has(s):
+		print(window_data[s])
+		if window_data[s] is NodePath:
+			window_data[s] = get_node(window_data[s]);
+		return window_data[s];
+	else: 
+		printerr("The provided key does not have an associated window.")
+		return null;
 
-func enable_ui(to_enable: Node, window_name: String, window_id: String, position: Vector2 = Vector2.ZERO, add_to_undo_stack: bool = true):
+func enable_ui(window_id: String, to_enable: Node, window_name: String = "", position: Vector2 = Vector2.ZERO, add_to_undo_stack: bool = true):
 	to_enable.visible = true;
 	if add_to_undo_stack && !scene_history.has(to_enable):
 		scene_history.append(to_enable);
+		
+	if window_name.is_empty():
+		window_name = window_id;
 		
 	if position != Vector2.ZERO:
 		to_enable.position = position;

@@ -1,5 +1,5 @@
 class_name Interaction
 extends Resource
 
-func execute(dict: Dictionary = {}):
+func execute(_dict: Dictionary = {}):
 	print("Not implemented");

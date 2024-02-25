@@ -18,9 +18,9 @@ func on_enable(options: Dictionary):
 	title = options.title;
 	inventory.on_enable();
 	
-	if options.id == "puzzle":
+	if options.id == "PUZZLE":
 		_enable(grid_puzzle)
-	elif options.id == "grinder":
+	elif options.id == "GRINDER":
 		_enable(grinder)
 
 func _enable(c: Control):

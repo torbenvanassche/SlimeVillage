@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_qrda1")
 add_to_undo = true
-window_id = "grinder"
+window_id = "GRINDER"
 window_title = "GRINDER"
 use_mouse_position = false

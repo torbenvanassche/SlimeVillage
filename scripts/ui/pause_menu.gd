@@ -12,12 +12,12 @@ func _deferred_ready():
 	$VBoxContainer/Settings.button_up.connect(_open_settings)
 
 func _open_settings():
-	Global.ui_root.enable_ui(settings_screen, "Settings", "")
+	Global.ui_root.enable_ui("SETTINGS", settings_screen)
 	self.visible = false;
 
 func pause(pause_game = true):
 	get_tree().paused = pause_game
 	if get_tree().paused:
-		Global.ui_root.enable_ui(self, "Pause", "")
+		Global.ui_root.enable_ui( "PAUSE", self)
 	else:
 		self.hide()
