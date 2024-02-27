@@ -19,4 +19,4 @@ func _unhandled_input(event):
 	if event.is_action_pressed("cancel"):
 		get_viewport().set_input_as_handled()
 		inventory_ui.reset_selection();
-		hide()
+		close_requested.emit()

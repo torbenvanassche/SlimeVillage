@@ -6,3 +6,6 @@
 
 [node name="Market" parent="." instance=ExtResource("2_70pv6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.999911, 0, 0.492381)
+spawn_delay = 1
+max_orders = 1
+amount_per_spawn = 1

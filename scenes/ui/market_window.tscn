@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://b4mwx1uqpo1hi"]
+[gd_scene load_steps=2 format=3 uid="uid://b4mwx1uqpo1hi"]
+
+[ext_resource type="Script" path="res://scripts/ui/windows/market_window.gd" id="1_d1ykx"]
 
 [node name="MarketWindow" type="Window"]
+script = ExtResource("1_d1ykx")

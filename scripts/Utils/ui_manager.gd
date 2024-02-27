@@ -27,7 +27,6 @@ func ui_is_open():
 	
 func get_subwindow(s: String) -> Node:
 	if window_data.has(s):
-		print(window_data[s])
 		if window_data[s] is NodePath:
 			window_data[s] = get_node(window_data[s]);
 		return window_data[s];

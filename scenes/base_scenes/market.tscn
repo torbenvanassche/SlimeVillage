@@ -505,7 +505,8 @@ interaction = ExtResource("23_kyaek")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00286865, 1.06284, 0.0150442)
 shape = SubResource("BoxShape3D_4x36n")
 
-[node name="Node" type="Node" parent="SM_Prop_Quest_Board_012"]
+[node name="market_generator" type="Node" parent="SM_Prop_Quest_Board_012"]
+script = ExtResource("1_8kal8")
 
 [node name="Unwalkable ground" type="Node3D" parent="."]
 

@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_b11op")
 add_to_undo = true
-window_id = "market"
-window_title = "NEEDS CUSTOM"
+window_id = "MARKET"
+window_title = "MARKET"
 use_mouse_position = false

@@ -3,18 +3,16 @@ extends Node
 var spawn_timer: Timer
 
 var current_orders: Array[Inventory];
-var available_items: Dictionary = {}
+@onready var available_items := ItemManager.get_by_property("available", true);
 
 @export var spawn_delay = 1;
-@export var max_orders = 5
-@export var market_window: Window;
+@export var max_orders = 1;
+@onready var market_window := Global.ui_root.get_subwindow("MARKET");
 @export var amount_per_spawn = 1;
 
 signal item_spawned(inv: Inventory);
 
 func _ready():
-	available_items = ItemManager.get_by_property("available", true)
-	
 	spawn_timer = Timer.new()
 	spawn_timer.wait_time = 1
 	spawn_timer.timeout.connect(_on_spawn)
