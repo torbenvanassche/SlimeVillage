@@ -1,14 +1,22 @@
 extends Node
 
 @export var _poster_packed: Array[PackedScene] = [];
+var _spawn_positions: Array[Node] = [];
 @export var market_generator: MarketGenerator;
 
 func get_poster():
 	return _poster_packed.pick_random().instantiate();
 
 func _ready():
-	market_generator.item_spawned.connect(_spawn_item)
+	market_generator.item_spawned.connect(_spawn_item);
+	_spawn_positions = get_children();
 	
 func _spawn_item(inv: Inventory):
-	print(inv)
-	pass
+	var filtered = _spawn_positions.filter(func(x): return !x.get_meta("in_use", false));
+	if filtered.size() == 0:
+		return;
+	
+	var spawned = filtered.pick_random();
+	var poster = get_poster();
+	spawned.set_meta("in_use", true);
+	spawned.add_child(poster);
