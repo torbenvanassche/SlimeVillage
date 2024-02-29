@@ -93,3 +93,11 @@ static func convert_to_2D(data: Array[Variant] = [true], column_count = 1):
 			shape_data.append(curr_arr.duplicate());
 			curr_arr.clear();
 	return shape_data;
+	
+static func flatten_hierarchy(node: Node, internal: bool = false) -> Array[Node]:
+	var arr: Array[Node] = [];
+	for c in node.get_children(internal):
+		arr.append(c)
+		if c.get_child_count() > 0:
+			arr.append_array(flatten_hierarchy(c));
+	return arr;

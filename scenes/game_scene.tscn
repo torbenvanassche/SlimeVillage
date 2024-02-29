@@ -53,16 +53,19 @@ visible = false
 [node name="mechanics_window" parent="UI" instance=ExtResource("3_7ln7i")]
 process_mode = 1
 visible = false
+wrap_controls = true
 
 [node name="inventory_window" parent="UI" instance=ExtResource("4_wd5ap")]
 process_mode = 1
 visible = false
-exclusive = true
+wrap_controls = true
 content_scale_mode = 1
 content_scale_aspect = 4
 
 [node name="market_window" parent="UI" instance=ExtResource("7_m6ysw")]
+size = Vector2i(50, 50)
 visible = false
+wrap_controls = true
 
 [node name="PlayerRoot" type="Node3D" parent="."]
 process_mode = 1

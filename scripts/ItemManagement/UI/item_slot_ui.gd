@@ -31,6 +31,7 @@ func redraw():
 			slot_data.item.count = 1;
 		counter.set_text(str(slot_data.item.count));
 		counter.visible = show_amount && slot_data.item.count > 0;
+		tooltip_text = slot_data.item.name;
 	textureRect.set_texture(sprite);
 	
 func set_reference(data: ItemSlot):
