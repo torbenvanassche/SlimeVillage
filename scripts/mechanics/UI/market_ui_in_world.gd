@@ -1,12 +1,11 @@
-extends Node
+extends Node3D
 
 @export var _poster_packed: Array[PackedScene] = [];
 var _spawn_positions: Array[Node] = [];
 @export var market_generator: MarketGenerator;
 
 func get_poster():
-	return _poster_packed[0].instantiate();
-	#return _poster_packed.pick_random().instantiate();
+	return _poster_packed.pick_random().instantiate();
 
 func _ready():
 	market_generator.item_spawned.connect(_spawn_item);
@@ -20,6 +19,16 @@ func _spawn_item(inv: Inventory):
 	var spawner_position: Node3D = filtered.pick_random();
 	var poster = get_poster();
 	spawner_position.set_meta("in_use", true);
-	spawner_position.set_meta("item", inv);
-	print(poster.get_child(0, true).get_child(0, true));
+	
+	var sb = Helpers.flatten_hierarchy(poster).filter(func(x): return x is StaticBody3D);
+	if sb.size() == 0:
+		print("No colliders found on " + poster.name)
+	for collider in sb as Array[StaticBody3D]:
+		collider.input_event.connect(open_window)
 	spawner_position.add_child(poster);
+	spawner_position.set_meta("data", inv)
+	
+func open_window(_camera = null, _event = null, _pos = Vector3.ZERO, _normal = Vector3.ZERO, _shape_idx = -1):
+	if Global.player_instance.is_near(self, 2.5) && Input.is_action_just_pressed("mouse_left"):
+		Global.ui_root.enable_ui("MARKET", Global.ui_root.get_subwindow("MARKET"))
+		

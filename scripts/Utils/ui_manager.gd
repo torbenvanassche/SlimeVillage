@@ -35,18 +35,19 @@ func get_subwindow(s: String) -> Node:
 		return null;
 
 func enable_ui(window_id: String, to_enable: Node, window_name: String = "", position: Vector2 = Vector2.ZERO, add_to_undo_stack: bool = true):
-	to_enable.visible = true;
-	if add_to_undo_stack && !scene_history.has(to_enable):
-		scene_history.append(to_enable);
+	if to_enable:
+		to_enable.visible = true;
+		if position != Vector2.ZERO:
+			to_enable.position = position;
+		
+		if to_enable.has_method("on_enable"):
+			to_enable.on_enable({"title": window_name, "id": window_id});
+		
+		if add_to_undo_stack && !scene_history.has(to_enable):
+			scene_history.append(to_enable);
 		
 	if window_name.is_empty():
 		window_name = window_id;
-		
-	if position != Vector2.ZERO:
-		to_enable.position = position;
-		
-	if to_enable.has_method("on_enable"):
-		to_enable.on_enable({"title": window_name, "id": window_id});
 		
 func disable_ui(to_disable: Node, return_to_previous = true):
 	to_disable.visible = false;
