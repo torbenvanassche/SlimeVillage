@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dfowh7u2ix5g5"]
+[gd_scene load_steps=34 format=3 uid="uid://dfowh7u2ix5g5"]
 
 [ext_resource type="Script" path="res://scripts/mechanics/market.gd" id="1_8kal8"]
 [ext_resource type="PackedScene" uid="uid://dc1j7mvmx2tpw" path="res://scenes/components/walkable_tile.tscn" id="2_76f0h"]
@@ -21,10 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://ya085cctv6wx" path="res://level_pieces/environment/rails/SM_Env_Mine_Track_Angled_04.glb" id="20_n6nto"]
 [ext_resource type="PackedScene" uid="uid://cp2jpkw3orbyy" path="res://level_pieces/environment/props/SM_Prop_Quest_Board_01.glb" id="20_u6nuf"]
 [ext_resource type="PackedScene" uid="uid://boov62g3smjpb" path="res://level_pieces/environment/props/sm_prop_cart_02.tscn" id="22_80qns"]
-[ext_resource type="Resource" uid="uid://5deukfp877c4" path="res://resources/interactions/interaction_open_market.tres" id="23_kyaek"]
 [ext_resource type="Script" path="res://scripts/mechanics/UI/market_ui_in_world.gd" id="24_hu7vp"]
 [ext_resource type="PackedScene" uid="uid://1n36xgx3n0q6" path="res://level_pieces/environment/walkable/sm_generic_ground_grass.tscn" id="24_lvgvf"]
-[ext_resource type="Script" path="res://scripts/mechanics/interactable_prop.gd" id="24_rysrk"]
 [ext_resource type="PackedScene" uid="uid://ca1f6x5ik2a6l" path="res://level_pieces/mechanics/market/SM_Prop_Poster_01.glb" id="25_rmhdj"]
 [ext_resource type="PackedScene" uid="uid://c4y0c52aw5qqi" path="res://level_pieces/mechanics/market/SM_Prop_Poster_02.glb" id="26_e8p53"]
 [ext_resource type="PackedScene" uid="uid://cvn7gs3ap32jx" path="res://level_pieces/mechanics/market/SM_Prop_Poster_04.glb" id="28_arqqw"]
@@ -506,8 +504,6 @@ require_adjacent = false
 
 [node name="SM_Prop_Quest_Board_012" parent="." instance=ExtResource("20_u6nuf")]
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 7.84569, 1, 4.70037)
-script = ExtResource("24_rysrk")
-interaction = ExtResource("23_kyaek")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SM_Prop_Quest_Board_012"]
 
@@ -518,6 +514,7 @@ shape = SubResource("BoxShape3D_4x36n")
 [node name="market_generator" type="Node" parent="SM_Prop_Quest_Board_012"]
 script = ExtResource("1_8kal8")
 max_orders = 5
+wait_time = 3
 
 [node name="world_ui" type="Node3D" parent="SM_Prop_Quest_Board_012" node_paths=PackedStringArray("market_generator")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.958, -0.0590968)
@@ -672,7 +669,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="SM_Generic_Ground_025" parent="Unwalkable ground" instance=ExtResource("24_lvgvf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
-
-[node name="SM_Prop_Poster_012" parent="." instance=ExtResource("25_rmhdj")]
-
-[node name="SM_Prop_Poster_042" parent="SM_Prop_Poster_012" instance=ExtResource("28_arqqw")]

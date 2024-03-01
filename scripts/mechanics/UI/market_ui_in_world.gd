@@ -24,11 +24,10 @@ func _spawn_item(inv: Inventory):
 	if sb.size() == 0:
 		print("No colliders found on " + poster.name)
 	for collider in sb as Array[StaticBody3D]:
-		collider.input_event.connect(open_window)
+		collider.input_event.connect(open_window.bind(inv))
 	spawner_position.add_child(poster);
-	spawner_position.set_meta("data", inv)
 	
-func open_window(_camera = null, _event = null, _pos = Vector3.ZERO, _normal = Vector3.ZERO, _shape_idx = -1):
-	if Global.player_instance.is_near(self, 2.5) && Input.is_action_just_pressed("mouse_left"):
-		Global.ui_root.enable_ui("MARKET", Global.ui_root.get_subwindow("MARKET"))
+func open_window(_camera = null, _event = null, _pos = Vector3.ZERO, _normal = Vector3.ZERO, _shape_idx = -1, inv: Inventory = null):
+	if Input.is_action_just_pressed("mouse_left"):
+		Global.ui_root.enable_ui("MARKET", Global.ui_root.get_subwindow("MARKET"), { "data": inv })
 		

@@ -15,12 +15,12 @@ func _unhandled_input(event):
 		close_requested.emit()
 
 func on_enable(options: Dictionary):
-	title = options.title;
+	title = options.window_name;
 	inventory.on_enable();
 	
-	if options.id == "PUZZLE":
+	if options.window_name == "PUZZLE":
 		_enable(grid_puzzle)
-	elif options.id == "GRINDER":
+	elif options.window_name == "GRINDER":
 		_enable(grinder)
 
 func _enable(c: Control):

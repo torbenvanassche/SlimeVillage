@@ -13,4 +13,4 @@ func execute(_options: Dictionary = {}):
 	if use_mouse_position:
 		position = Global.ui_root.get_global_mouse_position().clamp(Vector2(10, 35), Global.viewport.size - selected_window.size);
 		selected_window.initial_position = Window.WINDOW_INITIAL_POSITION_ABSOLUTE;
-	Global.ui_root.enable_ui(window_title, selected_window, window_id, position, add_to_undo)
+	Global.ui_root.enable_ui(window_title, selected_window, { "window_id": window_id, "position": position, "add_to_undo": add_to_undo })

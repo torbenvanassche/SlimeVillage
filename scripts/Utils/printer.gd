@@ -1,11 +1,10 @@
 extends Label
 
 var print_tween: Tween
+var _is_printing = false
 
 @export var print_delay: float = 0.5
 @export var print_delay_speed_up: float = 0.05
-
-var _is_printing = false
 	
 func _print(txt: String):
 	_is_printing = true
