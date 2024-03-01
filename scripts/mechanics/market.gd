@@ -21,10 +21,11 @@ func _ready():
 	spawn_timer.start()
 
 func _on_spawn():
-	var inv = Inventory.new(4, "Market");
+	var inv = Inventory.new(4, 4, "Market");
 	for a in amount_per_spawn:
 		var item = _generate_item();
 		inv.add_item(item, 1);
+	current_orders.push_back(inv)
 	item_spawned.emit(inv)
 
 	if current_orders.size() >= max_orders:

@@ -8,10 +8,11 @@ var data: Array[ItemSlot] = []
 
 signal inventory_changed(data: Array[ItemSlot]);
 
-func _init(slots: int = 1, id: String = "Inventory"):
+func _init(slot_open: int = 1, slot_max: int = 1, id: String = "Inventory"):
 	identifier = id;
-	max_slots = slots;
-	unlocked_slots = slots;
+	max_slots = slot_max;
+	unlocked_slots = slot_open;
+	_ready()
 
 func _ready():	
 	for i in range(max_slots):

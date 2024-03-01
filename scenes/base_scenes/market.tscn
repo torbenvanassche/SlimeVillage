@@ -514,7 +514,6 @@ shape = SubResource("BoxShape3D_4x36n")
 [node name="market_generator" type="Node" parent="SM_Prop_Quest_Board_012"]
 script = ExtResource("1_8kal8")
 max_orders = 5
-wait_time = 3
 
 [node name="world_ui" type="Node3D" parent="SM_Prop_Quest_Board_012" node_paths=PackedStringArray("market_generator")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.958, -0.0590968)
