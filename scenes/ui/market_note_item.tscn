@@ -3,14 +3,17 @@
 [ext_resource type="Script" path="res://scripts/ui/market_note_item.gd" id="1_5fjr1"]
 [ext_resource type="Theme" uid="uid://bddqpgqhlplgq" path="res://theming/theme_kenney_font.tres" id="1_fofrc"]
 
-[node name="HBoxContainer" type="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" node_paths=PackedStringArray("item_label", "item_img")]
 script = ExtResource("1_5fjr1")
+item_label = NodePath("Label")
+item_img = NodePath("TextureRect")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
 theme = ExtResource("1_fofrc")
+theme_override_font_sizes/font_size = 25
 text = "PLACEHOLDEr"
 
 [node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
+expand_mode = 3

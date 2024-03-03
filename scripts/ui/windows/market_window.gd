@@ -1,6 +1,7 @@
 extends Window
 
 @onready var note_item: PackedScene = preload("res://scenes/ui/market_note_item.tscn")
+@onready var note_container: VBoxContainer = $note;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,5 +13,9 @@ func _unhandled_input(event):
 		close_requested.emit()
 
 func on_enable(dict: Dictionary):
-	if dict.has("data"):
-		print(dict.data)
+	if dict.has("inventory"):
+		for slot in dict.inventory.data:
+			if slot.item != {}:
+				var instance = note_item.instantiate() as NoteItem;
+				instance.set_item(slot.item.name, slot.item.count, slot.item.sprite)
+				note_container.add_child(instance)

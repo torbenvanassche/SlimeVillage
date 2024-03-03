@@ -64,7 +64,7 @@ content_scale_aspect = 4
 
 [node name="market_window" parent="UI" instance=ExtResource("7_m6ysw")]
 initial_position = 1
-size = Vector2i(100, 50)
+size = Vector2i(200, 50)
 visible = false
 
 [node name="PlayerRoot" type="Node3D" parent="."]

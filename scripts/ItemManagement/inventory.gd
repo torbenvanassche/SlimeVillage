@@ -14,7 +14,11 @@ func _init(slot_open: int = 1, slot_max: int = 1, id: String = "Inventory"):
 	unlocked_slots = slot_open;
 	_ready()
 
-func _ready():	
+func _ready():
+	for i in range(data.size()):
+		data[i].queue_free();
+	data.clear();
+		
 	for i in range(max_slots):
 		var slot = ItemSlot.new(i < unlocked_slots, identifier);
 		data.append(slot)
@@ -83,3 +87,11 @@ func swap_slot_data(start_slot: ItemSlot, end_slot: ItemSlot):
 	start_slot.item = end_slot.item;
 	end_slot.item = old_value;
 	Global.player_instance.inventory.refresh_ui();
+	
+func _to_string():
+	var rv = "{";
+	for slot in data:
+		if slot.item != {}:
+			rv += slot.item.name + ": " + str(slot.item.count)
+	rv += "}"
+	return rv;
