@@ -1,8 +1,13 @@
 class_name ShippingContainer
 extends Resource
 
+#stores the state of the inventory as a 2d grid of booleans
 var inventory_2d: Array[Array] = []
-var items_with_count: Array[Dictionary] = [];
+
+#stores a list of items in the grid with their respective counts
+var inventory: Inventory;
+
+#stores the items in the grid with their location
 var _items: Array[Dictionary] = [];	
 
 func get_tile(btn_index: int):	
@@ -11,7 +16,6 @@ func get_tile(btn_index: int):
 		for tile in item_shape:
 			if tile.index == btn_index:
 				clicked_shape = item_shape;
-				
 	return clicked_shape;
 
 func intersect(item, chosen_position: Vector2i) -> Array:
@@ -29,15 +33,8 @@ func intersect(item, chosen_position: Vector2i) -> Array:
 	return result;
 	
 func add_item(item: Dictionary):
+	inventory.add_item_by_id(item.key);
 	_items.append(item);
-	for it in items_with_count:
-		if it.has(item.key):
-			it.amount += 1;
-		else:
-			items_with_count.append({"key": item.key, "amount": 0});
-
-func get_item_list() -> Array[Dictionary]:
-	return items_with_count;
 	
 func set_tile(x:int, y: int, value: bool):
 	inventory_2d[x][y] = value;

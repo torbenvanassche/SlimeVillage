@@ -22,14 +22,26 @@ func _ready():
 	for i in range(max_slots):
 		var slot = ItemSlot.new(i < unlocked_slots, identifier);
 		data.append(slot)
+		
+func add_slot(exceed_max: bool = false):
+	for slot in data:
+		if !slot.is_available:
+			slot.is_available = true;
+			return;
+	if exceed_max:
+		max_slots += 1;
+		data.append(ItemSlot.new(true, identifier))
 	
-func add_item(item: Dictionary, amount: int = 1):
+func add_item(item: Dictionary, amount: int = 1, create_slot_if_full: bool = false):
 	var require_update: bool = false;
 	var remaining_amount: int = amount
 	var slots: Array[ItemSlot] = try_get_slots(item);
 	
 	while remaining_amount > 0:
 		if slots.size() == 0:
+			if create_slot_if_full:
+				add_slot(create_slot_if_full)
+				continue;
 			break;
 		
 		item = {"name": item.name, "id": item.id, "stack_size": item.stack_size, "sprite": ItemManager.get_sprite(item), "layout": ItemManager.get_layout(item)};
@@ -65,8 +77,8 @@ func remove_item(item: Dictionary, amount: int = 1):
 		
 	return remaining_amount;
 		
-func add_item_by_id(item: String, amount: int = 1):
-	add_item(ItemManager.get_item(item), amount)
+func add_item_by_id(item: String, amount: int = 1, create_slot_if_full: bool = false):
+	add_item(ItemManager.get_item(item), amount, create_slot_if_full)
 	
 func try_get_slots(dict: Dictionary) -> Array[ItemSlot]:
 	var slots: Array[ItemSlot] = []
@@ -87,6 +99,14 @@ func swap_slot_data(start_slot: ItemSlot, end_slot: ItemSlot):
 	start_slot.item = end_slot.item;
 	end_slot.item = old_value;
 	Global.player_instance.inventory.refresh_ui();
+
+func contains(items: Array[ItemSlot]) -> bool:
+	var match_counter: int = 0;
+	for _other_slot in items:
+		for _self_slot in data:
+			if _other_slot.item.id == _self_slot.item.id && _other_slot.item.count > _self_slot.item.count:
+				match_counter += 1;
+	return match_counter == data.size() - 1;
 	
 func _to_string():
 	var rv = "{";

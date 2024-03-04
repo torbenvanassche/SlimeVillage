@@ -29,7 +29,7 @@ func _ready():
 	_deferred_ready.call_deferred();
 	
 func _deferred_ready():
-	window.close_requested.connect(on_close)
+	window.close_requested.connect(hide)
 
 func add_item(btn: ItemSlotUI, item: Dictionary):
 	var btn_index = visual_element.get_children().find(btn)
@@ -52,7 +52,5 @@ func reset_tiles(btn: ItemSlotUI):
 	var clicked_shape = container.get_tile(visual_element.get_children().find(btn))	
 	for tile in clicked_shape:
 		container.set_tile(tile.x, tile.y, false);
-		visual_element.get_child(tile.index).icon = null;
-	
-func on_close():
-		visible = false;
+		visual_element.get_child(tile.index).icon = null
+	container.inventory.remove_item(ItemManager.get_item(clicked_shape.key))

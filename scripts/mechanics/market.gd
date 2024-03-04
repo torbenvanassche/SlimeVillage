@@ -13,6 +13,12 @@ var current_orders: Array[Inventory];
 
 signal item_spawned(inv: Inventory);
 
+func resolve_order(provided_items: Array[ItemSlot]):
+	for order in current_orders:
+		if order.contains(provided_items):
+			#TODO Add logic to calculate value of box
+			order.queue_free();
+
 func _ready():
 	spawn_timer = Timer.new()
 	spawn_timer.wait_time = wait_time

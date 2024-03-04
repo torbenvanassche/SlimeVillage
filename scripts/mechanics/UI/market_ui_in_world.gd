@@ -30,4 +30,3 @@ func _spawn_item(inv: Inventory):
 func open_window(_camera = null, _event = null, _pos = Vector3.ZERO, _normal = Vector3.ZERO, _shape_idx = -1, inv: Inventory = null):
 	if Input.is_action_just_pressed("mouse_left"):
 		Global.ui_root.enable_ui("MARKET", Global.ui_root.get_subwindow("MARKET"), { "inventory": inv })
-		
