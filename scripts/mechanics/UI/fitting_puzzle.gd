@@ -43,15 +43,15 @@ func add_item(btn: ItemSlotUI, item: Dictionary):
 			item_connections.append({"x": intersection.y, "y": intersection.x, "key": item.id, "index": intersection.x * visual_element.columns + intersection.y})
 			var ui_item = (visual_element.get_children()[intersection.x * visual_element.columns + intersection.y] as ItemSlotUI);
 			ui_item.slot_data.add(item, item.count)
-			container.inventory_2d[intersection.y][intersection.x] = true;
+			container.set_tile(intersection.y, intersection.x, true)
 			btn.redraw()
-		container.items.append(item_connections);
+		container.add_item(item_connections);
 		item_added.emit(item.id)
 
 func reset_tiles(btn: ItemSlotUI):	
 	var clicked_shape = container.get_tile(visual_element.get_children().find(btn))	
 	for tile in clicked_shape:
-		container.inventory_2d[tile.x][tile.y] = false;
+		container.set_tile(tile.x, tile.y, false);
 		visual_element.get_child(tile.index).icon = null;
 	
 func on_close():

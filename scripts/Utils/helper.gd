@@ -15,7 +15,7 @@ static func randarr_range(arr: Array):
 static func convert_craft_method(value: int):
 	return CRAFT_METHOD.keys()[value];
 
-static func arrays_have_same_content(array1: Array, array2: Array):
+static func arrays_have_same_content(array1: Array, array2: Array):	
 	if array1.size() != array2.size(): 
 		return false
 	for item in array1:
