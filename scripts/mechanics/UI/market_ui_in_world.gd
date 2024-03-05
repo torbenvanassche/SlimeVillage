@@ -26,6 +26,7 @@ func _spawn_item(inv: Inventory):
 	for collider in sb as Array[StaticBody3D]:
 		collider.input_event.connect(open_window.bind(inv))
 	spawner_position.add_child(poster);
+	inv.set_meta("inventory", inv)
 	
 func open_window(_camera = null, _event = null, _pos = Vector3.ZERO, _normal = Vector3.ZERO, _shape_idx = -1, inv: Inventory = null):
 	if Input.is_action_just_pressed("mouse_left"):

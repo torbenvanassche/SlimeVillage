@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://df8viwbopmugj"]
+
+[ext_resource type="PackedScene" uid="uid://cno87arr36yxw" path="res://level_pieces/mechanics/market/base/SM_Prop_Crate_Wood_01.glb" id="1_gj2qo"]
+[ext_resource type="Script" path="res://scripts/mechanics/interactable_prop.gd" id="2_jisbj"]
+
+[node name="SM_Prop_Crate_Wood_012" instance=ExtResource("1_gj2qo")]
+script = ExtResource("2_jisbj")
