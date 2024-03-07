@@ -1,99 +1,66 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccxngymkwjkx3"]
+[gd_scene load_steps=5 format=3 uid="uid://ccxngymkwjkx3"]
 
 [ext_resource type="FontFile" uid="uid://b4py5c2f05v57" path="res://fonts/Kenney Future Narrow.ttf" id="1_af6hb"]
 [ext_resource type="Script" path="res://scripts/ui/ui_settings.gd" id="1_uyews"]
 [ext_resource type="Theme" uid="uid://bddqpgqhlplgq" path="res://theming/theme_kenney_font.tres" id="2_1t6v6"]
+[ext_resource type="Script" path="res://scenes/ui/debug_select_item.gd" id="4_p2obh"]
 
 [node name="Settings" type="Window"]
 title = "Settings"
 initial_position = 1
-size = Vector2i(400, 200)
+size = Vector2i(420, 200)
+wrap_controls = true
 theme_override_fonts/title_font = ExtResource("1_af6hb")
 script = ExtResource("1_uyews")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(400, 0)
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -200.0
-offset_top = 10.0
-offset_right = 200.0
-offset_bottom = 45.0
-grow_horizontal = 2
-theme_override_constants/separation = 20
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="movement_mode" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(300, 35)
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+
+[node name="movement_mode" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/movement_mode"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 20.0
-offset_top = -9.0
-offset_right = 189.0
-offset_bottom = 9.0
-grow_vertical = 2
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/movement_mode"]
+layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("2_1t6v6")
 text = "Movement mode"
 
-[node name="move_mode" type="OptionButton" parent="VBoxContainer/movement_mode"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -65.0
-offset_top = -17.5
-offset_right = -20.0
-offset_bottom = 17.5
-grow_horizontal = 0
-grow_vertical = 2
+[node name="move_mode" type="OptionButton" parent="MarginContainer/VBoxContainer/movement_mode"]
+layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="movement_speed" type="Control" parent="VBoxContainer"]
+[node name="movement_speed" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/movement_speed"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 20.0
-offset_top = -9.0
-offset_right = 189.0
-offset_bottom = 9.0
-grow_vertical = 2
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/movement_speed"]
+layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("2_1t6v6")
 text = "Movement speed"
 
-[node name="SpinBox" type="SpinBox" parent="VBoxContainer/movement_speed"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -83.0625
-offset_top = -15.5
-offset_bottom = 15.5
-grow_horizontal = 0
-grow_vertical = 2
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/movement_speed"]
+layout_mode = 2
 max_value = 10.0
 step = 0.1
 alignment = 2
 
-[node name="volume_main" type="Control" parent="VBoxContainer"]
+[node name="volume_main" type="Control" parent="MarginContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(300, 35)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/volume_main"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/volume_main"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -107,7 +74,7 @@ size_flags_horizontal = 8
 theme = ExtResource("2_1t6v6")
 text = "Volume"
 
-[node name="volume_slider" type="HSlider" parent="VBoxContainer/volume_main"]
+[node name="volume_slider" type="HSlider" parent="MarginContainer/VBoxContainer/volume_main"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -121,3 +88,23 @@ offset_bottom = 17.5
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 0
+
+[node name="debug_item" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+script = ExtResource("4_p2obh")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/debug_item"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("2_1t6v6")
+text = "Spawn item"
+
+[node name="TextEdit" type="OptionButton" parent="MarginContainer/VBoxContainer/debug_item"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/debug_item"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Add to inventory"

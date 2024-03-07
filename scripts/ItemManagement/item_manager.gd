@@ -1,10 +1,7 @@
 extends Node
 
 var data_file_path: String = "res://resources/items/item_database.json"
-var _items: Dictionary;
-
-func _init():	
-	_items = JSON_HELPER.load_json(data_file_path)
+var _items: Dictionary = JSON_HELPER.load_json(data_file_path);
 	
 func get_item(id: String):
 	if _items.keys().find(id) != -1:
@@ -41,7 +38,7 @@ func get_sprite(item: Dictionary) -> Texture:
 func get_layout(item: Dictionary) -> Array[bool]:
 	var result: Array[bool] = []
 	if item.has("layout"):
-		for c in item.layout:
+		for c in item.layout.data:
 			result.append(bool(int(c)))
 	else:
 		result.append(true);

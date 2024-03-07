@@ -1,8 +1,8 @@
 extends Window
 
-@onready var movement_dropdown: OptionButton = $VBoxContainer/movement_mode/move_mode;
-@onready var volume_main: HSlider = $VBoxContainer/volume_main/volume_slider;
-@onready var movement_speed: SpinBox = $VBoxContainer/movement_speed/SpinBox;
+@onready var movement_dropdown: OptionButton = $MarginContainer/VBoxContainer/movement_mode/move_mode;
+@onready var volume_main: HSlider = $MarginContainer/VBoxContainer/volume_main/volume_slider;
+@onready var movement_speed: SpinBox = $MarginContainer/VBoxContainer/movement_speed/SpinBox;
 
 func _ready():
 	#movement option toggles

@@ -52,8 +52,8 @@ func disable_ui(to_disable: Node, return_to_previous = true):
 	to_disable.visible = false;
 	if scene_history.has(to_disable):
 		scene_history.erase(to_disable);
-		if return_to_previous:
-			scene_history.back().visible = true;
+	if return_to_previous:
+		scene_history.back().visible = true;
 	
 func reset_history():
 	scene_history.clear()

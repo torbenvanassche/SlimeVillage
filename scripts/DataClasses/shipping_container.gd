@@ -5,7 +5,7 @@ extends Resource
 var inventory_2d: Array[Array] = []
 
 #stores a list of items in the grid with their respective counts
-var inventory: Inventory;
+var item_list: Array[String];
 
 #stores the items in the grid with their location
 var _items: Array[Dictionary] = [];	
@@ -32,9 +32,9 @@ func intersect(item, chosen_position: Vector2i) -> Array:
 				result.append(Vector2i(row_idx+chosen_position.x, col_idx+chosen_position.y))
 	return result;
 	
-func add_item(item: Dictionary):
-	inventory.add_item_by_id(item.key);
-	_items.append(item);
+func add_item(item_data: Array):
+	item_list.append(item_data[0].key)
+	_items.append(item_data);
 	
 func set_tile(x:int, y: int, value: bool):
 	inventory_2d[x][y] = value;

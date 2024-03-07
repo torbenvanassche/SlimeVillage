@@ -33,7 +33,7 @@ func _deferred_ready():
 
 func add_item(btn: ItemSlotUI, item: Dictionary):
 	var btn_index = visual_element.get_children().find(btn)
-	var item_shape = Helpers.convert_to_2D(item.layout, 1)
+	var item_shape = Helpers.convert_to_2D(item.layout, item.layout_cols)
 	var item_connections = [];
 	item.count = 1;
 

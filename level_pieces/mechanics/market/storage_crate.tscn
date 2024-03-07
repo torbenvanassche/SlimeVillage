@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://df8viwbopmugj"]
+[gd_scene load_steps=4 format=3 uid="uid://df8viwbopmugj"]
 
 [ext_resource type="PackedScene" uid="uid://cno87arr36yxw" path="res://level_pieces/mechanics/market/base/SM_Prop_Crate_Wood_01.glb" id="1_gj2qo"]
 [ext_resource type="Script" path="res://scripts/mechanics/interactable_prop.gd" id="2_jisbj"]
+[ext_resource type="Resource" uid="uid://b0ykwmxucb7gg" path="res://resources/interactions/interaction_open_puzzle.tres" id="3_ng4le"]
 
-[node name="SM_Prop_Crate_Wood_012" instance=ExtResource("1_gj2qo")]
+[node name="SM_Prop_Crate_Wood_012" node_paths=PackedStringArray("static_body") instance=ExtResource("1_gj2qo")]
 script = ExtResource("2_jisbj")
+interaction = ExtResource("3_ng4le")
+static_body = NodePath("SM_Prop_Crate_Wood_01/StaticBody3D")

@@ -79,7 +79,7 @@ static func find_child_tiles(node: Node) -> Array[TileBase]:
 				tile_nodes.append_array(find_child_tiles(child))
 	return tile_nodes
 
-static func convert_to_2D(data: Array[Variant] = [true], column_count = 1):
+static func convert_to_2D(data: Array[Variant] = [true], column_count: int = 1):
 	var shape_data: Array = [];	
 	var curr_arr: Array = []
 	shape_data.clear()
