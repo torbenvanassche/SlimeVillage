@@ -48,9 +48,8 @@ func add_item(btn: ItemSlotUI, item: Dictionary):
 		container.add_item(item_connections);
 		item_added.emit(item.id)
 
-func reset_tiles(btn: ItemSlotUI):	
-	var clicked_shape = container.get_tile(visual_element.get_children().find(btn))	
+func reset_tiles(btn: ItemSlotUI):
+	var clicked_shape = container.get_tile(visual_element.get_children().find(btn), true)	
 	for tile in clicked_shape:
 		container.set_tile(tile.x, tile.y, false);
-		visual_element.get_child(tile.index).icon = null
-	container.inventory.remove_item(ItemManager.get_item(clicked_shape.key))
+		visual_element.get_child(tile.index).textureRect.texture = null

@@ -8,15 +8,18 @@ var inventory_2d: Array[Array] = []
 var item_list: Array[String];
 
 #stores the items in the grid with their location
-var _items: Array[Dictionary] = [];	
+var _items: Array = [];	
 
-func get_tile(btn_index: int):	
+func get_tile(btn_index: int, erase: bool = false):	
 	var clicked_shape = []
 	for item_shape in _items:
 		for tile in item_shape:
 			if tile.index == btn_index:
 				clicked_shape = item_shape;
-	return clicked_shape;
+	if erase && clicked_shape.size() > 0:
+		_items.erase(clicked_shape)
+		item_list.erase(clicked_shape[0].key)
+	return clicked_shape;	
 
 func intersect(item, chosen_position: Vector2i) -> Array:
 	var result = [];
