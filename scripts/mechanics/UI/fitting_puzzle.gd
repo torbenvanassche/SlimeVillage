@@ -18,7 +18,7 @@ func on_enable(options: Dictionary):
 		options.grid_preset = Settings.active_grid_preset;
 	
 	if clear_on_open:
-		clear_on_open = false;
+		#clear_on_open = false;
 		container.clear();
 		for child in visual_element.get_children():
 			child.queue_free();
