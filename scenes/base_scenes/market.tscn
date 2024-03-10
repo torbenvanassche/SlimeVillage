@@ -73,7 +73,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 3)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 1)
 
 [node name="@StaticBody3D@45344" parent="Ground/SM_Bld_House_Floor_Stone_038" instance=ExtResource("2_76f0h")]
-visible = false
 
 [node name="SM_Bld_House_Floor_Stone_039" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 2)

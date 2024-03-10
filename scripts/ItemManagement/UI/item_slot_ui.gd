@@ -16,12 +16,16 @@ var slot_data: ItemSlot;
 func _ready():	
 	counter.visible = show_amount;
 	
+func resize(x: int, y: int):
+	textureRect
+	
 func as_blank():
 	textureRect.modulate = dragging_color;
 	counter.visible = false;
 	
 func redraw():
 	var sprite = null;
+	tooltip_text = "";
 	textureRect.modulate = default_color
 	counter.visible = false;
 	

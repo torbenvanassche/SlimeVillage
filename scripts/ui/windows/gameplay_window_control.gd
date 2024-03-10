@@ -19,15 +19,15 @@ func on_enable(options: Dictionary):
 	inventory.on_enable();
 	
 	if options.window_name == "PUZZLE":
-		_enable(grid_puzzle)
-	elif options.window_name == "GRINDER":
+		_enable(grid_puzzle, { "clear_on_open": true })
+	elif options.window_name == "GRINDER":	
 		_enable(grinder)
 
-func _enable(c: Control):
+func _enable(c: Control, options: Dictionary = {}):
 	if enabled_control && enabled_control.has_method("on_close"):
 		enabled_control.on_close();
 	
 	c.visible = true;
 	enabled_control = c;
 	if c.has_method("on_enable"):
-		c.on_enable();
+		c.on_enable(options);

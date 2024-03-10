@@ -9,6 +9,7 @@ var item: Dictionary = {}:
 var is_available = false;
 var window_id: String = ""
 
+
 signal has_changed();
 
 func _init(available: bool = true, w_id: String = ""):
@@ -17,7 +18,6 @@ func _init(available: bool = true, w_id: String = ""):
 	
 func reset():
 	item = {};
-
 func has_space(id: String, amount: int = 1) -> bool:
 	if !is_available:
 		return false;	

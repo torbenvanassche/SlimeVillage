@@ -41,3 +41,8 @@ func add_item(item_data: Array):
 	
 func set_tile(x:int, y: int, value: bool):
 	inventory_2d[x][y] = value;
+	
+func clear():
+	inventory_2d.clear();
+	item_list.clear();
+	_items.clear();

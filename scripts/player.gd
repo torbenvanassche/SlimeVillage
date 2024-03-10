@@ -14,6 +14,12 @@ var current_tile: TileBase = null;
 @export var rotation_time: float = 0.01;
 @export var animation_delay: float = 0.2;
 
+var carryable: ShippingContainer: 
+	set(value):
+		carryable = value;
+	get:
+		return carryable;
+
 signal on_move_complete(tile: TileBase);
 
 var move_tween: Tween;

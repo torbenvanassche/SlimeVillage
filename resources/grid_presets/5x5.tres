@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="grid_preset" load_steps=2 format=3 uid="uid://dwer0mj0fi1pp"]
+
+[ext_resource type="Script" path="res://scripts/DataClasses/grid_tile_data.gd" id="1_u1sm5"]
+
+[resource]
+script = ExtResource("1_u1sm5")
+grid_size = Vector2i(5, 5)
+tile_size = 50
