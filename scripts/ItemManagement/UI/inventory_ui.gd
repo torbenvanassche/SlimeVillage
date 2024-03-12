@@ -11,12 +11,18 @@ var controller: Inventory;
 @export var visual_element: Control = self;
 
 func set_controller(con: Inventory):
-	if controller && con != controller:
-		controller.inventory_changed.disconnect(_update)
-	controller = con;
+	if con != controller:
+		if controller: 
+			controller.inventory_changed.disconnect(_update)
+		controller = con;
 	if !controller.inventory_changed.is_connected(_update):
 		controller.inventory_changed.connect(_update);
+	create_ui(controller.data)
 	controller.refresh_ui();
+	
+func create_ui(data: Array[ItemSlot]):
+	for d in data:
+		add(d)
 
 func add(dict: ItemSlot):
 	var item_ui = item_ui_packed.instantiate() as ItemSlotUI;
@@ -46,5 +52,4 @@ func _update(data: Array[ItemSlot]):
 		add(data[index])
 		
 func on_enable():
-	set_controller(Global.player_instance.inventory);
-	controller.refresh_ui();
+	set_controller(Global.player_instance.inventory);	

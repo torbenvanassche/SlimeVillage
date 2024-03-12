@@ -1,12 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://b251uevj7eclb"]
+[gd_scene load_steps=9 format=3 uid="uid://b251uevj7eclb"]
 
 [ext_resource type="FontFile" uid="uid://b4py5c2f05v57" path="res://fonts/Kenney Future Narrow.ttf" id="1_4jyr5"]
 [ext_resource type="Script" path="res://scripts/mechanics/UI/fitting_puzzle.gd" id="1_8l1pk"]
 [ext_resource type="Script" path="res://scripts/ui/windows/gameplay_window_control.gd" id="2_fyhgc"]
 [ext_resource type="Texture2D" uid="uid://dlsovgfasvn0h" path="res://textures/ui/ui_nineslice.png" id="2_jbvwo"]
 [ext_resource type="Script" path="res://scripts/ItemManagement/UI/inventory_ui.gd" id="2_n46lc"]
-[ext_resource type="PackedScene" uid="uid://c5ocjw6joaemy" path="res://scenes/ui/item_display_2d.tscn" id="6_6nrjd"]
-[ext_resource type="Script" path="res://scripts/mechanics/UI/item_processor.gd" id="6_nohx8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u450v"]
 
@@ -16,12 +14,6 @@ Panel/styles/panel = SubResource("StyleBoxTexture_u450v")
 [sub_resource type="Theme" id="Theme_86kcu"]
 VFlowContainer/constants/h_separation = 4
 VFlowContainer/constants/v_separation = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dee1"]
-bg_color = Color(0.14902, 0.14902, 0.14902, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ucmg"]
-bg_color = Color(0.839216, 0.839216, 0.839216, 1)
 
 [node name="Window" type="Window"]
 title = "Puzzle"
@@ -138,72 +130,3 @@ theme_override_constants/margin_bottom = 17
 custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
 text = "ADD TO INVENTORY"
-
-[node name="Grinder" type="MarginContainer" parent="."]
-visible = false
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -355.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-script = ExtResource("6_nohx8")
-process_method = 1
-
-[node name="PuzzlePanel" type="NinePatchRect" parent="Grinder"]
-layout_mode = 2
-texture = ExtResource("2_jbvwo")
-patch_margin_left = 32
-patch_margin_top = 32
-patch_margin_right = 32
-patch_margin_bottom = 32
-
-[node name="MarginContainer" type="MarginContainer" parent="Grinder/PuzzlePanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -103.0
-offset_right = 150.0
-offset_bottom = 103.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Grinder/PuzzlePanel/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 5
-
-[node name="Item" parent="Grinder/PuzzlePanel/MarginContainer/VBoxContainer" instance=ExtResource("6_6nrjd")]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_vertical = 4
-show_amount = false
-
-[node name="Timer" type="Timer" parent="Grinder/PuzzlePanel/MarginContainer/VBoxContainer/Item"]
-one_shot = true
-
-[node name="ProgressBar" type="ProgressBar" parent="Grinder/PuzzlePanel/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 25)
-layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_2dee1")
-theme_override_styles/fill = SubResource("StyleBoxFlat_1ucmg")
-max_value = 1.0
-show_percentage = false
-
-[node name="Start" type="Button" parent="Grinder/PuzzlePanel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Grind"

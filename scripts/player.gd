@@ -4,7 +4,6 @@ extends Node3D
 var current_tile: TileBase = null;
 
 @export var inventory: Inventory;
-@export var inventory_ui: InventoryUI;
 @export var animator: AnimationPlayer;
 
 @export var click_navigator: ClickNavigator;
@@ -28,7 +27,6 @@ var buffered_target_tile: TileBase
 
 func _ready():
 	Global.player_instance = self
-	inventory_ui.controller = inventory;
 	animator.speed_scale = (1 / (move_delay + animation_delay));
 	Settings.input_mode_changed.connect(read_input_mode)
 	

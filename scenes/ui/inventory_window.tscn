@@ -2,20 +2,21 @@
 
 [ext_resource type="Script" path="res://scripts/ui/windows/inventory_window.gd" id="1_6w46p"]
 [ext_resource type="FontFile" uid="uid://b4py5c2f05v57" path="res://fonts/Kenney Future Narrow.ttf" id="1_rpei1"]
-[ext_resource type="Script" path="res://scripts/ItemManagement/UI/inventory_ui.gd" id="1_wqw80"]
+[ext_resource type="PackedScene" uid="uid://tvisrbewsmg0" path="res://inventory_control.tscn" id="3_6wdmd"]
 
 [node name="ui_window" type="Window"]
 handle_input_locally = false
 use_debanding = true
 title = "Inventory"
 position = Vector2i(10, 36)
-size = Vector2i(212, 50)
+size = Vector2i(200, 250)
+wrap_controls = true
 min_size = Vector2i(200, 50)
 theme_override_fonts/title_font = ExtResource("1_rpei1")
 script = ExtResource("1_6w46p")
 
-[node name="Grid" type="GridContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-columns = 4
-script = ExtResource("1_wqw80")
+[node name="inventory" parent="." instance=ExtResource("3_6wdmd")]
+anchors_preset = 0
+anchor_bottom = 0.0
+offset_bottom = 250.0
+grow_vertical = 1

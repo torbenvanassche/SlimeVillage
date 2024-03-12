@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://tvisrbewsmg0"]
+
+[ext_resource type="Script" path="res://scripts/ItemManagement/UI/inventory_ui.gd" id="1_v48oc"]
+[ext_resource type="Theme" uid="uid://bddqpgqhlplgq" path="res://theming/theme_kenney_font.tres" id="2_6iquf"]
+
+[node name="inventory" type="Control" node_paths=PackedStringArray("visual_element")]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 212.0
+offset_bottom = -829.0
+grow_vertical = 2
+script = ExtResource("1_v48oc")
+show_locked = true
+visual_element = NodePath("VBoxContainer/GridContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 212.0
+offset_bottom = 251.0
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_6iquf")
+theme_override_font_sizes/font_size = 30
+text = "Items"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+columns = 4

@@ -2,7 +2,7 @@ extends Window
 
 @onready var inventory: InventoryUI = $Inventory;
 @onready var grid_puzzle: FittingPuzzle = $GridPuzzle;
-@onready var grinder: ItemProcessor = $Grinder;
+#@onready var grinder: ItemProcessor = $Grinder;
 
 var enabled_control: Control;
 
@@ -21,7 +21,8 @@ func on_enable(options: Dictionary):
 	if options.window_name == "PUZZLE":
 		_enable(grid_puzzle, { "clear_on_open": true })
 	elif options.window_name == "GRINDER":	
-		_enable(grinder)
+		#_enable(grinder)
+		pass
 
 func _enable(c: Control, options: Dictionary = {}):
 	if enabled_control && enabled_control.has_method("on_close"):

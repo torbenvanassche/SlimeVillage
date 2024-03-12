@@ -57,7 +57,6 @@ wrap_controls = true
 
 [node name="inventory_window" parent="UI" instance=ExtResource("4_wd5ap")]
 process_mode = 1
-size = Vector2i(500, 500)
 visible = false
 content_scale_mode = 1
 content_scale_aspect = 4
@@ -78,8 +77,9 @@ distance = 3.0
 max_distance = 10.0
 min_distance = 2.0
 
-[node name="Player" parent="PlayerRoot" instance=ExtResource("6_o5cr0")]
+[node name="Player" parent="PlayerRoot" node_paths=PackedStringArray("inventory_ui") instance=ExtResource("6_o5cr0")]
 transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+inventory_ui = NodePath("../../UI/inventory_window/Control/inventory")
 
 [node name="overworld" parent="." instance=ExtResource("8_34vxr")]
 process_mode = 1
