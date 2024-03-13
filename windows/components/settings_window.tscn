@@ -1,0 +1,110 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr180fjgdj1co"]
+
+[ext_resource type="PackedScene" uid="uid://dny1dqcanlco0" path="res://windows/base_window.tscn" id="1_r1g28"]
+[ext_resource type="Theme" uid="uid://bddqpgqhlplgq" path="res://theming/theme_kenney_font.tres" id="2_opxyk"]
+[ext_resource type="Script" path="res://scripts/debug_select_item.gd" id="3_xfavo"]
+
+[node name="Window" instance=ExtResource("1_r1g28")]
+offset_right = -1420.0
+offset_bottom = -830.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" parent="VBoxContainer/topbar/HBoxContainer/MarginContainer" index="0"]
+text = "Settings"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ColorRect" index="0"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ColorRect/MarginContainer" index="0"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+
+[node name="movement_mode" type="HBoxContainer" parent="VBoxContainer/ColorRect/MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ColorRect/MarginContainer/VBoxContainer/movement_mode" index="0"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("2_opxyk")
+text = "Movement mode"
+
+[node name="move_mode" type="OptionButton" parent="VBoxContainer/ColorRect/MarginContainer/VBoxContainer/movement_mode" index="1"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="movement_speed" type="HBoxContainer" parent="VBoxContainer/ColorRect/MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ColorRect/MarginContainer/VBoxContainer/movement_speed" index="0"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("2_opxyk")
+text = "Movement speed"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/ColorRect/MarginContainer/VBoxContainer/movement_speed" index="1"]
+layout_mode = 2
+max_value = 10.0
+step = 0.1
+alignment = 2
+
+[node name="volume_main" type="Control" parent="VBoxContainer/ColorRect/MarginContainer/VBoxContainer" index="2"]
+visible = false
+custom_minimum_size = Vector2(300, 35)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ColorRect/MarginContainer/VBoxContainer/volume_main" index="0"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -9.0
+offset_right = 189.0
+offset_bottom = 9.0
+grow_vertical = 2
+size_flags_horizontal = 8
+theme = ExtResource("2_opxyk")
+text = "Volume"
+
+[node name="volume_slider" type="HSlider" parent="VBoxContainer/ColorRect/MarginContainer/VBoxContainer/volume_main" index="1"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -17.5
+offset_right = -20.0
+offset_bottom = 17.5
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="debug_item" type="HBoxContainer" parent="VBoxContainer/ColorRect/MarginContainer/VBoxContainer" index="3"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+script = ExtResource("3_xfavo")
+
+[node name="Label" type="Label" parent="VBoxContainer/ColorRect/MarginContainer/VBoxContainer/debug_item" index="0"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("2_opxyk")
+text = "Spawn item"
+
+[node name="TextEdit" type="OptionButton" parent="VBoxContainer/ColorRect/MarginContainer/VBoxContainer/debug_item" index="1"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/ColorRect/MarginContainer/VBoxContainer/debug_item" index="2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Add to inventory"

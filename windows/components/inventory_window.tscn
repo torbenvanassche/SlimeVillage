@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://tvisrbewsmg0"]
+
+[ext_resource type="Script" path="res://scripts/ItemManagement/UI/inventory_ui.gd" id="1_5m7dl"]
+[ext_resource type="PackedScene" uid="uid://dny1dqcanlco0" path="res://windows/base_window.tscn" id="1_y21g3"]
+[ext_resource type="Theme" uid="uid://bddqpgqhlplgq" path="res://theming/theme_kenney_font.tres" id="2_bdy5v"]
+
+[node name="Window" node_paths=PackedStringArray("to_enable") instance=ExtResource("1_y21g3")]
+to_enable = NodePath("VBoxContainer/ColorRect/inventory")
+
+[node name="Title" parent="VBoxContainer/topbar/HBoxContainer/MarginContainer" index="0"]
+text = "Inventory"
+
+[node name="ColorRect" parent="VBoxContainer" index="1"]
+color = Color(0.0431373, 0.0431373, 0.0431373, 1)
+
+[node name="inventory" type="MarginContainer" parent="VBoxContainer/ColorRect" index="0" node_paths=PackedStringArray("visual_element")]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+script = ExtResource("1_5m7dl")
+show_locked = true
+visual_element = NodePath("VBoxContainer/GridContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ColorRect/inventory" index="0"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/ColorRect/inventory/VBoxContainer" index="0"]
+layout_mode = 2
+theme = ExtResource("2_bdy5v")
+theme_override_font_sizes/font_size = 30
+text = "Items"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/ColorRect/inventory/VBoxContainer" index="1"]
+layout_mode = 2
+columns = 4

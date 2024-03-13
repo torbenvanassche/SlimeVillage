@@ -1,7 +1,5 @@
 extends Control
 
-@onready var settings_screen: Window = $"../Settings";
-
 func _ready():
 	_deferred_ready.call_deferred()
 	pass
@@ -12,12 +10,12 @@ func _deferred_ready():
 	$VBoxContainer/Settings.button_up.connect(_open_settings)
 
 func _open_settings():
-	Global.ui_root.enable_ui("SETTINGS", settings_screen, { "add_to_undo_stack": true })
+	Global.ui_root.enable_ui(Global.ui_root.get_subwindow("SETTINGS"), true)
 	self.visible = false;
 
 func pause(pause_game = true):
 	get_tree().paused = pause_game
 	if get_tree().paused:
-		Global.ui_root.enable_ui( "PAUSE", self, { "add_to_undo_stack": true })
+		Global.ui_root.enable_ui(self, true)
 	else:
-		self.hide()
+		Global.ui_root.disable_ui(self, false)

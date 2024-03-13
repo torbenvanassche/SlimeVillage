@@ -1,20 +1,16 @@
 class_name UIManager
 extends Node
 
-@export var mechanic_window: Window
-@export var player_inventory: Window;
-@onready var pause_menu: Node = $pause_menu;
-
+@onready var pause_menu: Node = get_subwindow("PAUSE");
 @export var window_data: Dictionary = {};
-
 var scene_history: Array[Node] = []
 
 func _init():
 	Global.ui_root = self;
 
 func _unhandled_input(event):
-	if event.is_action_pressed("inventory_open") && !get_tree().paused:
-		enable_ui("Inventory", player_inventory, { "position": get_global_mouse_position() })
+	if event.is_action_pressed("inventory_open") && !get_tree().paused && !get_subwindow("INVENTORY").visible:
+		enable_ui(get_subwindow("INVENTORY"))
 		
 	if event.is_action_pressed("cancel"):
 		if get_children().all(func(x): return !x.visible || x == pause_menu):
@@ -27,32 +23,24 @@ func ui_is_open():
 func get_subwindow(s: String) -> Node:
 	if window_data.has(s):
 		if window_data[s] is NodePath:
-			window_data[s] = get_node(window_data[s]);
+			window_data[s] = get_node_or_null(window_data[s]);
 		return window_data[s];
 	else: 
 		printerr("The provided key does not have an associated window.")
 		return null;
 
-func enable_ui(window_id: String, to_enable: Node, options: Dictionary = {}):
-	if !options.has("window_name"):
-		options.window_name = window_id;
-	
+func enable_ui(to_enable: Node, add_to_undo_stack: bool = true, options: Dictionary = {}):	
 	if to_enable:
-		to_enable.visible = true;
-		if options.has("position") && options.position != Vector2.ZERO:
-			to_enable.position = options.position;
+		to_enable.visible = true;		
 		
-		if to_enable.has_method("on_enable"):
-			to_enable.on_enable(options);
-		
-		if options.has("add_to_undo_stack") && options.add_to_undo_stack && !scene_history.has(to_enable):
+		if add_to_undo_stack && !scene_history.has(to_enable):
 			scene_history.append(to_enable);
 		
 func disable_ui(to_disable: Node, return_to_previous = true):
 	to_disable.visible = false;
 	if scene_history.has(to_disable):
 		scene_history.erase(to_disable);
-	if return_to_previous:
+	if return_to_previous && scene_history.size() != 0:
 		scene_history.back().visible = true;
 	
 func reset_history():
