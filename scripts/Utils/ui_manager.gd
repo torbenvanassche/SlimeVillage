@@ -11,6 +11,9 @@ func _init():
 func _ready():
 	for c in get_children():
 		c.visible = false;
+		
+func pause(pause_game = true):
+	get_tree().paused = pause_game
 
 func _unhandled_input(event):
 	if event.is_action_pressed("inventory_open") && !get_tree().paused:
@@ -18,7 +21,9 @@ func _unhandled_input(event):
 		
 	if event.is_action_pressed("cancel") && ui_is_closed():
 		get_viewport().set_input_as_handled()
-		pause_menu.to_enable.pause(!get_tree().paused)
+		pause(!get_tree().paused)
+		if get_tree().paused:
+			enable_ui(pause_menu, true)
 
 func ui_is_closed():
 	return get_children().all(func(x): return !x.visible || x == pause_menu);
@@ -48,6 +53,8 @@ func disable_ui(to_disable: Node, return_to_previous = true):
 		scene_history.erase(to_disable);
 	if return_to_previous && scene_history.size() != 0:
 		scene_history.back().visible = true;
+		
+	pause(!ui_is_closed())
 	
 func reset_history():
 	scene_history.clear()

@@ -5,6 +5,8 @@
 [ext_resource type="Theme" uid="uid://bddqpgqhlplgq" path="res://theming/theme_kenney_font.tres" id="2_bdy5v"]
 
 [node name="Window" node_paths=PackedStringArray("to_enable") instance=ExtResource("1_y21g3")]
+offset_right = -960.0
+offset_bottom = -540.0
 to_enable = NodePath("VBoxContainer/ColorRect/inventory")
 
 [node name="Title" parent="VBoxContainer/topbar/HBoxContainer/MarginContainer" index="0"]

@@ -42,8 +42,6 @@ window_data = {
 [node name="Inventory" parent="UI" instance=ExtResource("4_3yak0")]
 visible = false
 layout_mode = 1
-offset_right = -960.0
-offset_bottom = -540.0
 
 [node name="MarketWindow" parent="UI" instance=ExtResource("7_m6ysw")]
 visible = false
