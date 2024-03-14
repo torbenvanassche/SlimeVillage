@@ -7,18 +7,21 @@ var scene_history: Array[Node] = []
 
 func _init():
 	Global.ui_root = self;
+	
+func _ready():
+	for c in get_children():
+		c.visible = false;
 
 func _unhandled_input(event):
-	if event.is_action_pressed("inventory_open") && !get_tree().paused && !get_subwindow("INVENTORY").visible:
+	if event.is_action_pressed("inventory_open") && !get_tree().paused:
 		enable_ui(get_subwindow("INVENTORY"))
 		
-	if event.is_action_pressed("cancel"):
-		if get_children().all(func(x): return !x.visible || x == pause_menu):
-			get_viewport().set_input_as_handled()
-			pause_menu.pause(!get_tree().paused)
+	if event.is_action_pressed("cancel") && ui_is_closed():
+		get_viewport().set_input_as_handled()
+		pause_menu.to_enable.pause(!get_tree().paused)
 
-func ui_is_open():
-	return get_children().all(func(x): return !x.visible);
+func ui_is_closed():
+	return get_children().all(func(x): return !x.visible || x == pause_menu);
 	
 func get_subwindow(s: String) -> Node:
 	if window_data.has(s):
@@ -29,9 +32,12 @@ func get_subwindow(s: String) -> Node:
 		printerr("The provided key does not have an associated window.")
 		return null;
 
-func enable_ui(to_enable: Node, add_to_undo_stack: bool = true, options: Dictionary = {}):	
+func enable_ui(to_enable: Node, add_to_undo_stack: bool = true, options: Dictionary = {}):
+	if options.has("hide"):
+		options.hide.visible = false;
+
 	if to_enable:
-		to_enable.visible = true;		
+		to_enable.visible = true;
 		
 		if add_to_undo_stack && !scene_history.has(to_enable):
 			scene_history.append(to_enable);

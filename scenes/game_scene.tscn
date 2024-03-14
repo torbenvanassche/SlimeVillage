@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://scripts/Utils/manager.gd" id="1_8x5qd"]
 [ext_resource type="Script" path="res://scripts/Utils/ui_manager.gd" id="2_bvv38"]
 [ext_resource type="PackedScene" uid="uid://tvisrbewsmg0" path="res://windows/components/inventory_window.tscn" id="4_3yak0"]
+[ext_resource type="PackedScene" uid="uid://cp14aq1t5sxf6" path="res://windows/components/pause_window.tscn" id="6_dr3t6"]
 [ext_resource type="PackedScene" uid="uid://cr180fjgdj1co" path="res://windows/components/settings_window.tscn" id="6_ne4ll"]
 [ext_resource type="PackedScene" uid="uid://bwrcc2gxqnosv" path="res://scenes/components/Player.tscn" id="6_o5cr0"]
 [ext_resource type="PackedScene" uid="uid://cuqpjlp4i7pkb" path="res://scenes/components/camera.tscn" id="7_ca8bl"]
 [ext_resource type="PackedScene" uid="uid://b4mwx1uqpo1hi" path="res://scenes/ui/market_window.tscn" id="7_m6ysw"]
-[ext_resource type="PackedScene" uid="uid://4obto2tpb0v3" path="res://scenes/base_scenes/pause_menu.tscn" id="8_11yd1"]
 [ext_resource type="PackedScene" uid="uid://bg1irjlbmoowb" path="res://scenes/base_scenes/overworld.tscn" id="8_34vxr"]
 [ext_resource type="Script" path="res://scripts/navigation/path_finding.gd" id="9_3s661"]
 
@@ -35,13 +35,9 @@ window_data = {
 "INVENTORY": NodePath("Inventory"),
 "MARKET": NodePath("MarketWindow"),
 "MECHANICS": NodePath(""),
-"PAUSE": NodePath("pause_menu"),
+"PAUSE": NodePath("Pause"),
 "SETTINGS": NodePath("Settings")
 }
-
-[node name="pause_menu" parent="UI" instance=ExtResource("8_11yd1")]
-visible = false
-layout_mode = 1
 
 [node name="Inventory" parent="UI" instance=ExtResource("4_3yak0")]
 visible = false
@@ -53,6 +49,10 @@ offset_bottom = -540.0
 visible = false
 
 [node name="Settings" parent="UI" instance=ExtResource("6_ne4ll")]
+visible = false
+layout_mode = 1
+
+[node name="Pause" parent="UI" instance=ExtResource("6_dr3t6")]
 visible = false
 layout_mode = 1
 
