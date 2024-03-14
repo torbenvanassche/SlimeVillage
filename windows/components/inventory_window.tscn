@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://tvisrbewsmg0"]
+[gd_scene load_steps=6 format=3 uid="uid://tvisrbewsmg0"]
 
 [ext_resource type="Script" path="res://scripts/ItemManagement/UI/inventory_ui.gd" id="1_5m7dl"]
 [ext_resource type="PackedScene" uid="uid://dny1dqcanlco0" path="res://windows/base_window.tscn" id="1_y21g3"]
 [ext_resource type="Theme" uid="uid://bddqpgqhlplgq" path="res://theming/theme_kenney_font.tres" id="2_bdy5v"]
+[ext_resource type="Texture2D" uid="uid://dlsovgfasvn0h" path="res://textures/ui/ui_nineslice.png" id="4_656pm"]
+[ext_resource type="Texture2D" uid="uid://bul6a7wfmd8xi" path="res://resources/items/sprites/ores/copper_ore.png" id="4_ae6kk"]
 
 [node name="Window" node_paths=PackedStringArray("to_enable") instance=ExtResource("1_y21g3")]
-offset_right = -960.0
-offset_bottom = -540.0
-to_enable = NodePath("VBoxContainer/ColorRect/inventory")
+offset_right = -1364.0
+offset_bottom = -730.0
+to_enable = NodePath("VBoxContainer/ColorRect/HBoxContainer/inventory")
+
+[node name="VBoxContainer" parent="." index="0"]
+offset_left = -2.0
+offset_right = -2.0
 
 [node name="Title" parent="VBoxContainer/topbar/HBoxContainer/MarginContainer" index="0"]
 text = "Inventory"
@@ -15,11 +21,16 @@ text = "Inventory"
 [node name="ColorRect" parent="VBoxContainer" index="1"]
 color = Color(0.0431373, 0.0431373, 0.0431373, 1)
 
-[node name="inventory" type="MarginContainer" parent="VBoxContainer/ColorRect" index="0" node_paths=PackedStringArray("visual_element")]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ColorRect" index="0"]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
+offset_right = 260.0
 grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="inventory" type="MarginContainer" parent="VBoxContainer/ColorRect/HBoxContainer" index="0" node_paths=PackedStringArray("visual_element")]
+layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -27,17 +38,82 @@ script = ExtResource("1_5m7dl")
 show_locked = true
 visual_element = NodePath("VBoxContainer/GridContainer")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ColorRect/inventory" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ColorRect/HBoxContainer/inventory" index="0"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="VBoxContainer/ColorRect/inventory/VBoxContainer" index="0"]
+[node name="Label" type="Label" parent="VBoxContainer/ColorRect/HBoxContainer/inventory/VBoxContainer" index="0"]
 layout_mode = 2
 theme = ExtResource("2_bdy5v")
 theme_override_font_sizes/font_size = 30
 text = "Items"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/ColorRect/inventory/VBoxContainer" index="1"]
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/ColorRect/HBoxContainer/inventory/VBoxContainer" index="1"]
 layout_mode = 2
 columns = 4
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/ColorRect/HBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ColorRect/HBoxContainer" index="2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="CrateStorage" type="Control" parent="VBoxContainer/ColorRect/HBoxContainer/VBoxContainer" index="0"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ColorRect/HBoxContainer/VBoxContainer/CrateStorage" index="0"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_656pm")
+expand_mode = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/ColorRect/HBoxContainer/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="InfoView" type="VBoxContainer" parent="VBoxContainer/ColorRect/HBoxContainer/VBoxContainer" index="2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ColorRect/HBoxContainer/VBoxContainer/InfoView" index="0"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ColorRect/HBoxContainer/VBoxContainer/InfoView/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ColorRect/HBoxContainer/VBoxContainer/InfoView/MarginContainer/HBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Copper"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ColorRect/HBoxContainer/VBoxContainer/InfoView/MarginContainer/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("4_ae6kk")
+expand_mode = 1
+
+[node name="VSeparator" type="HSeparator" parent="VBoxContainer/ColorRect/HBoxContainer/VBoxContainer/InfoView" index="1"]
+layout_mode = 2
+
+[node name="TextMargin" type="MarginContainer" parent="VBoxContainer/ColorRect/HBoxContainer/VBoxContainer/InfoView" index="2"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/ColorRect/HBoxContainer/VBoxContainer/InfoView/TextMargin" index="0"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Hi, just testing the wrapping on this thing to make sure it works properly and adding some more text to make sure it is mostly full."
+autowrap_mode = 2

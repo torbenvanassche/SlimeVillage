@@ -24,6 +24,9 @@ func _process(_delta):
 	pitch_input = 0.0
 	
 func _input(event):
+	if Global.ui_root.is_on_control and Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
+		return
+	
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		twist_input = - event.relative.x * Settings.camera_rotation_sensitivity;
 		pitch_input = - event.relative.y * Settings.camera_rotation_sensitivity;
@@ -32,8 +35,9 @@ func _input(event):
 		mouse_position = get_viewport().get_mouse_position()
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	elif Input.is_action_just_released("rotate_camera"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_viewport().warp_mouse(mouse_position)
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			get_viewport().warp_mouse(mouse_position)
 		
 	var dist = %Camera3D.position.distance_to(Global.player_instance.position)
 	if Input.is_action_just_pressed("scroll_wheel_up") and dist > min_distance:
@@ -44,4 +48,5 @@ func _input(event):
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_viewport().warp_mouse(mouse_position)
 	pass
