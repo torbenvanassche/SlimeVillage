@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://tvisrbewsmg0"]
+[gd_scene load_steps=7 format=3 uid="uid://tvisrbewsmg0"]
 
 [ext_resource type="Script" path="res://scripts/ItemManagement/UI/inventory_ui.gd" id="1_5m7dl"]
 [ext_resource type="PackedScene" uid="uid://dny1dqcanlco0" path="res://windows/base_window.tscn" id="1_y21g3"]
 [ext_resource type="Theme" uid="uid://bddqpgqhlplgq" path="res://theming/theme_kenney_font.tres" id="2_bdy5v"]
+[ext_resource type="Script" path="res://scripts/ItemManagement/UI/slot_types/item_slot_ui_inventory.gd" id="3_6loix"]
 [ext_resource type="Texture2D" uid="uid://dlsovgfasvn0h" path="res://textures/ui/ui_nineslice.png" id="4_656pm"]
 [ext_resource type="Texture2D" uid="uid://bul6a7wfmd8xi" path="res://resources/items/sprites/ores/copper_ore.png" id="4_ae6kk"]
 
@@ -35,6 +36,7 @@ theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 script = ExtResource("1_5m7dl")
+item_slot_script = ExtResource("3_6loix")
 show_locked = true
 visual_element = NodePath("VBoxContainer/GridContainer")
 
@@ -115,5 +117,4 @@ theme_override_constants/margin_left = 10
 [node name="Label" type="Label" parent="VBoxContainer/ColorRect/HBoxContainer/VBoxContainer/InfoView/TextMargin" index="0"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-text = "Hi, just testing the wrapping on this thing to make sure it works properly and adding some more text to make sure it is mostly full."
 autowrap_mode = 2

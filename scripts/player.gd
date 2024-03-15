@@ -30,6 +30,8 @@ func _ready():
 	animator.speed_scale = (1 / (move_delay + animation_delay));
 	Settings.input_mode_changed.connect(read_input_mode)
 	
+	inventory.add_item_by_id("wheat", 2)
+	
 func set_speed(speed: float):
 	move_delay = speed;
 	animator.speed_scale = (1 / (move_delay + animation_delay));

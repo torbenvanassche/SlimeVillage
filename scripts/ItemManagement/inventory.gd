@@ -37,7 +37,7 @@ func add_item(item: Dictionary, amount: int = 1, create_slot_if_full: bool = fal
 	var remaining_amount: int = amount
 	var slots: Array[ItemSlot] = try_get_slots(item);
 	
-	var local_item = {"name": item.name, "id": item.id, "stack_size": item.stack_size, "sprite": ItemManager.get_sprite(item)};
+	var local_item = {"name": item.name, "id": item.id, "stack_size": item.stack_size, "sprite": ItemManager.get_sprite(item), "description": item.description};
 	if item.has("layout"):
 		local_item.layout = ItemManager.get_layout(item);
 		local_item.layout_cols = item.layout.columns;

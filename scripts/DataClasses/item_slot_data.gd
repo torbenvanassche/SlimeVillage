@@ -9,7 +9,6 @@ var item: Dictionary = {}:
 var is_available = false;
 var window_id: String = ""
 
-
 signal has_changed();
 
 func _init(available: bool = true, w_id: String = ""):

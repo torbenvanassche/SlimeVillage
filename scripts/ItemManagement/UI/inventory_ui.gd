@@ -1,6 +1,8 @@
 class_name InventoryUI
 extends Control #Window does not properly close when clicked outside ( https://github.com/godotengine/godot/issues/87291 )
 
+@export var item_slot_script: Script;
+
 var item_ui_packed: PackedScene = preload("res://scenes/ui/item_display_2d.tscn");              
 var elements: Array[ItemSlotUI] = []
 
@@ -10,6 +12,10 @@ var window: DraggableControl;
 
 @export var show_locked: bool = false;
 @export var visual_element: Control = self;
+
+@onready var infoTitle: Label = $"../VBoxContainer/InfoView/MarginContainer/HBoxContainer/Label";
+@onready var infoTexture: TextureRect = $"../VBoxContainer/InfoView/MarginContainer/HBoxContainer/TextureRect";
+@onready var infoDetails: Label = $"../VBoxContainer/InfoView/TextMargin/Label";
 
 func set_controller(con: Inventory):
 	if con != controller:
@@ -27,14 +33,28 @@ func create_ui(data: Array[ItemSlot]):
 
 func add(dict: ItemSlot):
 	var item_ui = item_ui_packed.instantiate() as ItemSlotUI;
+	item_ui.set_script(item_slot_script)
 	visual_element.add_child(item_ui);
 	elements.append(item_ui);
+	
+	item_ui.mouse_entered.connect(set_info_content.bind(item_ui))
+	item_ui.mouse_exited.connect(set_info_content)
 	
 	if show_locked:
 		item_ui.disabled = !dict.is_available;
 	else:
 		item_ui.visible = dict.is_available;
 	item_ui.set_reference(dict);
+	
+func set_info_content(slot: ItemSlotUI = null):
+	if slot && slot.slot_data && slot.slot_data.item != {}:
+		infoTitle.text = slot.slot_data.item.name;
+		infoDetails.text = slot.slot_data.item.description;
+		infoTexture.texture = slot.slot_data.item.sprite;
+	else:
+		infoTitle.text = "";
+		infoDetails.text = "";
+		infoTexture.texture = null;
 	
 func _set_selected(dict: Dictionary):
 	selected_item = dict.item;
@@ -53,5 +73,8 @@ func _update(data: Array[ItemSlot]):
 		add(data[index])
 		
 func on_enable():
+	if !item_ui_packed:
+		printerr("the item's UI is undefined")
+		return;
 	set_controller(Global.player_instance.inventory);
 	window.change_title.emit("Inventory");
