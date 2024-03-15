@@ -4,15 +4,9 @@ extends Node
 @onready var pause_menu: Node = get_subwindow("PAUSE");
 @export var window_data: Dictionary = {};
 var scene_history: Array[Node] = []
-var is_on_control: bool = false;
 
 func _init():
 	Global.ui_root = self;
-	child_entered_tree.connect(set_control_hover)
-	
-func set_control_hover(node: Node):
-	node.mouse_entered.connect(func(): Global.ui_root.is_on_control = true)
-	node.mouse_exited.connect(func(): Global.ui_root.is_on_control = false)
 
 func _ready():
 	for c in get_children():

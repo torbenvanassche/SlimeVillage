@@ -42,6 +42,7 @@ window_data = {
 [node name="Inventory" parent="UI" instance=ExtResource("4_3yak0")]
 visible = false
 layout_mode = 1
+mouse_filter = 1
 
 [node name="MarketWindow" parent="UI" instance=ExtResource("7_m6ysw")]
 visible = false
@@ -49,10 +50,12 @@ visible = false
 [node name="Settings" parent="UI" instance=ExtResource("6_ne4ll")]
 visible = false
 layout_mode = 1
+mouse_filter = 1
 
 [node name="Pause" parent="UI" instance=ExtResource("6_dr3t6")]
 visible = false
 layout_mode = 1
+mouse_filter = 1
 
 [node name="PlayerRoot" type="Node3D" parent="."]
 process_mode = 1
