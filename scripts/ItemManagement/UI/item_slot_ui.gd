@@ -1,12 +1,20 @@
 class_name ItemSlotUI
 extends Button
 
-@onready var textureRect: TextureRect = $ItemSprite;
-@onready var counter: Label = $Count;
+@onready var textureRect: TextureRect;
+@onready var counter: Label;
 var slot_data: ItemSlot;
 
 @export var default_color = Color(Color.WHITE)
 @export var dragging_color = Color(Color.WHITE, 0.3);
+
+var is_setup_done: bool = false;
+
+func _ready():
+	if !is_setup_done:
+		textureRect = $MarginContainer/ItemSprite;
+		counter = $Count;
+		is_setup_done = true;
 
 @export var show_amount: bool = true:
 	set(value):
@@ -22,6 +30,11 @@ func redraw():
 	textureRect.modulate = default_color
 	counter.visible = false;
 	
+	if !slot_data.is_available:
+		focus_mode = Control.FOCUS_NONE;
+	else:
+		focus_mode = Control.FOCUS_ALL;
+	
 	if slot_data.item.has("id"):
 		sprite = ItemManager.get_sprite(slot_data.item);
 		if !slot_data.item.has("count"):
@@ -31,6 +44,8 @@ func redraw():
 	textureRect.set_texture(sprite);
 	
 func set_reference(data: ItemSlot):
+	_ready();
+	
 	if slot_data:
 		slot_data.has_changed.disconnect(redraw);
 	slot_data = data;

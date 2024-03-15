@@ -6,5 +6,3 @@
 script = ExtResource("1_kkssy")
 add_to_undo = true
 window_id = "MECHANICS"
-window_title = "PUZZLE"
-use_mouse_position = false

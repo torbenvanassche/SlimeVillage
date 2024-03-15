@@ -6,7 +6,7 @@ extends Control #Window does not properly close when clicked outside ( https://g
 var item_ui_packed: PackedScene = preload("res://scenes/ui/item_display_2d.tscn");              
 var elements: Array[ItemSlotUI] = []
 
-var selected_item: Dictionary;
+var selected_slot: ItemSlotUI;
 var controller: Inventory;
 var window: DraggableControl;
 
@@ -39,6 +39,8 @@ func add(dict: ItemSlot):
 	
 	item_ui.mouse_entered.connect(set_info_content.bind(item_ui))
 	item_ui.mouse_exited.connect(set_info_content)
+	item_ui.pressed.connect(_set_selected.bind(item_ui))
+	item_ui.on_drag_end.connect(func(drag_end_slot): selected_slot = null);
 	
 	if show_locked:
 		item_ui.disabled = !dict.is_available;
@@ -47,6 +49,9 @@ func add(dict: ItemSlot):
 	item_ui.set_reference(dict);
 	
 func set_info_content(slot: ItemSlotUI = null):
+	if selected_slot:
+		slot = selected_slot;
+	
 	if slot && slot.slot_data && slot.slot_data.item != {}:
 		infoTitle.text = slot.slot_data.item.name;
 		infoDetails.text = slot.slot_data.item.description;
@@ -56,11 +61,14 @@ func set_info_content(slot: ItemSlotUI = null):
 		infoDetails.text = "";
 		infoTexture.texture = null;
 	
-func _set_selected(dict: Dictionary):
-	selected_item = dict.item;
-
-func reset_selection():
-	selected_item = {}
+func _set_selected(slot: ItemSlotUI):
+	if slot == selected_slot:
+		selected_slot.button_pressed = false;
+		selected_slot = null;
+	elif slot.slot_data.item != {}:
+		selected_slot = slot;
+	else:
+		selected_slot = null;
 
 func _clear():
 	for e in elements:

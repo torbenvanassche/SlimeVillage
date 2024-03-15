@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0ajw5a07g334"]
+[gd_scene load_steps=13 format=3 uid="uid://b0ajw5a07g334"]
 
 [ext_resource type="Script" path="res://scripts/Utils/manager.gd" id="1_8x5qd"]
 [ext_resource type="Script" path="res://scripts/Utils/ui_manager.gd" id="2_bvv38"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cr180fjgdj1co" path="res://windows/components/settings_window.tscn" id="6_ne4ll"]
 [ext_resource type="PackedScene" uid="uid://bwrcc2gxqnosv" path="res://scenes/components/Player.tscn" id="6_o5cr0"]
 [ext_resource type="PackedScene" uid="uid://cuqpjlp4i7pkb" path="res://scenes/components/camera.tscn" id="7_ca8bl"]
+[ext_resource type="PackedScene" uid="uid://cxe2082r62bkt" path="res://windows/components/puzzle_window.tscn" id="7_gymji"]
 [ext_resource type="PackedScene" uid="uid://b4mwx1uqpo1hi" path="res://scenes/ui/market_window.tscn" id="7_m6ysw"]
 [ext_resource type="PackedScene" uid="uid://bg1irjlbmoowb" path="res://scenes/base_scenes/overworld.tscn" id="8_34vxr"]
 [ext_resource type="Script" path="res://scripts/navigation/path_finding.gd" id="9_3s661"]
@@ -34,7 +35,7 @@ script = ExtResource("2_bvv38")
 window_data = {
 "INVENTORY": NodePath("Inventory"),
 "MARKET": NodePath("MarketWindow"),
-"MECHANICS": NodePath(""),
+"MECHANICS": NodePath("Puzzle"),
 "PAUSE": NodePath("Pause"),
 "SETTINGS": NodePath("Settings")
 }
@@ -56,6 +57,9 @@ mouse_filter = 1
 visible = false
 layout_mode = 1
 mouse_filter = 1
+
+[node name="Puzzle" parent="UI" instance=ExtResource("7_gymji")]
+layout_mode = 1
 
 [node name="PlayerRoot" type="Node3D" parent="."]
 process_mode = 1

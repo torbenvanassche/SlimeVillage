@@ -1,11 +1,12 @@
 class_name FittingPuzzle
 extends Control
 
+@export var item_slot_script: Script 
 @onready var container: ShippingContainer = ShippingContainer.new();
 var item_ui_packed: PackedScene = preload("res://scenes/ui/item_display_2d.tscn");  
-@onready var window: Window = $"../";
+var window: DraggableControl;
 
-@onready var close_box_button: Button = $PuzzlePanel/ResolveButton/Button;
+@onready var close_box_button: Button = $VBoxContainer/Button;
 
 signal item_added(id: String);
 signal item_removed(id: String);
@@ -13,9 +14,8 @@ signal item_removed(id: String);
 @export var visual_element: Control = self
 var clear_on_open: bool = true;
 
-func on_enable(options: Dictionary):
-	if !options.has("grid_preset"):
-		options.grid_preset = Settings.active_grid_preset;
+func on_enable():
+	var grid_preset = Settings.active_grid_preset;
 	
 	if clear_on_open:
 		#clear_on_open = false;
@@ -23,13 +23,15 @@ func on_enable(options: Dictionary):
 		for child in visual_element.get_children():
 			child.queue_free();
 	
-	visual_element.columns = options.grid_preset.grid_size.y;
+	visual_element.columns = grid_preset.grid_size.y;
 	var curr_arr: Array = []
 	
-	for i in range(options.grid_preset.grid_size.x * options.grid_preset.grid_size.y):
+	for i in range(grid_preset.grid_size.x * grid_preset.grid_size.y):
 		var btn = item_ui_packed.instantiate() as ItemSlotUI;
+		btn.set_script(item_slot_script);
+		btn.puzzle_controller = self;
 		btn.set_reference(ItemSlot.new(true, "Puzzle"));
-		btn.custom_minimum_size = Vector2(options.grid_preset.tile_size, options.grid_preset.tile_size);
+		btn.custom_minimum_size = Vector2(grid_preset.tile_size, grid_preset.tile_size);
 		btn.show_amount = false;
 		visual_element.add_child(btn)
 		
@@ -44,6 +46,8 @@ func assign_to_player():
 	window.close_requested.emit();
 	
 func _ready():
+	if !visual_element:
+		visual_element = self;
 	_deferred_ready.call_deferred();
 	
 func _deferred_ready():
@@ -68,7 +72,7 @@ func add_item(btn: ItemSlotUI, item: Dictionary):
 		item_added.emit(item.id)
 
 func reset_tiles(btn: ItemSlotUI):
-	var clicked_shape = container.get_tile(visual_element.get_children().find(btn), true)	
+	var clicked_shape = container.get_tile(visual_element.get_children().find(btn), true)
 	for tile in clicked_shape:
 		container.set_tile(tile.x, tile.y, false);
 		visual_element.get_child(tile.index).textureRect.texture = null

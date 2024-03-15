@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://tvisrbewsmg0"]
+[gd_scene load_steps=6 format=3 uid="uid://tvisrbewsmg0"]
 
 [ext_resource type="Script" path="res://scripts/ItemManagement/UI/inventory_ui.gd" id="1_5m7dl"]
 [ext_resource type="PackedScene" uid="uid://dny1dqcanlco0" path="res://windows/base_window.tscn" id="1_y21g3"]
 [ext_resource type="Theme" uid="uid://bddqpgqhlplgq" path="res://theming/theme_kenney_font.tres" id="2_bdy5v"]
 [ext_resource type="Script" path="res://scripts/ItemManagement/UI/slot_types/item_slot_ui_inventory.gd" id="3_6loix"]
 [ext_resource type="Texture2D" uid="uid://dlsovgfasvn0h" path="res://textures/ui/ui_nineslice.png" id="4_656pm"]
-[ext_resource type="Texture2D" uid="uid://bul6a7wfmd8xi" path="res://resources/items/sprites/ores/copper_ore.png" id="4_ae6kk"]
 
 [node name="Window" node_paths=PackedStringArray("to_enable") instance=ExtResource("1_y21g3")]
 offset_right = -1364.0
@@ -24,9 +23,10 @@ color = Color(0.0431373, 0.0431373, 0.0431373, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ColorRect" index="0"]
 layout_mode = 1
-anchors_preset = 9
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 260.0
+grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
@@ -60,7 +60,6 @@ columns = 4
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ColorRect/HBoxContainer" index="2"]
-custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
 [node name="CrateStorage" type="Control" parent="VBoxContainer/ColorRect/HBoxContainer/VBoxContainer" index="0"]
@@ -99,12 +98,10 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/ColorRect/HBoxContainer/VBoxContainer/InfoView/MarginContainer/HBoxContainer" index="0"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Copper"
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/ColorRect/HBoxContainer/VBoxContainer/InfoView/MarginContainer/HBoxContainer" index="1"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
-texture = ExtResource("4_ae6kk")
 expand_mode = 1
 
 [node name="VSeparator" type="HSeparator" parent="VBoxContainer/ColorRect/HBoxContainer/VBoxContainer/InfoView" index="1"]
