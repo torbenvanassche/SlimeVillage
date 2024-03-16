@@ -1,6 +1,8 @@
 class_name DraggableControl
 extends Control
 
+@export_enum("inventory", "puzzle") var id: String;
+
 @onready var vp := get_viewport()
 @onready var top_bar: ColorRect = $VBoxContainer/topbar;
 @onready var close_button: Button = $VBoxContainer/topbar/HBoxContainer/Button;

@@ -4,17 +4,22 @@ signal on_drag_end(b: ItemSlotUI);
 var puzzle_controller: FittingPuzzle;
 
 func _get_drag_data(at_position):
-	if slot_data.item != {}:
-		as_blank();
-		return self;
-	return null;
+	var shape = puzzle_controller.get_shape(self, false)
+	var slots: Array[ItemSlotUI] = [];
+	for s in shape:
+		var slot = puzzle_controller.get_slot(s.index);
+		slots.append(slot);
+		slot.as_blank();
+		
+	if slots.size() != 0:
+		return DragData.new(slot_data.item, "puzzle", slots)
 	
 func _can_drop_data(at_position, data):
-	return data is ItemSlotUI && self is ItemSlotUI && slot_data.is_available;
+	return data is DragData && self is ItemSlotUI && slot_data.is_available;
 	
 func _drop_data(at_position, data):
-	puzzle_controller.add_item(self, data.slot_data.item);
-	data.slot_data.remove();
+	puzzle_controller.add_item(self, data.item);
+	data.item_slots[0].slot_data.remove(1);
 	on_drag_end.emit(self);
 	
 func _notification(what):

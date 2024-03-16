@@ -55,6 +55,7 @@ func _deferred_ready():
 	close_box_button.pressed.connect(assign_to_player)
 
 func add_item(btn: ItemSlotUI, item: Dictionary):
+	item = item.duplicate();
 	var btn_index = visual_element.get_children().find(btn)
 	var item_shape = Helpers.convert_to_2D(item.layout, item.layout_cols)
 	var item_connections = [];
@@ -70,9 +71,15 @@ func add_item(btn: ItemSlotUI, item: Dictionary):
 			btn.redraw()
 		container.add_item(item_connections);
 		item_added.emit(item.id)
+		
+func get_shape(btn: ItemSlotUI, erase: bool = true):
+	return container.get_tile(visual_element.get_children().find(btn), erase)
+	
+func get_slot(idx: int) -> ItemSlotUI:
+	return visual_element.get_child(idx);
 
 func reset_tiles(btn: ItemSlotUI):
-	var clicked_shape = container.get_tile(visual_element.get_children().find(btn), true)
+	var clicked_shape = get_shape(btn, true)
 	for tile in clicked_shape:
 		container.set_tile(tile.x, tile.y, false);
 		visual_element.get_child(tile.index).textureRect.texture = null

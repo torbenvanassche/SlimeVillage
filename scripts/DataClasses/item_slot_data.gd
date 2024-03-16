@@ -15,6 +15,9 @@ func _init(available: bool = true, w_id: String = ""):
 	is_available = available;
 	window_id = w_id;
 	
+func is_empty():
+	return !item;
+	
 func reset():
 	item = {};
 func has_space(id: String, amount: int = 1) -> bool:
