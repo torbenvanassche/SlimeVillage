@@ -53,15 +53,20 @@ func _ready():
 func _deferred_ready():
 	window.close_requested.connect(hide)
 	close_box_button.pressed.connect(assign_to_player)
-
-func add_item(btn: ItemSlotUI, item: Dictionary):
+	
+func can_add(btn: ItemSlotUI, item: Dictionary) -> Array:
 	item = item.duplicate();
 	var btn_index = visual_element.get_children().find(btn)
 	var item_shape = Helpers.convert_to_2D(item.layout, item.layout_cols)
-	var item_connections = [];
 	item.count = 1;
 
 	var intersections = container.intersect(item_shape, Vector2i(int(btn_index / float(visual_element.columns)), btn_index % visual_element.columns));
+	return intersections;	
+
+func add_item(btn: ItemSlotUI, item: Dictionary) -> void:
+	var intersections = can_add(btn, item);
+	var item_connections = [];
+
 	if intersections.size() > 0:
 		for intersection in intersections:
 			item_connections.append({"x": intersection.y, "y": intersection.x, "key": item.id, "index": intersection.x * visual_element.columns + intersection.y})
@@ -82,4 +87,4 @@ func reset_tiles(btn: ItemSlotUI):
 	var clicked_shape = get_shape(btn, true)
 	for tile in clicked_shape:
 		container.set_tile(tile.x, tile.y, false);
-		visual_element.get_child(tile.index).textureRect.texture = null
+		visual_element.get_child(tile.index).slot_data.remove_all();

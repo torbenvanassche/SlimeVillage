@@ -26,6 +26,9 @@ func intersect(item, chosen_position: Vector2i) -> Array:
 	for row_idx in item.size():
 		var row = item[row_idx]
 		for col_idx in row.size():
+			if row_idx+chosen_position.y >= inventory_2d.size() || col_idx+chosen_position.x >= row.size():
+				return [];
+			
 			var item_state: bool = row[col_idx]
 			if row_idx+chosen_position.x >= inventory_2d.size() || col_idx+chosen_position.y >= inventory_2d[row_idx+chosen_position.x].size():
 				return [];

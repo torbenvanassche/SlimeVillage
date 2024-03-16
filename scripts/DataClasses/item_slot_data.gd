@@ -52,3 +52,7 @@ func remove(amount: int = 1) -> int:
 		item = {}
 	has_changed.emit();
 	return amount - amount_to_remove
+
+func remove_all():
+	if item:
+		remove(item.amount)

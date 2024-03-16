@@ -10,14 +10,17 @@ func _get_drag_data(at_position):
 	return null;
 	
 func _can_drop_data(at_position, data):
-	return data is DragData && self is ItemSlotUI && slot_data.is_available && (slot_data.has_space(data.item.id, data.item.count));
+	var data_is_valid = data is DragData && self is ItemSlotUI && slot_data.is_available;
+	var can_place_item = slot_data.has_space(data.item.id, data.item.count);
+	return data_is_valid && can_place_item;
 	
 func _drop_data(at_position, data):
 	var current_reference = slot_data;
 	var count_removed = data.item.count;
 	data.item_slots[0].slot_data.remove(data.item.count);
 	if data.origin_window == "puzzle":
-		(data.item_slots[0].puzzle_controller as FittingPuzzle).get_shape(data.item_slots[0], true)
+		(data.item_slots[0].puzzle_controller as FittingPuzzle).reset_tiles(data.item_slots[0])
+		slot_data.add(data.item, 1);
 	else:
 		slot_data.add(data.item, count_removed);
 	on_drag_end.emit(self)
