@@ -55,4 +55,4 @@ func remove(amount: int = 1) -> int:
 
 func remove_all():
 	if item:
-		remove(item.amount)
+		remove(item.count)

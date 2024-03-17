@@ -31,3 +31,13 @@ func _notification(what):
 			if !is_drag_successful():
 				on_drag_end.emit(self)
 				redraw()
+				
+func _gui_input(event):
+	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_RIGHT:
+		var mouse_position = get_global_mouse_position();
+		var context: ContextMenu = Global.ui_root.get_subwindow("CONTEXT").get_for_inventory();
+		context.on_split_stack.connect(_split_stack)
+		context.popup(Rect2(mouse_position.x, mouse_position.y, context.size.x, context.size.y))
+
+func _split_stack():
+	pass
