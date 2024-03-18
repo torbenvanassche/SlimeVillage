@@ -1,12 +1,15 @@
 class_name ContextMenu
 extends PopupMenu
 
-signal on_split_stack();
+var menu_items: Array[ContextMenuItem];
 
-func get_for_inventory():
-	add_item("Split stack", 0);
-	index_pressed.connect(_on_idx);
-	return self;
+func _init(data: Array[ContextMenuItem]):
+	for index in range(data.size()):
+		var context_item := data[index];
+		add_item(context_item.id, index)
+		context_item.idx = index;
+	index_pressed.connect(_on_idx)
+	menu_items = data
 	
 func _on_idx(index):
-	on_split_stack.emit();
+	menu_items.find(func(x: ContextMenuItem): return x.idx == index);
