@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://da1aboixvngs7"
-path="res://.godot/imported/SM_Prop_Poster_07.glb-f73ce6ab2c0ca87cb6b983945a8e7375.scn"
+uid="uid://c4k5qndrdpmva"
+path="res://.godot/imported/SM_Prop_Crate_Stack_02.glb-291d2b44199219e0369fe3d83a056444.scn"
 
 [deps]
 
-source_file="res://level_pieces/mechanics/market/SM_Prop_Poster_07.glb"
-dest_files=["res://.godot/imported/SM_Prop_Poster_07.glb-f73ce6ab2c0ca87cb6b983945a8e7375.scn"]
+source_file="res://level_pieces/environment/mechanics/base/SM_Prop_Crate_Stack_02.glb"
+dest_files=["res://.godot/imported/SM_Prop_Crate_Stack_02.glb-291d2b44199219e0369fe3d83a056444.scn"]
 
 [params]
 
@@ -31,15 +31,14 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "materials": {
-"CastleSHD442": {
+"CastleSHD335": {
 "use_external/enabled": true,
 "use_external/path": "res://materials/polygon/polygon_fantasy.tres"
 }
 },
 "nodes": {
-"PATH:SM_Prop_Poster_07": {
-"generate/physics": true,
-"physics/shape_type": 1
+"PATH:SM_Prop_Crate_Stack_02": {
+"generate/physics": true
 }
 }
 }

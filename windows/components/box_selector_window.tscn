@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://sxc3mccyd3rh"]
+
+[ext_resource type="PackedScene" uid="uid://dny1dqcanlco0" path="res://windows/base_window.tscn" id="1_hul4v"]
+[ext_resource type="Script" path="res://scripts/mechanics/set_container_data.gd" id="2_761bx"]
+[ext_resource type="Resource" uid="uid://d08mte67kb167" path="res://resources/grid_presets/2x2.tres" id="3_nlyrq"]
+[ext_resource type="Resource" uid="uid://bbg1qhwb6fxro" path="res://resources/grid_presets/3x3.tres" id="4_wj88j"]
+[ext_resource type="Resource" uid="uid://60pr2bvam1xy" path="res://resources/grid_presets/4x4.tres" id="5_4al2d"]
+[ext_resource type="Resource" uid="uid://dwer0mj0fi1pp" path="res://resources/grid_presets/5x5.tres" id="6_utc3x"]
+
+[node name="Window" instance=ExtResource("1_hul4v")]
+offset_right = -1568.0
+offset_bottom = -920.0
+
+[node name="Title" parent="VBoxContainer/topbar/HBoxContainer/MarginContainer" index="0"]
+text = "Box size"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ColorRect" index="0"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="HFlowContainer" parent="VBoxContainer/ColorRect/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="2x2" type="Button" parent="VBoxContainer/ColorRect/MarginContainer/GridContainer" index="0" node_paths=PackedStringArray("window")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+text = "2 x 2"
+script = ExtResource("2_761bx")
+grid_preset_data = ExtResource("3_nlyrq")
+window = NodePath("../../../../..")
+
+[node name="3x3" type="Button" parent="VBoxContainer/ColorRect/MarginContainer/GridContainer" index="1" node_paths=PackedStringArray("window")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+text = "3 x 3"
+script = ExtResource("2_761bx")
+grid_preset_data = ExtResource("4_wj88j")
+window = NodePath("../../../../..")
+
+[node name="4x4" type="Button" parent="VBoxContainer/ColorRect/MarginContainer/GridContainer" index="2" node_paths=PackedStringArray("window")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+text = "4 x 4"
+script = ExtResource("2_761bx")
+grid_preset_data = ExtResource("5_4al2d")
+window = NodePath("../../../../..")
+
+[node name="5x5" type="Button" parent="VBoxContainer/ColorRect/MarginContainer/GridContainer" index="3" node_paths=PackedStringArray("window")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+text = "5 x 5"
+script = ExtResource("2_761bx")
+grid_preset_data = ExtResource("6_utc3x")
+window = NodePath("../../../../..")

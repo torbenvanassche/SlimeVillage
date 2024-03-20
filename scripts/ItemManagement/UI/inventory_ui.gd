@@ -40,7 +40,7 @@ func add(dict: ItemSlot):
 	item_ui.mouse_entered.connect(set_info_content.bind(item_ui))
 	item_ui.mouse_exited.connect(set_info_content)
 	item_ui.pressed.connect(_set_selected.bind(item_ui))
-	item_ui.on_drag_end.connect(func(drag_end_slot): selected_slot = null);
+	item_ui.on_drag_end.connect(func(_drag_end_slot): selected_slot = null);
 	
 	if show_locked:
 		item_ui.disabled = !dict.is_available;

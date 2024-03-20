@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cwdnedhk70x72"
-path="res://.godot/imported/SM_Prop_Poster_10.glb-1301ac03c3d519873615b5feb3ffa289.scn"
+uid="uid://cno87arr36yxw"
+path="res://.godot/imported/SM_Prop_Crate_Wood_01.glb-05fa54fbed782282c729ab390b3f0599.scn"
 
 [deps]
 
-source_file="res://level_pieces/mechanics/market/SM_Prop_Poster_10.glb"
-dest_files=["res://.godot/imported/SM_Prop_Poster_10.glb-1301ac03c3d519873615b5feb3ffa289.scn"]
+source_file="res://level_pieces/environment/mechanics/base/SM_Prop_Crate_Wood_01.glb"
+dest_files=["res://.godot/imported/SM_Prop_Crate_Wood_01.glb-05fa54fbed782282c729ab390b3f0599.scn"]
 
 [params]
 
@@ -31,15 +31,17 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "materials": {
-"CastleSHD445": {
+"CastleSHD338": {
 "use_external/enabled": true,
 "use_external/path": "res://materials/polygon/polygon_fantasy.tres"
 }
 },
 "nodes": {
-"PATH:SM_Prop_Poster_10": {
+"PATH:SM_Prop_Crate_Wood_01": {
 "generate/physics": true,
-"physics/shape_type": 1
+"physics/shape_type": 3,
+"primitive/position": Vector3(0, 0, -50),
+"primitive/size": Vector3(100, 100, 100)
 }
 }
 }

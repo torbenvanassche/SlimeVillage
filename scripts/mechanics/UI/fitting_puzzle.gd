@@ -15,23 +15,21 @@ signal item_removed(id: String);
 var clear_on_open: bool = true;
 
 func on_enable():
-	var grid_preset = Settings.active_grid_preset;
-	
 	if clear_on_open:
 		#clear_on_open = false;
 		container.clear();
 		for child in visual_element.get_children():
 			child.queue_free();
 	
-	visual_element.columns = grid_preset.grid_size.y;
+	visual_element.columns = Global.player_instance.carryable_preset.grid_size.y;
 	var curr_arr: Array = []
 	
-	for i in range(grid_preset.grid_size.x * grid_preset.grid_size.y):
+	for i in range(Global.player_instance.carryable_preset.grid_size.x * Global.player_instance.carryable_preset.grid_size.y):
 		var btn = item_ui_packed.instantiate() as ItemSlotUI;
 		btn.set_script(item_slot_script);
 		btn.puzzle_controller = self;
 		btn.set_reference(ItemSlot.new(true, "Puzzle"));
-		btn.custom_minimum_size = Vector2(grid_preset.tile_size, grid_preset.tile_size);
+		btn.custom_minimum_size = Vector2(Global.player_instance.carryable_preset.tile_size, Global.player_instance.carryable_preset.tile_size);
 		btn.show_amount = false;
 		visual_element.add_child(btn)
 		

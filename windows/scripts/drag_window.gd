@@ -1,7 +1,7 @@
 class_name DraggableControl
 extends Control
 
-@export_enum("inventory", "puzzle") var id: String;
+@export_enum("inventory", "puzzle", "other") var id: String = "other";
 
 @onready var vp := get_viewport()
 @onready var top_bar: ColorRect = $VBoxContainer/topbar;
@@ -49,7 +49,7 @@ func _on_visibility_changed():
 	if visible:
 		on_enable();
 	
-func on_enable(options: Dictionary = {}):
+func on_enable(_options: Dictionary = {}):
 	if !events_connected:
 		_ready();
 		
@@ -79,8 +79,8 @@ func on_enable(options: Dictionary = {}):
 	if store_position:
 		position = stored_position;
 
-func _change_title(str: String):
-	title.text = str;
+func _change_title(s: String):
+	title.text = s;
 
 func handle_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

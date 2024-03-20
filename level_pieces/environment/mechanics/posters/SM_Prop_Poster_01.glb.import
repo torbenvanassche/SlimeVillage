@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dy21y3d3464nv"
-path="res://.godot/imported/SM_Prop_PlantBox_Large_01.glb-d152ed1f74082eea0088b86e36b42c95.scn"
+uid="uid://ca1f6x5ik2a6l"
+path="res://.godot/imported/SM_Prop_Poster_01.glb-6a0680d3aaa6e350063a7064502442be.scn"
 
 [deps]
 
-source_file="res://level_pieces/environment/props/SM_Prop_PlantBox_Large_01.glb"
-dest_files=["res://.godot/imported/SM_Prop_PlantBox_Large_01.glb-d152ed1f74082eea0088b86e36b42c95.scn"]
+source_file="res://level_pieces/environment/mechanics/posters/SM_Prop_Poster_01.glb"
+dest_files=["res://.godot/imported/SM_Prop_Poster_01.glb-6a0680d3aaa6e350063a7064502442be.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=0.4
+nodes/root_scale=0.8
 meshes/ensure_tangents=false
 meshes/generate_lods=false
 meshes/create_shadow_meshes=false
@@ -31,9 +31,17 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "materials": {
-"PlantBox": {
+"CastleSHD436": {
 "use_external/enabled": true,
-"use_external/path": "res://materials/polygon/polygon_farm.tres"
+"use_external/path": "res://materials/polygon/polygon_fantasy.tres"
+}
+},
+"nodes": {
+"PATH:SM_Prop_Poster_01": {
+"generate/physics": true,
+"physics/shape_type": 1,
+"primitive/position": Vector3(0, 0, 10),
+"primitive/size": Vector3(40, 10, 45)
 }
 }
 }

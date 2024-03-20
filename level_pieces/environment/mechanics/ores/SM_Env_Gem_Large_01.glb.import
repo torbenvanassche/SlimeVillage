@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cd748edhg0wfn"
-path="res://.godot/imported/SM_Env_Gem_Large_01.glb-62ecbcdde492eb396c23da9a8f3cecd7.scn"
+path="res://.godot/imported/SM_Env_Gem_Large_01.glb-eeb9ecf43df203244f6a24e2bbfa4c07.scn"
 
 [deps]
 
-source_file="res://level_pieces/environment/ores/SM_Env_Gem_Large_01.glb"
-dest_files=["res://.godot/imported/SM_Env_Gem_Large_01.glb-62ecbcdde492eb396c23da9a8f3cecd7.scn"]
+source_file="res://level_pieces/environment/mechanics/ores/SM_Env_Gem_Large_01.glb"
+dest_files=["res://.godot/imported/SM_Env_Gem_Large_01.glb-eeb9ecf43df203244f6a24e2bbfa4c07.scn"]
 
 [params]
 

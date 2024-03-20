@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cs3ham8ta5nyo"
-path="res://.godot/imported/SM_Prop_Poster_05.glb-1cdae6b34a8275699b9d36f66f3d762f.scn"
+path="res://.godot/imported/SM_Prop_Poster_05.glb-77f544e723b16de028495e0309767757.scn"
 
 [deps]
 
-source_file="res://level_pieces/mechanics/market/SM_Prop_Poster_05.glb"
-dest_files=["res://.godot/imported/SM_Prop_Poster_05.glb-1cdae6b34a8275699b9d36f66f3d762f.scn"]
+source_file="res://level_pieces/environment/mechanics/posters/SM_Prop_Poster_05.glb"
+dest_files=["res://.godot/imported/SM_Prop_Poster_05.glb-77f544e723b16de028495e0309767757.scn"]
 
 [params]
 

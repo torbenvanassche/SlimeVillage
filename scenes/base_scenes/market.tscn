@@ -21,18 +21,18 @@
 [ext_resource type="PackedScene" uid="uid://ya085cctv6wx" path="res://level_pieces/environment/rails/SM_Env_Mine_Track_Angled_04.glb" id="20_n6nto"]
 [ext_resource type="PackedScene" uid="uid://cp2jpkw3orbyy" path="res://level_pieces/environment/props/SM_Prop_Quest_Board_01.glb" id="20_u6nuf"]
 [ext_resource type="PackedScene" uid="uid://boov62g3smjpb" path="res://level_pieces/environment/props/sm_prop_cart_02.tscn" id="22_80qns"]
+[ext_resource type="PackedScene" uid="uid://ca1f6x5ik2a6l" path="res://level_pieces/environment/mechanics/posters/SM_Prop_Poster_01.glb" id="23_wsxt1"]
 [ext_resource type="Script" path="res://scripts/mechanics/UI/market_ui_in_world.gd" id="24_hu7vp"]
 [ext_resource type="PackedScene" uid="uid://1n36xgx3n0q6" path="res://level_pieces/environment/walkable/sm_generic_ground_grass.tscn" id="24_lvgvf"]
-[ext_resource type="PackedScene" uid="uid://ca1f6x5ik2a6l" path="res://level_pieces/mechanics/market/SM_Prop_Poster_01.glb" id="25_rmhdj"]
-[ext_resource type="PackedScene" uid="uid://c4y0c52aw5qqi" path="res://level_pieces/mechanics/market/SM_Prop_Poster_02.glb" id="26_e8p53"]
-[ext_resource type="PackedScene" uid="uid://cvn7gs3ap32jx" path="res://level_pieces/mechanics/market/SM_Prop_Poster_04.glb" id="28_arqqw"]
-[ext_resource type="PackedScene" uid="uid://cs3ham8ta5nyo" path="res://level_pieces/mechanics/market/SM_Prop_Poster_05.glb" id="29_v04uw"]
-[ext_resource type="PackedScene" uid="uid://eu7qnf0ykedm" path="res://level_pieces/mechanics/market/SM_Prop_Poster_06.glb" id="30_7wgia"]
-[ext_resource type="PackedScene" uid="uid://da1aboixvngs7" path="res://level_pieces/mechanics/market/SM_Prop_Poster_07.glb" id="31_f2lde"]
-[ext_resource type="PackedScene" uid="uid://bjddwrhpwk5w8" path="res://level_pieces/mechanics/market/SM_Prop_Poster_08.glb" id="32_wcxdt"]
-[ext_resource type="PackedScene" uid="uid://b6fltgdhbao5c" path="res://level_pieces/mechanics/market/SM_Prop_Poster_09.glb" id="33_8v2pu"]
-[ext_resource type="PackedScene" uid="uid://df8viwbopmugj" path="res://level_pieces/mechanics/market/storage_crate.tscn" id="33_q6alw"]
-[ext_resource type="PackedScene" uid="uid://cwdnedhk70x72" path="res://level_pieces/mechanics/market/SM_Prop_Poster_10.glb" id="34_7hxu4"]
+[ext_resource type="PackedScene" uid="uid://c4y0c52aw5qqi" path="res://level_pieces/environment/mechanics/posters/SM_Prop_Poster_02.glb" id="24_x56ds"]
+[ext_resource type="PackedScene" uid="uid://cvn7gs3ap32jx" path="res://level_pieces/environment/mechanics/posters/SM_Prop_Poster_04.glb" id="25_wat18"]
+[ext_resource type="PackedScene" uid="uid://cs3ham8ta5nyo" path="res://level_pieces/environment/mechanics/posters/SM_Prop_Poster_05.glb" id="26_38x61"]
+[ext_resource type="PackedScene" uid="uid://eu7qnf0ykedm" path="res://level_pieces/environment/mechanics/posters/SM_Prop_Poster_06.glb" id="27_gxblj"]
+[ext_resource type="PackedScene" uid="uid://da1aboixvngs7" path="res://level_pieces/environment/mechanics/posters/SM_Prop_Poster_07.glb" id="28_0q6fo"]
+[ext_resource type="PackedScene" uid="uid://bjddwrhpwk5w8" path="res://level_pieces/environment/mechanics/posters/SM_Prop_Poster_08.glb" id="29_m7gtj"]
+[ext_resource type="PackedScene" uid="uid://b6fltgdhbao5c" path="res://level_pieces/environment/mechanics/posters/SM_Prop_Poster_09.glb" id="30_lavyk"]
+[ext_resource type="PackedScene" uid="uid://cwdnedhk70x72" path="res://level_pieces/environment/mechanics/posters/SM_Prop_Poster_10.glb" id="31_4no67"]
+[ext_resource type="PackedScene" uid="uid://bfqewcr3yqtca" path="res://level_pieces/environment/mechanics/crates/sm_prop_crate_stack_022.tscn" id="33_v7vod"]
 
 [node name="Market" type="Node3D"]
 script = ExtResource("1_8kal8")
@@ -166,6 +166,7 @@ transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 8, 1, 4)
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 5, 1, 4)
 
 [node name="@StaticBody3D@45369" parent="Ground/SM_Bld_House_Floor_Stone_059" instance=ExtResource("2_76f0h")]
+walkable_in_scene = false
 
 [node name="SM_Bld_House_Floor_Stone_060" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 6, 1, 4)
@@ -186,6 +187,7 @@ transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 8, 1, 5)
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 5, 1, 5)
 
 [node name="@StaticBody3D@45368" parent="Ground/SM_Bld_House_Floor_Stone_063" instance=ExtResource("2_76f0h")]
+walkable_in_scene = false
 
 [node name="SM_Bld_House_Floor_Stone_064" parent="Ground" instance=ExtResource("4_ojr6j")]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 6, 1, 5)
@@ -498,6 +500,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53674e-07, -1.38283e-05, 2.
 
 [node name="SM_Prop_Cart_023" parent="Rails" instance=ExtResource("22_80qns")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00866, 1.12226, 1.32544)
+interaction = null
 require_adjacent = false
 
 [node name="SM_Prop_Quest_Board_012" parent="." instance=ExtResource("20_u6nuf")]
@@ -510,7 +513,7 @@ max_orders = 5
 [node name="world_ui" type="Node3D" parent="SM_Prop_Quest_Board_012" node_paths=PackedStringArray("market_generator")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.958, -0.0590968)
 script = ExtResource("24_hu7vp")
-_poster_packed = Array[PackedScene]([ExtResource("25_rmhdj"), ExtResource("26_e8p53"), ExtResource("28_arqqw"), ExtResource("29_v04uw"), ExtResource("30_7wgia"), ExtResource("31_f2lde"), ExtResource("32_wcxdt"), ExtResource("33_8v2pu"), ExtResource("34_7hxu4")])
+_poster_packed = Array[PackedScene]([ExtResource("23_wsxt1"), ExtResource("24_x56ds"), ExtResource("25_wat18"), ExtResource("26_38x61"), ExtResource("27_gxblj"), ExtResource("28_0q6fo"), ExtResource("29_m7gtj"), ExtResource("30_lavyk"), ExtResource("31_4no67")])
 market_generator = NodePath("../market_generator")
 
 [node name="Node3D" type="Node3D" parent="SM_Prop_Quest_Board_012/world_ui"]
@@ -661,5 +664,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 [node name="SM_Generic_Ground_025" parent="Unwalkable ground" instance=ExtResource("24_lvgvf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
-[node name="SM_Prop_Crate_Wood_012" parent="." instance=ExtResource("33_q6alw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49311, 1.02279, 2.48071)
+[node name="SM_Prop_Crate_Stack_023" parent="." instance=ExtResource("33_v7vod")]
+transform = Transform3D(-2.18827e-08, 0, 0.500617, 0, 0.500617, 0, -0.500617, 0, -2.18827e-08, 5.4756, 1.02278, 3.92377)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0ajw5a07g334"]
+[gd_scene load_steps=14 format=3 uid="uid://b0ajw5a07g334"]
 
 [ext_resource type="Script" path="res://scripts/Utils/manager.gd" id="1_8x5qd"]
 [ext_resource type="Script" path="res://scripts/Utils/ui_manager.gd" id="2_bvv38"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cxe2082r62bkt" path="res://windows/components/puzzle_window.tscn" id="7_gymji"]
 [ext_resource type="PackedScene" uid="uid://b4mwx1uqpo1hi" path="res://scenes/ui/market_window.tscn" id="7_m6ysw"]
 [ext_resource type="PackedScene" uid="uid://bg1irjlbmoowb" path="res://scenes/base_scenes/overworld.tscn" id="8_34vxr"]
+[ext_resource type="PackedScene" uid="uid://sxc3mccyd3rh" path="res://windows/components/box_selector_window.tscn" id="8_smyqt"]
 [ext_resource type="Script" path="res://scripts/navigation/path_finding.gd" id="9_3s661"]
 
 [sub_resource type="Environment" id="Environment_jjbbm"]
@@ -21,9 +22,9 @@ tonemap_white = 1.55
 process_mode = 3
 script = ExtResource("1_8x5qd")
 initial_scene = NodePath("overworld")
-UI_manager = NodePath("UI")
+UI_manager = NodePath("Windows")
 
-[node name="UI" type="Control" parent="."]
+[node name="Windows" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,6 +34,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_bvv38")
 window_data = {
+"BOXSIZE": NodePath("BoxSizePicker"),
 "INVENTORY": NodePath("Inventory"),
 "MARKET": NodePath("MarketWindow"),
 "MECHANICS": NodePath("Puzzle"),
@@ -40,28 +42,45 @@ window_data = {
 "SETTINGS": NodePath("Settings")
 }
 
-[node name="Inventory" parent="UI" instance=ExtResource("4_3yak0")]
+[node name="Inventory" parent="Windows" instance=ExtResource("4_3yak0")]
+visible = false
+layout_mode = 1
+mouse_filter = 1
+id = "inventory"
+
+[node name="MarketWindow" parent="Windows" instance=ExtResource("7_m6ysw")]
+visible = false
+
+[node name="Settings" parent="Windows" instance=ExtResource("6_ne4ll")]
 visible = false
 layout_mode = 1
 mouse_filter = 1
 
-[node name="MarketWindow" parent="UI" instance=ExtResource("7_m6ysw")]
-visible = false
-
-[node name="Settings" parent="UI" instance=ExtResource("6_ne4ll")]
+[node name="Pause" parent="Windows" instance=ExtResource("6_dr3t6")]
 visible = false
 layout_mode = 1
 mouse_filter = 1
 
-[node name="Pause" parent="UI" instance=ExtResource("6_dr3t6")]
+[node name="Puzzle" parent="Windows" instance=ExtResource("7_gymji")]
 visible = false
 layout_mode = 1
-mouse_filter = 1
+id = "puzzle"
 
-[node name="Puzzle" parent="UI" instance=ExtResource("7_gymji")]
+[node name="BoxSizePicker" parent="Windows" instance=ExtResource("8_smyqt")]
+visible = false
 layout_mode = 1
+position_options = "mouse"
+return_on_close = false
 
-[node name="PopupMenu" type="PopupMenu" parent="UI"]
+[node name="UI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="PlayerRoot" type="Node3D" parent="."]
 process_mode = 1
