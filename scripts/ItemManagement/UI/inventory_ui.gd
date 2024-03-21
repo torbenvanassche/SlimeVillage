@@ -39,7 +39,7 @@ func add(dict: ItemSlot):
 	
 	item_ui.mouse_entered.connect(set_info_content.bind(item_ui))
 	item_ui.mouse_exited.connect(set_info_content)
-	item_ui.pressed.connect(_set_selected.bind(item_ui))
+	item_ui.button_up.connect(_set_selected.bind(item_ui))
 	item_ui.on_drag_end.connect(func(_drag_end_slot): selected_slot = null);
 	
 	if show_locked:
@@ -51,7 +51,7 @@ func add(dict: ItemSlot):
 func set_info_content(slot: ItemSlotUI = null):
 	if selected_slot:
 		slot = selected_slot;
-	
+		
 	if slot && slot.slot_data && slot.slot_data.item != {}:
 		infoTitle.text = slot.slot_data.item.name;
 		infoDetails.text = slot.slot_data.item.description;
@@ -62,13 +62,18 @@ func set_info_content(slot: ItemSlotUI = null):
 		infoTexture.texture = null;
 	
 func _set_selected(slot: ItemSlotUI):
-	if slot == selected_slot:
+	if selected_slot != slot && selected_slot:
 		selected_slot.button_pressed = false;
 		selected_slot = null;
-	elif slot.slot_data.item != {}:
-		selected_slot = slot;
-	else:
+	
+	var redraw = selected_slot == slot;
+	if redraw || (slot && slot.slot_data.item == {}):
+		slot.button_pressed = false;
 		selected_slot = null;
+		if !redraw:
+			set_info_content()
+	else:
+		selected_slot = slot;
 
 func _clear():
 	for e in elements:

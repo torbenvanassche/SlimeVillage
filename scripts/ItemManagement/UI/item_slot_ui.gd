@@ -30,11 +30,6 @@ func redraw():
 	textureRect.modulate = default_color
 	counter.visible = false;
 	
-	if !slot_data.is_available:
-		focus_mode = Control.FOCUS_NONE;
-	else:
-		focus_mode = Control.FOCUS_ALL;
-	
 	if slot_data.item.has("id"):
 		sprite = ItemManager.get_sprite(slot_data.item);
 		if !slot_data.item.has("count"):

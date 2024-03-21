@@ -61,6 +61,7 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ColorRect/HBoxContainer" index="2"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="CrateStorage" type="Control" parent="VBoxContainer/ColorRect/HBoxContainer/VBoxContainer" index="0"]
 custom_minimum_size = Vector2(0, 75)
