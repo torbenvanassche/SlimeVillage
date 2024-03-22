@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/ItemManagement/UI/inventory_ui.gd" id="1_5m7dl"]
 [ext_resource type="PackedScene" uid="uid://dny1dqcanlco0" path="res://windows/base_window.tscn" id="1_y21g3"]
-[ext_resource type="Theme" uid="uid://bddqpgqhlplgq" path="res://theming/theme_kenney_font.tres" id="2_bdy5v"]
 [ext_resource type="Script" path="res://scripts/ItemManagement/UI/slot_types/item_slot_ui_inventory.gd" id="3_6loix"]
 [ext_resource type="Texture2D" uid="uid://dlsovgfasvn0h" path="res://textures/ui/ui_nineslice.png" id="4_656pm"]
+[ext_resource type="Theme" uid="uid://bddqpgqhlplgq" path="res://UI/theming/theme_kenney_font.tres" id="4_lgvl1"]
 
 [node name="Window" node_paths=PackedStringArray("to_enable") instance=ExtResource("1_y21g3")]
 offset_right = -1364.0
@@ -46,7 +46,7 @@ size_flags_horizontal = 4
 
 [node name="Label" type="Label" parent="VBoxContainer/ColorRect/HBoxContainer/inventory/VBoxContainer" index="0"]
 layout_mode = 2
-theme = ExtResource("2_bdy5v")
+theme = ExtResource("4_lgvl1")
 theme_override_font_sizes/font_size = 30
 text = "Items"
 horizontal_alignment = 1

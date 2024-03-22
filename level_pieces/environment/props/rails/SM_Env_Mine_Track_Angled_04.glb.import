@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c4k5qndrdpmva"
-path="res://.godot/imported/SM_Prop_Crate_Stack_02.glb-291d2b44199219e0369fe3d83a056444.scn"
+uid="uid://ya085cctv6wx"
+path="res://.godot/imported/SM_Env_Mine_Track_Angled_04.glb-af695e638ba8c069fca12eee52f8a2c4.scn"
 
 [deps]
 
-source_file="res://level_pieces/environment/mechanics/base/SM_Prop_Crate_Stack_02.glb"
-dest_files=["res://.godot/imported/SM_Prop_Crate_Stack_02.glb-291d2b44199219e0369fe3d83a056444.scn"]
+source_file="res://level_pieces/environment/props/rails/SM_Env_Mine_Track_Angled_04.glb"
+dest_files=["res://.godot/imported/SM_Env_Mine_Track_Angled_04.glb-af695e638ba8c069fca12eee52f8a2c4.scn"]
 
 [params]
 
@@ -31,14 +31,9 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "materials": {
-"CastleSHD335": {
+"Frontier.059": {
 "use_external/enabled": true,
-"use_external/path": "res://materials/polygon/polygon_fantasy.tres"
-}
-},
-"nodes": {
-"PATH:SM_Prop_Crate_Stack_02": {
-"generate/physics": true
+"use_external/path": "res://materials/polygon/polygon_western_frontier.tres"
 }
 }
 }

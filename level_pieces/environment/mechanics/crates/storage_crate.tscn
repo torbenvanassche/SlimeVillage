@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://df8viwbopmugj"]
 
-[ext_resource type="PackedScene" uid="uid://cno87arr36yxw" path="res://level_pieces/environment/mechanics/base/SM_Prop_Crate_Wood_01.glb" id="1_qqb08"]
+[ext_resource type="PackedScene" uid="uid://cno87arr36yxw" path="res://level_pieces/environment/base/crates/SM_Prop_Crate_Wood_01.glb" id="1_qqb08"]
 [ext_resource type="Script" path="res://scripts/mechanics/interactable_prop.gd" id="2_k7bl5"]
 
 [node name="SM_Prop_Crate_Wood_012" instance=ExtResource("1_qqb08")]

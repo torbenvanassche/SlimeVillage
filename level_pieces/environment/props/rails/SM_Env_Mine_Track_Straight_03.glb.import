@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cvppa7wo47vo0"
-path="res://.godot/imported/SM_Env_Mine_Track_Straight_04.glb-3ff1d7c85b3941fc196e487053648efe.scn"
+uid="uid://brt6en7dkl6yp"
+path="res://.godot/imported/SM_Env_Mine_Track_Straight_03.glb-dc390ecbbc553dc291eb17d5e532c86b.scn"
 
 [deps]
 
-source_file="res://level_pieces/environment/rails/SM_Env_Mine_Track_Straight_04.glb"
-dest_files=["res://.godot/imported/SM_Env_Mine_Track_Straight_04.glb-3ff1d7c85b3941fc196e487053648efe.scn"]
+source_file="res://level_pieces/environment/props/rails/SM_Env_Mine_Track_Straight_03.glb"
+dest_files=["res://.godot/imported/SM_Env_Mine_Track_Straight_03.glb-dc390ecbbc553dc291eb17d5e532c86b.scn"]
 
 [params]
 
@@ -31,7 +31,7 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "materials": {
-"Frontier.084": {
+"Frontier.083": {
 "use_external/enabled": true,
 "use_external/path": "res://materials/polygon/polygon_western_frontier.tres"
 }

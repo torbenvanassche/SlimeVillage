@@ -9,6 +9,7 @@ var elements: Array[ItemSlotUI] = []
 var selected_slot: ItemSlotUI;
 var controller: Inventory;
 var window: DraggableControl;
+var btn_grp: ButtonGroup = ButtonGroup.new()
 
 @export var show_locked: bool = false;
 @export var visual_element: Control = self;
@@ -41,6 +42,7 @@ func add(dict: ItemSlot):
 	item_ui.mouse_exited.connect(set_info_content)
 	item_ui.button_up.connect(_set_selected.bind(item_ui))
 	item_ui.on_drag_end.connect(func(_drag_end_slot): selected_slot = null);
+	item_ui.button_group = btn_grp;
 	
 	if show_locked:
 		item_ui.disabled = !dict.is_available;
@@ -91,3 +93,4 @@ func on_enable():
 		return;
 	set_controller(Global.player_instance.inventory);
 	window.change_title.emit("Inventory");
+	btn_grp.allow_unpress = true;

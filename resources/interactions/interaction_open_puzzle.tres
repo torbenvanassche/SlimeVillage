@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="InteractionOpenUI" load_steps=2 format=3 uid="uid://b0ykwmxucb7gg"]
 
-[ext_resource type="Script" path="res://scripts/ui/interact_open_ui.gd" id="1_kkssy"]
+[ext_resource type="Script" path="res://scripts/ui/window_scripts/interact_open_ui.gd" id="1_kkssy"]
 
 [resource]
 script = ExtResource("1_kkssy")

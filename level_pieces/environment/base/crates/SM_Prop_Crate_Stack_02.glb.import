@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://brt6en7dkl6yp"
-path="res://.godot/imported/SM_Env_Mine_Track_Straight_03.glb-bd563eb44abec65b097aa649d1a5a00a.scn"
+uid="uid://c4k5qndrdpmva"
+path="res://.godot/imported/SM_Prop_Crate_Stack_02.glb-e338ddda5cac949f4eac8caa706d6c85.scn"
 
 [deps]
 
-source_file="res://level_pieces/environment/rails/SM_Env_Mine_Track_Straight_03.glb"
-dest_files=["res://.godot/imported/SM_Env_Mine_Track_Straight_03.glb-bd563eb44abec65b097aa649d1a5a00a.scn"]
+source_file="res://level_pieces/environment/base/crates/SM_Prop_Crate_Stack_02.glb"
+dest_files=["res://.godot/imported/SM_Prop_Crate_Stack_02.glb-e338ddda5cac949f4eac8caa706d6c85.scn"]
 
 [params]
 
@@ -31,9 +31,14 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "materials": {
-"Frontier.083": {
+"CastleSHD335": {
 "use_external/enabled": true,
-"use_external/path": "res://materials/polygon/polygon_western_frontier.tres"
+"use_external/path": "res://materials/polygon/polygon_fantasy.tres"
+}
+},
+"nodes": {
+"PATH:SM_Prop_Crate_Stack_02": {
+"generate/physics": true
 }
 }
 }

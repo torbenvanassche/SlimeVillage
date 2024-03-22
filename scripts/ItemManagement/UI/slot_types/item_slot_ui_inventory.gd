@@ -32,10 +32,10 @@ func _notification(what):
 				redraw()
 				
 func _gui_input(_event):
-	#if _event is InputEventMouseButton and _event.is_pressed() and _event.button_index == MOUSE_BUTTON_RIGHT:
-		#var mouse_position = get_global_mouse_position();
-		#var context := ContextMenu.new([
-			#ContextMenuItem.new("Split stack", Callable())
-			#])
-		#context.open(Rect2(mouse_position.x, mouse_position.y, context.size.x, context.size.y))
+	if _event is InputEventMouseButton and _event.is_pressed() and _event.button_index == MOUSE_BUTTON_RIGHT:
+		var mouse_position = get_global_mouse_position();
+		var context := ContextMenu.new([
+			ContextMenuItem.new("Split stack", Global.ui_root.enable_ui.bind(Global.ui_root.get_subwindow("SPLITSTACK"), true, {"slot": self}), true)
+			])
+		context.open(Rect2(mouse_position.x, mouse_position.y, context.size.x, context.size.y))
 	pass

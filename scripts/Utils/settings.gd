@@ -18,6 +18,9 @@ func set_input_mode(style: Global.NAV_STYLE):
 var camera_rotation_sensitivity = 0.01;
 var camera_zoom_sensitivity = 0.5;
 
+#menu options
+var close_context_on_mouse_exit: bool = true;
+
 #volume
 var master_volume: float = 1;
 signal volume_changed(new_value: float, bus_name: String);

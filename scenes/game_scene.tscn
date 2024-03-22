@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b0ajw5a07g334"]
+[gd_scene load_steps=15 format=3 uid="uid://b0ajw5a07g334"]
 
 [ext_resource type="Script" path="res://scripts/Utils/manager.gd" id="1_8x5qd"]
 [ext_resource type="Script" path="res://scripts/Utils/ui_manager.gd" id="2_bvv38"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bg1irjlbmoowb" path="res://scenes/base_scenes/overworld.tscn" id="8_34vxr"]
 [ext_resource type="PackedScene" uid="uid://sxc3mccyd3rh" path="res://windows/components/box_selector_window.tscn" id="8_smyqt"]
 [ext_resource type="Script" path="res://scripts/navigation/path_finding.gd" id="9_3s661"]
+[ext_resource type="PackedScene" uid="uid://bqxwrclw7pba2" path="res://windows/components/split_stack_window.tscn" id="9_r2xdg"]
 
 [sub_resource type="Environment" id="Environment_jjbbm"]
 ambient_light_color = Color(0.47451, 0.47451, 0.47451, 1)
@@ -39,7 +40,8 @@ window_data = {
 "MARKET": NodePath("MarketWindow"),
 "MECHANICS": NodePath("Puzzle"),
 "PAUSE": NodePath("Pause"),
-"SETTINGS": NodePath("Settings")
+"SETTINGS": NodePath("Settings"),
+"SPLITSTACK": NodePath("SplitStack")
 }
 
 [node name="Inventory" parent="Windows" instance=ExtResource("4_3yak0")]
@@ -71,6 +73,10 @@ visible = false
 layout_mode = 1
 position_options = "mouse"
 return_on_close = false
+
+[node name="SplitStack" parent="Windows" instance=ExtResource("9_r2xdg")]
+visible = false
+layout_mode = 1
 
 [node name="UI" type="Control" parent="."]
 visible = false

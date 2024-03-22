@@ -3,8 +3,10 @@ extends Node
 
 var id: String;
 var function: Callable;
+var disabled: bool;
 var idx: int = -1;
 
-func _init(i: String, f: Callable):
+func _init(i: String, f: Callable, d: bool = false):
 	id = i;
-	f = function;
+	function = f;
+	disabled = d;

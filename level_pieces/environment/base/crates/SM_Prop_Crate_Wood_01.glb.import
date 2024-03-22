@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cno87arr36yxw"
-path="res://.godot/imported/SM_Prop_Crate_Wood_01.glb-05fa54fbed782282c729ab390b3f0599.scn"
+path="res://.godot/imported/SM_Prop_Crate_Wood_01.glb-4099ed884a6f5c6eacab3cd3f0192064.scn"
 
 [deps]
 
-source_file="res://level_pieces/environment/mechanics/base/SM_Prop_Crate_Wood_01.glb"
-dest_files=["res://.godot/imported/SM_Prop_Crate_Wood_01.glb-05fa54fbed782282c729ab390b3f0599.scn"]
+source_file="res://level_pieces/environment/base/crates/SM_Prop_Crate_Wood_01.glb"
+dest_files=["res://.godot/imported/SM_Prop_Crate_Wood_01.glb-4099ed884a6f5c6eacab3cd3f0192064.scn"]
 
 [params]
 

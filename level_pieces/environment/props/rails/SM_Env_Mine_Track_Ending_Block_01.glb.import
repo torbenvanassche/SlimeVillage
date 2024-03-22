@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://o0xxjm82utnm"
-path="res://.godot/imported/SM_Env_Mine_Track_Ending_Block_01.glb-a485fefc1fd83530058f74d159148968.scn"
+path="res://.godot/imported/SM_Env_Mine_Track_Ending_Block_01.glb-5265971f0384afa49cd4d9d63a28e967.scn"
 
 [deps]
 
-source_file="res://level_pieces/environment/rails/SM_Env_Mine_Track_Ending_Block_01.glb"
-dest_files=["res://.godot/imported/SM_Env_Mine_Track_Ending_Block_01.glb-a485fefc1fd83530058f74d159148968.scn"]
+source_file="res://level_pieces/environment/props/rails/SM_Env_Mine_Track_Ending_Block_01.glb"
+dest_files=["res://.godot/imported/SM_Env_Mine_Track_Ending_Block_01.glb-5265971f0384afa49cd4d9d63a28e967.scn"]
 
 [params]
 

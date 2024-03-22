@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cr180fjgdj1co"]
 
 [ext_resource type="PackedScene" uid="uid://dny1dqcanlco0" path="res://windows/base_window.tscn" id="1_r1g28"]
-[ext_resource type="Theme" uid="uid://bddqpgqhlplgq" path="res://theming/theme_kenney_font.tres" id="2_opxyk"]
+[ext_resource type="Theme" uid="uid://bddqpgqhlplgq" path="res://UI/theming/theme_kenney_font.tres" id="2_opxyk"]
 [ext_resource type="Script" path="res://scripts/debug_select_item.gd" id="3_xfavo"]
 
 [node name="Window" instance=ExtResource("1_r1g28")]

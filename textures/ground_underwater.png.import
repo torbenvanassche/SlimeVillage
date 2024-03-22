@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://86jcupdvxe8w"
-path.s3tc="res://.godot/imported/ground_underwater.png-e1d5f12cf0ecc061327d1e9514538f5b.s3tc.ctex"
+path.s3tc="res://.godot/imported/ground_underwater.png-ef192036ecdf67c27d1a3625be2e2aa3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/other/ground_underwater.png"
-dest_files=["res://.godot/imported/ground_underwater.png-e1d5f12cf0ecc061327d1e9514538f5b.s3tc.ctex"]
+source_file="res://textures/ground_underwater.png"
+dest_files=["res://.godot/imported/ground_underwater.png-ef192036ecdf67c27d1a3625be2e2aa3.s3tc.ctex"]
 
 [params]
 
