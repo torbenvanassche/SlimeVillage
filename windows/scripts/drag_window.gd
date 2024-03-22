@@ -33,25 +33,21 @@ func _ready():
 	close_requested.connect(close_window)
 	top_bar.gui_input.connect(handle_input)
 	change_title.connect(_change_title)
-	visibility_changed.connect(_on_visibility_changed)
 	events_connected = true;
 	
-	if to_enable:
-		if to_enable.has_method("on_enable"):
-			to_enable.visibility_changed.connect(to_enable.on_enable)
-		if "window" in to_enable:
-			to_enable.window = self;
+	if to_enable && "window" in to_enable:
+		to_enable.window = self;
 	
 	if override_size != Vector2.ZERO:
 		size = override_size;
-		
-func _on_visibility_changed():
-	if visible:
-		on_enable();
 	
-func on_enable(_options: Dictionary = {}):
+func on_enable(options: Dictionary = {}):
 	if !events_connected:
 		_ready();
+		
+	visible = true;
+	if to_enable && to_enable.has_method("on_enable"):
+		to_enable.on_enable(options)
 		
 	match display_mode:
 		"display":

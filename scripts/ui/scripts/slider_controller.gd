@@ -6,6 +6,8 @@ extends Node
 
 func on_enable(dict: Dictionary = {}):
 	var slot: ItemSlotUI = dict.slot;
-	slider.max_value = slot.count;
-	slider.value = slot.count / 2;
+	slider.min_value = 0;
+	slider.max_value = slot.slot_data.item.count;
+	slider.value = slot.slot_data.item.count / 2;
+	max_count_label.text = str(slot.slot_data.item.count);
 	pass

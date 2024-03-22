@@ -1,5 +1,5 @@
 class_name InventoryUI
-extends Control #Window does not properly close when clicked outside ( https://github.com/godotengine/godot/issues/87291 )
+extends Control
 
 @export var item_slot_script: Script;
 
@@ -87,7 +87,7 @@ func _update(data: Array[ItemSlot]):
 	for index in range(data.size()):
 		add(data[index])
 		
-func on_enable():
+func on_enable(options: Dictionary = {}):
 	if !item_ui_packed:
 		printerr("the item's UI is undefined")
 		return;

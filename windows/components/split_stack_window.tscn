@@ -3,9 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://dny1dqcanlco0" path="res://windows/base_window.tscn" id="1_raole"]
 [ext_resource type="Script" path="res://scripts/ui/scripts/slider_controller.gd" id="2_ewby7"]
 
-[node name="Window" instance=ExtResource("1_raole")]
+[node name="Window" node_paths=PackedStringArray("to_enable") instance=ExtResource("1_raole")]
 offset_right = -1440.0
-offset_bottom = -945.0
+offset_bottom = -965.0
+to_enable = NodePath("VBoxContainer/ColorRect/MarginContainer")
+
+[node name="Title" parent="VBoxContainer/topbar/HBoxContainer/MarginContainer" index="0"]
+text = "Split stack"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ColorRect" index="0" node_paths=PackedStringArray("window", "slider", "max_count_label")]
 layout_mode = 1
@@ -20,23 +24,31 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 script = ExtResource("2_ewby7")
 window = NodePath("../../..")
-slider = NodePath("HBoxContainer/HSlider")
-max_count_label = NodePath("HBoxContainer/max_count")
+slider = NodePath("VBoxContainer/HBoxContainer/HSlider")
+max_count_label = NodePath("VBoxContainer/HBoxContainer/max_count")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ColorRect/MarginContainer" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ColorRect/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ColorRect/MarginContainer/VBoxContainer" index="0"]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/ColorRect/MarginContainer/HBoxContainer" index="0"]
+[node name="HSlider" type="HSlider" parent="VBoxContainer/ColorRect/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 min_value = 1.0
 value = 1.0
+rounded = true
 
-[node name="max_count" type="Label" parent="VBoxContainer/ColorRect/MarginContainer/HBoxContainer" index="1"]
+[node name="max_count" type="Label" parent="VBoxContainer/ColorRect/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "1
 "
+
+[node name="Button" type="Button" parent="VBoxContainer/ColorRect/MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+text = "CONFIRM"

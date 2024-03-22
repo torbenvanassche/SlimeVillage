@@ -42,7 +42,8 @@ func enable_ui(to_enable: Node, add_to_undo_stack: bool = true, options: Diction
 		options.hide.visible = false;
 
 	if to_enable:
-		to_enable.visible = true;
+		if to_enable.has_method("on_enable"):
+			to_enable.on_enable(options)
 		
 		if add_to_undo_stack && !scene_history.has(to_enable):
 			scene_history.append(to_enable);

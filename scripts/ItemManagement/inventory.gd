@@ -119,3 +119,6 @@ func _to_string():
 			rv += slot.item.name + ": " + str(slot.item.count)
 	rv += "}"
 	return rv;
+	
+func has_open_slot() -> bool:
+	return data.any(func(slot): return slot.is_available && slot.is_empty())
