@@ -32,7 +32,7 @@ func _notification(what):
 				redraw()
 				
 func _gui_input(_event):
-	if _event is InputEventMouseButton and _event.is_pressed() and _event.button_index == MOUSE_BUTTON_RIGHT:
+	if _event is InputEventMouseButton and _event.is_pressed() and _event.button_index == MOUSE_BUTTON_RIGHT && !slot_data.is_empty() && slot_data.item.count > 1:
 		var mouse_position = get_global_mouse_position();
 		var context := ContextMenu.new([
 			ContextMenuItem.new("Split stack", Global.ui_root.enable_ui.bind(Global.ui_root.get_subwindow("SPLITSTACK"), true, {"slot": self}), Global.player_instance.inventory.has_open_slot())

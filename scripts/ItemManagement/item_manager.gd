@@ -35,14 +35,17 @@ func get_sprite(item: Dictionary) -> Texture:
 			return item.sprite;
 		return null
 	
-func get_layout(item: Dictionary) -> Array[bool]:
+func assign_layout(source: Dictionary, destination: Dictionary) -> void:
 	var result: Array[bool] = []
-	if item.has("layout"):
-		for c in item.layout.data:
+	if source.has("layout") && source.layout is Dictionary:
+		for c in source.layout.data:
 			result.append(bool(int(c)))
 	else:
 		result.append(true);
-	return result;
+		
+	if source.layout is Dictionary:
+		destination.layout_cols = source.layout.columns;
+		destination.layout = result;
 	
 func get_colors(item: Dictionary) -> Array[Color]:
 	var colors: Array = item.colors;

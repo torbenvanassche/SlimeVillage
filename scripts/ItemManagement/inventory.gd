@@ -32,15 +32,16 @@ func add_slot(exceed_max: bool = false):
 		max_slots += 1;
 		data.append(ItemSlot.new(true, identifier))
 	
-func add_item(item: Dictionary, amount: int = 1, create_slot_if_full: bool = false):
+func add_item(item: Dictionary, amount: int = 1, create_slot_if_full: bool = false, empty_only: bool = false):
 	var require_update: bool = false;
 	var remaining_amount: int = amount
 	var slots: Array[ItemSlot] = try_get_slots(item);
+	if empty_only:
+		slots = slots.filter(func(slot: ItemSlot): return slot.is_empty())
 	
 	var local_item = {"name": item.name, "id": item.id, "stack_size": item.stack_size, "sprite": ItemManager.get_sprite(item), "description": item.description};
 	if item.has("layout"):
-		local_item.layout = ItemManager.get_layout(item);
-		local_item.layout_cols = item.layout.columns;
+		ItemManager.assign_layout(item, local_item);
 	
 	while remaining_amount > 0:
 		if slots.size() == 0:
