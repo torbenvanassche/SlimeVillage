@@ -14,7 +14,7 @@ signal item_removed(id: String);
 @export var visual_element: Control = self
 var clear_on_open: bool = true;
 
-func on_enable():
+func on_enable(dict: Dictionary = {}):
 	if clear_on_open:
 		#clear_on_open = false;
 		container.clear();

@@ -13,7 +13,7 @@ var current_tile: TileBase = null;
 @export var rotation_time: float = 0.01;
 @export var animation_delay: float = 0.2;
 
-var carryable_preset: grid_preset;
+var carryable_preset: grid_preset = Settings.default_grid_preset;
 
 var carryable: ShippingContainer: 
 	set(value):

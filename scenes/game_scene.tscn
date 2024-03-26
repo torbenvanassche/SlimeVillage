@@ -38,8 +38,8 @@ window_data = {
 "BOXSIZE": NodePath("BoxSizePicker"),
 "INVENTORY": NodePath("Inventory"),
 "MARKET": NodePath("MarketWindow"),
-"MECHANICS": NodePath("Puzzle"),
 "PAUSE": NodePath("Pause"),
+"PUZZLE": NodePath("Puzzle"),
 "SETTINGS": NodePath("Settings"),
 "SPLITSTACK": NodePath("SplitStack")
 }

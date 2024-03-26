@@ -19,6 +19,9 @@ func _unhandled_input(event):
 	if event.is_action_pressed("inventory_open") && !get_tree().paused:
 		enable_ui(get_subwindow("INVENTORY"))
 		
+	if event.is_action_pressed("debug_open_puzzle") && !get_tree().paused:
+		enable_ui(get_subwindow("PUZZLE"))
+		
 	if event.is_action_pressed("cancel") && ui_is_closed():
 		get_viewport().set_input_as_handled()
 		pause(!get_tree().paused)

@@ -4,7 +4,7 @@ extends Node
 var crop_growth_modifier = 1
 
 #Fitting puzzle
-var active_grid_preset: grid_preset = preload("res://resources/grid_presets/2x2.tres");
+var default_grid_preset: grid_preset = preload("res://resources/grid_presets/2x2.tres");
 
 #Navigation mode controller
 var input_mode: Global.NAV_STYLE = Global.NAV_STYLE.CLICK;
